@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
-using TextBasedGame.Game;
-using TextBasedGame.Models;
-using Console = Colorful.Console;
+using TextBasedGame.Game.Models;
+using TextBasedGame.Setup;
 
 namespace TextBasedGame
 {

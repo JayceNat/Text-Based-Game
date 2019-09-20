@@ -47,22 +47,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game\GameSetup.cs" />
-    <Compile Include="Player\Handlers\PlayerActionHandler.cs" />
-    <Compile Include="Models\CharacterModels\AttributeModel.cs" />
-    <Compile Include="Models\RoomModels\DirectionModel.cs" />
-    <Compile Include="Models\ItemModels\InventoryItemModel.cs" />
-    <Compile Include="Models\RoomModels\RoomExitModel.cs" />
-    <Compile Include="Models\GameTitleModel.cs" />
-    <Compile Include="Models\ItemModels\ItemModel.cs" />
-    <Compile Include="Models\ItemModels\ItemTraitModel.cs" />
-    <Compile Include="Models\CharacterModels\CharacterAttributeModel.cs" />
-    <Compile Include="Models\CharacterModels\GameCharacterModel.cs" />
-    <Compile Include="Models\ItemModels\WeaponItemModel.cs" />
-    <Compile Include="Player\PlayerSetup.cs" />
+    <Compile Include="Character\Implementations\Attribute.cs" />
+    <Compile Include="Character\Implementations\Character.cs" />
+    <Compile Include="Character\Interfaces\IAttribute.cs" />
+    <Compile Include="Character\Interfaces\ICharacter.cs" />
+    <Compile Include="Item\Implementations\Item.cs" />
+    <Compile Include="Item\Implementations\ItemTrait.cs" />
+    <Compile Include="Item\Interfaces\IItem.cs" />
+    <Compile Include="Item\Interfaces\IItemTrait.cs" />
+    <Compile Include="Room\Implementations\Room.cs" />
+    <Compile Include="Room\Implementations\RoomExit.cs" />
+    <Compile Include="Room\Interfaces\IRoom.cs" />
+    <Compile Include="Room\Interfaces\IRoomExit.cs" />
+    <Compile Include="Setup\GameSetup.cs" />
+    <Compile Include="Handlers\PlayerActionHandler.cs" />
+    <Compile Include="Constants\CharacterAttributes.cs" />
+    <Compile Include="Constants\ExitDirections.cs" />
+    <Compile Include="Item\Models\InventoryItemModel.cs" />
+    <Compile Include="Room\Models\RoomExitModel.cs" />
+    <Compile Include="Game\Models\GameTitleModel.cs" />
+    <Compile Include="Item\Models\ItemModel.cs" />
+    <Compile Include="Item\Models\ItemTraitModel.cs" />
+    <Compile Include="Character\Models\CharacterAttributeModel.cs" />
+    <Compile Include="Character\Models\CharacterModel.cs" />
+    <Compile Include="Item\Models\WeaponItemModel.cs" />
+    <Compile Include="Setup\PlayerSetup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\RoomModels\RoomModel.cs" />
+    <Compile Include="Room\Models\RoomModel.cs" />
     <Compile Include="Utilities\TypingAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,8 +82,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Items\" />
-    <Folder Include="Rooms\" />
+    <Folder Include="Game\Implementations\" />
+    <Folder Include="Game\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

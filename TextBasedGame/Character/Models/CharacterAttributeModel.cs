@@ -1,4 +1,4 @@
-﻿namespace TextBasedGame.Models.CharacterModels
+﻿namespace TextBasedGame.Character.Models
 {
     public class CharacterAttributeModel
     {

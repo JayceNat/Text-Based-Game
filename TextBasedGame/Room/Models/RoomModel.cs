@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
-using TextBasedGame.Models.ItemModels;
+using TextBasedGame.Item.Models;
 
-namespace TextBasedGame.Models.RoomModels
+namespace TextBasedGame.Room.Models
 {
     public class RoomModel
     {
         public string RoomName { get; set; }
 
-        public string RoomDescription { get; set; }
+        public string InitialRoomDescription { get; set; }
+
+        public string GenericRoomDescription { get; set; }
 
         public List<RoomExitModel> AvailableExits { get; set; }
 

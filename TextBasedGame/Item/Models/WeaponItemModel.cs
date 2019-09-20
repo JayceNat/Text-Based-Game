@@ -1,4 +1,4 @@
-﻿namespace TextBasedGame.Models.ItemModels
+﻿namespace TextBasedGame.Item.Models
 {
     public class WeaponItemModel
     {

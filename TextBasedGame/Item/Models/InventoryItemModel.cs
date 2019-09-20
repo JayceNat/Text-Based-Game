@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TextBasedGame.Models.ItemModels
+namespace TextBasedGame.Item.Models
 {
     public class InventoryItemModel
     {

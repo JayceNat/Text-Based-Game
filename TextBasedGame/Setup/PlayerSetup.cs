@@ -1,41 +1,46 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using Colorful;
-using TextBasedGame.Models;
-using TextBasedGame.Models.CharacterModels;
-using TextBasedGame.Models.ItemModels;
+using TextBasedGame.Character.Interfaces;
+using TextBasedGame.Character.Models;
 using TextBasedGame.Utilities;
 
-namespace TextBasedGame
+namespace TextBasedGame.Setup
 {
     public class PlayerSetup
     {
-        public static GameCharacterModel InstantiatePlayer()
+        public static CharacterModel InstantiatePlayer()
         {
-            GameCharacterModel player = new GameCharacterModel
-            {
-                CarriedItems = new List<ItemModel>()
-                {
-                    new ItemModel()
-                    {
-//                        ItemName = "Flashlight",
-//                        ItemDescription = "A small metal LED flashlight that fits in your pocket.",
-//                        ItemTraits = new List<ItemTraitModel>()
-//                        {
-//                            new ItemTraitModel()
-//                            {
-//                                TraitName = "Battery Percent",
-//                                TraitValue = 100
-//                            }
-//                        }
-                    }
-                },
-                Attributes = new CharacterAttributeModel()
-            };
+            ICharacter character = new Character.Implementations.Character();
+            IAttribute attributes = new Character.Implementations.Attribute();
+
+            CharacterAttributeModel playerAttributes = attributes.CreateCharacterAttributes();
+            CharacterModel player = character.CreateCharacter(playerAttributes);
+
             return player;
+
+//            CharacterModel player = new CharacterModel
+//            {
+//                CarriedItems = new List<ItemModel>()
+//                {
+//                    new ItemModel()
+//                    {
+////                        ItemName = "Flashlight",
+////                        ItemDescription = "A small metal LED flashlight that fits in your pocket.",
+////                        ItemTraits = new List<ItemTraitModel>()
+////                        {
+////                            new ItemTraitModel()
+////                            {
+////                                TraitName = "Battery Percent",
+////                                TraitValue = 100
+////                            }
+////                        }
+//                    }
+//                },
+//                Attributes = new CharacterAttributeModel()
+//            };
         }
 
-        public static GameCharacterModel WelcomePlayer(GameCharacterModel player)
+        public static CharacterModel WelcomePlayer(CharacterModel player)
         {
             string input;
             while (player.Name == null)
@@ -66,7 +71,7 @@ namespace TextBasedGame
             return player;
         }
 
-        public static GameCharacterModel SetPlayerTraits(GameCharacterModel player)
+        public static CharacterModel SetPlayerTraits(CharacterModel player)
         {
             bool displayInfo = false;
             bool playerReady = false;

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using TextBasedGame.Models.ItemModels;
+using TextBasedGame.Item.Models;
 
-namespace TextBasedGame.Models.CharacterModels
+namespace TextBasedGame.Character.Models
 {
-    public class GameCharacterModel
+    public class CharacterModel
     {
         public string Name { get; set; }
 

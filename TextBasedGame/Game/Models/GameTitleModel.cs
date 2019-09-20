@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace TextBasedGame.Models
+namespace TextBasedGame.Game.Models
 {
     public class GameTitleModel
     {

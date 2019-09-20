@@ -1,4 +1,4 @@
-﻿namespace TextBasedGame.Player.Handlers
+﻿namespace TextBasedGame.Handlers
 {
     public class PlayerActionHandler
     {
