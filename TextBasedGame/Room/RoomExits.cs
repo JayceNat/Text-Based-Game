@@ -11,6 +11,7 @@ namespace TextBasedGame.Room
         public static RoomExitModel YourLivingRoom = RoomExit.CreateRoomExit(
             "Your Living Room",
             "Behind you is the doorway leading to your living room.",
-            ExitDirections.Behind);
+            ExitDirections.Behind,
+            Rooms.YourLivingRoom);
     }
 }

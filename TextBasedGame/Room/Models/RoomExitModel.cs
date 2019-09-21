@@ -8,6 +8,8 @@ namespace TextBasedGame.Room.Models
 
         public string ExitDescription { get; set; }
 
-        public string ExitExitDirection { get; set; }
+        public string ExitDirection { get; set; }
+
+        public RoomModel ConnectedRoom { get; set; }
     }
 }
