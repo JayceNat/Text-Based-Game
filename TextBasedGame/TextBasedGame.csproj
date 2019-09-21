@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character\Attributes.cs" />
+    <Compile Include="Character\Characters.cs" />
     <Compile Include="Character\Implementations\Attribute.cs" />
     <Compile Include="Character\Implementations\Character.cs" />
     <Compile Include="Character\Interfaces\IAttribute.cs" />
@@ -55,10 +57,15 @@
     <Compile Include="Item\Implementations\ItemTrait.cs" />
     <Compile Include="Item\Interfaces\IItem.cs" />
     <Compile Include="Item\Interfaces\IItemTrait.cs" />
+    <Compile Include="Item\ItemTraits.cs" />
+    <Compile Include="Item\Items.cs" />
+    <Compile Include="Item\Weapons.cs" />
     <Compile Include="Room\Implementations\Room.cs" />
     <Compile Include="Room\Implementations\RoomExit.cs" />
     <Compile Include="Room\Interfaces\IRoom.cs" />
     <Compile Include="Room\Interfaces\IRoomExit.cs" />
+    <Compile Include="Room\RoomExits.cs" />
+    <Compile Include="Room\Rooms.cs" />
     <Compile Include="Setup\GameSetup.cs" />
     <Compile Include="Handlers\PlayerActionHandler.cs" />
     <Compile Include="Constants\CharacterAttributes.cs" />
@@ -66,7 +73,7 @@
     <Compile Include="Item\Models\InventoryItemModel.cs" />
     <Compile Include="Room\Models\RoomExitModel.cs" />
     <Compile Include="Game\Models\GameTitleModel.cs" />
-    <Compile Include="Item\Models\ItemModel.cs" />
+    <Compile Include="Item\Models\ItemsModel.cs" />
     <Compile Include="Item\Models\ItemTraitModel.cs" />
     <Compile Include="Character\Models\CharacterAttributeModel.cs" />
     <Compile Include="Character\Models\CharacterModel.cs" />

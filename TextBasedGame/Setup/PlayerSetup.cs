@@ -8,36 +8,15 @@ namespace TextBasedGame.Setup
 {
     public class PlayerSetup
     {
+        private static readonly ICharacter Character = new Character.Implementations.Character();
+        private static readonly IAttribute Attributes = new Character.Implementations.Attribute();
+
         public static CharacterModel InstantiatePlayer()
         {
-            ICharacter character = new Character.Implementations.Character();
-            IAttribute attributes = new Character.Implementations.Attribute();
-
-            CharacterAttributeModel playerAttributes = attributes.CreateCharacterAttributes();
-            CharacterModel player = character.CreateCharacter(playerAttributes);
+            CharacterAttributeModel playerAttributes = Attributes.CreateCharacterAttributes();
+            CharacterModel player = Character.CreateCharacter(playerAttributes);
 
             return player;
-
-//            CharacterModel player = new CharacterModel
-//            {
-//                CarriedItems = new List<ItemModel>()
-//                {
-//                    new ItemModel()
-//                    {
-////                        ItemName = "Flashlight",
-////                        ItemDescription = "A small metal LED flashlight that fits in your pocket.",
-////                        ItemTraits = new List<ItemTraitModel>()
-////                        {
-////                            new ItemTraitModel()
-////                            {
-////                                TraitName = "Battery Percent",
-////                                TraitValue = 100
-////                            }
-////                        }
-//                    }
-//                },
-//                Attributes = new CharacterAttributeModel()
-//            };
         }
 
         public static CharacterModel WelcomePlayer(CharacterModel player)
@@ -168,6 +147,8 @@ namespace TextBasedGame.Setup
                         break;
                 }
             }
+
+            Character.UpdateCharacter(player, increaseMaximumHealth: 15 * (player.Attributes.Stamina - 3));
             return player;
         }
 

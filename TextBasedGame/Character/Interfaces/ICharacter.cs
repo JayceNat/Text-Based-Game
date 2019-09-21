@@ -7,9 +7,9 @@ namespace TextBasedGame.Character.Interfaces
     public interface ICharacter
     {
         CharacterModel CreateCharacter(CharacterAttributeModel attributes, string name = null,
-            List<ItemModel> items = null, WeaponItemModel weapon = null, int baseHP = 100);
+            List<InventoryItemModel> items = null, WeaponItemModel weapon = null, int baseHP = 100);
 
-        CharacterModel UpdateCharacter(CharacterModel character, string name, CharacterAttributeModel attributes,
-            List<ItemModel> items, WeaponItemModel weapon, int addToHealth);
+        CharacterModel UpdateCharacter(CharacterModel character, string name = null, CharacterAttributeModel attributes = null,
+            List<InventoryItemModel> items = null, WeaponItemModel weapon = null, int increaseMaximumHealth = 0, int addToHealth = 0);
     }
 }

@@ -7,9 +7,9 @@ namespace TextBasedGame.Room.Interfaces
     public interface IRoom
     {
         RoomModel CreateRoom(string name, string initialDescription, string genericDescription,
-            List<RoomExitModel> availableExits, List<ItemModel> items);
+            List<RoomExitModel> availableExits, ItemsModel itemses);
 
         RoomModel UpdateRoom(RoomModel room, string initialDescription = null, string genericDescription = null,
-            List<RoomExitModel> availableExits = null, List<ItemModel> items = null);
+            List<RoomExitModel> availableExits = null, ItemsModel itemses = null);
     }
 }

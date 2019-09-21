@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Specialized;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Item.Interfaces
@@ -10,6 +9,6 @@ namespace TextBasedGame.Item.Interfaces
             string placementDescription, List<ItemTraitModel> traits);
 
         WeaponItemModel CreateWeaponItem(string name, string description,
-            string placementDescription, int attackPower, ItemTraitModel traits);
+            string placementDescription, int attackPower, List<ItemTraitModel> traits);
     }
 }

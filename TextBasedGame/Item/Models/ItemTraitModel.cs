@@ -1,5 +1,4 @@
-﻿using TextBasedGame.Character.Models;
-using TextBasedGame.Constants;
+﻿using TextBasedGame.Constants;
 
 namespace TextBasedGame.Item.Models
 {
@@ -7,7 +6,7 @@ namespace TextBasedGame.Item.Models
     {
         public string TraitName { get; set; }
 
-        public CharacterAttributes RelevantCharacterAttribute { get; set; }
+        public string RelevantCharacterAttribute { get; set; }
 
         public int TraitValue { get; set; }
     }

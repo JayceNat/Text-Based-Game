@@ -19,7 +19,7 @@ namespace TextBasedGame.Item.Implementations
             return item;
         }
 
-        public WeaponItemModel CreateWeaponItem(string name, string description, string placementDescription, int attackPower, ItemTraitModel traits)
+        public WeaponItemModel CreateWeaponItem(string name, string description, string placementDescription, int attackPower, List<ItemTraitModel> traits)
         {
             WeaponItemModel weapon = new WeaponItemModel()
             {

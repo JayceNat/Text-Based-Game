@@ -7,7 +7,7 @@ namespace TextBasedGame.Item.Implementations
 {
     public class ItemTrait : IItemTrait
     {
-        public ItemTraitModel CreateItemTrait(string name, CharacterAttributes relevantCharacterAttribute, int traitValue)
+        public ItemTraitModel CreateItemTrait(string name, string relevantCharacterAttribute, int traitValue)
         {
             ItemTraitModel itemTrait = new ItemTraitModel()
             {

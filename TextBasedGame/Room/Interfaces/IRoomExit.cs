@@ -5,6 +5,6 @@ namespace TextBasedGame.Room.Interfaces
 {
     public interface IRoomExit
     {
-        RoomExitModel CreateRoomExit(string name, string description, ExitDirections exitDirection);
+        RoomExitModel CreateRoomExit(string name, string description, string exitDirection);
     }
 }

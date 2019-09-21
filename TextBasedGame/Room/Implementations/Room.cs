@@ -8,7 +8,7 @@ namespace TextBasedGame.Room.Implementations
     public class Room : IRoom
     {
         public RoomModel CreateRoom(string name, string initialDescription, string genericDescription, List<RoomExitModel> availableExits,
-            List<ItemModel> items)
+            ItemsModel itemses)
         {
             RoomModel room = new RoomModel()
             {
@@ -16,14 +16,14 @@ namespace TextBasedGame.Room.Implementations
                 InitialRoomDescription = initialDescription,
                 GenericRoomDescription = genericDescription,
                 AvailableExits = availableExits,
-                RoomItems = items
+                RoomItemses = itemses
             };
 
             return room;
         }
 
         public RoomModel UpdateRoom(RoomModel room, string initialDescription = null, string genericDescription = null,
-            List<RoomExitModel> availableExits = null, List<ItemModel> items = null)
+            List<RoomExitModel> availableExits = null, ItemsModel itemses = null)
         {
             if (initialDescription != null)
             {
@@ -40,9 +40,9 @@ namespace TextBasedGame.Room.Implementations
                 room.AvailableExits = availableExits;
             }
 
-            if (items != null)
+            if (itemses != null)
             {
-                room.RoomItems = items;
+                room.RoomItemses = itemses;
             }
 
             return room;

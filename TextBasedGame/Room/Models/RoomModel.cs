@@ -13,6 +13,6 @@ namespace TextBasedGame.Room.Models
 
         public List<RoomExitModel> AvailableExits { get; set; }
 
-        public List<ItemModel> RoomItems { get; set; }
+        public ItemsModel RoomItemses { get; set; }
     }
 }

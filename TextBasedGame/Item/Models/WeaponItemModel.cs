@@ -1,4 +1,6 @@
-﻿namespace TextBasedGame.Item.Models
+﻿using System.Collections.Generic;
+
+namespace TextBasedGame.Item.Models
 {
     public class WeaponItemModel
     {
@@ -10,6 +12,6 @@
 
         public int AttackPower { get; set; }
 
-        public ItemTraitModel WeaponTraits { get; set; }
+        public List<ItemTraitModel> WeaponTraits { get; set; }
     }
 }
