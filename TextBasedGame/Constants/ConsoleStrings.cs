@@ -34,6 +34,7 @@ namespace TextBasedGame.Constants
 
         public static string GameHelp = "Hint: Try typing in some of these inputs: \n" +
                                         "\t - 'pickup' + <item name>: pick up a specific item or weapon\n" +
+                                        "\t - 'drop' + <item name>: drop a specific item or weapon\n" +
                                         "\t - 'goto' + <room/exit name>: go to a specific room or exit\n" +
                                         "\t - 'items': look around for items in a room\n" +
                                         "\t - 'weapons': look around for weapons in a room\n" +

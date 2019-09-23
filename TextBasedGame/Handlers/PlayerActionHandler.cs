@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Net.Configuration;
-using TextBasedGame.Character.Interfaces;
 using TextBasedGame.Character.Models;
 using TextBasedGame.Constants;
+using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
-using TextBasedGame.Room.Interfaces;
 using TextBasedGame.Room.Models;
 using TextBasedGame.Utilities;
 using Console = Colorful.Console;
@@ -16,17 +14,20 @@ namespace TextBasedGame.Handlers
 {
     public class PlayerActionHandler
     {
-        private static readonly ICharacter Character = new Character.Implementations.Character();
-        private static readonly IRoom Room = new Room.Implementations.Room();
+        private static readonly IItem Item = new Item.Implementations.Item();
 
         public static string HandlePlayerInput(string input, CharacterModel player, RoomModel currentRoom)
         {
             var inputWords = input.Split(ConsoleStrings.StringDelimiters);
-            var keywords = GetAllItemKeywords(currentRoom);
+            var roomItemKeywords = GetAllRoomItemKeywords(currentRoom);
+            var inventoryKeywords = GetAllInventoryItemKeywords(player);
             bool inputResolved = false;
 
             foreach (var inputWord in inputWords)
             {
+                string substring;
+                ItemsModel foundItem;
+
                 switch (inputWord)
                 {
                     case "pickup":
@@ -35,16 +36,22 @@ namespace TextBasedGame.Handlers
                     case "take":
                     case "collect":
                     case "gather":
-                        var matchingWordLength = inputWord.Length + 1;
-                        var keyword = inputWord.IndexOf(inputWord, StringComparison.Ordinal);
-                        var substring = input.Substring(keyword + matchingWordLength);
-                        var foundItem = InventoryHandler.FindAnyMatchingItems(substring.Trim(), keywords, currentRoom.RoomItems);
+                        substring = CreateSubstringOfActionInput(input, inputWord);
+                        foundItem = InventoryHandler.FindAnyMatchingItems(substring.Trim(), roomItemKeywords, currentRoom.RoomItems);
                         if (foundItem != null)
                         {
-                            var updatedPlayerAndRoom = InventoryHandler.HandleItemAdd(player, currentRoom, foundItem);
-                            player = updatedPlayerAndRoom.Item1;
-                            currentRoom = updatedPlayerAndRoom.Item2;
-                            inputResolved = true;
+                            inputResolved = HandleItemAndUpdatePlayerAndRoom(ref player, ref currentRoom, foundItem);
+                        }
+                        break;
+                    case "drop":
+                    case "release":
+                    case "letgo":
+                        substring = CreateSubstringOfActionInput(input, inputWord);
+                        foundItem = InventoryHandler.FindAnyMatchingItems(substring.Trim(), inventoryKeywords, 
+                            Item.CreateItemsModel(player.CarriedItems, new List<WeaponItemModel>() { player.WeaponItem }));
+                        if (foundItem != null)
+                        {
+                            inputResolved = HandleItemAndUpdatePlayerAndRoom(ref player, ref currentRoom, foundItem, true);
                         }
                         break;
                     case "go":
@@ -57,28 +64,14 @@ namespace TextBasedGame.Handlers
                     case "items":
                         string items = StringDescriptionHandler.CreateStringOfItemDescriptions(currentRoom.RoomItems.InventoryItems);
                         Console.WriteLine();
-                        if (items == "")
-                        {
-                            TypingAnimation.Animate(ConsoleStrings.NoItemsFound, Color.Aquamarine);
-                        }
-                        else
-                        {
-                            TypingAnimation.Animate(items, Color.Aquamarine);
-                        }
+                        TypingAnimation.Animate(items == "" ? ConsoleStrings.NoItemsFound : items, Color.Aquamarine);
                         inputResolved = true;
                         break;
                     case "weapon":
                     case "weapons":
                         string weapons = StringDescriptionHandler.CreateStringOfWeaponDescriptions(currentRoom.RoomItems.WeaponItems);
                         Console.WriteLine();
-                        if (weapons == "")
-                        {
-                            TypingAnimation.Animate(ConsoleStrings.NoWeaponsFound, Color.Aquamarine);
-                        }
-                        else
-                        {
-                            TypingAnimation.Animate(weapons, Color.Aquamarine);
-                        }
+                        TypingAnimation.Animate(weapons == "" ? ConsoleStrings.NoWeaponsFound : weapons, Color.Aquamarine);
                         inputResolved = true;
                         break;
                     case "exit":
@@ -139,10 +132,29 @@ namespace TextBasedGame.Handlers
             Console.ReadLine();
             Console.Clear();
             Console.ReplaceAllColorsWithDefaults();
-            return PlayerInputActions.Redisplay; ;
+            return PlayerInputActions.Redisplay;
         }
 
-        private static List<string> GetAllItemKeywords(RoomModel currentRoom)
+        private static bool HandleItemAndUpdatePlayerAndRoom(ref CharacterModel player, ref RoomModel currentRoom, ItemsModel foundItem, bool removeItem = false)
+        {
+            var updatedPlayerAndRoom = removeItem 
+                ? InventoryHandler.HandleItemAddOrRemove(player, currentRoom, foundItem) 
+                : InventoryHandler.HandleItemAddOrRemove(player, currentRoom, foundItem, true);
+
+            player = updatedPlayerAndRoom.Item1;
+            currentRoom = updatedPlayerAndRoom.Item2;
+            return true;
+        }
+
+        private static string CreateSubstringOfActionInput(string input, string inputWord)
+        {
+            var matchingWordLength = inputWord.Length + 1;
+            var keyword = inputWord.IndexOf(inputWord, StringComparison.OrdinalIgnoreCase);
+            var substring = input.Substring(keyword + matchingWordLength);
+            return substring;
+        }
+
+        private static List<string> GetAllRoomItemKeywords(RoomModel currentRoom)
         {
             IEnumerable<string> itemKeywords = new List<string>();
             IEnumerable<string> weaponKeywords = new List<string>();
@@ -156,6 +168,27 @@ namespace TextBasedGame.Handlers
             foreach (var weapon in currentRoom.RoomItems.WeaponItems)
             {
                 weaponKeywords = weapon.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k));
+            }
+
+            keywords.AddRange(itemKeywords);
+            keywords.AddRange(weaponKeywords);
+            return keywords;
+        }
+
+        private static List<string> GetAllInventoryItemKeywords(CharacterModel player)
+        {
+            IEnumerable<string> itemKeywords = new List<string>();
+            IEnumerable<string> weaponKeywords = new List<string>();
+            var keywords = new List<string>();
+
+            foreach (var item in player.CarriedItems)
+            {
+                itemKeywords = (item.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k)));
+            }
+
+            if (!string.IsNullOrEmpty(player.WeaponItem?.WeaponName))
+            {
+                weaponKeywords = player.WeaponItem.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k));
             }
 
             keywords.AddRange(itemKeywords);

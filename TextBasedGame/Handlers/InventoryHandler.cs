@@ -20,55 +20,96 @@ namespace TextBasedGame.Handlers
         private static readonly IRoom Room = new Room.Implementations.Room();
         private static readonly IItem Item = new Item.Implementations.Item();
 
-        public static Tuple<CharacterModel, RoomModel> HandleItemAdd(CharacterModel player, RoomModel currentRoom, ItemsModel foundItem)
+        public static Tuple<CharacterModel, RoomModel> HandleItemAddOrRemove(CharacterModel player, RoomModel currentRoom, ItemsModel foundItem, bool removeItem = false)
         {
-            if (foundItem?.InventoryItems != null)
+            switch (removeItem)
             {
-                var inventoryItemToAdd = foundItem.InventoryItems.FirstOrDefault();
-                if (player.CarriedItemsCount + 1 <= player.MaximumCarryingCapacity)
-                {
-                    player = UpdatePlayerAttributesFromInventoryItem(player, inventoryItemToAdd);
-                    inventoryItemToAdd = Item.UpdateInventoryItem(inventoryItemToAdd);
-                    player = Character.UpdateCharacter(player, itemToAdd: inventoryItemToAdd, addToCarriedCount: 1);
-                    currentRoom = Room.UpdateRoom(currentRoom, itemToRemove: inventoryItemToAdd);
-                    Console.WriteLine();
-                    TypingAnimation.Animate("You take the " + inventoryItemToAdd.ItemName + ".\n", Color.ForestGreen);
-                }
-                else
-                {
-                    Console.WriteLine();
-                    TypingAnimation.Animate("Your inventory is full! \n" +
-                                            "Drop an item to pick up the " + inventoryItemToAdd?.ItemName + ".\n", Color.DarkOliveGreen);
-                }
+                case true:
+                    if (foundItem?.InventoryItems != null)
+                    {
+                        var inventoryItemToAdd = foundItem.InventoryItems.FirstOrDefault();
+                        if (player.CarriedItemsCount + 1 <= player.MaximumCarryingCapacity)
+                        {
+                            player = UpdatePlayerAttributesFromInventoryItem(player, inventoryItemToAdd);
+                            inventoryItemToAdd = Item.UpdateInventoryItem(inventoryItemToAdd);
+                            player = Character.UpdateCharacter(player, itemToAdd: inventoryItemToAdd, addToCarriedCount: 1);
+                            currentRoom = Room.UpdateRoom(currentRoom, itemToRemove: inventoryItemToAdd);
+                            Console.WriteLine();
+                            TypingAnimation.Animate("You take the " + inventoryItemToAdd.ItemName + ".\n", Color.ForestGreen);
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            TypingAnimation.Animate("Your inventory is full! \n" +
+                                                    "Drop an item to pick up the " + inventoryItemToAdd?.ItemName + ".\n", Color.DarkOliveGreen);
+                        }
+                    }
+                    else if (foundItem?.WeaponItems != null)
+                    {
+                        var weaponItemToAdd = foundItem.WeaponItems.FirstOrDefault();
+                        if (string.IsNullOrEmpty(player.WeaponItem.WeaponName))
+                        {
+                            player = UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
+                            weaponItemToAdd = Item.UpdateWeaponItem(weaponItemToAdd);
+                            player = Character.UpdateCharacter(player, weapon: weaponItemToAdd);
+                            currentRoom = Room.UpdateRoom(currentRoom, weaponToRemove: weaponItemToAdd);
+                            Console.WriteLine();
+                            TypingAnimation.Animate("You take the " + weaponItemToAdd.WeaponName + ".\n", Color.ForestGreen);
+                        }
+                        else
+                        {
+                            var oldWeapon = player.WeaponItem.WeaponName;
+                            var playerAndRoom = DropWeaponAndPickupNew(player, currentRoom, weaponItemToAdd);
+                            player = playerAndRoom.Item1;
+                            currentRoom = playerAndRoom.Item2;
+                            player = UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
+                            player = Character.UpdateCharacter(player, weapon: weaponItemToAdd);
+                            currentRoom = Room.UpdateRoom(currentRoom, weaponToRemove: weaponItemToAdd);
+                            Console.WriteLine();
+                            TypingAnimation.Animate("You drop your " + oldWeapon + " for the " + weaponItemToAdd?.WeaponName + ".\n",
+                                Color.ForestGreen);
+                        }
+                    }
+
+                    break;
+
+                case false:
+                    if (foundItem?.InventoryItems != null)
+                    {
+                        var inventoryItemToRemove = foundItem.InventoryItems.FirstOrDefault();
+                        DropItemInRoom(player, currentRoom, inventoryItemToRemove);
+                        Console.WriteLine();
+                        TypingAnimation.Animate("You drop the " + inventoryItemToRemove?.ItemName + ".\n", Color.ForestGreen);
+                    }
+                    else if (foundItem?.WeaponItems != null)
+                    {
+                        var weaponItemToRemove = foundItem.WeaponItems.FirstOrDefault();
+                        DropWeaponInRoom(player, currentRoom);
+                        Console.WriteLine();
+                        TypingAnimation.Animate("You drop the " + weaponItemToRemove?.WeaponName + ".\n", Color.ForestGreen);
+                    }
+
+                    break;
             }
-            else if (foundItem?.WeaponItems != null)
-            {
-                var weaponItemToAdd = foundItem.WeaponItems.FirstOrDefault();
-                if (string.IsNullOrEmpty(player.WeaponItem.WeaponName))
-                {
-                    player = UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
-                    weaponItemToAdd = Item.UpdateWeaponItem(weaponItemToAdd);
-                    player = Character.UpdateCharacter(player, weapon: weaponItemToAdd);
-                    currentRoom = Room.UpdateRoom(currentRoom, weaponToRemove: weaponItemToAdd);
-                    Console.WriteLine();
-                    TypingAnimation.Animate("You take the " + weaponItemToAdd.WeaponName + ".\n", Color.ForestGreen);
-                }
-                else
-                {
-                    var oldWeapon = player.WeaponItem.WeaponName;
-                    var playerAndRoom = DropWeaponAndPickupNew(player, currentRoom, weaponItemToAdd);
-                    player = playerAndRoom.Item1;
-                    currentRoom = playerAndRoom.Item2;
-                    player = UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
-                    player = Character.UpdateCharacter(player, weapon: weaponItemToAdd);
-                    currentRoom = Room.UpdateRoom(currentRoom, weaponToRemove: weaponItemToAdd);
-                    Console.WriteLine();
-                    TypingAnimation.Animate("You drop your " + oldWeapon + " for the " + weaponItemToAdd.WeaponName + ".\n",
-                        Color.ForestGreen);
-                }
-            }
+            
 
             return Tuple.Create(player, currentRoom);
+        }
+
+        public static Tuple<CharacterModel, RoomModel> DropItemInRoom(CharacterModel player, RoomModel room, InventoryItemModel itemToDrop)
+        {
+            room = Room.UpdateRoom(room, itemToAdd: itemToDrop);
+            player = UpdatePlayerAttributesFromInventoryItem(player, itemToDrop, true);
+            player = Character.UpdateCharacter(player, itemToRemove: itemToDrop, addToCarriedCount: -1);
+            return Tuple.Create(player, room);
+        }
+
+        public static Tuple<CharacterModel, RoomModel> DropWeaponInRoom(CharacterModel player, RoomModel room)
+        {
+            room = Room.UpdateRoom(room, weaponToAdd: player.WeaponItem);
+            player = UpdatePlayerAttributesFromWeaponItem(player, player.WeaponItem, true);
+            player = Character.UpdateCharacter(player, weapon: new WeaponItemModel());
+            return Tuple.Create(player, room);
         }
 
         private static Tuple<CharacterModel, RoomModel> DropWeaponAndPickupNew(CharacterModel player, RoomModel room, WeaponItemModel weaponToAdd)
@@ -106,7 +147,7 @@ namespace TextBasedGame.Handlers
         {
             var newAttributes = player.Attributes;
             if (newWeaponItem?.WeaponTraits == null) return player;
-            foreach (var trait in newWeaponItem?.WeaponTraits)
+            foreach (var trait in newWeaponItem.WeaponTraits)
             {
                 if (!removeAttributes)
                 {
@@ -187,15 +228,15 @@ namespace TextBasedGame.Handlers
             }
         }
 
-        public static ItemsModel FindAnyMatchingItems(string inputSubstring, List<string> itemKeywords, ItemsModel roomItems)
+        public static ItemsModel FindAnyMatchingItems(string inputSubstring, List<string> itemKeywords, ItemsModel itemsToSearch)
         {
-            ItemsModel itemModel = null;
             var words = inputSubstring.Split(ConsoleStrings.StringDelimiters);
             foreach (var word in words)
             {
                 if (itemKeywords.Contains(word))
                 {
-                    foreach (var inventoryItem in roomItems.InventoryItems)
+                    ItemsModel itemModel;
+                    foreach (var inventoryItem in itemsToSearch.InventoryItems)
                     {
                         if (inventoryItem.KeywordsForPickup.Contains(word))
                         {
@@ -210,7 +251,7 @@ namespace TextBasedGame.Handlers
                         }
                     }
 
-                    foreach (var weapon in roomItems.WeaponItems)
+                    foreach (var weapon in itemsToSearch.WeaponItems)
                     {
                         if (weapon.KeywordsForPickup.Contains(word))
                         {
@@ -227,7 +268,7 @@ namespace TextBasedGame.Handlers
                 }
             }
 
-            return itemModel;
+            return null;
         }
     }
 }
