@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TextBasedGame.Shared.Models;
 
 namespace TextBasedGame.Item.Models
 {
@@ -19,5 +20,9 @@ namespace TextBasedGame.Item.Models
         public List<string> KeywordsForPickup { get; set; }
 
         public List<ItemTraitModel> WeaponTraits { get; set; }
+
+        public bool ViewWeaponHasAttributeRequirement { get; set; }
+
+        public AttributeRequirementModel WeaponVisibilityAttributeRequirement { get; set; }
     }
 }

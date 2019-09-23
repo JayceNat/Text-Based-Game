@@ -65,11 +65,13 @@
     <Compile Include="Item\Interfaces\IItemTrait.cs" />
     <Compile Include="Item\ItemTraits.cs" />
     <Compile Include="Item\Items.cs" />
+    <Compile Include="Shared\Models\AttributeRequirementModel.cs" />
     <Compile Include="Item\Weapons.cs" />
     <Compile Include="Room\Implementations\Room.cs" />
     <Compile Include="Room\Implementations\RoomExit.cs" />
     <Compile Include="Room\Interfaces\IRoom.cs" />
     <Compile Include="Room\Interfaces\IRoomExit.cs" />
+    <Compile Include="Shared\Models\ItemRequirementModel.cs" />
     <Compile Include="Room\RoomExits.cs" />
     <Compile Include="Room\Rooms.cs" />
     <Compile Include="Setup\GameSetup.cs" />

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
+using TextBasedGame.Shared.Models;
 
 namespace TextBasedGame.Item.Implementations
 {
@@ -18,7 +19,8 @@ namespace TextBasedGame.Item.Implementations
         }
 
         public InventoryItemModel CreateInventoryItem(string name, string description, string placementDescription, 
-            string genericPlacementDescription, List<string> keywordsForPickup, List<ItemTraitModel> traits, bool inOriginalLocation = true)
+            string genericPlacementDescription, List<string> keywordsForPickup, List<ItemTraitModel> traits, bool inOriginalLocation = true,
+            bool itemHasAttrRequirementToView = false, AttributeRequirementModel viewItemAttrRequirement = null)
         {
             InventoryItemModel item = new InventoryItemModel()
             {
@@ -28,7 +30,9 @@ namespace TextBasedGame.Item.Implementations
                 OriginalPlacementDescription = placementDescription,
                 GenericPlacementDescription = genericPlacementDescription,
                 KeywordsForPickup = keywordsForPickup,
-                ItemTraits = traits
+                ItemTraits = traits,
+                ViewItemHasAttributeRequirement = itemHasAttrRequirementToView,
+                ItemVisibilityAttributeRequirement = viewItemAttrRequirement
             };
 
             return item;
@@ -36,7 +40,8 @@ namespace TextBasedGame.Item.Implementations
 
         public InventoryItemModel UpdateInventoryItem(InventoryItemModel item, string name = null, string description = null,
             string genericPlacementDescription = null, string placementDescription = null, List<string> keywordsForPickup = null, 
-            ItemTraitModel traitToAdd = null, bool inOriginalLocation = false)
+            ItemTraitModel traitToAdd = null, bool inOriginalLocation = false, bool itemHasAttrRequirementToView = false, 
+            AttributeRequirementModel viewItemAttrRequirement = null)
         {
             if (name != null)
             {
@@ -68,13 +73,20 @@ namespace TextBasedGame.Item.Implementations
                 item.ItemTraits.Add(traitToAdd);
             }
 
+            if (viewItemAttrRequirement != null)
+            {
+                item.ItemVisibilityAttributeRequirement = viewItemAttrRequirement;
+            }
+
             item.InOriginalLocation = inOriginalLocation;
+            item.ViewItemHasAttributeRequirement = itemHasAttrRequirementToView;
 
             return item;
         }
 
         public WeaponItemModel CreateWeaponItem(string name, string description, string placementDescription, string genericPlacementDescription,
-            int attackPower, List<string> keywordsForPickup, List<ItemTraitModel> traits, bool inOriginalLocation = true)
+            int attackPower, List<string> keywordsForPickup, List<ItemTraitModel> traits, bool inOriginalLocation = true,
+            bool weaponHasAttrRequirementToView = false, AttributeRequirementModel viewWeaponAttrRequirement = null)
         {
             WeaponItemModel weapon = new WeaponItemModel()
             {
@@ -85,7 +97,9 @@ namespace TextBasedGame.Item.Implementations
                 GenericPlacementDescription = genericPlacementDescription,
                 AttackPower = attackPower,
                 KeywordsForPickup = keywordsForPickup,
-                WeaponTraits = traits
+                WeaponTraits = traits,
+                ViewWeaponHasAttributeRequirement = weaponHasAttrRequirementToView,
+                WeaponVisibilityAttributeRequirement = viewWeaponAttrRequirement
             };
 
             return weapon;
@@ -93,7 +107,8 @@ namespace TextBasedGame.Item.Implementations
 
         public WeaponItemModel UpdateWeaponItem(WeaponItemModel weapon, string name = null, string description = null, string placementDescription = null,
             string genericPlacementDescription = null, int addToAttackPower = 0, List<string> keywordsForPickup = null, 
-            ItemTraitModel traitToAdd = null, bool inOriginalLocation = false)
+            ItemTraitModel traitToAdd = null, bool inOriginalLocation = false, bool weaponHasAttrRequirementToView = false, 
+            AttributeRequirementModel viewWeaponAttrRequirement = null)
         {
             if (name != null)
             {
@@ -130,7 +145,13 @@ namespace TextBasedGame.Item.Implementations
                 weapon.WeaponTraits.Add(traitToAdd);
             }
 
+            if (viewWeaponAttrRequirement != null)
+            {
+                weapon.WeaponVisibilityAttributeRequirement = viewWeaponAttrRequirement;
+            }
+
             weapon.InOriginalLocation = inOriginalLocation;
+            weapon.ViewWeaponHasAttributeRequirement = weaponHasAttrRequirementToView;
 
             return weapon;
         }
