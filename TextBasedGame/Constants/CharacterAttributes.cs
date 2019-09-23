@@ -2,16 +2,16 @@
 {
     public class CharacterAttributes
     {
-        public static string Defense = "defense";
+        public const string Defense = "defense";
 
-        public static string Dexterity = "dexterity";
+        public const string Dexterity = "dexterity";
 
-        public static string Luck = "luck";
+        public const string Luck = "luck";
 
-        public static string Stamina = "stamina";
+        public const string Stamina = "stamina";
 
-        public static string Strength = "strength";
+        public const string Strength = "strength";
 
-        public static string Wisdom = "wisdom";
+        public const string Wisdom = "wisdom";
     }
 }

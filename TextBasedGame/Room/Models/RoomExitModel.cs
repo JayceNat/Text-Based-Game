@@ -1,6 +1,4 @@
-﻿using TextBasedGame.Constants;
-
-namespace TextBasedGame.Room.Models
+﻿namespace TextBasedGame.Room.Models
 {
     public class RoomExitModel
     {

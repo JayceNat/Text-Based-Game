@@ -5,10 +5,19 @@ namespace TextBasedGame.Item.Interfaces
 {
     public interface IItem
     {
-        InventoryItemModel CreateInventoryItem(string name, string description, 
-            string placementDescription, List<ItemTraitModel> traits);
+        ItemsModel CreateItemsModel(List<InventoryItemModel> inventoryItems, List<WeaponItemModel> weaponItems);
 
-        WeaponItemModel CreateWeaponItem(string name, string description,
-            string placementDescription, int attackPower, List<ItemTraitModel> traits);
+        InventoryItemModel CreateInventoryItem(string name, string description, string placementDescription, string genericPlacementDescription,
+            List<string> keywordsForPickup, List<ItemTraitModel> traits, bool inOriginalLocation = true);
+
+        InventoryItemModel UpdateInventoryItem(InventoryItemModel item, string name = null, string description = null, string placementDescription = null,
+            string genericPlacementDescription = null, List<string> keywordsForPickup = null, ItemTraitModel traitToAdd = null, bool inOriginalLocation = false);
+
+        WeaponItemModel CreateWeaponItem(string name, string description, string placementDescription, string genericPlacementDescription,
+            int attackPower, List<string> keywordsForPickup, List<ItemTraitModel> traits, bool inOriginalLocation = true);
+
+        WeaponItemModel UpdateWeaponItem(WeaponItemModel weapon, string name = null, string description = null, string placementDescription = null,
+            string genericPlacementDescription = null, int addToAttackPower = 0, List<string> keywordsForPickup = null, ItemTraitModel traitToAdd = null, 
+            bool inOriginalLocation = false);
     }
 }

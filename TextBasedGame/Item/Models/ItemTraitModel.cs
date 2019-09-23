@@ -1,6 +1,4 @@
-﻿using TextBasedGame.Constants;
-
-namespace TextBasedGame.Item.Models
+﻿namespace TextBasedGame.Item.Models
 {
     public class ItemTraitModel
     {

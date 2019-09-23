@@ -53,6 +53,12 @@
     <Compile Include="Character\Implementations\Character.cs" />
     <Compile Include="Character\Interfaces\IAttribute.cs" />
     <Compile Include="Character\Interfaces\ICharacter.cs" />
+    <Compile Include="Constants\ConsoleStrings.cs" />
+    <Compile Include="Constants\ItemKeywords.cs" />
+    <Compile Include="Constants\PlayerInputActions.cs" />
+    <Compile Include="Handlers\InventoryHandler.cs" />
+    <Compile Include="Handlers\RoomActionHandler.cs" />
+    <Compile Include="Handlers\StringDescriptionHandler.cs" />
     <Compile Include="Item\Implementations\Item.cs" />
     <Compile Include="Item\Implementations\ItemTrait.cs" />
     <Compile Include="Item\Interfaces\IItem.cs" />

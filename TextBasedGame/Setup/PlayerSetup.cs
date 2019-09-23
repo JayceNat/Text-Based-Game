@@ -2,6 +2,8 @@
 using Colorful;
 using TextBasedGame.Character.Interfaces;
 using TextBasedGame.Character.Models;
+using TextBasedGame.Item.Interfaces;
+using TextBasedGame.Item.Models;
 using TextBasedGame.Utilities;
 
 namespace TextBasedGame.Setup
@@ -10,6 +12,7 @@ namespace TextBasedGame.Setup
     {
         private static readonly ICharacter Character = new Character.Implementations.Character();
         private static readonly IAttribute Attributes = new Character.Implementations.Attribute();
+        private static readonly IItem Items = new Item.Implementations.Item();
 
         public static CharacterModel InstantiatePlayer()
         {

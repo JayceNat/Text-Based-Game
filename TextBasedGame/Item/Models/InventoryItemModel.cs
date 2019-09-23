@@ -6,9 +6,15 @@ namespace TextBasedGame.Item.Models
     {
         public string ItemName { get; set; }
 
+        public bool InOriginalLocation { get; set; }
+
         public string ItemDescription { get; set; }
 
-        public string ItemPlacementDescription { get; set; }
+        public string OriginalPlacementDescription { get; set; }
+
+        public string GenericPlacementDescription { get; set; }
+
+        public List<string> KeywordsForPickup { get; set; }
 
         public List<ItemTraitModel> ItemTraits { get; set; }
     }

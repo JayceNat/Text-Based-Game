@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using TextBasedGame.Game.Models;
+using TextBasedGame.Room;
 using TextBasedGame.Setup;
 
 namespace TextBasedGame
@@ -22,7 +23,8 @@ namespace TextBasedGame
             player = PlayerSetup.WelcomePlayer(player);
             player = PlayerSetup.SetPlayerTraits(player);
 
-            GameSetup.BeginAdventure(player);
+            player = GameSetup.BeginAdventure(player, Rooms.YourBedroom);
+            //game over
         }
     }
 }

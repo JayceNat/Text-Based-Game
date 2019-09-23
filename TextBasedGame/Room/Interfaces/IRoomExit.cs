@@ -1,5 +1,4 @@
-﻿using TextBasedGame.Constants;
-using TextBasedGame.Room.Models;
+﻿using TextBasedGame.Room.Models;
 
 namespace TextBasedGame.Room.Interfaces
 {

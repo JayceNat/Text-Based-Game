@@ -8,7 +8,7 @@ namespace TextBasedGame.Room.Implementations
     public class Room : IRoom
     {
         public RoomModel CreateRoom(string name, string initialDescription, string genericDescription, List<RoomExitModel> availableExits,
-            ItemsModel itemses)
+            ItemsModel items)
         {
             RoomModel room = new RoomModel()
             {
@@ -16,15 +16,18 @@ namespace TextBasedGame.Room.Implementations
                 InitialRoomDescription = initialDescription,
                 GenericRoomDescription = genericDescription,
                 AvailableExits = availableExits,
-                RoomItemses = itemses
+                RoomItems = items
             };
 
             return room;
         }
 
-        public RoomModel UpdateRoom(RoomModel room, string initialDescription = null, string genericDescription = null,
-            List<RoomExitModel> availableExits = null, ItemsModel itemses = null)
+        public RoomModel UpdateRoom(RoomModel room, bool roomEntered = false, string initialDescription = null, string genericDescription = null,
+            List<RoomExitModel> availableExits = null, InventoryItemModel itemToAdd = null, InventoryItemModel itemToRemove = null,
+            WeaponItemModel weaponToAdd = null, WeaponItemModel weaponToRemove = null)
         {
+            room.RoomEntered = roomEntered;
+
             if (initialDescription != null)
             {
                 room.InitialRoomDescription = initialDescription;
@@ -40,9 +43,24 @@ namespace TextBasedGame.Room.Implementations
                 room.AvailableExits = availableExits;
             }
 
-            if (itemses != null)
+            if (itemToAdd != null)
             {
-                room.RoomItemses = itemses;
+                room.RoomItems.InventoryItems.Add(itemToAdd);
+            }
+
+            if (itemToRemove != null)
+            {
+                room.RoomItems.InventoryItems.Remove(itemToRemove);
+            }
+
+            if (weaponToAdd != null)
+            {
+                room.RoomItems.WeaponItems.Add(weaponToAdd);
+            }
+
+            if (weaponToRemove != null)
+            {
+                room.RoomItems.WeaponItems.Remove(weaponToRemove);
             }
 
             return room;

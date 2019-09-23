@@ -1,6 +1,4 @@
-﻿using TextBasedGame.Character.Models;
-using TextBasedGame.Constants;
-using TextBasedGame.Item.Interfaces;
+﻿using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Item.Implementations
