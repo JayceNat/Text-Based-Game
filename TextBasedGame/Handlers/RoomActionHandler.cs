@@ -13,7 +13,7 @@ namespace TextBasedGame.Handlers
     {
         private static readonly IRoom Room = new Room.Implementations.Room();
 
-        public static RoomModel EnterRoom(CharacterModel player, RoomModel room)
+        public static RoomModel EnterRoom(CharacterModel player, RoomModel room, bool firstRoomEntered = false)
         {
             RoomModel nextRoom = null;
             bool redisplayRoomDesc = false;
@@ -37,7 +37,8 @@ namespace TextBasedGame.Handlers
 
                 Thread.Sleep(50);
                 Console.WriteLine();
-                Console.WriteWithGradient(ConsoleStrings.PlayerInputPrompt, Color.Yellow, Color.DarkRed, 4);
+                Console.WriteLine(ConsoleStrings.FirstRoomHelpHint, Color.MediumPurple);
+                Console.WriteWithGradient(ConsoleStrings.PlayerInputPrompt, Color.SpringGreen, Color.NavajoWhite, 4);
                 Console.WriteLine();
                 Console.Write("> ");
                 var playerInput = Console.ReadLine();

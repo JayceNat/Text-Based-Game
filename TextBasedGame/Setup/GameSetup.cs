@@ -49,14 +49,21 @@ namespace TextBasedGame.Setup
 
         private static CharacterModel TheAdventure(CharacterModel player, RoomModel room)
         {
-            RoomModel nextRoom = RoomActionHandler.EnterRoom(player, room);
-
-            if (!room.RoomEntered)
+            RoomModel currentRoom = room;
+            while (true)
             {
-                Room.UpdateRoom(room, true);
+                currentRoom = RoomActionHandler.EnterRoom(player, currentRoom);
+
+                if (currentRoom == null)
+                {
+                    break;
+                }
+                if (!room.RoomEntered)
+                {
+                    Room.UpdateRoom(currentRoom, true);
+                }
             }
 
-            TheAdventure(player, nextRoom);
             return player;
         }
     }

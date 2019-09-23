@@ -56,8 +56,10 @@ namespace TextBasedGame.Handlers
                         break;
                     case "go":
                     case "goto":
+                    case "goin":
                     case "walk":
                     case "run":
+                    case "enter":
                         // trying to go to another room
                         break;
                     case "item":
@@ -99,6 +101,7 @@ namespace TextBasedGame.Handlers
                         break;
                     case "character":
                     case "status":
+                    case "stat":
                     case "stats":
                         string characterInfo = StringDescriptionHandler.CreateStringOfPlayerInfo(player);
                         Console.WriteLine();

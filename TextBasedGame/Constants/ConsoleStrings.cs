@@ -28,18 +28,21 @@ namespace TextBasedGame.Constants
             'd', 'o', '?'
         };
 
+        public static string FirstRoomHelpHint =
+            "<Type 'help' for info on where you are, available exits, and commands>";
+
         public static string NoItemsFound = "You look around, but you don't see any items in the room...\n";
 
         public static string NoWeaponsFound = "You look around, but you don't see any weapons in the room...\n";
 
         public static string GameHelp = "Hint: Try typing in some of these inputs: \n" +
-                                        "\t - 'pickup' + <item name>: pick up a specific item or weapon\n" +
+                                        "\t - 'take' + <item name>: pick up a specific item or weapon\n" +
                                         "\t - 'drop' + <item name>: drop a specific item or weapon\n" +
-                                        "\t - 'goto' + <room/exit name>: go to a specific room or exit\n" +
+                                        "\t - 'enter' + <room/exit name>: go to a specific room or exit\n" +
                                         "\t - 'items': look around for items in a room\n" +
                                         "\t - 'weapons': look around for weapons in a room\n" +
                                         "\t - 'exits': see what exits there are from a room\n" +
-                                        "\t - 'inventory': view your character's carried items\n" +
-                                        "\t - 'status': view stats about your character \n";
+                                        "\t - '(inv)entory': view your character's carried items\n" +
+                                        "\t - '(stat)us': view stats about your character \n";
     }
 }

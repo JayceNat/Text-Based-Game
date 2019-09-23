@@ -68,42 +68,42 @@ namespace TextBasedGame.Setup
                         20);
                     Console.WriteLine();
                     Console.WriteLine("Current trait values:", Color.DarkOrange);
-                    Console.WriteLine("\t1. Defense \t= " + player.Attributes.Defense, Color.AliceBlue);
+                    Console.WriteLine("\t1. (Def)ense \t= " + player.Attributes.Defense, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How resilient your character is to damage.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t2. Dexterity \t= " + player.Attributes.Dexterity, Color.AliceBlue);
+                    Console.WriteLine("\t2. (Dex)terity \t= " + player.Attributes.Dexterity, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How agile or evasive your character is.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t3. Luck \t= " + player.Attributes.Luck, Color.AliceBlue);
+                    Console.WriteLine("\t3. (Luc)k \t= " + player.Attributes.Luck, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How fortunate your character will be in their adventure.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t4. Stamina \t= " + player.Attributes.Stamina, Color.AliceBlue);
+                    Console.WriteLine("\t4. (Sta)mina \t= " + player.Attributes.Stamina, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How many overall Hit Points your character can have.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t5. Strength \t= " + player.Attributes.Strength, Color.AliceBlue);
+                    Console.WriteLine("\t5. (Str)ength \t= " + player.Attributes.Strength, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How strong your character is; how much damage they can do.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t6. Wisdom \t= " + player.Attributes.Wisdom, Color.AliceBlue);
+                    Console.WriteLine("\t6. (Wis)dom \t= " + player.Attributes.Wisdom, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How knowledgeable, sensible, or perceptive your character is " +
@@ -113,7 +113,7 @@ namespace TextBasedGame.Setup
 
                     Console.WriteLine("\t?. Info - Toggle info on what each trait does...", Color.Gray);
                     Console.WriteLine();
-                    Console.WriteLine("Enter the trait name or number you'd like to add (1) point to.", Color.OrangeRed);
+                    Console.WriteLine("Enter the number or trait name you'd like to add (1) point to.", Color.OrangeRed);
                     Console.Write("> ", Color.DarkOrange);
                     input = Console.ReadLine().ToLower();
                     if (input == "?" || input == "info")
@@ -172,15 +172,18 @@ namespace TextBasedGame.Setup
                     attributes.Dexterity += 1;
                     break;
                 case "3":
+                case "luc":
                 case "luck":
                     attributes.Luck += 1;
                     break;
                 case "4":
+                case "sta":
                 case "stam":
                 case "stamina":
                     attributes.Stamina += 1;
                     break;
                 case "5":
+                case "str":
                 case "strn":
                 case "stren":
                 case "strength":
@@ -194,7 +197,7 @@ namespace TextBasedGame.Setup
                 default:
                     Console.WriteLine();
                     Console.WriteLine("Entered value '{0}' not recognized!", userInput, Color.Brown);
-                    Console.Write("Press <Enter> to continue...", Color.White);
+                    Console.WriteLineWithGradient("Press <Enter> to continue...", Color.Yellow, Color.DarkRed);
                     Console.ReadLine();
                     Console.ReplaceAllColorsWithDefaults();
                     validInput = false;
