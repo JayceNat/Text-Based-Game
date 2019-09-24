@@ -4,6 +4,6 @@ namespace TextBasedGame.Item.Interfaces
 {
     public interface IItemTrait
     {
-        ItemTraitModel CreateItemTrait(string name, string relevantCharacterAttribute, int traitValue);
+        ItemTrait CreateItemTrait(string name, string relevantCharacterAttribute, int traitValue);
     }
 }

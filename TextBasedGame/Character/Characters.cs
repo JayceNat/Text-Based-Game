@@ -1,6 +1,6 @@
-﻿using TextBasedGame.Character.Interfaces;
-using TextBasedGame.Character.Models;
-using TextBasedGame.Item;
+﻿using TextBasedGame.Character.Constants;
+using TextBasedGame.Character.Interfaces;
+using TextBasedGame.Item.Game_Items;
 
 namespace TextBasedGame.Character
 {
@@ -8,10 +8,11 @@ namespace TextBasedGame.Character
     {
         private static readonly ICharacter Character = new Implementations.Character();
 
-        public static CharacterModel Ghoul = Character.CreateCharacter(
+        public static Models.Character Ghoul = Character.CreateCharacter(
             name: "The Ghoul",
             attributes: Attributes.GhoulAttributes,
-            baseHP: 100 + (15 * Attributes.GhoulAttributes.Stamina - 3),
+            baseHP: 100 + (CharacterAttributes.StaminaPerPointIncrease 
+                           * Attributes.GhoulAttributes.Stamina - CharacterAttributes.DefaultPointsForAllAttributes),
             weapon: Weapons.GhoulClaws);
     }
 }

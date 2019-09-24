@@ -1,13 +1,12 @@
 ﻿using TextBasedGame.Item.Interfaces;
-using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Item.Implementations
 {
     public class ItemTrait : IItemTrait
     {
-        public ItemTraitModel CreateItemTrait(string name, string relevantCharacterAttribute, int traitValue)
+        public Models.ItemTrait CreateItemTrait(string name, string relevantCharacterAttribute, int traitValue)
         {
-            ItemTraitModel itemTrait = new ItemTraitModel()
+            var itemTrait = new Models.ItemTrait()
             {
                 TraitName = name,
                 RelevantCharacterAttribute = relevantCharacterAttribute,

@@ -7,22 +7,22 @@ namespace TextBasedGame.Item.Implementations
 {
     public class Item : IItem
     {
-        public ItemsModel CreateItemsModel(List<InventoryItemModel> inventoryItems, List<WeaponItemModel> weaponItems)
+        public Models.Items CreateItemsModel(List<InventoryItem> inventoryItems, List<WeaponItem> weaponItems)
         {
-            ItemsModel itemsModel = new ItemsModel()
+            var itemsObject = new Models.Items()
             {
                 InventoryItems = inventoryItems,
                 WeaponItems = weaponItems
             };
 
-            return itemsModel;
+            return itemsObject;
         }
 
-        public InventoryItemModel CreateInventoryItem(string name, string description, string placementDescription, 
-            string genericPlacementDescription, List<string> keywordsForPickup, List<ItemTraitModel> traits, bool inOriginalLocation = true,
-            bool itemHasAttrRequirementToView = false, AttributeRequirementModel viewItemAttrRequirement = null)
+        public InventoryItem CreateInventoryItem(string name, string description, string placementDescription, 
+            string genericPlacementDescription, List<string> keywordsForPickup, List<Models.ItemTrait> traits, bool inOriginalLocation = true,
+            bool itemHasAttrRequirementToView = false, AttributeRequirement viewItemAttrRequirement = null)
         {
-            InventoryItemModel item = new InventoryItemModel()
+            var item = new InventoryItem()
             {
                 ItemName = name,
                 InOriginalLocation = inOriginalLocation,
@@ -38,10 +38,10 @@ namespace TextBasedGame.Item.Implementations
             return item;
         }
 
-        public InventoryItemModel UpdateInventoryItem(InventoryItemModel item, string name = null, string description = null,
+        public InventoryItem UpdateInventoryItem(InventoryItem item, string name = null, string description = null,
             string genericPlacementDescription = null, string placementDescription = null, List<string> keywordsForPickup = null, 
-            ItemTraitModel traitToAdd = null, bool inOriginalLocation = false, bool itemHasAttrRequirementToView = false, 
-            AttributeRequirementModel viewItemAttrRequirement = null)
+            Models.ItemTrait traitToAdd = null, bool inOriginalLocation = false, bool itemHasAttrRequirementToView = false, 
+            AttributeRequirement viewItemAttrRequirement = null)
         {
             if (name != null)
             {
@@ -84,11 +84,11 @@ namespace TextBasedGame.Item.Implementations
             return item;
         }
 
-        public WeaponItemModel CreateWeaponItem(string name, string description, string placementDescription, string genericPlacementDescription,
-            int attackPower, List<string> keywordsForPickup, List<ItemTraitModel> traits, bool inOriginalLocation = true,
-            bool weaponHasAttrRequirementToView = false, AttributeRequirementModel viewWeaponAttrRequirement = null)
+        public WeaponItem CreateWeaponItem(string name, string description, string placementDescription, string genericPlacementDescription,
+            int attackPower, List<string> keywordsForPickup, List<Models.ItemTrait> traits, bool inOriginalLocation = true,
+            bool weaponHasAttrRequirementToView = false, AttributeRequirement viewWeaponAttrRequirement = null)
         {
-            WeaponItemModel weapon = new WeaponItemModel()
+            var weapon = new WeaponItem()
             {
                 WeaponName = name,
                 InOriginalLocation = inOriginalLocation,
@@ -105,10 +105,10 @@ namespace TextBasedGame.Item.Implementations
             return weapon;
         }
 
-        public WeaponItemModel UpdateWeaponItem(WeaponItemModel weapon, string name = null, string description = null, string placementDescription = null,
+        public WeaponItem UpdateWeaponItem(WeaponItem weapon, string name = null, string description = null, string placementDescription = null,
             string genericPlacementDescription = null, int addToAttackPower = 0, List<string> keywordsForPickup = null, 
-            ItemTraitModel traitToAdd = null, bool inOriginalLocation = false, bool weaponHasAttrRequirementToView = false, 
-            AttributeRequirementModel viewWeaponAttrRequirement = null)
+            Models.ItemTrait traitToAdd = null, bool inOriginalLocation = false, bool weaponHasAttrRequirementToView = false, 
+            AttributeRequirement viewWeaponAttrRequirement = null)
         {
             if (name != null)
             {

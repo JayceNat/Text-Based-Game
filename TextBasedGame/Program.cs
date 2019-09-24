@@ -1,29 +1,33 @@
 ﻿using System.Drawing;
+using TextBasedGame.Character.Handlers;
 using TextBasedGame.Game.Models;
-using TextBasedGame.Room;
-using TextBasedGame.Setup;
+using TextBasedGame.Game.Setup;
+using TextBasedGame.Room.Interfaces;
 
 namespace TextBasedGame
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
+
+        private static void Main(string[] args)
         {
-            GameTitleModel gameTitle = new GameTitleModel()
+            var gameTitle = new GameTitle()
             {
-                Title = "Awesome!",
+                Title = "Awesome Title!",
                 TitleTextColor = Color.Aqua,
-                Author = "Jayce Meyer",
+                Author = "<Your Name Here!>",
                 AuthorTextColor = Color.CadetBlue
             };
 
             GameSetup.DisplayGameTitle(gameTitle);
 
-            var player = PlayerSetup.InstantiatePlayer();
-            player = PlayerSetup.WelcomePlayer(player);
-            player = PlayerSetup.SetPlayerTraits(player);
+            var player = PlayerSetupHandler.InstantiatePlayer();
 
-            player = GameSetup.BeginAdventure(player, Rooms.YourBedroom);
+            player = PlayerSetupHandler.WelcomePlayer(player);
+            player = PlayerSetupHandler.SetPlayerTraits(player);
+
+            player = GameSetup.BeginAdventure(player, RoomCreator.YourBedroom);
             //game over
         }
     }

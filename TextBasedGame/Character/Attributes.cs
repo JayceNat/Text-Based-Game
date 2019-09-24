@@ -7,7 +7,7 @@ namespace TextBasedGame.Character
     {
         private static readonly IAttribute Attribute = new Implementations.Attribute();
 
-        public static CharacterAttributeModel GhoulAttributes =
+        public static CharacterAttribute GhoulAttributes =
             Attribute.CreateCharacterAttributes(
                 0,
                 7,
