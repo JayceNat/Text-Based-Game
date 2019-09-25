@@ -7,18 +7,18 @@ namespace TextBasedGame.Character.Models
     {
         public string Name { get; set; }
 
-        public int MaximumHealthPoints { get; set; } = 100;
+        public int MaximumHealthPoints { get; set; } = Constants.CharacterDefaults.DefaultMaximumHealthPoints;
 
-        public int HealthPoints { get; set; } = 100;
+        public int HealthPoints { get; set; } = Constants.CharacterDefaults.DefaultBaseHealthPoints;
 
-        public CharacterAttribute Attributes { get; set; }
+        public CharacterAttribute Attributes { get; set; } = new CharacterAttribute();
 
-        public List<InventoryItem> CarriedItems { get; set; }
+        public List<InventoryItem> CarriedItems { get; set; } = new List<InventoryItem>();
 
-        public int MaximumCarryingCapacity { get; set; } = 4;
+        public int MaximumCarryingCapacity { get; set; } = Constants.CharacterDefaults.DefaultMaximumCarryingCapacity;
 
         public int CarriedItemsCount { get; set; } = 0;
 
-        public WeaponItem WeaponItem { get; set; }
+        public WeaponItem WeaponItem { get; set; } = new WeaponItem();
     }
 }

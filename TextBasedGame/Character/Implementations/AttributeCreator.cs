@@ -1,28 +1,17 @@
-﻿using TextBasedGame.Character.Constants;
-using TextBasedGame.Character.Interfaces;
+﻿using TextBasedGame.Character.Interfaces;
 using TextBasedGame.Character.Models;
 
 namespace TextBasedGame.Character.Implementations
 {
-    public class Attribute : IAttribute
+    public class AttributeCreator : IAttributeCreator
     {
-        public CharacterAttribute CreateCharacterAttributes(int availablePoints = CharacterAttributes.DefaultPointsToSpend,
-            int defense = CharacterAttributes.DefaultPointsForAllAttributes, int dexterity = CharacterAttributes.DefaultPointsForAllAttributes,
-            int luck = CharacterAttributes.DefaultPointsForAllAttributes, int stamina = CharacterAttributes.DefaultPointsForAllAttributes,
-            int strength = CharacterAttributes.DefaultPointsForAllAttributes, int wisdom = CharacterAttributes.DefaultPointsForAllAttributes)
-        {
-            var characterAttributes = new CharacterAttribute()
-            {
-                AvailablePoints = availablePoints,
-                Defense = defense,
-                Dexterity = dexterity,
-                Luck = luck,
-                Stamina = stamina,
-                Strength = strength,
-                Wisdom = wisdom
-            };
+        public CharacterAttribute PlayerAttributes { get; }
+        public CharacterAttribute GhoulAttributes { get; }
 
-            return characterAttributes;
+        public AttributeCreator()
+        {
+            PlayerAttributes = Attributes.PlayerAttributes;
+            GhoulAttributes = Attributes.GhoulAttributes;
         }
 
         public CharacterAttribute UpdateCharacterAttributes(CharacterAttribute characterAttributes,

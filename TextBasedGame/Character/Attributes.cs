@@ -1,20 +1,30 @@
-﻿using TextBasedGame.Character.Interfaces;
+﻿using TextBasedGame.Character.Constants;
 using TextBasedGame.Character.Models;
 
 namespace TextBasedGame.Character
 {
     public class Attributes
     {
-        private static readonly IAttribute Attribute = new Implementations.Attribute();
+        public static CharacterAttribute PlayerAttributes = new CharacterAttribute
+        {
+            AvailablePoints = CharacterAttributes.DefaultPointsToSpend,
+            Defense = CharacterAttributes.DefaultValueForAllAttributes,
+            Dexterity = CharacterAttributes.DefaultValueForAllAttributes,
+            Luck = CharacterAttributes.DefaultValueForAllAttributes,
+            Stamina = CharacterAttributes.DefaultValueForAllAttributes,
+            Strength = CharacterAttributes.DefaultValueForAllAttributes,
+            Wisdom = CharacterAttributes.DefaultValueForAllAttributes
+        };
 
-        public static CharacterAttribute GhoulAttributes =
-            Attribute.CreateCharacterAttributes(
-                0,
-                7,
-                4,
-                6,
-                6,
-                9,
-                4);
+        public static CharacterAttribute GhoulAttributes = new CharacterAttribute
+        {
+            AvailablePoints = 0,
+            Defense = 7,
+            Dexterity = 4,
+            Luck = 6,
+            Stamina = 6,
+            Strength = 9,
+            Wisdom = 4
+        };
     }
 }

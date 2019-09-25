@@ -1,28 +1,18 @@
-﻿using System.Collections.Generic;
-using TextBasedGame.Character.Interfaces;
+﻿using TextBasedGame.Character.Interfaces;
 using TextBasedGame.Character.Models;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Character.Implementations
 {
-    public class Character : ICharacter
+    public class CharacterCreator : ICharacterCreator
     {
-        public Models.Character CreateCharacter(CharacterAttribute attributes, string name = null,
-            List<InventoryItem> items = null, WeaponItem weapon = null, int baseHP = 100, int baseCarryingCapacity = 4)
-        {
-            var player = new Models.Character
-            {
-                Name = name,
-                MaximumHealthPoints = baseHP,
-                HealthPoints = baseHP,
-                Attributes = attributes,
-                CarriedItems = items == null ? new List<InventoryItem>() : items,
-                MaximumCarryingCapacity = baseCarryingCapacity,
-                CarriedItemsCount = items == null ? 0 : items.Count,
-                WeaponItem = weapon == null ? new WeaponItem() : weapon
-            };
+        public Models.Character Player { get; }
+        public Models.Character Ghoul { get; }
 
-            return player;
+        public CharacterCreator()
+        {
+            Player = Characters.Player;
+            Ghoul = Characters.Ghoul;
         }
 
         public Models.Character UpdateCharacter(Models.Character character, string name = null, CharacterAttribute attributes = null,

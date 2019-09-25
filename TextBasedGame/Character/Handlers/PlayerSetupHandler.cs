@@ -10,33 +10,24 @@ namespace TextBasedGame.Character.Handlers
 {
     public class PlayerSetupHandler
     {
-        private static readonly ICharacter Character = new Implementations.Character();
-        private static readonly IAttribute Attributes = new Implementations.Attribute();
+        private static readonly ICharacterCreator CharacterCreator = new Implementations.CharacterCreator();
+        private static readonly IAttributeCreator AttributeCreator = new Implementations.AttributeCreator();
 
-        public static Models.Character InstantiatePlayer()
+        public static void WelcomePlayer(Models.Character player)
         {
-            var playerAttributes = Attributes.CreateCharacterAttributes();
-            var player = Character.CreateCharacter(playerAttributes);
-
-            return player;
-        }
-
-        public static Models.Character WelcomePlayer(Models.Character player)
-        {
-            string input;
             while (player.Name == null)
             {
                 TypingAnimation.Animate("Please enter a Player name: ", Color.DarkOrange);
                 Console.Write("> ", Color.Yellow);
-                input = Console.ReadLine().Trim();
+                var input = Console.ReadLine().Trim();
                 if (!string.IsNullOrWhiteSpace(input))
                 {
-                    player.Name = input[0].ToString().ToUpper() + input.Substring(1);
+                    CharacterCreator.UpdateCharacter(player, name: input[0].ToString().ToUpper() + input.Substring(1));
                 }
                 Console.Clear();
             }
 
-            var welcomePlayer = "Hello, {0}!";
+            const string welcomePlayer = "Hello, {0}!";
             var playerName = new Formatter(player.Name, Color.Gold);
 
             Console.Clear();
@@ -48,61 +39,60 @@ namespace TextBasedGame.Character.Handlers
                 Color.DarkOrange);
             Console.ReadLine();
             Console.Clear();
-
-            return player;
         }
 
-        public static Models.Character SetPlayerTraits(Models.Character player)
+        public static void SetPlayerTraits(Models.Character player)
         {
+            var pendingPlayerAttributes = player.Attributes;
             var displayInfo = false;
             var playerReady = false;
             while (!playerReady)
             {
                 string input;
-                while (player.Attributes.AvailablePoints > 0)
+                while (pendingPlayerAttributes.AvailablePoints > 0)
                 {
                     TypingAnimation.Animate(
-                        player.Name + ", you have (" + player.Attributes.AvailablePoints + ") points to spend.",
+                        player.Name + ", you have (" + pendingPlayerAttributes.AvailablePoints + ") points to spend.",
                         Color.Chartreuse,
                         20);
                     Console.WriteLine();
                     Console.WriteLine("Current trait values:", Color.DarkOrange);
-                    Console.WriteLine("\t1. (Def)ense \t= " + player.Attributes.Defense, Color.AliceBlue);
+                    Console.WriteLine("\t1. (Def)ense \t= " + pendingPlayerAttributes.Defense, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How resilient your character is to damage.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t2. (Dex)terity \t= " + player.Attributes.Dexterity, Color.AliceBlue);
+                    Console.WriteLine("\t2. (Dex)terity \t= " + pendingPlayerAttributes.Dexterity, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How agile or evasive your character is.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t3. (Luc)k \t= " + player.Attributes.Luck, Color.AliceBlue);
+                    Console.WriteLine("\t3. (Luc)k \t= " + pendingPlayerAttributes.Luck, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How fortunate your character will be in their adventure.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t4. (Sta)mina \t= " + player.Attributes.Stamina, Color.AliceBlue);
+                    Console.WriteLine("\t4. (Sta)mina \t= " + pendingPlayerAttributes.Stamina, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How many overall Hit Points your character can have.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t5. (Str)ength \t= " + player.Attributes.Strength, Color.AliceBlue);
+                    Console.WriteLine("\t5. (Str)ength \t= " + pendingPlayerAttributes.Strength, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How strong your character is; how much damage they can do.", Color.Gray);
                         Console.WriteLine();
                     }
 
-                    Console.WriteLine("\t6. (Wis)dom \t= " + player.Attributes.Wisdom, Color.AliceBlue);
+                    Console.WriteLine("\t6. (Wis)dom \t= " + pendingPlayerAttributes.Wisdom, Color.AliceBlue);
                     if (displayInfo)
                     {
                         Console.WriteLine("\t - How knowledgeable, sensible, or perceptive your character is " +
@@ -121,16 +111,17 @@ namespace TextBasedGame.Character.Handlers
                         Console.Clear();
                         continue;
                     }
-                    player.Attributes = UpdateCharacterAttributes(player.Attributes, input);
+
+                    pendingPlayerAttributes = UpdateCharacterAttributesByInput(pendingPlayerAttributes, input);
                     Console.Clear();
                 }
                 TypingAnimation.Animate(player.Name + ", here are your final trait values: \n", Color.Red);
-                Console.WriteLine("\tDefense \t= " + player.Attributes.Defense, Color.AliceBlue);
-                Console.WriteLine("\tDexterity \t= " + player.Attributes.Dexterity, Color.AliceBlue);
-                Console.WriteLine("\tLuck \t\t= " + player.Attributes.Luck, Color.AliceBlue);
-                Console.WriteLine("\tStamina \t= " + player.Attributes.Stamina, Color.AliceBlue);
-                Console.WriteLine("\tStrength \t= " + player.Attributes.Strength, Color.AliceBlue);
-                Console.WriteLine("\tWisdom \t\t= " + player.Attributes.Wisdom, Color.AliceBlue);
+                Console.WriteLine("\tDefense \t= " + pendingPlayerAttributes.Defense, Color.AliceBlue);
+                Console.WriteLine("\tDexterity \t= " + pendingPlayerAttributes.Dexterity, Color.AliceBlue);
+                Console.WriteLine("\tLuck \t\t= " + pendingPlayerAttributes.Luck, Color.AliceBlue);
+                Console.WriteLine("\tStamina \t= " + pendingPlayerAttributes.Stamina, Color.AliceBlue);
+                Console.WriteLine("\tStrength \t= " + pendingPlayerAttributes.Strength, Color.AliceBlue);
+                Console.WriteLine("\tWisdom \t\t= " + pendingPlayerAttributes.Wisdom, Color.AliceBlue);
                 Console.WriteLine();
                 Console.WriteLine("Do you want to begin your adventure? (y/n)", Color.AntiqueWhite);
                 Console.Write("> ", Color.Yellow);
@@ -139,7 +130,7 @@ namespace TextBasedGame.Character.Handlers
                 {
                     case "n":
                     case "no":
-                        player.Attributes = new CharacterAttribute();
+                        pendingPlayerAttributes = new CharacterAttribute();
                         Console.Clear();
                         Console.ReplaceAllColorsWithDefaults();
                         break;
@@ -150,13 +141,13 @@ namespace TextBasedGame.Character.Handlers
                 }
             }
 
-            Character.UpdateCharacter(player, 
+            CharacterCreator.UpdateCharacter(player,
                 increaseMaximumHealth: CharacterAttributes.StaminaPerPointIncrease 
-                                       * (player.Attributes.Stamina - CharacterAttributes.DefaultPointsForAllAttributes));
-            return player;
+                                       * (pendingPlayerAttributes.Stamina - CharacterAttributes.DefaultValueForAllAttributes),
+                attributes: pendingPlayerAttributes);
         }
 
-        private static CharacterAttribute UpdateCharacterAttributes(CharacterAttribute attributes, string userInput)
+        private static Models.CharacterAttribute UpdateCharacterAttributesByInput(CharacterAttribute attributes, string userInput)
         {
             var validInput = true;
             switch (userInput)
@@ -196,7 +187,7 @@ namespace TextBasedGame.Character.Handlers
                     attributes.Wisdom += 1;
                     break;
                 case "all":
-                    if (attributes.AvailablePoints < Constants.CharacterAttributes.DefaultPointsToSpend)
+                    if (attributes.AvailablePoints < CharacterAttributes.DefaultPointsToSpend)
                     {
                         Console.WriteLine();
                         Console.WriteLine("'All' can only be used when you haven't spent any points yet. \n", Color.Brown);
@@ -228,6 +219,7 @@ namespace TextBasedGame.Character.Handlers
             {
                 attributes.AvailablePoints -= 1;
             }
+
             return attributes;
         }
     }

@@ -14,7 +14,7 @@ namespace TextBasedGame.Item.Handlers
 {
     public class InventoryHandler
     {
-        private static readonly ICharacter Character = new Character.Implementations.Character();
+        private static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
         private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
         private static readonly IItem Item = new Item.Implementations.Item();
 
@@ -30,7 +30,7 @@ namespace TextBasedGame.Item.Handlers
                         {
                             player = AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, inventoryItemToAdd);
                             inventoryItemToAdd = Item.UpdateInventoryItem(inventoryItemToAdd);
-                            player = Character.UpdateCharacter(player, itemToAdd: inventoryItemToAdd, addToCarriedCount: 1);
+                            player = CharacterCreator.UpdateCharacter(player, itemToAdd: inventoryItemToAdd, addToCarriedCount: 1);
                             currentRoom = RoomCreator.UpdateRoom(currentRoom, itemToRemove: inventoryItemToAdd);
                             Console.WriteLine();
                             TypingAnimation.Animate("You take the " + inventoryItemToAdd.ItemName + ".\n", Color.ForestGreen);
@@ -49,7 +49,7 @@ namespace TextBasedGame.Item.Handlers
                         {
                             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
                             weaponItemToAdd = Item.UpdateWeaponItem(weaponItemToAdd);
-                            player = Character.UpdateCharacter(player, weapon: weaponItemToAdd);
+                            player = CharacterCreator.UpdateCharacter(player, weapon: weaponItemToAdd);
                             currentRoom = RoomCreator.UpdateRoom(currentRoom, weaponToRemove: weaponItemToAdd);
                             Console.WriteLine();
                             TypingAnimation.Animate("You take the " + weaponItemToAdd.WeaponName + ".\n", Color.ForestGreen);
@@ -61,7 +61,7 @@ namespace TextBasedGame.Item.Handlers
                             player = playerAndRoom.Item1;
                             currentRoom = playerAndRoom.Item2;
                             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
-                            player = Character.UpdateCharacter(player, weapon: weaponItemToAdd);
+                            player = CharacterCreator.UpdateCharacter(player, weapon: weaponItemToAdd);
                             currentRoom = RoomCreator.UpdateRoom(currentRoom, weaponToRemove: weaponItemToAdd);
                             Console.WriteLine();
                             TypingAnimation.Animate("You drop your " + oldWeapon + " for the " + weaponItemToAdd?.WeaponName + ".\n",
@@ -98,7 +98,7 @@ namespace TextBasedGame.Item.Handlers
         {
             room = RoomCreator.UpdateRoom(room, itemToAdd: itemToDrop);
             player = AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, itemToDrop, true);
-            player = Character.UpdateCharacter(player, itemToRemove: itemToDrop, addToCarriedCount: -1);
+            player = CharacterCreator.UpdateCharacter(player, itemToRemove: itemToDrop, addToCarriedCount: -1);
             return Tuple.Create(player, room);
         }
 
@@ -106,7 +106,7 @@ namespace TextBasedGame.Item.Handlers
         {
             room = RoomCreator.UpdateRoom(room, weaponToAdd: player.WeaponItem);
             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, player.WeaponItem, true);
-            player = Character.UpdateCharacter(player, weapon: new WeaponItem());
+            player = CharacterCreator.UpdateCharacter(player, weapon: new WeaponItem());
             return Tuple.Create(player, room);
         }
 
@@ -116,7 +116,7 @@ namespace TextBasedGame.Item.Handlers
             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, player.WeaponItem, true);
             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponToAdd);
             weaponToAdd = Item.UpdateWeaponItem(weaponToAdd);
-            player = Character.UpdateCharacter(player, weapon: weaponToAdd);
+            player = CharacterCreator.UpdateCharacter(player, weapon: weaponToAdd);
             room = RoomCreator.UpdateRoom(room, weaponToRemove: weaponToAdd);
             return Tuple.Create(player, room);
         }
@@ -195,8 +195,8 @@ namespace TextBasedGame.Item.Handlers
         public static bool HandleItemAndUpdatePlayerAndRoom(Character.Models.Character player, Room.Models.Room currentRoom, Models.Items foundItem, bool removeItem = false)
         {
             var updatedPlayerAndRoom = removeItem
-                ? InventoryHandler.HandleItemAddOrRemove(player, currentRoom, foundItem)
-                : InventoryHandler.HandleItemAddOrRemove(player, currentRoom, foundItem, true);
+                ? HandleItemAddOrRemove(player, currentRoom, foundItem)
+                : HandleItemAddOrRemove(player, currentRoom, foundItem, true);
 
             player = updatedPlayerAndRoom.Item1;
             currentRoom = updatedPlayerAndRoom.Item2;

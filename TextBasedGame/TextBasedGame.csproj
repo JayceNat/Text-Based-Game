@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character\Attributes.cs" />
+    <Compile Include="Character\Constants\CharacterDefaults.cs" />
     <Compile Include="Character\Models\CharacterAttribute.cs" />
     <Compile Include="Character\Models\Character.cs" />
     <Compile Include="Character\Characters.cs" />
@@ -55,12 +56,13 @@
     <Compile Include="Character\Handlers\AttributeHandler.cs" />
     <Compile Include="Character\Handlers\PlayerActionHandler.cs" />
     <Compile Include="Character\Handlers\PlayerSetupHandler.cs" />
-    <Compile Include="Character\Implementations\Attribute.cs" />
-    <Compile Include="Character\Implementations\Character.cs" />
-    <Compile Include="Character\Interfaces\IAttribute.cs" />
-    <Compile Include="Character\Interfaces\ICharacter.cs" />
+    <Compile Include="Character\Implementations\AttributeCreator.cs" />
+    <Compile Include="Character\Implementations\CharacterCreator.cs" />
+    <Compile Include="Character\Interfaces\IAttributeCreator.cs" />
+    <Compile Include="Character\Interfaces\ICharacterCreator.cs" />
+    <Compile Include="Item\Models\IGlobalItem.cs" />
     <Compile Include="Shared\Constants\ConsoleStrings.cs" />
-    <Compile Include="Game\Setup\GameSetup.cs" />
+    <Compile Include="Game\Handlers\GameSetupHandler.cs" />
     <Compile Include="Game\Models\GameTitle.cs" />
     <Compile Include="Item\Constants\ItemKeywords.cs" />
     <Compile Include="Item\Items.cs" />

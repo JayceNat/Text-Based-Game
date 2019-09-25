@@ -1,13 +1,15 @@
 ﻿using System.Drawing;
 using TextBasedGame.Character.Handlers;
+using TextBasedGame.Character.Interfaces;
+using TextBasedGame.Game.Handlers;
 using TextBasedGame.Game.Models;
-using TextBasedGame.Game.Setup;
 using TextBasedGame.Room.Interfaces;
 
 namespace TextBasedGame
 {
     internal class Program
     {
+        private static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
         private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
 
         private static void Main(string[] args)
@@ -20,14 +22,14 @@ namespace TextBasedGame
                 AuthorTextColor = Color.CadetBlue
             };
 
-            GameSetup.DisplayGameTitle(gameTitle);
+            GameSetupHandler.DisplayGameTitle(gameTitle);
 
-            var player = PlayerSetupHandler.InstantiatePlayer();
+            var player = CharacterCreator.Player;
 
-            player = PlayerSetupHandler.WelcomePlayer(player);
-            player = PlayerSetupHandler.SetPlayerTraits(player);
+            PlayerSetupHandler.WelcomePlayer(player);
+            PlayerSetupHandler.SetPlayerTraits(player);
 
-            player = GameSetup.BeginAdventure(player, RoomCreator.YourBedroom);
+            GameSetupHandler.BeginAdventure(player, RoomCreator.YourBedroom);
             //game over
         }
     }

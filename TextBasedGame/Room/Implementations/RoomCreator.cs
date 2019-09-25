@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Interfaces;
 using TextBasedGame.Room.Models;
@@ -10,7 +9,6 @@ namespace TextBasedGame.Room.Implementations
     public class RoomCreator : IRoomCreator
     {
         public Models.Room YourBedroom { get; }
-
         public Models.Room YourLivingRoom { get; }
 
         public RoomCreator()

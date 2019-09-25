@@ -7,7 +7,7 @@ namespace TextBasedGame.Character.Handlers
 {
     public class AttributeHandler
     {
-        private static readonly ICharacter Character = new Character.Implementations.Character();
+        private static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
 
         public static Models.Character UpdatePlayerAttributesFromInventoryItem(Models.Character player,
             InventoryItem newInventoryItem, bool removeAttributes = false)
@@ -55,28 +55,28 @@ namespace TextBasedGame.Character.Handlers
             {
                 case CharacterAttributes.Defense:
                     newAttributes.Defense += trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
                 case CharacterAttributes.Dexterity:
                     newAttributes.Dexterity += trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
                 case CharacterAttributes.Luck:
                     newAttributes.Luck += trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
                 case CharacterAttributes.Stamina:
                     newAttributes.Stamina += trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes,
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes,
                         increaseMaximumHealth: CharacterAttributes.StaminaPerPointIncrease * trait.TraitValue);
                     break;
                 case CharacterAttributes.Strength:
                     newAttributes.Strength += trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
                 case CharacterAttributes.Wisdom:
                     newAttributes.Wisdom += trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
             }
         }
@@ -88,28 +88,28 @@ namespace TextBasedGame.Character.Handlers
             {
                 case CharacterAttributes.Defense:
                     newAttributes.Defense -= trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
                 case CharacterAttributes.Dexterity:
                     newAttributes.Dexterity -= trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
                 case CharacterAttributes.Luck:
                     newAttributes.Luck -= trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
                 case CharacterAttributes.Stamina:
                     newAttributes.Stamina -= trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes,
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes,
                         increaseMaximumHealth: -(CharacterAttributes.StaminaPerPointIncrease * trait.TraitValue));
                     break;
                 case CharacterAttributes.Strength:
                     newAttributes.Strength -= trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
                 case CharacterAttributes.Wisdom:
                     newAttributes.Wisdom -= trait.TraitValue;
-                    Character.UpdateCharacter(player, attributes: newAttributes);
+                    CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
                     break;
             }
         }

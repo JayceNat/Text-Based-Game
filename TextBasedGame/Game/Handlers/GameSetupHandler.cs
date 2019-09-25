@@ -6,9 +6,9 @@ using TextBasedGame.Room.Interfaces;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Utilities;
 
-namespace TextBasedGame.Game.Setup
+namespace TextBasedGame.Game.Handlers
 {
-    public class GameSetup
+    public class GameSetupHandler
     {
         private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
 

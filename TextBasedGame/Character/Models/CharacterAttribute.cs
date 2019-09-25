@@ -6,16 +6,16 @@ namespace TextBasedGame.Character.Models
     {
         public int AvailablePoints { get; set; } = CharacterAttributes.DefaultPointsToSpend;
 
-        public int Defense { get; set; } = CharacterAttributes.DefaultPointsForAllAttributes;
+        public int Defense { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
 
-        public int Dexterity { get; set; } = CharacterAttributes.DefaultPointsForAllAttributes;
+        public int Dexterity { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
 
-        public int Luck { get; set; } = CharacterAttributes.DefaultPointsForAllAttributes;
+        public int Luck { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
 
-        public int Stamina { get; set; } = CharacterAttributes.DefaultPointsForAllAttributes;
+        public int Stamina { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
 
-        public int Strength { get; set; } = CharacterAttributes.DefaultPointsForAllAttributes;
+        public int Strength { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
 
-        public int Wisdom { get; set; } = CharacterAttributes.DefaultPointsForAllAttributes;
+        public int Wisdom { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
     }
 }

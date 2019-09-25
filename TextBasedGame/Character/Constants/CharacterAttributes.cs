@@ -4,7 +4,7 @@
     {
         public const int DefaultPointsToSpend = 6;
 
-        public const int DefaultPointsForAllAttributes = 3;
+        public const int DefaultValueForAllAttributes = 3;
 
         public const string Defense = "defense";
 
