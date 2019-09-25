@@ -11,7 +11,6 @@ namespace TextBasedGame.Character.Handlers
     public class PlayerSetupHandler
     {
         private static readonly ICharacterCreator CharacterCreator = new Implementations.CharacterCreator();
-        private static readonly IAttributeCreator AttributeCreator = new Implementations.AttributeCreator();
 
         public static void WelcomePlayer(Models.Character player)
         {
