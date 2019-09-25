@@ -123,6 +123,10 @@ namespace TextBasedGame.Item.Handlers
 
         public static Models.Items FindAnyMatchingItemsByKeywords(string inputSubstring, List<string> itemKeywords, Models.Items itemsToSearch)
         {
+            if (inputSubstring.Length == 0)
+            {
+                return null;
+            }
             var words = inputSubstring.Split(ConsoleStrings.StringDelimiters);
             foreach (var word in words)
             {

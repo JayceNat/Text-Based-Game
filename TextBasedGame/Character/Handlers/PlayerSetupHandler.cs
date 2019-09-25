@@ -124,7 +124,7 @@ namespace TextBasedGame.Character.Handlers
                     player.Attributes = UpdateCharacterAttributes(player.Attributes, input);
                     Console.Clear();
                 }
-                TypingAnimation.Animate(player.Name + ", here are your final trait values:", Color.Red);
+                TypingAnimation.Animate(player.Name + ", here are your final trait values: \n", Color.Red);
                 Console.WriteLine("\tDefense \t= " + player.Attributes.Defense, Color.AliceBlue);
                 Console.WriteLine("\tDexterity \t= " + player.Attributes.Dexterity, Color.AliceBlue);
                 Console.WriteLine("\tLuck \t\t= " + player.Attributes.Luck, Color.AliceBlue);
@@ -195,6 +195,25 @@ namespace TextBasedGame.Character.Handlers
                 case "wisdom":
                     attributes.Wisdom += 1;
                     break;
+                case "all":
+                    if (attributes.AvailablePoints < Constants.CharacterAttributes.DefaultPointsToSpend)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("'All' can only be used when you haven't spent any points yet. \n", Color.Brown);
+                        Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
+                        Console.ReadLine();
+                        Console.ReplaceAllColorsWithDefaults();
+                        validInput = false;
+                        break;
+                    }
+                    attributes.Defense += 1;
+                    attributes.Dexterity += 1;
+                    attributes.Luck += 1;
+                    attributes.Stamina += 1;
+                    attributes.Strength += 1;
+                    attributes.Wisdom += 1;
+                    attributes.AvailablePoints -= 6;
+                    return attributes;
                 default:
                     Console.WriteLine();
                     Console.WriteLine("Entered value '{0}' not recognized! \n", userInput, Color.Brown);

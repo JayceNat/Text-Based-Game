@@ -58,25 +58,33 @@ namespace TextBasedGame.Room.Handlers
 
         public static Models.Room FindAnyMatchingRoomByKeywords(string inputSubstring, Models.Room currentRoom)
         {
+            if (inputSubstring.Length == 0)
+            {
+                return null;
+            }
             var inputWords = inputSubstring.Split(ConsoleStrings.StringDelimiters);
             foreach (var word in inputWords)
             {
-                if (currentRoom.AvailableExits.NorthRoom?.KeywordsToEnter.Contains(word) != null)
+                if (currentRoom.AvailableExits.NorthRoom?.KeywordsToEnter != null
+                    && currentRoom.AvailableExits.NorthRoom.KeywordsToEnter.Contains(word))
                 {
                     return currentRoom.AvailableExits.NorthRoom;
                 }
 
-                if (currentRoom.AvailableExits.EastRoom?.KeywordsToEnter.Contains(word) != null)
+                if (currentRoom.AvailableExits.EastRoom?.KeywordsToEnter != null
+                    && currentRoom.AvailableExits.EastRoom.KeywordsToEnter.Contains(word))
                 {
                     return currentRoom.AvailableExits.EastRoom;
                 }
 
-                if (currentRoom.AvailableExits.SouthRoom?.KeywordsToEnter.Contains(word) != null)
+                if (currentRoom.AvailableExits.SouthRoom?.KeywordsToEnter != null
+                    && currentRoom.AvailableExits.SouthRoom.KeywordsToEnter.Contains(word))
                 {
                     return currentRoom.AvailableExits.SouthRoom;
                 }
 
-                if (currentRoom.AvailableExits.WestRoom?.KeywordsToEnter.Contains(word) != null)
+                if (currentRoom.AvailableExits.WestRoom?.KeywordsToEnter != null
+                    && currentRoom.AvailableExits.WestRoom.KeywordsToEnter.Contains(word))
                 {
                     return currentRoom.AvailableExits.WestRoom;
                 }

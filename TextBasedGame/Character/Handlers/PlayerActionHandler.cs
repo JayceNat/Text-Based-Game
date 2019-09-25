@@ -156,6 +156,10 @@ namespace TextBasedGame.Character.Handlers
         private static string CreateSubstringOfActionInput(string input, string inputWord)
         {
             var matchingWordLength = inputWord.Length + 1;
+            if (matchingWordLength > input.Length)
+            {
+                return "";
+            }
             var keyword = inputWord.IndexOf(inputWord, StringComparison.OrdinalIgnoreCase);
             var substring = input.Substring(keyword + matchingWordLength);
             return substring;
