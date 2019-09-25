@@ -11,6 +11,8 @@ namespace TextBasedGame.Room.Handlers
 {
     public class RoomHandler
     {
+        // This is the logic for prompting the user for input in the same room (and acting on that input)
+        // until the user enters the next room
         public static Models.Room EnterRoom(Character.Models.Character player, Models.Room room, bool firstRoomEntered = false)
         {
             var redisplayRoomDesc = false;
@@ -56,6 +58,7 @@ namespace TextBasedGame.Room.Handlers
             }
         }
 
+        // Returns a Room that matches the players input keyword
         public static Models.Room FindAnyMatchingRoomByKeywords(string inputSubstring, Models.Room currentRoom)
         {
             if (inputSubstring.Length == 0)
@@ -93,6 +96,7 @@ namespace TextBasedGame.Room.Handlers
             return null;
         }
 
+        // Returns an item in a room by the users input keyword
         public static List<string> GetAllRoomItemKeywords(Models.Room currentRoom)
         {
             IEnumerable<string> itemKeywords = new List<string>();

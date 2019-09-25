@@ -16,9 +16,10 @@ namespace TextBasedGame.Item.Handlers
     {
         private static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
         private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
-        private static readonly IItem Item = new Item.Implementations.Item();
+        private static readonly IItemCreator ItemCreator = new Implementations.ItemCreator();
 
-        public static Tuple<Character.Models.Character, Room.Models.Room> HandleItemAddOrRemove(Character.Models.Character player, Room.Models.Room currentRoom, Models.Items foundItem, bool removeItem = false)
+        public static Tuple<Character.Models.Character, Room.Models.Room> HandleItemAddOrRemove(Character.Models.Character player, 
+            Room.Models.Room currentRoom, Items foundItem, bool removeItem = false)
         {
             switch (removeItem)
             {
@@ -29,9 +30,9 @@ namespace TextBasedGame.Item.Handlers
                         if (player.CarriedItemsCount + 1 <= player.MaximumCarryingCapacity)
                         {
                             player = AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, inventoryItemToAdd);
-                            inventoryItemToAdd = Item.UpdateInventoryItem(inventoryItemToAdd);
+                            inventoryItemToAdd = ItemCreator.UpdateInventoryItem(inventoryItemToAdd);
                             player = CharacterCreator.UpdateCharacter(player, itemToAdd: inventoryItemToAdd, addToCarriedCount: 1);
-                            currentRoom = RoomCreator.UpdateRoom(currentRoom, itemToRemove: inventoryItemToAdd);
+                            currentRoom = RoomCreator.UpdateRoom(currentRoom, currentRoom.RoomEntered, itemToRemove: inventoryItemToAdd);
                             Console.WriteLine();
                             TypingAnimation.Animate("You take the " + inventoryItemToAdd.ItemName + ".\n", Color.ForestGreen);
                         }
@@ -48,9 +49,9 @@ namespace TextBasedGame.Item.Handlers
                         if (string.IsNullOrEmpty(player.WeaponItem.WeaponName))
                         {
                             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
-                            weaponItemToAdd = Item.UpdateWeaponItem(weaponItemToAdd);
+                            weaponItemToAdd = ItemCreator.UpdateWeaponItem(weaponItemToAdd);
                             player = CharacterCreator.UpdateCharacter(player, weapon: weaponItemToAdd);
-                            currentRoom = RoomCreator.UpdateRoom(currentRoom, weaponToRemove: weaponItemToAdd);
+                            currentRoom = RoomCreator.UpdateRoom(currentRoom, currentRoom.RoomEntered, weaponToRemove: weaponItemToAdd);
                             Console.WriteLine();
                             TypingAnimation.Animate("You take the " + weaponItemToAdd.WeaponName + ".\n", Color.ForestGreen);
                         }
@@ -62,7 +63,7 @@ namespace TextBasedGame.Item.Handlers
                             currentRoom = playerAndRoom.Item2;
                             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
                             player = CharacterCreator.UpdateCharacter(player, weapon: weaponItemToAdd);
-                            currentRoom = RoomCreator.UpdateRoom(currentRoom, weaponToRemove: weaponItemToAdd);
+                            currentRoom = RoomCreator.UpdateRoom(currentRoom, currentRoom.RoomEntered, weaponToRemove: weaponItemToAdd);
                             Console.WriteLine();
                             TypingAnimation.Animate("You drop your " + oldWeapon + " for the " + weaponItemToAdd?.WeaponName + ".\n",
                                 Color.ForestGreen);
@@ -96,7 +97,7 @@ namespace TextBasedGame.Item.Handlers
 
         public static Tuple<Character.Models.Character, Room.Models.Room> DropItemInRoom(Character.Models.Character player, Room.Models.Room room, InventoryItem itemToDrop)
         {
-            room = RoomCreator.UpdateRoom(room, itemToAdd: itemToDrop);
+            room = RoomCreator.UpdateRoom(room, room.RoomEntered, itemToAdd: itemToDrop);
             player = AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, itemToDrop, true);
             player = CharacterCreator.UpdateCharacter(player, itemToRemove: itemToDrop, addToCarriedCount: -1);
             return Tuple.Create(player, room);
@@ -104,24 +105,26 @@ namespace TextBasedGame.Item.Handlers
 
         public static Tuple<Character.Models.Character, Room.Models.Room> DropWeaponInRoom(Character.Models.Character player, Room.Models.Room room)
         {
-            room = RoomCreator.UpdateRoom(room, weaponToAdd: player.WeaponItem);
+            room = RoomCreator.UpdateRoom(room, room.RoomEntered, weaponToAdd: player.WeaponItem);
             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, player.WeaponItem, true);
             player = CharacterCreator.UpdateCharacter(player, weapon: new WeaponItem());
             return Tuple.Create(player, room);
         }
 
-        private static Tuple<Character.Models.Character, Room.Models.Room> DropWeaponAndPickupNew(Character.Models.Character player, Room.Models.Room room, WeaponItem weaponToAdd)
+        private static Tuple<Character.Models.Character, Room.Models.Room> DropWeaponAndPickupNew(Character.Models.Character player, 
+            Room.Models.Room room, WeaponItem weaponToAdd)
         {
-            room = RoomCreator.UpdateRoom(room, weaponToAdd: player.WeaponItem);
+            room = RoomCreator.UpdateRoom(room, room.RoomEntered, weaponToAdd: player.WeaponItem);
             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, player.WeaponItem, true);
             player = AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponToAdd);
-            weaponToAdd = Item.UpdateWeaponItem(weaponToAdd);
+            weaponToAdd = ItemCreator.UpdateWeaponItem(weaponToAdd);
             player = CharacterCreator.UpdateCharacter(player, weapon: weaponToAdd);
-            room = RoomCreator.UpdateRoom(room, weaponToRemove: weaponToAdd);
+            room = RoomCreator.UpdateRoom(room, room.RoomEntered, weaponToRemove: weaponToAdd);
             return Tuple.Create(player, room);
         }
 
-        public static Models.Items FindAnyMatchingItemsByKeywords(string inputSubstring, List<string> itemKeywords, Models.Items itemsToSearch)
+        public static Models.Items FindAnyMatchingItemsByKeywords(string inputSubstring, List<string> itemKeywords, 
+            List<InventoryItem> invItemsToSearch, List<WeaponItem> weaponsToSearch)
         {
             if (inputSubstring.Length == 0)
             {
@@ -133,7 +136,7 @@ namespace TextBasedGame.Item.Handlers
                 if (itemKeywords.Contains(word))
                 {
                     Models.Items item;
-                    foreach (var inventoryItem in itemsToSearch.InventoryItems)
+                    foreach (var inventoryItem in invItemsToSearch)
                     {
                         if (inventoryItem.KeywordsForPickup.Contains(word))
                         {
@@ -148,7 +151,7 @@ namespace TextBasedGame.Item.Handlers
                         }
                     }
 
-                    foreach (var weapon in itemsToSearch.WeaponItems)
+                    foreach (var weapon in weaponsToSearch)
                     {
                         if (weapon.KeywordsForPickup.Contains(word))
                         {
@@ -192,7 +195,7 @@ namespace TextBasedGame.Item.Handlers
             return keywords;
         }
 
-        public static bool HandleItemAndUpdatePlayerAndRoom(Character.Models.Character player, Room.Models.Room currentRoom, Models.Items foundItem, bool removeItem = false)
+        public static bool HandleItemAndUpdatePlayerAndRoom(Character.Models.Character player, Room.Models.Room currentRoom, Items foundItem, bool removeItem = false)
         {
             var updatedPlayerAndRoom = removeItem
                 ? HandleItemAddOrRemove(player, currentRoom, foundItem)

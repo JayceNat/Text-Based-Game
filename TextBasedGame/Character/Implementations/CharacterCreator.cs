@@ -6,15 +6,18 @@ namespace TextBasedGame.Character.Implementations
 {
     public class CharacterCreator : ICharacterCreator
     {
+        // Declare all getters for any Characters you will use here
         public Models.Character Player { get; }
         public Models.Character Ghoul { get; }
 
+        // Constructor: Add the reference to all the Attribute Objects here
         public CharacterCreator()
         {
-            Player = Characters.Player;
-            Ghoul = Characters.Ghoul;
+            Player = GameCharacters.Player;
+            Ghoul = GameCharacters.Ghoul;
         }
 
+        // Handles overwriting specific properties of a Character Object 
         public Models.Character UpdateCharacter(Models.Character character, string name = null, CharacterAttribute attributes = null,
             InventoryItem itemToAdd = null, InventoryItem itemToRemove = null, WeaponItem weapon = null, 
             int increaseMaxHealth = 0, int addToHealth = 0, int increaseMaxCarryingCapacity = 0, int addToCarriedCount = 0)

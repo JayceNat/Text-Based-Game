@@ -15,8 +15,10 @@ namespace TextBasedGame.Character.Handlers
     public class PlayerActionHandler
     {
         private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
-        private static readonly IItem Item = new Item.Implementations.Item();
+        private static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
 
+        // This handles any input the player enters inside a room,
+        // and returns the next Room when the player decides to leave the current one
         public static Room.Models.Room HandlePlayerInput(string fullInput, Models.Character player, Room.Models.Room currentRoom)
         {
             var inputWords = fullInput.Split(ConsoleStrings.StringDelimiters);
@@ -37,7 +39,8 @@ namespace TextBasedGame.Character.Handlers
                     case "gather":
                         var roomItemKeywords = RoomHandler.GetAllRoomItemKeywords(currentRoom);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
-                        foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), roomItemKeywords, currentRoom.RoomItems);
+                        foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), roomItemKeywords, 
+                            currentRoom.RoomItems.InventoryItems, currentRoom.RoomItems.WeaponItems);
                         if (foundItem != null)
                         {
                             inputResolved = InventoryHandler.HandleItemAndUpdatePlayerAndRoom(player, currentRoom, foundItem);
@@ -49,7 +52,7 @@ namespace TextBasedGame.Character.Handlers
                         var inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
-                            Item.CreateItemsModel(player.CarriedItems, new List<WeaponItem>() {player.WeaponItem}));
+                            player.CarriedItems, new List<WeaponItem>() {player.WeaponItem});
                         if (foundItem != null)
                         {
                             inputResolved = InventoryHandler.HandleItemAndUpdatePlayerAndRoom(player, currentRoom, foundItem, true);
@@ -153,6 +156,7 @@ namespace TextBasedGame.Character.Handlers
             return null;
         }
 
+        // This returns a substring of remaining words in a player input that followed the first word
         private static string CreateSubstringOfActionInput(string input, string inputWord)
         {
             var matchingWordLength = inputWord.Length + 1;

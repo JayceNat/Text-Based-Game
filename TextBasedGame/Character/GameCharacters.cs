@@ -1,13 +1,14 @@
 ﻿using TextBasedGame.Character.Constants;
 using TextBasedGame.Character.Implementations;
 using TextBasedGame.Character.Interfaces;
-using TextBasedGame.Item.Game_Items;
+using TextBasedGame.Item.Interfaces;
 
 namespace TextBasedGame.Character
 {
-    public class Characters
+    public class GameCharacters
     {
         private static readonly IAttributeCreator AttributeCreator = new AttributeCreator();
+        private static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
 
         public static Models.Character Player = new Models.Character
         {
@@ -24,7 +25,7 @@ namespace TextBasedGame.Character
                            + (CharacterAttributes.StaminaPerPointIncrease * AttributeCreator.GhoulAttributes.Stamina - CharacterAttributes.DefaultValueForAllAttributes),
             Attributes = AttributeCreator.GhoulAttributes,
             MaximumCarryingCapacity = 0,
-            WeaponItem = Weapons.GhoulClaws
+            WeaponItem = ItemCreator.GhoulClaws
         };
     }
 }

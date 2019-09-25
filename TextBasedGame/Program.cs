@@ -16,8 +16,11 @@ namespace TextBasedGame
         {
             var gameTitle = new GameTitle()
             {
+                // TODO: Come up with a cooler title...
                 Title = "Awesome Title!",
                 TitleTextColor = Color.Aqua,
+
+                // TODO: Put your name here...
                 Author = "<Your Name Here!>",
                 AuthorTextColor = Color.CadetBlue
             };
@@ -26,11 +29,14 @@ namespace TextBasedGame
 
             var player = CharacterCreator.Player;
 
+            // Gets the players name
             PlayerSetupHandler.WelcomePlayer(player);
+
+            // User assigns their starting traits 
             PlayerSetupHandler.SetPlayerTraits(player);
 
+            // Game ends once 'BeginAdventure' returns
             GameSetupHandler.BeginAdventure(player, RoomCreator.YourBedroom);
-            //game over
         }
     }
 }

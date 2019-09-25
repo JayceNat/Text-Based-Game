@@ -3,7 +3,7 @@ using TextBasedGame.Character.Models;
 
 namespace TextBasedGame.Character
 {
-    public class Attributes
+    public class GameAttributes
     {
         public static CharacterAttribute PlayerAttributes = new CharacterAttribute
         {

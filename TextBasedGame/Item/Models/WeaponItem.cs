@@ -17,12 +17,10 @@ namespace TextBasedGame.Item.Models
 
         public int AttackPower { get; set; }
 
-        public List<string> KeywordsForPickup { get; set; }
+        public List<string> KeywordsForPickup { get; set; } = new List<string>();
 
-        public List<ItemTrait> WeaponTraits { get; set; }
+        public List<ItemTrait> WeaponTraits { get; set; } = new List<ItemTrait>();
 
-        public bool ViewWeaponHasAttributeRequirement { get; set; }
-
-        public AttributeRequirement WeaponVisibilityAttributeRequirement { get; set; }
+        public AttributeRequirement AttributeRequirementToSee { get; set; } = null;
     }
 }

@@ -15,12 +15,10 @@ namespace TextBasedGame.Item.Models
 
         public string GenericPlacementDescription { get; set; }
 
-        public List<string> KeywordsForPickup { get; set; }
+        public List<string> KeywordsForPickup { get; set; } = new List<string>();
 
-        public List<ItemTrait> ItemTraits { get; set; }
+        public List<ItemTrait> ItemTraits { get; set; } = new List<ItemTrait>();
 
-        public bool ViewItemHasAttributeRequirement { get; set; }
-
-        public AttributeRequirement ItemVisibilityAttributeRequirement { get; set; }
+        public AttributeRequirement AttributeRequirementToSee { get; set; } = null;
     }
 }

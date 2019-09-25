@@ -2,7 +2,6 @@
 using Colorful;
 using TextBasedGame.Game.Models;
 using TextBasedGame.Room.Handlers;
-using TextBasedGame.Room.Interfaces;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Utilities;
 
@@ -10,8 +9,6 @@ namespace TextBasedGame.Game.Handlers
 {
     public class GameSetupHandler
     {
-        private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
-
         public static void DisplayGameTitle(GameTitle gameTitle)
         {
             var font = FigletFont.Default;
@@ -28,6 +25,7 @@ namespace TextBasedGame.Game.Handlers
             Console.Clear();
         }
 
+        // This displays after the user assigns their traits and begins the game
         public static void DisplayGameIntro()
         {
             Console.ReplaceAllColorsWithDefaults();
@@ -43,6 +41,7 @@ namespace TextBasedGame.Game.Handlers
             return TheAdventure(player, room, true);
         }
 
+        // This is the main game loop, and only stops when the player enters a 'null' room
         private static Character.Models.Character TheAdventure(Character.Models.Character player, Room.Models.Room room, bool firstRoomEntered)
         {
             var firstRoom = firstRoomEntered;

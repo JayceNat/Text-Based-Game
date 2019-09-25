@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
-using TextBasedGame.Item.Game_Items;
+using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Models;
 using Items = TextBasedGame.Item.Models.Items;
 
 namespace TextBasedGame.Room
 {
-    public class Rooms
+    public class GameRooms
     {
+        private static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
+
         public static Models.Room YourBedroom = new Models.Room
         {
             RoomName = "Your Bedroom",
@@ -21,11 +23,11 @@ namespace TextBasedGame.Room
             {
                 InventoryItems = new List<InventoryItem>()
                 {
-                    Item.Items.RunningShoes
+                    ItemCreator.RunningShoes
                 },
                 WeaponItems = new List<WeaponItem>()
                 {
-                    Weapons.BaseballBat
+                    ItemCreator.BaseballBat
                 }
             },
             KeywordsToEnter = Constants.RoomKeywords.YourBedroom
@@ -45,10 +47,10 @@ namespace TextBasedGame.Room
             {
                 InventoryItems = new List<InventoryItem>()
                 {
-                    // Book on something about the town you live in (maps?),
+                    // Book on something about the town you live in (maybe a map?),
                     // A lighter next to a candle on the coffee table,
                     // Flashlight,
-                    // Backpack
+                    // Backpack (increases inventory, but need luck > 4 to see it)
                 }
             },
             KeywordsToEnter = Constants.RoomKeywords.YourLivingRoom

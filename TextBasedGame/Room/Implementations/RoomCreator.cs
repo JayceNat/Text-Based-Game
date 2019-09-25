@@ -8,17 +8,20 @@ namespace TextBasedGame.Room.Implementations
 {
     public class RoomCreator : IRoomCreator
     {
+        // Declare all getters for any Rooms you will use here
         public Models.Room YourBedroom { get; }
         public Models.Room YourLivingRoom { get; }
 
+        // Constructor: Add the reference to all the Room Objects here
         public RoomCreator()
         {
-            YourBedroom = Rooms.YourBedroom;
-            YourLivingRoom = Rooms.YourLivingRoom;
+            YourBedroom = GameRooms.YourBedroom;
+            YourLivingRoom = GameRooms.YourLivingRoom;
 
             AddExitsToAllRooms();
         }
 
+        // Handles overwriting specific properties of a Room Object 
         public Models.Room UpdateRoom(Models.Room room, bool roomEntered = false, string initialDescription = null, string genericDescription = null,
             string exitDescription = null, RoomExit availableExits = null, InventoryItem itemToAdd = null, InventoryItem itemToRemove = null,
             WeaponItem weaponToAdd = null, WeaponItem weaponToRemove = null, List<string> keywordsToEnter = null,
@@ -110,6 +113,7 @@ namespace TextBasedGame.Room.Implementations
             return room;
         }
 
+        // Privately used by this class to add the Room references to Rooms Objects as Exit Property
         private void AddExitsToAllRooms()
         {
             UpdateRoom(YourBedroom, availableExits: new RoomExit() { NorthRoom = YourLivingRoom });
