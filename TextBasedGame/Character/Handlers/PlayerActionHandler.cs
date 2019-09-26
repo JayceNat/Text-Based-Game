@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using TextBasedGame.Item.Handlers;
-using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Handlers;
-using TextBasedGame.Room.Interfaces;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Utilities;
 using Console = Colorful.Console;
@@ -14,9 +12,6 @@ namespace TextBasedGame.Character.Handlers
 {
     public class PlayerActionHandler
     {
-        private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
-        private static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
-
         // This handles any input the player enters inside a room,
         // and returns the next Room when the player decides to leave the current one
         public static Room.Models.Room HandlePlayerInput(string fullInput, Models.Character player, Room.Models.Room currentRoom)
@@ -74,10 +69,15 @@ namespace TextBasedGame.Character.Handlers
                             Console.ReadLine();
                             if (!currentRoom.RoomEntered)
                             {
-                                RoomCreator.UpdateRoom(currentRoom, true);
+                                Program.RoomCreator.UpdateRoom(currentRoom, true);
                             }
                             return foundRoom;
                         }
+                        break;
+                    case "fight":
+                    case "kill":
+                    case "attack":
+                        // TODO: Implement the combat system if an enemy is in the room...
                         break;
                     case "item":
                     case "items":

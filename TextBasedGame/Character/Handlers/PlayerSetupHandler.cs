@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using Colorful;
 using TextBasedGame.Character.Constants;
-using TextBasedGame.Character.Interfaces;
 using TextBasedGame.Character.Models;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Utilities;
@@ -10,8 +9,6 @@ namespace TextBasedGame.Character.Handlers
 {
     public class PlayerSetupHandler
     {
-        private static readonly ICharacterCreator CharacterCreator = new Implementations.CharacterCreator();
-
         // Gets the player's name from input and stores it to the player object
         public static void WelcomePlayer(Models.Character player)
         {
@@ -22,7 +19,7 @@ namespace TextBasedGame.Character.Handlers
                 var input = Console.ReadLine().Trim();
                 if (!string.IsNullOrWhiteSpace(input))
                 {
-                    CharacterCreator.UpdateCharacter(player, name: input[0].ToString().ToUpper() + input.Substring(1));
+                    Program.CharacterCreator.UpdateCharacter(player, input[0].ToString().ToUpper() + input.Substring(1));
                 }
                 Console.Clear();
             }
@@ -142,7 +139,7 @@ namespace TextBasedGame.Character.Handlers
                 }
             }
 
-            CharacterCreator.UpdateCharacter(player,
+            Program.CharacterCreator.UpdateCharacter(player,
                 increaseMaximumHealth: CharacterAttributes.StaminaPerPointIncrease 
                                        * (pendingPlayerAttributes.Stamina - CharacterAttributes.DefaultValueForAllAttributes),
                 attributes: pendingPlayerAttributes);

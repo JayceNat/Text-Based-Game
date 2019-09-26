@@ -3,6 +3,7 @@ using TextBasedGame.Character.Handlers;
 using TextBasedGame.Character.Interfaces;
 using TextBasedGame.Game.Handlers;
 using TextBasedGame.Game.Models;
+using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Room.Interfaces;
 
 namespace TextBasedGame
@@ -10,11 +11,15 @@ namespace TextBasedGame
     internal class Program
     {
         // These will build/create our Character and Room objects from GameCharacters.cs and GameRooms.cs
-        private static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
-        private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
+        public static readonly IItemTraitCreator ItemTraitCreator = new Item.Implementations.ItemTraitCreator();
+        public static readonly IAttributeCreator AttributeCreator = new Character.Implementations.AttributeCreator();
+        public static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
+        public static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
+        public static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
+        
 
         // This is the Entry Point for the entire Game (the console application)
-        private static void Main(string[] args)
+        private static void Main()
         {
             var gameTitle = new GameTitle()
             {

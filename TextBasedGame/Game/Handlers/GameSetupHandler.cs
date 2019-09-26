@@ -35,14 +35,14 @@ namespace TextBasedGame.Game.Handlers
             Console.ReadLine();
         }
 
-        public static Character.Models.Character BeginAdventure(Character.Models.Character player, Room.Models.Room room)
+        public static void BeginAdventure(Character.Models.Character player, Room.Models.Room room)
         {
             DisplayGameIntro();
-            return TheAdventure(player, room, true);
+            TheAdventure(player, room, true);
         }
 
         // This is the main game loop, and only stops when the player enters a 'null' room
-        private static Character.Models.Character TheAdventure(Character.Models.Character player, Room.Models.Room room, bool firstRoomEntered)
+        private static void TheAdventure(Character.Models.Character player, Room.Models.Room room, bool firstRoomEntered)
         {
             var firstRoom = firstRoomEntered;
             var currentRoom = room;
@@ -55,8 +55,6 @@ namespace TextBasedGame.Game.Handlers
                     break;
                 }
             }
-
-            return player;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace TextBasedGame.Room.Handlers
                 else
                 {
                     TypingAnimation.Animate(room.RoomEntered ? room.GenericRoomDescription : room.InitialRoomDescription,
-                        Color.Bisque, 30);
+                        Color.Bisque);
                 }
 
                 Thread.Sleep(50);
