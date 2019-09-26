@@ -7,11 +7,11 @@ namespace TextBasedGame.Character.Handlers
     public class AttributeHandler
     {
         // When a user picks up or drops an inventory item, adjusts their attributes accordingly
-        public static Models.Character UpdatePlayerAttributesFromInventoryItem(Models.Character player,
+        public static void UpdatePlayerAttributesFromInventoryItem(Models.Character player,
             InventoryItem newInventoryItem, bool removeAttributes = false)
         {
             var newAttributes = player.Attributes;
-            if (newInventoryItem?.ItemTraits == null) return player;
+            if (newInventoryItem?.ItemTraits == null) return;
             foreach (var trait in newInventoryItem.ItemTraits)
             {
                 if (!removeAttributes)
@@ -23,15 +23,13 @@ namespace TextBasedGame.Character.Handlers
                     RemoveCharacterAttributesByTrait(player, trait, newAttributes);
                 }
             }
-
-            return player;
         }
 
         // When a user picks up or drops a weapon item, adjusts their attributes accordingly
-        public static Models.Character UpdatePlayerAttributesFromWeaponItem(Models.Character player, WeaponItem newWeaponItem, bool removeAttributes = false)
+        public static void UpdatePlayerAttributesFromWeaponItem(Models.Character player, WeaponItem newWeaponItem, bool removeAttributes = false)
         {
             var newAttributes = player.Attributes;
-            if (newWeaponItem?.WeaponTraits == null) return player;
+            if (newWeaponItem?.WeaponTraits == null) return;
             foreach (var trait in newWeaponItem.WeaponTraits)
             {
                 if (!removeAttributes)
@@ -43,8 +41,6 @@ namespace TextBasedGame.Character.Handlers
                     RemoveCharacterAttributesByTrait(player, trait, newAttributes);
                 }
             }
-
-            return player;
         }
 
         // Helper used by the two methods above

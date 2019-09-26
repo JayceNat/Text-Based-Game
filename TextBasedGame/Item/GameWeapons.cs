@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
 using TextBasedGame.Item.Constants;
-using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Item
 {
     public class GameWeapons
     {
-        private static readonly IItemTraitCreator ItemTraitCreator = new Implementations.ItemTraitCreator();
-
         // This is where all Weapon Items for the game are defined/instantiated
         // Note: These should only ever be referenced by the ItemCreator
 
@@ -23,7 +20,7 @@ namespace TextBasedGame.Item
             KeywordsForPickup = ItemKeywords.BaseballBat,
             WeaponTraits = new List<ItemTrait>()
             {
-                ItemTraitCreator.DefensePlusOne
+                Program.ItemTraitCreator.DefensePlusOne
             }
         };
 

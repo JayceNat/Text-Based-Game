@@ -30,7 +30,7 @@ namespace TextBasedGame.Item.Implementations
         // Will handle overwriting specific properties of an InventoryItem Object 
         public InventoryItem UpdateInventoryItem(InventoryItem item, string name = null, string description = null,
             string genericPlacementDescription = null, string placementDescription = null, List<string> keywordsForPickup = null, 
-            Models.ItemTrait traitToAdd = null, bool inOriginalLocation = false, AttributeRequirement attrRequirementToView = null)
+            ItemTrait traitToAdd = null, bool inOriginalLocation = false, AttributeRequirement attrRequirementToView = null)
         {
             if (name != null)
             {
@@ -75,7 +75,7 @@ namespace TextBasedGame.Item.Implementations
         // Will handle overwriting specific properties of a WeaponItem Object 
         public WeaponItem UpdateWeaponItem(WeaponItem weapon, string name = null, string description = null, string placementDescription = null,
             string genericPlacementDescription = null, int addToAttackPower = 0, List<string> keywordsForPickup = null, 
-            Models.ItemTrait traitToAdd = null, bool inOriginalLocation = false, AttributeRequirement attrRequirementToView = null)
+            ItemTrait traitToAdd = null, bool inOriginalLocation = false, AttributeRequirement attrRequirementToView = null)
         {
             if (name != null)
             {

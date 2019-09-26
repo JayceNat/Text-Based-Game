@@ -38,7 +38,8 @@ namespace TextBasedGame.Character.Handlers
                             currentRoom.RoomItems.InventoryItems, currentRoom.RoomItems.WeaponItems);
                         if (foundItem != null)
                         {
-                            inputResolved = InventoryHandler.HandleItemAndUpdatePlayerAndRoom(player, currentRoom, foundItem);
+                            InventoryHandler.HandleItemAddOrRemove(player, currentRoom, foundItem, true);
+                            inputResolved = true;
                         }
                         break;
                     case "drop":
@@ -50,7 +51,8 @@ namespace TextBasedGame.Character.Handlers
                             player.CarriedItems, new List<WeaponItem>() {player.WeaponItem});
                         if (foundItem != null)
                         {
-                            inputResolved = InventoryHandler.HandleItemAndUpdatePlayerAndRoom(player, currentRoom, foundItem, true);
+                            InventoryHandler.HandleItemAddOrRemove(player, currentRoom, foundItem);
+                            inputResolved = true;
                         }
                         break;
                     case "go":

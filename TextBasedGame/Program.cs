@@ -10,7 +10,8 @@ namespace TextBasedGame
 {
     internal class Program
     {
-        // These will build/create our Character and Room objects from GameCharacters.cs and GameRooms.cs
+        // These will build/create our Trait, Attr, Item, Character and Room objects from Game*.cs files
+        // The order here is important, as some objects depend on others to already exist
         public static readonly IItemTraitCreator ItemTraitCreator = new Item.Implementations.ItemTraitCreator();
         public static readonly IAttributeCreator AttributeCreator = new Character.Implementations.AttributeCreator();
         public static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();

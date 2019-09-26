@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
 using TextBasedGame.Item.Constants;
-using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Item
 {
     public class GameItems
     {
-        private static readonly IItemTraitCreator ItemTraitCreator = new Implementations.ItemTraitCreator();
-
         // This is where all Inventory Items for the game are defined/instantiated
         // Note: These should only ever be referenced by the ItemCreator
 
@@ -22,7 +19,7 @@ namespace TextBasedGame.Item
             KeywordsForPickup = ItemKeywords.Flashlight,
             ItemTraits = new List<ItemTrait>()
             {
-                ItemTraitCreator.BatteryPercentage
+                Program.ItemTraitCreator.BatteryPercentage
             }
         };
 
@@ -36,7 +33,7 @@ namespace TextBasedGame.Item
             KeywordsForPickup = ItemKeywords.Shoes,
             ItemTraits = new List<ItemTrait>()
             {
-                ItemTraitCreator.LuckPlusOne
+                Program.ItemTraitCreator.LuckPlusOne
             }
         };
     }
