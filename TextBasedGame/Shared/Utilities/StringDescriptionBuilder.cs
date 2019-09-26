@@ -17,11 +17,11 @@ namespace TextBasedGame.Shared.Utilities
                 {
                     if (item.InOriginalLocation)
                     {
-                        itemDescriptions += item.OriginalPlacementDescription + '\n';
+                        itemDescriptions += item.OriginalPlacementDescription + "\n\n";
                     }
                     else
                     {
-                        itemDescriptions += item.GenericPlacementDescription + "\n";
+                        itemDescriptions += item.GenericPlacementDescription + "\n\n";
                     }
                 }
             }
@@ -40,11 +40,11 @@ namespace TextBasedGame.Shared.Utilities
                 {
                     if (weapon.InOriginalLocation)
                     {
-                        weaponDescriptions += weapon.OriginalPlacementDescription + '\n';
+                        weaponDescriptions += weapon.OriginalPlacementDescription + "\n\n";
                     }
                     else
                     {
-                        weaponDescriptions += weapon.GenericPlacementDescription + '\n';
+                        weaponDescriptions += weapon.GenericPlacementDescription + "\n\n";
                     }
                 }
             }
@@ -59,22 +59,22 @@ namespace TextBasedGame.Shared.Utilities
 
             if (roomExits?.NorthRoom != null)
             {
-                allRoomExits += roomExits.NorthRoom.AsExitDescription + '\n';
+                allRoomExits += roomExits.NorthRoom.AsExitDescription + "\n\n";
             }
 
             if (roomExits?.EastRoom != null)
             {
-                allRoomExits += roomExits.EastRoom.AsExitDescription + '\n';
+                allRoomExits += roomExits.EastRoom.AsExitDescription + "\n\n";
             }
 
             if (roomExits?.SouthRoom != null)
             {
-                allRoomExits += roomExits.SouthRoom.AsExitDescription + '\n';
+                allRoomExits += roomExits.SouthRoom.AsExitDescription + "\n\n";
             }
 
             if (roomExits?.WestRoom != null)
             {
-                allRoomExits += roomExits.WestRoom.AsExitDescription + '\n';
+                allRoomExits += roomExits.WestRoom.AsExitDescription + "\n\n";
             }
 
             return allRoomExits;

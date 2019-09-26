@@ -38,7 +38,7 @@ namespace TextBasedGame.Item
 
         public static ItemTrait CarriedItemCountMinusOne = new ItemTrait
         {
-            TraitName = "This item does not consume an inventory space.",
+            TraitName = "This item does not consume inventory space.",
             RelevantCharacterAttribute = AttributeStrings.CarriedItemsCount,
             TraitValue = -1
         };

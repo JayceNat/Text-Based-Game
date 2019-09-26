@@ -19,7 +19,7 @@ namespace TextBasedGame.Character.Handlers
                 var input = Console.ReadLine().Trim();
                 if (!string.IsNullOrWhiteSpace(input))
                 {
-                    Program.CharacterCreator.UpdateCharacter(player, input[0].ToString().ToUpper() + input.Substring(1));
+                    player.Name = input[0].ToString().ToUpper() + input.Substring(1);
                 }
                 Console.Clear();
             }
@@ -139,10 +139,12 @@ namespace TextBasedGame.Character.Handlers
                 }
             }
 
-            Program.CharacterCreator.UpdateCharacter(player,
-                increaseMaximumHealth: CharacterDefaults.StaminaPerPointIncrease 
-                                       * (pendingPlayerAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
-                attributes: pendingPlayerAttributes);
+            var healthIncrease = CharacterDefaults.StaminaPerPointIncrease
+                                 * (pendingPlayerAttributes.Stamina -
+                                    CharacterDefaults.DefaultValueForAllAttributes);
+            player.Attributes = pendingPlayerAttributes;
+            player.MaximumHealthPoints += healthIncrease;
+            player.HealthPoints += healthIncrease;
         }
 
         // Stores the user's attribute choices in the player object -> attribute property
