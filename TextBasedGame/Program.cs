@@ -9,9 +9,11 @@ namespace TextBasedGame
 {
     internal class Program
     {
+        // These will build/create our Character and Room objects from GameCharacters.cs and GameRooms.cs
         private static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
         private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
 
+        // This is the Entry Point for the entire Game (the console application)
         private static void Main(string[] args)
         {
             var gameTitle = new GameTitle()
@@ -25,14 +27,16 @@ namespace TextBasedGame
                 AuthorTextColor = Color.CadetBlue
             };
 
+            // Helper to pretty up and print the above variable
             GameSetupHandler.DisplayGameTitle(gameTitle);
 
+            // This calls the Interface to { get; } a reference to our Player object we built earlier
             var player = CharacterCreator.Player;
 
-            // Gets the players name
+            // Gets the players name from console input
             PlayerSetupHandler.WelcomePlayer(player);
 
-            // User assigns their starting traits 
+            // User assigns their starting traits
             PlayerSetupHandler.SetPlayerTraits(player);
 
             // Game ends once 'BeginAdventure' returns

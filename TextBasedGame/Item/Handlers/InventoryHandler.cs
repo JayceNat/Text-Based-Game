@@ -18,11 +18,13 @@ namespace TextBasedGame.Item.Handlers
         private static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
         private static readonly IItemCreator ItemCreator = new Implementations.ItemCreator();
 
+        // This updates the room and/or player when the exchange of an item occurs
         public static Tuple<Character.Models.Character, Room.Models.Room> HandleItemAddOrRemove(Character.Models.Character player, 
             Room.Models.Room currentRoom, Items foundItem, bool removeItem = false)
         {
             switch (removeItem)
             {
+                // We are removing an item from a room, adding it to player inventory
                 case true:
                     if (foundItem?.InventoryItems != null)
                     {
@@ -72,6 +74,7 @@ namespace TextBasedGame.Item.Handlers
 
                     break;
 
+                // We are adding an item to a room, removing/dropping it from player inventory
                 case false:
                     if (foundItem?.InventoryItems != null)
                     {

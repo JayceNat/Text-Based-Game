@@ -113,7 +113,7 @@ namespace TextBasedGame.Room.Implementations
             return room;
         }
 
-        // Privately used by this class to add the Room references to Rooms Objects as Exit Property
+        // Privately used by this class to add the Room references to Room Objects as the Exit Property
         private void AddExitsToAllRooms()
         {
             UpdateRoom(YourBedroom, availableExits: new RoomExit() { NorthRoom = YourLivingRoom });

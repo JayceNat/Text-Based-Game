@@ -6,6 +6,7 @@ namespace TextBasedGame.Shared.Utilities
 {
     public class StringDescriptionBuilder
     {
+        // Used when user types 'items' or similar command
         public static string CreateStringOfItemDescriptions(List<InventoryItem> roomItems)
         {
             var itemDescriptions = "";
@@ -28,6 +29,7 @@ namespace TextBasedGame.Shared.Utilities
             return itemDescriptions;
         }
 
+        // Used when user types 'weapons' or similar command
         public static string CreateStringOfWeaponDescriptions(List<WeaponItem> roomWeapons)
         {
             var weaponDescriptions = "";
@@ -50,6 +52,7 @@ namespace TextBasedGame.Shared.Utilities
             return weaponDescriptions;
         }
 
+        // Used when user types 'exits' or similar command
         public static string CreateStringOfExitDescriptions(RoomExit roomExits)
         {
             var allRoomExits = "";
@@ -77,6 +80,7 @@ namespace TextBasedGame.Shared.Utilities
             return allRoomExits;
         }
 
+        // Used when user types 'inventory' or similar command
         public static string CreateStringOfPlayerInventory(Character.Models.Character player, bool displayDescription)
         {
             var weaponName = player.WeaponItem?.WeaponName;
@@ -127,6 +131,7 @@ namespace TextBasedGame.Shared.Utilities
             return inventory;
         }
 
+        // Used when user types 'status' or similar command
         public static string CreateStringOfPlayerInfo(Character.Models.Character player)
         {
             return player.Name + "'s Status: \n" +

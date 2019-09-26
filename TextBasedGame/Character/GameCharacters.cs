@@ -10,6 +10,9 @@ namespace TextBasedGame.Character
         private static readonly IAttributeCreator AttributeCreator = new AttributeCreator();
         private static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
 
+        // This is where all Characters for the game are defined/instantiated
+        // Note: These should only ever be referenced by the CharacterCreator
+
         public static Models.Character Player = new Models.Character
         {
             Name = null,

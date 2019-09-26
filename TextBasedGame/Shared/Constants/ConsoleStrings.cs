@@ -4,6 +4,7 @@ namespace TextBasedGame.Shared.Constants
 {
     public class ConsoleStrings
     {
+        // Used to split up user input into words
         public static char[] StringDelimiters =
         {
             ' ', ',', '.', ':', '\t'
@@ -28,6 +29,7 @@ namespace TextBasedGame.Shared.Constants
             'd', 'o', '?'
         };
 
+        // Printed just after the user completes trait setup, before first room entered
         public static string GameIntro = "It was a dark and stormy night... \n";
 
         public static string FirstRoomHelpHint =

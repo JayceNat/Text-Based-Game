@@ -9,6 +9,7 @@ namespace TextBasedGame.Character.Handlers
     {
         private static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
 
+        // When a user picks up or drops an inventory item, adjusts their attributes accordingly
         public static Models.Character UpdatePlayerAttributesFromInventoryItem(Models.Character player,
             InventoryItem newInventoryItem, bool removeAttributes = false)
         {
@@ -29,6 +30,7 @@ namespace TextBasedGame.Character.Handlers
             return player;
         }
 
+        // When a user picks up or drops a weapon item, adjusts their attributes accordingly
         public static Models.Character UpdatePlayerAttributesFromWeaponItem(Models.Character player, WeaponItem newWeaponItem, bool removeAttributes = false)
         {
             var newAttributes = player.Attributes;
@@ -48,6 +50,7 @@ namespace TextBasedGame.Character.Handlers
             return player;
         }
 
+        // Helper used by the two methods above
         public static void AddCharacterAttributesByTrait(Models.Character player, ItemTrait trait,
             CharacterAttribute newAttributes)
         {
@@ -81,6 +84,7 @@ namespace TextBasedGame.Character.Handlers
             }
         }
 
+        // Helper used by the two methods above
         public static void RemoveCharacterAttributesByTrait(Models.Character player, ItemTrait trait,
             CharacterAttribute newAttributes)
         {

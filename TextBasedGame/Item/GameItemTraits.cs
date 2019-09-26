@@ -5,6 +5,9 @@ namespace TextBasedGame.Item
 {
     public class GameItemTraits
     {
+        // This is where all Traits for the game are defined/instantiated
+        // Note: These should only ever be referenced by the ItemTraitCreator
+
         public static ItemTrait BatteryPercentage = new ItemTrait
         {
             TraitName = "Battery Percentage",

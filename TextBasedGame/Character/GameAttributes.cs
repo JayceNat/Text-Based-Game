@@ -5,6 +5,9 @@ namespace TextBasedGame.Character
 {
     public class GameAttributes
     {
+        // This is where all Character Attributes for the game are defined/instantiated
+        // Note: These should only ever be referenced by the AttributeCreator
+
         public static CharacterAttribute PlayerAttributes = new CharacterAttribute
         {
             AvailablePoints = CharacterAttributes.DefaultPointsToSpend,

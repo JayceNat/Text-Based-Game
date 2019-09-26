@@ -9,6 +9,9 @@ namespace TextBasedGame.Item
     {
         private static readonly IItemTraitCreator ItemTraitCreator = new Implementations.ItemTraitCreator();
 
+        // This is where all Weapon Items for the game are defined/instantiated
+        // Note: These should only ever be referenced by the ItemCreator
+
         public static WeaponItem BaseballBat = new WeaponItem
         {
             WeaponName = "Baseball Bat",

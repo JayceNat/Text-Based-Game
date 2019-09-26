@@ -12,6 +12,7 @@ namespace TextBasedGame.Character.Handlers
     {
         private static readonly ICharacterCreator CharacterCreator = new Implementations.CharacterCreator();
 
+        // Gets the player's name from input and stores it to the player object
         public static void WelcomePlayer(Models.Character player)
         {
             while (player.Name == null)
@@ -40,6 +41,7 @@ namespace TextBasedGame.Character.Handlers
             Console.Clear();
         }
 
+        // Continuously asks user for a trait to add a point to until all available point are spent
         public static void SetPlayerTraits(Models.Character player)
         {
             var pendingPlayerAttributes = player.Attributes;
@@ -146,6 +148,7 @@ namespace TextBasedGame.Character.Handlers
                 attributes: pendingPlayerAttributes);
         }
 
+        // Stores the user's attribute choices in the player object -> attribute property
         private static Models.CharacterAttribute UpdateCharacterAttributesByInput(CharacterAttribute attributes, string userInput)
         {
             var validInput = true;

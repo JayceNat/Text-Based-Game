@@ -15,7 +15,7 @@ namespace TextBasedGame.Item.Implementations
         public WeaponItem BaseballBat { get; }
         public WeaponItem GhoulClaws { get; }
 
-        // Add the reference to all the Item/Weapon Objects here
+        // Constructor: Add the reference to all the Item/Weapon Objects here
         public ItemCreator()
         {
             // Inventory Items

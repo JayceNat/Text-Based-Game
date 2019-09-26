@@ -10,6 +10,9 @@ namespace TextBasedGame.Room
     {
         private static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
 
+        // This is where all Rooms for the game are defined/instantiated
+        // Note: These should only ever be referenced by the RoomCreator
+
         public static Models.Room YourBedroom = new Models.Room
         {
             RoomName = "Your Bedroom",
