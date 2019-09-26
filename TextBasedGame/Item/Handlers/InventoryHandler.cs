@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using TextBasedGame.Character.Handlers;
-using TextBasedGame.Character.Interfaces;
-using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
-using TextBasedGame.Room.Interfaces;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Utilities;
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TextBasedGame.Item.Interfaces;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Models;
 using Items = TextBasedGame.Item.Models.Items;
@@ -8,8 +7,6 @@ namespace TextBasedGame.Room
 {
     public class GameRooms
     {
-        private static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
-
         // This is where all Rooms for the game are defined/instantiated
         // Note: These should only ever be referenced by the RoomCreator
 
@@ -26,11 +23,11 @@ namespace TextBasedGame.Room
             {
                 InventoryItems = new List<InventoryItem>()
                 {
-                    ItemCreator.RunningShoes
+                    Program.ItemCreator.RunningShoes
                 },
                 WeaponItems = new List<WeaponItem>()
                 {
-                    ItemCreator.BaseballBat
+                    Program.ItemCreator.BaseballBat
                 }
             },
             KeywordsToEnter = Constants.RoomKeywords.YourBedroom

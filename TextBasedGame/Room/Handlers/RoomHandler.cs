@@ -47,11 +47,11 @@ namespace TextBasedGame.Room.Handlers
                 Console.Write("> ");
                 var playerInput = Console.ReadLine();
                 var nextRoom = PlayerActionHandler.HandlePlayerInput(playerInput.ToLower(), player, room);
+
                 if (nextRoom == null)
                 {
                     redisplayRoomDesc = true;
                 }
-
                 else
                 {
                     return nextRoom;

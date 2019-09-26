@@ -1,7 +1,4 @@
 ﻿using TextBasedGame.Character.Constants;
-using TextBasedGame.Character.Implementations;
-using TextBasedGame.Character.Interfaces;
-using TextBasedGame.Item.Interfaces;
 
 namespace TextBasedGame.Character
 {

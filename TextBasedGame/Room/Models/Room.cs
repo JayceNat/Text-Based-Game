@@ -18,9 +18,9 @@ namespace TextBasedGame.Room.Models
 
         public RoomExit AvailableExits { get; set; }
 
-        public Items RoomItems { get; set; }
+        public Items RoomItems { get; set; } = new Items();
 
-        public List<string> KeywordsToEnter { get; set; }
+        public List<string> KeywordsToEnter { get; set; } = new List<string>();
 
         public AttributeRequirement AttributeRequirementToSee { get; set; } = null;
 
