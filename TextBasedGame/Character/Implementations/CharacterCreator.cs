@@ -1,6 +1,4 @@
 ﻿using TextBasedGame.Character.Interfaces;
-using TextBasedGame.Character.Models;
-using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Character.Implementations
 {

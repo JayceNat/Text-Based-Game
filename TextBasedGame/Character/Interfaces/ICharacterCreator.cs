@@ -1,7 +1,4 @@
-﻿using TextBasedGame.Character.Models;
-using TextBasedGame.Item.Models;
-
-namespace TextBasedGame.Character.Interfaces
+﻿namespace TextBasedGame.Character.Interfaces
 {
     public interface ICharacterCreator
     {
