@@ -10,18 +10,20 @@ namespace TextBasedGame.Character
 
         public static CharacterAttribute PlayerAttributes = new CharacterAttribute
         {
-            AvailablePoints = CharacterAttributes.DefaultPointsToSpend,
-            Defense = CharacterAttributes.DefaultValueForAllAttributes,
-            Dexterity = CharacterAttributes.DefaultValueForAllAttributes,
-            Luck = CharacterAttributes.DefaultValueForAllAttributes,
-            Stamina = CharacterAttributes.DefaultValueForAllAttributes,
-            Strength = CharacterAttributes.DefaultValueForAllAttributes,
-            Wisdom = CharacterAttributes.DefaultValueForAllAttributes
+            AvailablePoints = CharacterDefaults.DefaultPointsToSpend,
+            MaximumCarryingCapacity = CharacterDefaults.DefaultMaximumCarryingCapacity,
+            Defense = CharacterDefaults.DefaultValueForAllAttributes,
+            Dexterity = CharacterDefaults.DefaultValueForAllAttributes,
+            Luck = CharacterDefaults.DefaultValueForAllAttributes,
+            Stamina = CharacterDefaults.DefaultValueForAllAttributes,
+            Strength = CharacterDefaults.DefaultValueForAllAttributes,
+            Wisdom = CharacterDefaults.DefaultValueForAllAttributes
         };
 
         public static CharacterAttribute GhoulAttributes = new CharacterAttribute
         {
             AvailablePoints = 0,
+            MaximumCarryingCapacity = 0,
             Defense = 7,
             Dexterity = 4,
             Luck = 6,

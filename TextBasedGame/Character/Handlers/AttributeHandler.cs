@@ -10,17 +10,16 @@ namespace TextBasedGame.Character.Handlers
         public static void UpdatePlayerAttributesFromInventoryItem(Models.Character player,
             InventoryItem newInventoryItem, bool removeAttributes = false)
         {
-            var newAttributes = player.Attributes;
             if (newInventoryItem?.ItemTraits == null) return;
             foreach (var trait in newInventoryItem.ItemTraits)
             {
-                if (!removeAttributes)
+                if (removeAttributes)
                 {
-                    AddCharacterAttributesByTrait(player, trait, newAttributes);
+                    RemoveCharacterAttributesByTrait(player, trait);
                 }
                 else
                 {
-                    RemoveCharacterAttributesByTrait(player, trait, newAttributes);
+                    AddCharacterAttributesByTrait(player, trait);
                 }
             }
         }
@@ -28,85 +27,84 @@ namespace TextBasedGame.Character.Handlers
         // When a user picks up or drops a weapon item, adjusts their attributes accordingly
         public static void UpdatePlayerAttributesFromWeaponItem(Models.Character player, WeaponItem newWeaponItem, bool removeAttributes = false)
         {
-            var newAttributes = player.Attributes;
             if (newWeaponItem?.WeaponTraits == null) return;
             foreach (var trait in newWeaponItem.WeaponTraits)
             {
-                if (!removeAttributes)
+                if (removeAttributes)
                 {
-                    AddCharacterAttributesByTrait(player, trait, newAttributes);
+                    RemoveCharacterAttributesByTrait(player, trait);
                 }
                 else
                 {
-                    RemoveCharacterAttributesByTrait(player, trait, newAttributes);
+                    AddCharacterAttributesByTrait(player, trait);
                 }
             }
         }
 
         // Helper used by the two methods above
-        public static void AddCharacterAttributesByTrait(Models.Character player, ItemTrait trait,
-            CharacterAttribute newAttributes)
+        public static void AddCharacterAttributesByTrait(Models.Character player, ItemTrait trait)
         {
             switch (trait.RelevantCharacterAttribute)
             {
-                case CharacterAttributes.Defense:
-                    newAttributes.Defense += trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Defense:
+                    player.Attributes.Defense += trait.TraitValue;
                     break;
-                case CharacterAttributes.Dexterity:
-                    newAttributes.Dexterity += trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Dexterity:
+                    player.Attributes.Dexterity += trait.TraitValue;
                     break;
-                case CharacterAttributes.Luck:
-                    newAttributes.Luck += trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Luck:
+                    player.Attributes.Luck += trait.TraitValue;
                     break;
-                case CharacterAttributes.Stamina:
-                    newAttributes.Stamina += trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes,
-                        increaseMaximumHealth: CharacterAttributes.StaminaPerPointIncrease * trait.TraitValue);
+                case AttributeStrings.Stamina:
+                    player.Attributes.Stamina += trait.TraitValue;
+                    player.MaximumHealthPoints += CharacterDefaults.StaminaPerPointIncrease * trait.TraitValue;
+                    player.HealthPoints += CharacterDefaults.StaminaPerPointIncrease * trait.TraitValue;
                     break;
-                case CharacterAttributes.Strength:
-                    newAttributes.Strength += trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Strength:
+                    player.Attributes.Strength += trait.TraitValue;
                     break;
-                case CharacterAttributes.Wisdom:
-                    newAttributes.Wisdom += trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Wisdom:
+                    player.Attributes.Wisdom += trait.TraitValue;
+                    break;
+                case AttributeStrings.MaxCarryingCapacity:
+                    player.Attributes.MaximumCarryingCapacity += trait.TraitValue;
+                    break;
+                case AttributeStrings.CarriedItemsCount:
+                    player.Attributes.CarriedItemsCount += trait.TraitValue;
                     break;
             }
         }
 
         // Helper used by the two methods above
-        public static void RemoveCharacterAttributesByTrait(Models.Character player, ItemTrait trait,
-            CharacterAttribute newAttributes)
+        public static void RemoveCharacterAttributesByTrait(Models.Character player, ItemTrait trait)
         {
             switch (trait.RelevantCharacterAttribute)
             {
-                case CharacterAttributes.Defense:
-                    newAttributes.Defense -= trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Defense:
+                    player.Attributes.Defense -= trait.TraitValue;
                     break;
-                case CharacterAttributes.Dexterity:
-                    newAttributes.Dexterity -= trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Dexterity:
+                    player.Attributes.Dexterity -= trait.TraitValue;
                     break;
-                case CharacterAttributes.Luck:
-                    newAttributes.Luck -= trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Luck:
+                    player.Attributes.Luck -= trait.TraitValue;
                     break;
-                case CharacterAttributes.Stamina:
-                    newAttributes.Stamina -= trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes,
-                        increaseMaximumHealth: -(CharacterAttributes.StaminaPerPointIncrease * trait.TraitValue));
+                case AttributeStrings.Stamina:
+                    player.Attributes.Stamina -= trait.TraitValue;
+                    player.MaximumHealthPoints -= CharacterDefaults.StaminaPerPointIncrease * trait.TraitValue;
+                    player.HealthPoints -= CharacterDefaults.StaminaPerPointIncrease * trait.TraitValue;
                     break;
-                case CharacterAttributes.Strength:
-                    newAttributes.Strength -= trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Strength:
+                    player.Attributes.Strength -= trait.TraitValue;
                     break;
-                case CharacterAttributes.Wisdom:
-                    newAttributes.Wisdom -= trait.TraitValue;
-                    Program.CharacterCreator.UpdateCharacter(player, attributes: newAttributes);
+                case AttributeStrings.Wisdom:
+                    player.Attributes.Wisdom -= trait.TraitValue;
+                    break;
+                case AttributeStrings.MaxCarryingCapacity:
+                    player.Attributes.MaximumCarryingCapacity -= trait.TraitValue;
+                    break;
+                case AttributeStrings.CarriedItemsCount:
+                    player.Attributes.CarriedItemsCount -= trait.TraitValue;
                     break;
             }
         }

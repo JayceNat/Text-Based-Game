@@ -10,23 +10,39 @@ namespace TextBasedGame.Item
 
         public static ItemTrait BatteryPercentage = new ItemTrait
         {
-            TraitName = "Battery Percentage",
+            TraitName = $"Battery Percentage - {BatteryValue}",
             RelevantCharacterAttribute = "",
-            TraitValue = 100
+            TraitValue = BatteryValue
         };
 
         public static ItemTrait DefensePlusOne = new ItemTrait
         {
             TraitName = "Defense + (1)!",
-            RelevantCharacterAttribute = CharacterAttributes.Defense,
+            RelevantCharacterAttribute = AttributeStrings.Defense,
             TraitValue = 1
         };
 
         public static ItemTrait LuckPlusOne = new ItemTrait
         {
             TraitName = "Luck + (1)!",
-            RelevantCharacterAttribute = CharacterAttributes.Luck,
+            RelevantCharacterAttribute = AttributeStrings.Luck,
             TraitValue = 1
         };
+
+        public static ItemTrait CarryingCapacityPlusTen = new ItemTrait
+        {
+            TraitName = "Inventory Space + (10)!",
+            RelevantCharacterAttribute = AttributeStrings.MaxCarryingCapacity,
+            TraitValue = 10
+        };
+
+        public static ItemTrait CarriedItemCountMinusOne = new ItemTrait
+        {
+            TraitName = "This item does not consume an inventory space.",
+            RelevantCharacterAttribute = AttributeStrings.CarriedItemsCount,
+            TraitValue = -1
+        };
+
+        private const int BatteryValue = 100;
     }
 }

@@ -26,7 +26,7 @@ namespace TextBasedGame.Item
         public static InventoryItem RunningShoes = new InventoryItem
         {
             ItemName = "Running Shoes",
-            InOriginalLocation = false,
+            InOriginalLocation = true,
             ItemDescription = "Your trusty old running shoes. You swear you run way faster in them.",
             OriginalPlacementDescription = "Your old red and white running shoes are peaking up at you from under your bed.",
             GenericPlacementDescription = "A pair of red and white running shoes are laying on the floor.",
@@ -34,6 +34,21 @@ namespace TextBasedGame.Item
             ItemTraits = new List<ItemTrait>()
             {
                 Program.ItemTraitCreator.LuckPlusOne
+            }
+        };
+
+        public static InventoryItem Backpack = new InventoryItem
+        {
+            ItemName = "Backpack",
+            InOriginalLocation = true,
+            ItemDescription = "A large knapsack made of well-worn canvas. It's pretty cool looking.",
+            OriginalPlacementDescription = "Tucked behind your living room sofa is your backpack, you just barely noticed it.",
+            GenericPlacementDescription = "An empty canvas backpack is laying on the ground... Who'd leave this here?",
+            KeywordsForPickup = ItemKeywords.Backpack,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.CarryingCapacityPlusTen,
+                Program.ItemTraitCreator.CarriedItemCountMinusOne
             }
         };
     }

@@ -9,6 +9,8 @@ namespace TextBasedGame.Item.Implementations
         public ItemTrait BatteryPercentage { get; }
         public ItemTrait DefensePlusOne { get; }
         public ItemTrait LuckPlusOne { get; }
+        public ItemTrait CarryingCapacityPlusTen { get; }
+        public ItemTrait CarriedItemCountMinusOne { get; }
 
         // Constructor: Add the reference to all the Trait Objects here
         public ItemTraitCreator()
@@ -16,6 +18,8 @@ namespace TextBasedGame.Item.Implementations
             BatteryPercentage = GameItemTraits.BatteryPercentage;
             DefensePlusOne = GameItemTraits.DefensePlusOne;
             LuckPlusOne = GameItemTraits.LuckPlusOne;
+            CarryingCapacityPlusTen = GameItemTraits.CarryingCapacityPlusTen;
+            CarriedItemCountMinusOne = GameItemTraits.CarriedItemCountMinusOne;
         }
     }
 }

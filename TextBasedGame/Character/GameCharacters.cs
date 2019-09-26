@@ -17,11 +17,10 @@ namespace TextBasedGame.Character
         {
             Name = "The Ghoul",
             MaximumHealthPoints = CharacterDefaults.DefaultMaximumHealthPoints 
-                                  + (CharacterAttributes.StaminaPerPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterAttributes.DefaultValueForAllAttributes),
+                                  + (CharacterDefaults.StaminaPerPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
             HealthPoints = CharacterDefaults.DefaultMaximumHealthPoints
-                           + (CharacterAttributes.StaminaPerPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterAttributes.DefaultValueForAllAttributes),
+                           + (CharacterDefaults.StaminaPerPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
             Attributes = Program.AttributeCreator.GhoulAttributes,
-            MaximumCarryingCapacity = 0,
             WeaponItem = Program.ItemCreator.GhoulClaws
         };
     }

@@ -15,10 +15,6 @@ namespace TextBasedGame.Character.Models
 
         public List<InventoryItem> CarriedItems { get; set; } = new List<InventoryItem>();
 
-        public int MaximumCarryingCapacity { get; set; } = Constants.CharacterDefaults.DefaultMaximumCarryingCapacity;
-
-        public int CarriedItemsCount { get; set; } = 0;
-
         public WeaponItem WeaponItem { get; set; } = new WeaponItem();
     }
 }

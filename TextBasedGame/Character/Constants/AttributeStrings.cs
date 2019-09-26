@@ -1,10 +1,10 @@
 ﻿namespace TextBasedGame.Character.Constants
 {
-    public class CharacterAttributes
+    public class AttributeStrings
     {
-        public const int DefaultPointsToSpend = 6;
+        public const string MaxCarryingCapacity = "maxcarryingcapacity";
 
-        public const int DefaultValueForAllAttributes = 3;
+        public const string CarriedItemsCount = "carrieditemscount";
 
         public const string Defense = "defense";
 
@@ -13,8 +13,6 @@
         public const string Luck = "luck";
 
         public const string Stamina = "stamina";
-
-        public const int StaminaPerPointIncrease = 15;
 
         public const string Strength = "strength";
 

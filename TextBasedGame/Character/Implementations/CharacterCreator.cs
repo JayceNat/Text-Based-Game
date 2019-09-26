@@ -20,7 +20,7 @@ namespace TextBasedGame.Character.Implementations
         // Handles overwriting specific properties of a Character Object 
         public Models.Character UpdateCharacter(Models.Character character, string name = null, CharacterAttribute attributes = null,
             InventoryItem itemToAdd = null, InventoryItem itemToRemove = null, WeaponItem weapon = null, 
-            int increaseMaxHealth = 0, int addToHealth = 0, int increaseMaxCarryingCapacity = 0, int addToCarriedCount = 0)
+            int increaseMaxHealth = 0, int addToHealth = 0)
         {
             if (name != null)
             {
@@ -51,16 +51,6 @@ namespace TextBasedGame.Character.Implementations
             if (itemToRemove != null)
             {
                 character.CarriedItems.Remove(itemToRemove);
-            }
-
-            if (increaseMaxCarryingCapacity != 0)
-            {
-                character.MaximumCarryingCapacity += increaseMaxCarryingCapacity;
-            }
-
-            if (addToCarriedCount != 0)
-            {
-                character.CarriedItemsCount += addToCarriedCount;
             }
 
             if (weapon != null)

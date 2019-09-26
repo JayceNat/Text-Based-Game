@@ -140,8 +140,8 @@ namespace TextBasedGame.Character.Handlers
             }
 
             Program.CharacterCreator.UpdateCharacter(player,
-                increaseMaximumHealth: CharacterAttributes.StaminaPerPointIncrease 
-                                       * (pendingPlayerAttributes.Stamina - CharacterAttributes.DefaultValueForAllAttributes),
+                increaseMaximumHealth: CharacterDefaults.StaminaPerPointIncrease 
+                                       * (pendingPlayerAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
                 attributes: pendingPlayerAttributes);
         }
 
@@ -186,7 +186,7 @@ namespace TextBasedGame.Character.Handlers
                     attributes.Wisdom += 1;
                     break;
                 case "all":
-                    if (attributes.AvailablePoints < CharacterAttributes.DefaultPointsToSpend)
+                    if (attributes.AvailablePoints < CharacterDefaults.DefaultPointsToSpend)
                     {
                         Console.WriteLine();
                         Console.WriteLine("'All' can only be used when you haven't spent any points yet. \n", Color.Brown);

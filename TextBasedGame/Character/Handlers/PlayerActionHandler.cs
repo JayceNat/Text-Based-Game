@@ -83,6 +83,12 @@ namespace TextBasedGame.Character.Handlers
                     case "attack":
                         // TODO: Implement the combat system if an enemy is in the room...
                         break;
+                    case "use":
+                    case "consume":
+                    case "eat":
+                    case "drink":
+                        // TODO: Implement item consumption system...
+                        break;
                     case "item":
                     case "items":
                         // TODO: Add logic to prevent player from seeing item descriptions they aren't allowed to
@@ -117,7 +123,6 @@ namespace TextBasedGame.Character.Handlers
                     case "carried":
                     case "carrying":
                     case "pockets":
-                    case "backpack":
                         var playerInventory = StringDescriptionBuilder.CreateStringOfPlayerInventory(player, true);
                         Console.WriteLine();
                         Console.WriteLine(playerInventory, Color.ForestGreen);

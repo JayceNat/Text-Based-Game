@@ -10,6 +10,8 @@ namespace TextBasedGame.Room.Interfaces
         // Declare all getters for any Rooms you will use here
         Models.Room YourBedroom { get; }
         Models.Room YourLivingRoom { get; }
+        Models.Room YourKitchen { get; }
+        Models.Room YourFrontEntryway { get; }
 
         // Will handle overwriting specific properties of a Room Object 
         Models.Room UpdateRoom(Models.Room room, bool roomEntered = false, string initialDescription = null, string genericDescription = null,

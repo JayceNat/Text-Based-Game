@@ -10,6 +10,7 @@ namespace TextBasedGame.Item.Implementations
         // Declare all getters for any Items you will use here
         public InventoryItem Flashlight { get; }
         public InventoryItem RunningShoes { get; }
+        public InventoryItem Backpack { get; }
 
         // Declare all getters for any Weapons you will use here
         public WeaponItem BaseballBat { get; }
@@ -21,6 +22,7 @@ namespace TextBasedGame.Item.Implementations
             // Inventory Items
             Flashlight = GameItems.Flashlight;
             RunningShoes = GameItems.RunningShoes;
+            Backpack = GameItems.Backpack;
 
             // Weapon Items
             BaseballBat = GameWeapons.BaseballBat;

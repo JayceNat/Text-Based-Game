@@ -17,5 +17,25 @@ namespace TextBasedGame.Room.Constants
             "livingroom",
             "room"
         };
+
+        public static List<string> YourKitchen = new List<string>()
+        {
+            "kitchen",
+            "kitch",
+            "cook",
+            "food",
+            "fridge"
+        };
+
+        public static List<string> YourFrontEntryway = new List<string>()
+        {
+            "front",
+            "entrance",
+            "entryway",
+            "entry",
+            "foyer",
+            "frontdoor",
+            "front"
+        };
     }
 }

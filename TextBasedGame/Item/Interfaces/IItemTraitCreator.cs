@@ -8,5 +8,7 @@ namespace TextBasedGame.Item.Interfaces
         ItemTrait BatteryPercentage { get; }
         ItemTrait DefensePlusOne { get; }
         ItemTrait LuckPlusOne { get; }
+        ItemTrait CarryingCapacityPlusTen { get; }
+        ItemTrait CarriedItemCountMinusOne { get; }
     }
 }

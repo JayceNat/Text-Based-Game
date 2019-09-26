@@ -11,12 +11,16 @@ namespace TextBasedGame.Room.Implementations
         // Declare all getters for any Rooms you will use here
         public Models.Room YourBedroom { get; }
         public Models.Room YourLivingRoom { get; }
+        public Models.Room YourKitchen { get; }
+        public Models.Room YourFrontEntryway { get; }
 
         // Constructor: Add the reference to all the Room Objects here
         public RoomCreator()
         {
             YourBedroom = GameRooms.YourBedroom;
             YourLivingRoom = GameRooms.YourLivingRoom;
+            YourKitchen = GameRooms.YourKitchen;
+            YourFrontEntryway = GameRooms.YourFrontEntryway;
 
             AddExitsToAllRooms();
         }
@@ -117,7 +121,16 @@ namespace TextBasedGame.Room.Implementations
         private void AddExitsToAllRooms()
         {
             UpdateRoom(YourBedroom, availableExits: new RoomExit() { NorthRoom = YourLivingRoom });
-            UpdateRoom(YourLivingRoom, availableExits: new RoomExit() { SouthRoom = YourBedroom });
+
+            UpdateRoom(YourLivingRoom, availableExits: new RoomExit()
+            {
+                EastRoom = YourKitchen,
+                SouthRoom = YourBedroom,
+                WestRoom = YourFrontEntryway
+            });
+
+            UpdateRoom(YourKitchen, availableExits: new RoomExit() { WestRoom = YourLivingRoom });
+            UpdateRoom(YourFrontEntryway, availableExits: new RoomExit() { EastRoom = YourLivingRoom });
         }
     }
 }

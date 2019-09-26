@@ -108,7 +108,8 @@ namespace TextBasedGame.Room.Handlers
             {
                 foreach (var item in currentRoom.RoomItems.InventoryItems)
                 {
-                    itemKeywords = (item.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k)));
+                    itemKeywords = item.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k));
+                    keywords.AddRange(itemKeywords);
                 }
             }
 
@@ -117,11 +118,10 @@ namespace TextBasedGame.Room.Handlers
                 foreach (var weapon in currentRoom.RoomItems.WeaponItems)
                 {
                     weaponKeywords = weapon.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k));
+                    keywords.AddRange(weaponKeywords);
                 }
             }
 
-            keywords.AddRange(itemKeywords);
-            keywords.AddRange(weaponKeywords);
             return keywords;
         }
     }

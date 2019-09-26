@@ -29,5 +29,15 @@ namespace TextBasedGame.Item.Constants
             "bat",
             "club"
         };
+
+        public static List<string> Backpack = new List<string>()
+        {
+            "backpack",
+            "pack",
+            "bag",
+            "knapsack",
+            "sack",
+            "bookbag"
+        };
     }
 }

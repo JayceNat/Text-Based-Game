@@ -52,7 +52,7 @@
     <Compile Include="Character\Models\CharacterAttribute.cs" />
     <Compile Include="Character\Models\Character.cs" />
     <Compile Include="Character\GameCharacters.cs" />
-    <Compile Include="Character\Constants\CharacterAttributes.cs" />
+    <Compile Include="Character\Constants\AttributeStrings.cs" />
     <Compile Include="Character\Handlers\AttributeHandler.cs" />
     <Compile Include="Character\Handlers\PlayerActionHandler.cs" />
     <Compile Include="Character\Handlers\PlayerSetupHandler.cs" />

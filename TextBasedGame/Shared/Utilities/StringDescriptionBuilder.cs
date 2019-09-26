@@ -85,7 +85,7 @@ namespace TextBasedGame.Shared.Utilities
         {
             var weaponName = player.WeaponItem?.WeaponName;
             var inventoryItems = player.CarriedItems;
-            var inventory = player.Name + "'s Inventory (" + player.CarriedItemsCount + "/" + player.MaximumCarryingCapacity + "): \n";
+            var inventory = player.Name + "'s Inventory (" + player.Attributes.CarriedItemsCount + "/" + player.Attributes.MaximumCarryingCapacity + "): \n";
             if (!string.IsNullOrEmpty(weaponName))
             {
                 inventory += "\n\tHeld Weapon: " + player.WeaponItem.WeaponName + "\n";
@@ -103,7 +103,7 @@ namespace TextBasedGame.Shared.Utilities
                 }
             }
 
-            if (player.CarriedItemsCount != 0)
+            if (player.CarriedItems.Count != 0)
             {
                 foreach (var item in inventoryItems)
                 {
@@ -123,7 +123,7 @@ namespace TextBasedGame.Shared.Utilities
 
             }
 
-            if (string.IsNullOrEmpty(player.WeaponItem?.WeaponName) && player.CarriedItemsCount == 0)
+            if (string.IsNullOrEmpty(player.WeaponItem?.WeaponName) && player.Attributes.CarriedItemsCount == 0)
             {
                 inventory += "\n\t<empty> \n";
             }
@@ -136,7 +136,7 @@ namespace TextBasedGame.Shared.Utilities
         {
             return player.Name + "'s Status: \n" +
                                 "\t - Health points: \t" + player.HealthPoints + "/" + player.MaximumHealthPoints + "\n" +
-                                "\t - Inventory Space: \t" + player.CarriedItemsCount + "/" + player.MaximumCarryingCapacity + "\n" +
+                                "\t - Inventory Space: \t" + player.Attributes.CarriedItemsCount + "/" + player.Attributes.MaximumCarryingCapacity + "\n" +
                                 "\t - Defense: \t\t" + player.Attributes.Defense + "\n" +
                                 "\t - Dexterity: \t\t" + player.Attributes.Dexterity + "\n" +
                                 "\t - Luck: \t\t" + player.Attributes.Luck + "\n" +

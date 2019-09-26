@@ -4,18 +4,22 @@ namespace TextBasedGame.Character.Models
 {
     public class CharacterAttribute
     {
-        public int AvailablePoints { get; set; } = CharacterAttributes.DefaultPointsToSpend;
+        public int AvailablePoints { get; set; } = CharacterDefaults.DefaultPointsToSpend;
 
-        public int Defense { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
+        public int MaximumCarryingCapacity { get; set; } = CharacterDefaults.DefaultMaximumCarryingCapacity;
 
-        public int Dexterity { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
+        public int CarriedItemsCount { get; set; } = 0;
 
-        public int Luck { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
+        public int Defense { get; set; } = CharacterDefaults.DefaultValueForAllAttributes;
 
-        public int Stamina { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
+        public int Dexterity { get; set; } = CharacterDefaults.DefaultValueForAllAttributes;
 
-        public int Strength { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
+        public int Luck { get; set; } = CharacterDefaults.DefaultValueForAllAttributes;
 
-        public int Wisdom { get; set; } = CharacterAttributes.DefaultValueForAllAttributes;
+        public int Stamina { get; set; } = CharacterDefaults.DefaultValueForAllAttributes;
+
+        public int Strength { get; set; } = CharacterDefaults.DefaultValueForAllAttributes;
+
+        public int Wisdom { get; set; } = CharacterDefaults.DefaultValueForAllAttributes;
     }
 }
