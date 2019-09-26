@@ -16,13 +16,21 @@ namespace TextBasedGame.Room.Handlers
         // (Calls into a separate method to act on the input)
         public static Models.Room EnterRoom(Character.Models.Character player, Models.Room room, bool firstRoomEntered = false)
         {
+            // THIS CAN BE REMOVED
             var redisplayRoomDesc = false;
 
+            // Implement a while loop such that:
+            //      1. It runs forever until the user enters a room keyword (one from a room connected to current room - RoomKeywords.cs)
+            //      2. Prints the current room description to the console every time the loop runs
+            //      3. Ask for user input, and calls PlayerActionHandler.HandlePlayerInput to handle the input
+            //          - Note that the PlayerActionHandler returns null, unless the input matches a room keyword (then it returns the next room)
+            //      4. If the PlayerActionHandler returns null, the loop iterates again. Otherwise, returns the next room
             while (true)
             {
                 Console.Clear();
                 Console.ReplaceAllColorsWithDefaults();
 
+                // Print out the current Room description to the console
                 if (redisplayRoomDesc)
                 {
                     Console.WriteLine(room.RoomEntered ? room.GenericRoomDescription : room.InitialRoomDescription,
@@ -62,6 +70,12 @@ namespace TextBasedGame.Room.Handlers
         // Returns a Room that matches the players input keyword
         public static Models.Room FindAnyMatchingRoomByKeywords(string inputSubstring, Models.Room currentRoom)
         {
+            // Implement this helper method such that:
+            //      1. 
+            //      2. It returns a room if its keywords match the player input
+            //      3. Ask for user input, and calls PlayerActionHandler.HandlePlayerInput to handle the input
+            //          - Note that the PlayerActionHandler returns null, unless the input matches a room keyword (then it returns the next room)
+            //      4. If the PlayerActionHandler returns null, the loop iterates again. Otherwise, returns the next room
             if (inputSubstring.Length == 0)
             {
                 return null;
@@ -100,16 +114,13 @@ namespace TextBasedGame.Room.Handlers
         // Returns an item in a room matching by the users input keyword
         public static List<string> GetAllRoomItemKeywords(Models.Room currentRoom)
         {
-            IEnumerable<string> itemKeywords = new List<string>();
-            IEnumerable<string> weaponKeywords = new List<string>();
             var keywords = new List<string>();
 
             if (currentRoom.RoomItems?.InventoryItems != null)
             {
                 foreach (var item in currentRoom.RoomItems.InventoryItems)
                 {
-                    itemKeywords = item.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k));
-                    keywords.AddRange(itemKeywords);
+                    keywords.AddRange(item.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k)));
                 }
             }
 
@@ -117,8 +128,7 @@ namespace TextBasedGame.Room.Handlers
             {
                 foreach (var weapon in currentRoom.RoomItems.WeaponItems)
                 {
-                    weaponKeywords = weapon.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k));
-                    keywords.AddRange(weaponKeywords);
+                    keywords.AddRange(weapon.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k)));
                 }
             }
 

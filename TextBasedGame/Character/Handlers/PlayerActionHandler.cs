@@ -73,7 +73,7 @@ namespace TextBasedGame.Character.Handlers
                             Console.ReadLine();
                             if (!currentRoom.RoomEntered)
                             {
-                                Program.RoomCreator.UpdateRoom(currentRoom, true);
+                                currentRoom.RoomEntered = true;
                             }
                             return foundRoom;
                         }

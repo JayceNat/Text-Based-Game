@@ -59,8 +59,10 @@
     <Compile Include="ItemTests\ImplementationTests\ItemTraitCreatorTests.cs" />
     <Compile Include="ProgramTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomTests\GameRoomTests.cs" />
     <Compile Include="RoomTests\HandlerTests\RoomHandlerTests.cs" />
     <Compile Include="RoomTests\ImplementationTests\RoomCreatorTests.cs" />
+    <Compile Include="RoomTests\ModelTests\RoomModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
