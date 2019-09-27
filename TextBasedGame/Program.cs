@@ -8,7 +8,7 @@ using TextBasedGame.Room.Interfaces;
 
 namespace TextBasedGame
 {
-    internal class Program
+    public class Program
     {
         // These will build/create our Trait, Attr, Item, Character and Room objects from Game*.cs files
         // The order here is important, as some objects depend on others to already exist
@@ -17,24 +17,23 @@ namespace TextBasedGame
         public static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
         public static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
         public static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
-        
+
+        public static GameTitle GameTitle = new GameTitle()
+        {
+            // TODO: Come up with a cooler title...
+            Title = "Awesome Title!",
+            TitleTextColor = Color.Aqua,
+
+            // TODO: Put your name here...
+            Author = "<Your Name Here!>",
+            AuthorTextColor = Color.CadetBlue
+        };
 
         // This is the Entry Point for the entire Game (the console application)
         private static void Main()
         {
-            var gameTitle = new GameTitle()
-            {
-                // TODO: Come up with a cooler title...
-                Title = "Awesome Title!",
-                TitleTextColor = Color.Aqua,
-
-                // TODO: Put your name here...
-                Author = "<Your Name Here!>",
-                AuthorTextColor = Color.CadetBlue
-            };
-
             // Helper to pretty up and print the above variable
-            GameSetupHandler.DisplayGameTitle(gameTitle);
+            GameSetupHandler.DisplayGameTitle(GameTitle);
 
             // This calls the Interface to { get; } a reference to our Player object we built earlier
             var player = CharacterCreator.Player;

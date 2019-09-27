@@ -148,7 +148,7 @@ namespace TextBasedGame.Character.Handlers
         }
 
         // Stores the user's attribute choices in the player object -> attribute property
-        private static CharacterAttribute UpdateCharacterAttributesByInput(CharacterAttribute attributes, string userInput)
+        public static CharacterAttribute UpdateCharacterAttributesByInput(CharacterAttribute attributes, string userInput)
         {
             var validInput = true;
             switch (userInput)

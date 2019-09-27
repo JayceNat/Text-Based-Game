@@ -63,6 +63,10 @@
     <Compile Include="RoomTests\HandlerTests\RoomHandlerTests.cs" />
     <Compile Include="RoomTests\ImplementationTests\RoomCreatorTests.cs" />
     <Compile Include="RoomTests\ModelTests\RoomModelTests.cs" />
+    <Compile Include="TestConstants\MockAttributes.cs" />
+    <Compile Include="TestConstants\MockItems.cs" />
+    <Compile Include="TestConstants\MockCharacters.cs" />
+    <Compile Include="TestConstants\MockRooms.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

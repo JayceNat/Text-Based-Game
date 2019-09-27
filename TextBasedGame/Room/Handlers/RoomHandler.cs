@@ -16,8 +16,8 @@ namespace TextBasedGame.Room.Handlers
         // (Calls into a separate method to act on the input)
         public static Models.Room EnterRoom(Character.Models.Character player, Models.Room room, bool firstRoomEntered = false)
         {
-            // THIS CAN BE REMOVED
             var redisplayRoomDesc = false;
+            Models.Room nextRoom = null;
 
             // Implement a while loop such that:
             //      1. It runs forever until the user enters a room keyword (one from a room connected to current room - RoomKeywords.cs)
@@ -25,7 +25,7 @@ namespace TextBasedGame.Room.Handlers
             //      3. Ask for user input, and calls PlayerActionHandler.HandlePlayerInput to handle the input
             //          - Note that the PlayerActionHandler returns null, unless the input matches a room keyword (then it returns the next room)
             //      4. If the PlayerActionHandler returns null, the loop iterates again. Otherwise, returns the next room
-            while (true)
+            while (nextRoom == null)
             {
                 Console.Clear();
                 Console.ReplaceAllColorsWithDefaults();
@@ -54,17 +54,12 @@ namespace TextBasedGame.Room.Handlers
                 Console.WriteLine();
                 Console.Write("> ");
                 var playerInput = Console.ReadLine();
-                var nextRoom = PlayerActionHandler.HandlePlayerInput(playerInput.ToLower(), player, room);
-
-                if (nextRoom == null)
-                {
-                    redisplayRoomDesc = true;
-                }
-                else
-                {
-                    return nextRoom;
-                }
+                nextRoom = PlayerActionHandler.HandlePlayerInput(playerInput.ToLower(), player, room);
+                
+                redisplayRoomDesc = true;
             }
+
+            return nextRoom;
         }
 
         // Returns a Room that matches the players input keyword

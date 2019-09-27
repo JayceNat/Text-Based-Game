@@ -46,6 +46,7 @@ namespace TextBasedGame.Character.Handlers
                     case "drop":
                     case "release":
                     case "letgo":
+                        // TODO: Prevent player from dropping a carrying capacity-increasing item that would lower their capacity below their carried count
                         var inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
@@ -169,7 +170,7 @@ namespace TextBasedGame.Character.Handlers
         }
 
         // This returns a substring of remaining words in a player input that followed the first word
-        private static string CreateSubstringOfActionInput(string input, string inputWord)
+        public static string CreateSubstringOfActionInput(string input, string inputWord)
         {
             var matchingWordLength = inputWord.Length + 1;
             if (matchingWordLength > input.Length)

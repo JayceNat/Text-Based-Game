@@ -21,45 +21,45 @@ namespace TextBasedGame.Item.Handlers
                 case true:
                     if (foundItem?.InventoryItems != null)
                     {
-                        var inventoryItemToAdd = foundItem.InventoryItems.First();
+                        var inventoryItemToAddToPlayer = foundItem.InventoryItems.First();
                         if (player.Attributes.CarriedItemsCount + 1 <= player.Attributes.MaximumCarryingCapacity)
                         {
-                            AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, inventoryItemToAdd);
-                            inventoryItemToAdd.InOriginalLocation = false;
-                            player.CarriedItems.Add(inventoryItemToAdd);
+                            AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, inventoryItemToAddToPlayer);
+                            inventoryItemToAddToPlayer.InOriginalLocation = false;
+                            player.CarriedItems.Add(inventoryItemToAddToPlayer);
                             player.Attributes.CarriedItemsCount += 1;
-                            Program.RoomCreator.UpdateRoom(currentRoom, currentRoom.RoomEntered, itemToRemove: inventoryItemToAdd);
+                            currentRoom.RoomItems.InventoryItems.Remove(inventoryItemToAddToPlayer);
                             Console.WriteLine();
-                            TypingAnimation.Animate("You take the " + inventoryItemToAdd.ItemName + ".\n", Color.ForestGreen);
+                            TypingAnimation.Animate("You take the " + inventoryItemToAddToPlayer.ItemName + ".\n", Color.ForestGreen);
                         }
                         else
                         {
                             Console.WriteLine();
                             TypingAnimation.Animate("Your inventory is full! \n" +
-                                                    "Drop an item to pick up the " + inventoryItemToAdd?.ItemName + ".\n", Color.DarkOliveGreen);
+                                                    "Drop an item to pick up the " + inventoryItemToAddToPlayer?.ItemName + ".\n", Color.DarkOliveGreen);
                         }
                     }
                     else if (foundItem?.WeaponItems != null)
                     {
-                        var weaponItemToAdd = foundItem.WeaponItems.First();
+                        var weaponItemToAddToPlayer = foundItem.WeaponItems.First();
                         if (string.IsNullOrEmpty(player.WeaponItem.WeaponName))
                         {
-                            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
-                            weaponItemToAdd.InOriginalLocation = false;
-                            player.WeaponItem = weaponItemToAdd;
-                            Program.RoomCreator.UpdateRoom(currentRoom, currentRoom.RoomEntered, weaponToRemove: weaponItemToAdd);
+                            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAddToPlayer);
+                            weaponItemToAddToPlayer.InOriginalLocation = false;
+                            player.WeaponItem = weaponItemToAddToPlayer;
+                            currentRoom.RoomItems.WeaponItems.Remove(weaponItemToAddToPlayer);
                             Console.WriteLine();
-                            TypingAnimation.Animate("You take the " + weaponItemToAdd?.WeaponName + ".\n", Color.ForestGreen);
+                            TypingAnimation.Animate("You take the " + weaponItemToAddToPlayer?.WeaponName + ".\n", Color.ForestGreen);
                         }
                         else
                         {
                             var oldWeapon = player.WeaponItem.WeaponName.Clone();
-                            DropWeaponAndPickupNew(player, currentRoom, weaponItemToAdd);
-                            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAdd);
-                            player.WeaponItem = weaponItemToAdd;
-                            Program.RoomCreator.UpdateRoom(currentRoom, currentRoom.RoomEntered, weaponToRemove: weaponItemToAdd);
+                            DropWeaponAndPickupNew(player, currentRoom, weaponItemToAddToPlayer);
+                            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAddToPlayer);
+                            player.WeaponItem = weaponItemToAddToPlayer;
+                            currentRoom.RoomItems.WeaponItems.Remove(weaponItemToAddToPlayer);
                             Console.WriteLine();
-                            TypingAnimation.Animate("You drop your " + oldWeapon + " for the " + weaponItemToAdd?.WeaponName + ".\n",
+                            TypingAnimation.Animate("You drop your " + oldWeapon + " for the " + weaponItemToAddToPlayer?.WeaponName + ".\n",
                                 Color.ForestGreen);
                         }
                     }
@@ -70,17 +70,19 @@ namespace TextBasedGame.Item.Handlers
                 case false:
                     if (foundItem?.InventoryItems != null)
                     {
-                        var inventoryItemToRemove = foundItem.InventoryItems.First();
-                        DropItemInRoom(player, currentRoom, inventoryItemToRemove);
+                        var inventoryItemToRemoveFromPlayer = foundItem.InventoryItems.First();
+
+                        DropItemInRoom(player, currentRoom, inventoryItemToRemoveFromPlayer);
                         Console.WriteLine();
-                        TypingAnimation.Animate("You drop the " + inventoryItemToRemove?.ItemName + ".\n", Color.ForestGreen);
+                        TypingAnimation.Animate("You drop the " + inventoryItemToRemoveFromPlayer?.ItemName + ".\n", Color.ForestGreen);
                     }
                     else if (foundItem?.WeaponItems != null)
                     {
-                        var weaponItemToRemove = foundItem.WeaponItems.First();
+                        var weaponItemToRemoveFromPlayer = foundItem.WeaponItems.First();
+
                         DropWeaponInRoom(player, currentRoom);
                         Console.WriteLine();
-                        TypingAnimation.Animate("You drop the " + weaponItemToRemove?.WeaponName + ".\n", Color.ForestGreen);
+                        TypingAnimation.Animate("You drop the " + weaponItemToRemoveFromPlayer?.WeaponName + ".\n", Color.ForestGreen);
                     }
 
                     break;
@@ -88,30 +90,30 @@ namespace TextBasedGame.Item.Handlers
         }
 
         public static void DropItemInRoom(Character.Models.Character player, Room.Models.Room room,
-            InventoryItem itemToDrop)
+            InventoryItem itemBeingDropped)
         {
+            AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, itemBeingDropped, true);
             player.Attributes.CarriedItemsCount -= 1;
-            Program.RoomCreator.UpdateRoom(room, room.RoomEntered, itemToAdd: itemToDrop);
-            AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, itemToDrop, true);
-            player.CarriedItems.Remove(itemToDrop);
+            room.RoomItems.InventoryItems.Add(itemBeingDropped);
+            player.CarriedItems.Remove(itemBeingDropped);
         }
 
         public static void DropWeaponInRoom(Character.Models.Character player, Room.Models.Room room)
         {
-            Program.RoomCreator.UpdateRoom(room, room.RoomEntered, weaponToAdd: player.WeaponItem);
+            room.RoomItems.WeaponItems.Add(player.WeaponItem);
             AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, player.WeaponItem, true);
             player.WeaponItem = new WeaponItem();
         }
 
-        private static void DropWeaponAndPickupNew(Character.Models.Character player, Room.Models.Room room,
-            WeaponItem weaponToAdd)
+        public static void DropWeaponAndPickupNew(Character.Models.Character player, Room.Models.Room room,
+            WeaponItem weaponToAddToPlayer)
         {
-            Program.RoomCreator.UpdateRoom(room, room.RoomEntered, weaponToAdd: player.WeaponItem);
+            room.RoomItems.WeaponItems.Add(player.WeaponItem);
             AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, player.WeaponItem, true);
-            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponToAdd);
-            weaponToAdd.InOriginalLocation = false;
-            player.WeaponItem = weaponToAdd;
-            Program.RoomCreator.UpdateRoom(room, room.RoomEntered, weaponToRemove: weaponToAdd);
+            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponToAddToPlayer);
+            weaponToAddToPlayer.InOriginalLocation = false;
+            player.WeaponItem = weaponToAddToPlayer;
+            room.RoomItems.WeaponItems.Remove(weaponToAddToPlayer);
         }
 
         public static Items FindAnyMatchingItemsByKeywords(string inputSubstring, List<string> itemKeywords,

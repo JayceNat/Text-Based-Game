@@ -1,5 +1,4 @@
 ﻿using TextBasedGame.Character.Constants;
-using TextBasedGame.Character.Models;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Character.Handlers
