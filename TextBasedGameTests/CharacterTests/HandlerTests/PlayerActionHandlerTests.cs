@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TextBasedGame.Character.Handlers;
-using TextBasedGameTests.TestConstants;
 
 namespace TextBasedGameTests.CharacterTests.HandlerTests
 {
@@ -10,9 +9,9 @@ namespace TextBasedGameTests.CharacterTests.HandlerTests
         [TestMethod]
         public void CreateSubstringOfActionInput_ShouldReturnSubstring()
         {
-            var fullCmdLineInput = "enter observatory";
-            var firstWordKeyword = "enter";
-            var expectedOutput = "observatory";
+            const string fullCmdLineInput = "enter observatory";
+            const string firstWordKeyword = "enter";
+            const string expectedOutput = "observatory";
 
             var result = PlayerActionHandler.CreateSubstringOfActionInput(fullCmdLineInput, firstWordKeyword);
 

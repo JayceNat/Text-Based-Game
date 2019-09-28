@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TextBasedGame.Character.Models;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TextBasedGameTests.TestConstants;
 
 namespace TextBasedGameTests.CharacterTests.HandlerTests

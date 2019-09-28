@@ -57,5 +57,23 @@ namespace TextBasedGameTests.TestConstants
                 "leaves"
             }
         };
+
+        public static Room MockRoomBathroom = new Room
+        {
+            RoomName = "The Bathroom",
+            RoomEntered = false,
+            InitialRoomDescription = "This place is filthy... It's probably going to give you nightmares.",
+            GenericRoomDescription = "A filthy bathroom. Just get out.",
+            AsExitDescription = "Behind you is what looks to be a bathroom door.",
+            AvailableExits = new RoomExit(),
+            RoomItems = new Items(),
+            KeywordsToEnter = new List<string>()
+            {
+                "filthy",
+                "bathroom",
+                "restroom",
+                "toilet"
+            }
+        };
     }
 }

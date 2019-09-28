@@ -52,11 +52,7 @@
     <Compile Include="CharacterTests\HandlerTests\AttributeHandlerTests.cs" />
     <Compile Include="CharacterTests\HandlerTests\PlayerActionHandlerTests.cs" />
     <Compile Include="CharacterTests\HandlerTests\PlayerSetupHandlerTests.cs" />
-    <Compile Include="CharacterTests\ImplementationTests\AttributeCreatorTests.cs" />
-    <Compile Include="CharacterTests\ImplementationTests\CharacterCreatorTests.cs" />
     <Compile Include="ItemTests\HandlerTests\InventoryHandlerTests.cs" />
-    <Compile Include="ItemTests\ImplementationTests\ItemCreatorTests.cs" />
-    <Compile Include="ItemTests\ImplementationTests\ItemTraitCreatorTests.cs" />
     <Compile Include="ProgramTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomTests\GameRoomTests.cs" />

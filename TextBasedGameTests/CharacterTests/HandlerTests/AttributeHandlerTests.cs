@@ -1,10 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TextBasedGame.Character.Models;
-using TextBasedGame.Item.Handlers;
-using TextBasedGame.Item.Models;
-using TextBasedGame.Room.Models;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TextBasedGame.Character.Handlers;
 using TextBasedGameTests.TestConstants;
 
 namespace TextBasedGameTests.CharacterTests.HandlerTests
@@ -12,64 +7,64 @@ namespace TextBasedGameTests.CharacterTests.HandlerTests
     [TestClass]
     public class AttributeHandlerTests
     {
-        public static Character MockPlayer = MockCharacters.MockPlayerAlbert;
-        public static Room MockRoomNursery = MockRooms.MockRoomNursery;
-        public static Room MockRoomObservatory = MockRooms.MockRoomObservatory;
-        public static InventoryItem MockItem = MockPlayer.CarriedItems.First();
-        public static WeaponItem MockWeapon = MockRoomObservatory.RoomItems.WeaponItems.First();
-
         [TestMethod]
-        public void DropItemInRoom_ShouldRemoveItemFromPlayerAndAddToRoom()
+        public void UpdatePlayerAttributesFromInventoryItem_ShouldAddTraitPointToPlayer()
         {
-            InventoryHandler.DropItemInRoom(MockPlayer, MockRoomNursery, MockItem);
+            var player = MockCharacters.MockPlayerAlbert;
+            player.Attributes = MockAttributes.MockPlayerAttrBeforeUpdate;
+            MockAttributes.MockPlayerAttrBeforeUpdate.Luck = 7;
 
-            Assert.IsTrue(MockPlayer.CarriedItems.Count == 0);
-            Assert.IsTrue(MockRoomNursery.RoomItems.InventoryItems.Contains(MockItem));
+            var expectedOutput = MockAttributes.MockPlayerAttrAfterAddLuck;
+
+            AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, MockItems.MockItemRabbitsFoot);
+
+            Assert.AreEqual(expectedOutput.Luck, player.Attributes.Luck);
         }
 
         [TestMethod]
-        public void DropWeaponInRoom_ShouldRemoveWeaponFromPlayerAndAddToRoom()
+        public void UpdatePlayerAttributesFromInventoryItem_ShouldRemoveTraitPointToPlayer()
         {
-            var mockDroppedWeapon = MockPlayer.WeaponItem;
+            var player = MockCharacters.MockPlayerAlbert;
+            player.Attributes = MockAttributes.MockPlayerAttrBeforeUpdate;
+            MockAttributes.MockPlayerAttrBeforeUpdate.Luck = 7;
 
-            InventoryHandler.DropWeaponInRoom(MockPlayer, MockRoomNursery);
+            var expectedOutput = MockAttributes.MockPlayerAttrAfterRemoveLuck;
 
-            Assert.IsTrue(MockPlayer.WeaponItem?.WeaponName == null);
-            Assert.IsTrue(MockRoomNursery.RoomItems.WeaponItems.Contains(mockDroppedWeapon));
+            AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, MockItems.MockItemRabbitsFoot, true);
+
+            Assert.AreEqual(expectedOutput.Luck, player.Attributes.Luck);
+        }
+
+
+        [TestMethod]
+        public void UpdatePlayerAttributesFromWeaponItem_ShouldAddTraitPointToPlayer()
+        {
+            var player = MockCharacters.MockPlayerAlbert;
+            player.Attributes = MockAttributes.MockPlayerAttrBeforeUpdate;
+            MockAttributes.MockPlayerAttrBeforeUpdate.Dexterity = 6;
+
+            var expectedOutput = MockAttributes.MockPlayerAttrAfterAddDexterity;
+
+            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, MockItems.MockItemKatana);
+
+            Assert.AreEqual(expectedOutput.Dexterity, player.Attributes.Dexterity);
+
         }
 
         [TestMethod]
-        public void DropWeaponAndPickupNew_ShouldSwapPlayerWeaponWithRoomWeapon()
+        public void UpdatePlayerAttributesFromWeaponItem_ShouldRemoveTraitPointToPlayer()
         {
-            var playerWeaponBefore = MockPlayer.WeaponItem;
-            var roomWeaponBefore = MockRoomObservatory.RoomItems.WeaponItems.First();
+            var player = MockCharacters.MockPlayerAlbert;
+            player.Attributes = MockAttributes.MockPlayerAttrBeforeUpdate;
+            MockAttributes.MockPlayerAttrBeforeUpdate.Dexterity = 6;
 
-            InventoryHandler.DropWeaponAndPickupNew(MockPlayer, MockRoomObservatory, roomWeaponBefore);
+            var expectedOutput = MockAttributes.MockPlayerAttrAfterRemoveDexterity;
 
-            Assert.AreEqual(playerWeaponBefore, MockRoomObservatory.RoomItems.WeaponItems.First());
-            Assert.AreEqual(roomWeaponBefore, MockPlayer.WeaponItem);
+            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, MockItems.MockItemKatana, true);
+
+            Assert.AreEqual(expectedOutput.Dexterity, player.Attributes.Dexterity);
+
         }
 
-        [TestMethod]
-        public void FindAnyMatchingItemsByKeywords_ShouldReturnMatchingItem()
-        {
-            var inputKeyword = "revolver";
-            var itemKeywords = MockWeapon.KeywordsForPickup;
-            var expectedItem = MockWeapon;
-
-            var returnedItem = InventoryHandler.FindAnyMatchingItemsByKeywords(inputKeyword, itemKeywords, new List<InventoryItem>(), MockRoomObservatory.RoomItems.WeaponItems);
-
-            Assert.AreEqual(expectedItem, returnedItem.WeaponItems.First());
-        }
-
-        [TestMethod]
-        public void GetAllInventoryItemKeywords_ShouldReturnAnItemsKeywords()
-        {
-            var expectedKeywords = MockItem.KeywordsForPickup;
-
-            var returnedKeywords = InventoryHandler.GetAllInventoryItemKeywords(MockPlayer);
-
-            Assert.AreEqual(expectedKeywords.ToString(), returnedKeywords.ToString());
-        }
     }
 }
