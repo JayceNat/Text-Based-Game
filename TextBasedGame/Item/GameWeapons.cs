@@ -18,9 +18,25 @@ namespace TextBasedGame.Item
             GenericPlacementDescription = "A solid wood baseball bat lays across the floor. It looks like maple wood.",
             AttackPower = 2,
             KeywordsForPickup = ItemKeywords.BaseballBat,
-            WeaponTraits = new List<ItemTrait>()
+            WeaponTraits = new List<ItemTrait>
             {
-                Program.ItemTraitCreator.DefensePlusOne
+                Program.ItemTraitCreator.DefenseIncrease(1)
+            }
+        };
+
+        public static WeaponItem MagnumRevolver = new WeaponItem
+        {
+            WeaponName = ".44 Magnum",
+            InOriginalLocation = true,
+            WeaponDescription = "A hefty revolver. It's been well taken care of.",
+            OriginalPlacementDescription = "",
+            GenericPlacementDescription = "Someone seems to have left a revolver laying on the floor here.",
+            AttackPower = 20,
+            AmmunitionAmount = 5,
+            KeywordsForPickup = ItemKeywords.MagnumRevolver,
+            WeaponTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.StrengthIncrease(3)
             }
         };
 

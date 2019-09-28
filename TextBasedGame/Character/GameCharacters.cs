@@ -17,9 +17,9 @@ namespace TextBasedGame.Character
         {
             Name = "The Ghoul",
             MaximumHealthPoints = CharacterDefaults.DefaultMaximumHealthPoints 
-                                  + (CharacterDefaults.StaminaPerPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
+                                  + (CharacterDefaults.HealthPerStaminaPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
             HealthPoints = CharacterDefaults.DefaultMaximumHealthPoints
-                           + (CharacterDefaults.StaminaPerPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
+                           + (CharacterDefaults.HealthPerStaminaPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
             Attributes = Program.AttributeCreator.GhoulAttributes,
             WeaponItem = Program.ItemCreator.GhoulClaws
         };

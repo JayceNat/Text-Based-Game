@@ -8,9 +8,11 @@ namespace TextBasedGame.Item.Interfaces
         InventoryItem Flashlight { get; }
         InventoryItem RunningShoes { get; }
         InventoryItem Backpack { get; }
+        InventoryItem PlainBagel { get; }
 
         // Declare all getters for any Weapons you will use here
         WeaponItem BaseballBat { get; }
+        WeaponItem MagnumRevolver { get; }
         WeaponItem GhoulClaws { get; }
     }
 }

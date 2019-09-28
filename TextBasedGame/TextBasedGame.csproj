@@ -65,7 +65,6 @@
     <Compile Include="Game\Models\GameTitle.cs" />
     <Compile Include="Item\Constants\ItemKeywords.cs" />
     <Compile Include="Item\GameItems.cs" />
-    <Compile Include="Item\GameItemTraits.cs" />
     <Compile Include="Item\GameWeapons.cs" />
     <Compile Include="Item\Handlers\InventoryHandler.cs" />
     <Compile Include="Item\Implementations\ItemCreator.cs" />

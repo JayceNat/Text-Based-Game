@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using TextBasedGame.Character.Constants;
 using TextBasedGame.Character.Handlers;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Shared.Constants;
@@ -22,12 +23,12 @@ namespace TextBasedGame.Item.Handlers
                     if (foundItem?.InventoryItems != null)
                     {
                         var inventoryItemToAddToPlayer = foundItem.InventoryItems.First();
-                        if (player.Attributes.CarriedItemsCount + 1 <= player.Attributes.MaximumCarryingCapacity)
+                        if (PickupOrDropItemIsOk(player, foundItem))
                         {
                             AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, inventoryItemToAddToPlayer);
                             inventoryItemToAddToPlayer.InOriginalLocation = false;
                             player.CarriedItems.Add(inventoryItemToAddToPlayer);
-                            player.Attributes.CarriedItemsCount += 1;
+                            player.Attributes.CarriedItemsCount += foundItem.InventoryItems.First().InventorySpaceConsumed;
                             currentRoom.RoomItems.InventoryItems.Remove(inventoryItemToAddToPlayer);
                             Console.WriteLine();
                             TypingAnimation.Animate("You take the " + inventoryItemToAddToPlayer.ItemName + ".\n", Color.ForestGreen);
@@ -89,11 +90,61 @@ namespace TextBasedGame.Item.Handlers
             }
         }
 
+        public static bool PickupOrDropItemIsOk(Character.Models.Character player, Items foundItem, bool pickingUpItem = true)
+        {
+            if (foundItem?.WeaponItems != null)
+            {
+                return true;
+            }
+
+            if (foundItem?.InventoryItems == null) return false;
+            if (foundItem.InventoryItems?.First()?.ItemTraits == null 
+                && player.Attributes.CarriedItemsCount + foundItem.InventoryItems.First().InventorySpaceConsumed <= player.Attributes.MaximumCarryingCapacity)
+                return true;
+
+            foreach (var itemTrait in foundItem.InventoryItems.First().ItemTraits)
+            {
+                if (pickingUpItem)
+                {
+                    if (itemTrait.RelevantCharacterAttribute != AttributeStrings.MaxCarryingCapacity
+                        && player.Attributes.CarriedItemsCount + foundItem.InventoryItems.First().InventorySpaceConsumed > player.Attributes.MaximumCarryingCapacity)
+                    {
+                        return false;
+                    }
+
+                    if (itemTrait.RelevantCharacterAttribute == AttributeStrings.MaxCarryingCapacity
+                        && player.Attributes.MaximumCarryingCapacity + itemTrait.TraitValue < player.Attributes.CarriedItemsCount)
+                    {
+                        return false;
+                    }
+
+                    return itemTrait.RelevantCharacterAttribute != AttributeStrings.CarriedItemsCount 
+                           || player.Attributes.CarriedItemsCount + itemTrait.TraitValue <= player.Attributes.MaximumCarryingCapacity;
+                }
+
+                else
+                {
+                    if (itemTrait.RelevantCharacterAttribute != AttributeStrings.MaxCarryingCapacity)
+                    {
+                        return true;
+                    }
+
+                    if (player.Attributes.MaximumCarryingCapacity - itemTrait.TraitValue <
+                        player.Attributes.CarriedItemsCount)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
         public static void DropItemInRoom(Character.Models.Character player, Room.Models.Room room,
             InventoryItem itemBeingDropped)
         {
             AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, itemBeingDropped, true);
-            player.Attributes.CarriedItemsCount -= 1;
+            player.Attributes.CarriedItemsCount -= itemBeingDropped.InventorySpaceConsumed;
             room.RoomItems.InventoryItems.Add(itemBeingDropped);
             player.CarriedItems.Remove(itemBeingDropped);
         }

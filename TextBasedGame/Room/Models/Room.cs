@@ -18,7 +18,8 @@ namespace TextBasedGame.Room.Models
 
         public RoomExit AvailableExits { get; set; }
 
-        public Items RoomItems { get; set; } = new Items();
+        public Items RoomItems { get; set; } = 
+            new Items() { InventoryItems = new List<InventoryItem>(), WeaponItems = new List<WeaponItem>()};
 
         public List<string> KeywordsToEnter { get; set; } = new List<string>();
 

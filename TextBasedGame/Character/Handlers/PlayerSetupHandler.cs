@@ -139,7 +139,7 @@ namespace TextBasedGame.Character.Handlers
                 }
             }
 
-            var healthIncrease = CharacterDefaults.StaminaPerPointIncrease
+            var healthIncrease = CharacterDefaults.HealthPerStaminaPointIncrease
                                  * (pendingPlayerAttributes.Stamina -
                                     CharacterDefaults.DefaultValueForAllAttributes);
             player.Attributes = pendingPlayerAttributes;

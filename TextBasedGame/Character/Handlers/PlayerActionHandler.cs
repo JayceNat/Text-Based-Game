@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using TextBasedGame.Item.Handlers;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Handlers;
@@ -17,7 +18,7 @@ namespace TextBasedGame.Character.Handlers
         public static Room.Models.Room HandlePlayerInput(string fullInput, Models.Character player, Room.Models.Room currentRoom)
         {
             var inputWords = fullInput.Split(ConsoleStrings.StringDelimiters);
-            
+
             var inputResolved = false;
             foreach (var inputWord in inputWords)
             {
@@ -35,7 +36,7 @@ namespace TextBasedGame.Character.Handlers
                         // TODO: Add logic to prevent player from taking items they aren't allowed to see
                         var roomItemKeywords = RoomHandler.GetAllRoomItemKeywords(currentRoom);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
-                        foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), roomItemKeywords, 
+                        foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), roomItemKeywords,
                             currentRoom.RoomItems.InventoryItems, currentRoom.RoomItems.WeaponItems);
                         if (foundItem != null)
                         {
@@ -46,15 +47,25 @@ namespace TextBasedGame.Character.Handlers
                     case "drop":
                     case "release":
                     case "letgo":
-                        // TODO: Prevent player from dropping a carrying capacity-increasing item that would lower their capacity below their carried count
                         var inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
-                            player.CarriedItems, new List<WeaponItem>() {player.WeaponItem});
+                            player.CarriedItems, new List<WeaponItem>() { player.WeaponItem });
                         if (foundItem != null)
                         {
-                            InventoryHandler.HandleItemAddOrRemove(player, currentRoom, foundItem);
-                            inputResolved = true;
+                            if (InventoryHandler.PickupOrDropItemIsOk(player, foundItem, false))
+                            {
+                                InventoryHandler.HandleItemAddOrRemove(player, currentRoom, foundItem);
+                                inputResolved = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine();
+                                TypingAnimation.Animate("You cannot drop the " + foundItem.InventoryItems?.First()?.ItemName +
+                                                        " until you drop other items. \n" +
+                                                        "(The item you're trying to drop would decrease your inventory space) \n", Color.DarkOliveGreen);
+                                inputResolved = true;
+                            }
                         }
                         break;
                     case "go":
@@ -88,6 +99,10 @@ namespace TextBasedGame.Character.Handlers
                     case "consume":
                     case "eat":
                     case "drink":
+                    case "swing":
+                    case "shoot":
+                    case "fire":
+                        // TODO: Implement a system to use currently equipped weapon...
                         // TODO: Implement item consumption system...
                         break;
                     case "item":

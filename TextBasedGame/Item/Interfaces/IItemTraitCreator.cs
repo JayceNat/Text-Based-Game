@@ -4,11 +4,24 @@ namespace TextBasedGame.Item.Interfaces
 {
     public interface IItemTraitCreator
     {
-        // Declare all getters for any Traits you will use here
-        ItemTrait BatteryPercentage { get; }
-        ItemTrait DefensePlusOne { get; }
-        ItemTrait LuckPlusOne { get; }
-        ItemTrait CarryingCapacityPlusTen { get; }
-        ItemTrait CarriedItemCountMinusOne { get; }
+        ItemTrait BatteryPercentage(int percent);
+
+        ItemTrait HealthItem(int healthRestored);
+
+        ItemTrait CarriedItemsIncrease(int amount);
+
+        ItemTrait CarryingCapacityIncrease(int amount);
+
+        ItemTrait DefenseIncrease(int amount);
+
+        ItemTrait DexterityIncrease(int amount);
+
+        ItemTrait LuckIncrease(int amount);
+
+        ItemTrait StaminaIncrease(int amount);
+
+        ItemTrait StrengthIncrease(int amount);
+
+        ItemTrait WisdomIncrease(int amount);
     }
 }

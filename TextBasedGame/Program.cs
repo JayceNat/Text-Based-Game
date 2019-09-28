@@ -20,12 +20,10 @@ namespace TextBasedGame
 
         public static GameTitle GameTitle = new GameTitle()
         {
-            // TODO: Come up with a cooler title...
-            Title = "Awesome Title!",
+            Title = "Spooky Night",
             TitleTextColor = Color.Aqua,
 
-            // TODO: Put your name here...
-            Author = "<Your Name Here!>",
+            Author = "Jayce Meyer",
             AuthorTextColor = Color.CadetBlue
         };
 

@@ -15,6 +15,8 @@ namespace TextBasedGame.Item.Models
 
         public string GenericPlacementDescription { get; set; }
 
+        public int InventorySpaceConsumed { get; set; } = 1;
+
         public List<string> KeywordsForPickup { get; set; } = new List<string>();
 
         public List<ItemTrait> ItemTraits { get; set; } = new List<ItemTrait>();

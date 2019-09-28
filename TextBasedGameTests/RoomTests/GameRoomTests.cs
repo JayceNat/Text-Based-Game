@@ -22,7 +22,6 @@ namespace TextBasedGameTests.RoomTests
             Assert.IsTrue(!string.IsNullOrEmpty(RoomCreator.YourBedroom.RoomName));
             Assert.IsTrue(!string.IsNullOrEmpty(RoomCreator.YourBedroom.InitialRoomDescription));
             Assert.IsTrue(!string.IsNullOrEmpty(RoomCreator.YourBedroom.GenericRoomDescription));
-            Assert.IsTrue(!string.IsNullOrEmpty(RoomCreator.YourBedroom.AsExitDescription));
             Assert.IsNotNull(RoomCreator.YourBedroom.RoomItems);
             Assert.IsNotNull(RoomCreator.YourBedroom.AvailableExits);
             Assert.IsNotNull(RoomCreator.YourBedroom.KeywordsToEnter?.First());

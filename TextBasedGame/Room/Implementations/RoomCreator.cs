@@ -25,17 +25,32 @@ namespace TextBasedGame.Room.Implementations
         // Used to add the Room references to Room Objects as the Exit Property
         private void AddExitsToAllRooms()
         {
-            YourBedroom.AvailableExits = new RoomExit() { NorthRoom = YourLivingRoom };
+            YourBedroom.AvailableExits = new RoomExit()
+            {
+                NorthRoom = YourLivingRoom,
+                NorthRoomDescription = "Ahead of you is the entrance to " + YourLivingRoom.RoomName + "."
+            };
 
             YourLivingRoom.AvailableExits = new RoomExit()
             {
                 EastRoom = YourKitchen,
+                EastRoomDescription = "To your right is the entrance to " + YourKitchen.RoomName + ".",
                 SouthRoom = YourBedroom,
-                WestRoom = YourFrontEntryway
+                SouthRoomDescription = "Behind you is the entrance to " + YourBedroom.RoomName + ".",
+                WestRoom = YourFrontEntryway,
+                WestRoomDescription = "To your left is the entrance to " + YourFrontEntryway.RoomName + "."
             };
 
-            YourKitchen.AvailableExits = new RoomExit() { WestRoom = YourLivingRoom };
-            YourFrontEntryway.AvailableExits = new RoomExit() { EastRoom = YourLivingRoom };
+            YourKitchen.AvailableExits = new RoomExit()
+            {
+                WestRoom = YourLivingRoom,
+                WestRoomDescription = "To your left is the entrance to " + YourLivingRoom.RoomName + "."
+            };
+            YourFrontEntryway.AvailableExits = new RoomExit()
+            {
+                EastRoom = YourLivingRoom,
+                EastRoomDescription = "To your right is the entrance to " + YourLivingRoom.RoomName + "."
+            };
         }
     }
 }

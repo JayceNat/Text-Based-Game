@@ -17,6 +17,8 @@ namespace TextBasedGame.Item.Models
 
         public int AttackPower { get; set; }
 
+        public int AmmunitionAmount { get; set; } = -1;
+
         public List<string> KeywordsForPickup { get; set; } = new List<string>();
 
         public List<ItemTrait> WeaponTraits { get; set; } = new List<ItemTrait>();

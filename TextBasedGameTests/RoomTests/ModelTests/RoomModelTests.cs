@@ -120,10 +120,14 @@ namespace TextBasedGameTests.RoomTests.ModelTests
         public void RoomModel_RoomItems_DefaultsToNewItem()
         {
             var roomModel = new Room();
-            var emptyItems = new Items();
+            var emptyItems = new Items
+            {
+                InventoryItems = new List<InventoryItem>(),
+                WeaponItems = new List<WeaponItem>()
+            };
 
-            Assert.IsTrue( emptyItems?.InventoryItems == roomModel.RoomItems?.InventoryItems);
-            Assert.IsTrue(emptyItems?.WeaponItems == roomModel.RoomItems?.WeaponItems);
+            Assert.IsTrue( emptyItems?.InventoryItems.Count == roomModel.RoomItems?.InventoryItems.Count);
+            Assert.IsTrue(emptyItems?.WeaponItems.Count == roomModel.RoomItems?.WeaponItems.Count);
         }
 
         [TestMethod]

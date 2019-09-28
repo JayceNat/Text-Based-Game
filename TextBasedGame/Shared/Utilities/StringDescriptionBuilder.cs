@@ -59,22 +59,22 @@ namespace TextBasedGame.Shared.Utilities
 
             if (roomExits?.NorthRoom != null)
             {
-                allRoomExits += roomExits.NorthRoom.AsExitDescription + "\n\n";
+                allRoomExits += roomExits.NorthRoomDescription + "\n\n";
             }
 
             if (roomExits?.EastRoom != null)
             {
-                allRoomExits += roomExits.EastRoom.AsExitDescription + "\n\n";
+                allRoomExits += roomExits.EastRoomDescription + "\n\n";
             }
 
             if (roomExits?.SouthRoom != null)
             {
-                allRoomExits += roomExits.SouthRoom.AsExitDescription + "\n\n";
+                allRoomExits += roomExits.SouthRoomDescription + "\n\n";
             }
 
             if (roomExits?.WestRoom != null)
             {
-                allRoomExits += roomExits.WestRoom.AsExitDescription + "\n\n";
+                allRoomExits += roomExits.WestRoomDescription + "\n\n";
             }
 
             return allRoomExits;
@@ -93,6 +93,10 @@ namespace TextBasedGame.Shared.Utilities
                 {
                     inventory += "\t\t" + player.WeaponItem.WeaponDescription + "\n" +
                                  "\t\tAttack Power: \t" + player.WeaponItem.AttackPower + "\n";
+                    if (player.WeaponItem?.AmmunitionAmount >= 0)
+                    {
+                        inventory += "\t\tAmmo: \t" + player.WeaponItem.AmmunitionAmount + "\n";
+                    }
                     if (player.WeaponItem?.WeaponTraits != null)
                     {
                         foreach (var trait in player.WeaponItem.WeaponTraits)
@@ -120,10 +124,9 @@ namespace TextBasedGame.Shared.Utilities
                         }
                     }
                 }
-
             }
 
-            if (string.IsNullOrEmpty(player.WeaponItem?.WeaponName) && player.Attributes.CarriedItemsCount == 0)
+            if (string.IsNullOrEmpty(player.WeaponItem?.WeaponName) && player.CarriedItems.Count == 0)
             {
                 inventory += "\n\t<empty> \n";
             }
@@ -137,12 +140,12 @@ namespace TextBasedGame.Shared.Utilities
             return player.Name + "'s Status: \n" +
                                 "\t - Health points: \t" + player.HealthPoints + "/" + player.MaximumHealthPoints + "\n" +
                                 "\t - Inventory Space: \t" + player.Attributes.CarriedItemsCount + "/" + player.Attributes.MaximumCarryingCapacity + "\n" +
-                                "\t - Defense: \t\t" + player.Attributes.Defense + "\n" +
-                                "\t - Dexterity: \t\t" + player.Attributes.Dexterity + "\n" +
-                                "\t - Luck: \t\t" + player.Attributes.Luck + "\n" +
-                                "\t - Stamina: \t\t" + player.Attributes.Stamina + "\n" +
-                                "\t - Strength: \t\t" + player.Attributes.Strength + "\n" +
-                                "\t - Wisdom: \t\t" + player.Attributes.Wisdom + "\n";
+                                "\t - Defense: \t\t" + (player.Attributes.Defense == 0 ? "-" : player.Attributes.Defense.ToString()) + "\n" +
+                                "\t - Dexterity: \t\t" + (player.Attributes.Dexterity == 0 ? "-" : player.Attributes.Dexterity.ToString()) + "\n" +
+                                "\t - Luck: \t\t" + (player.Attributes.Luck == 0 ? "-" : player.Attributes.Luck.ToString()) + "\n" +
+                                "\t - Stamina: \t\t" + (player.Attributes.Stamina == 0 ? "-" : player.Attributes.Stamina.ToString()) + "\n" +
+                                "\t - Strength: \t\t" + (player.Attributes.Strength == 0 ? "-" : player.Attributes.Strength.ToString()) + "\n" +
+                                "\t - Wisdom: \t\t" + (player.Attributes.Wisdom == 0 ? "-" : player.Attributes.Wisdom.ToString()) + "\n";
         }
     }
 }

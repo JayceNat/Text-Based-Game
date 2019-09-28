@@ -14,12 +14,12 @@ namespace TextBasedGame.Item
             ItemName = "Flashlight",
             InOriginalLocation = true,
             ItemDescription = "A small LED flashlight that fits in your pocket.",
-            OriginalPlacementDescription = "Your LED flashlight is resting on the coffee table, just to the left of a candle.",
+            OriginalPlacementDescription = "Your LED flashlight is resting on the small table near your door, just to the left of a candle.",
             GenericPlacementDescription = "There's a small LED flashlight resting on the ground beneath your feet.",
             KeywordsForPickup = ItemKeywords.Flashlight,
             ItemTraits = new List<ItemTrait>()
             {
-                Program.ItemTraitCreator.BatteryPercentage
+                Program.ItemTraitCreator.BatteryPercentage(27)
             }
         };
 
@@ -33,23 +33,41 @@ namespace TextBasedGame.Item
             KeywordsForPickup = ItemKeywords.Shoes,
             ItemTraits = new List<ItemTrait>()
             {
-                Program.ItemTraitCreator.LuckPlusOne
-            }
+                Program.ItemTraitCreator.LuckIncrease(1),
+                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+            },
+            InventorySpaceConsumed = 0
         };
 
-        public static InventoryItem Backpack = new InventoryItem
+        public static InventoryItem PlainBagel = new InventoryItem
         {
-            ItemName = "Backpack",
+            ItemName = "Plain Bagel",
             InOriginalLocation = true,
-            ItemDescription = "A large knapsack made of well-worn canvas. It's pretty cool looking.",
-            OriginalPlacementDescription = "Tucked behind your living room sofa is your backpack, you just barely noticed it.",
-            GenericPlacementDescription = "An empty canvas backpack is laying on the ground... Who'd leave this here?",
-            KeywordsForPickup = ItemKeywords.Backpack,
+            ItemDescription = "A plain bagel. It doesn't even have cream cheese on it...",
+            OriginalPlacementDescription = "There's a bagel on the counter that you'd planned to eat earlier.",
+            GenericPlacementDescription = "There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.",
+            KeywordsForPickup = ItemKeywords.PlainBagel,
+            ItemTraits = new List<ItemTrait>()
+            {
+                Program.ItemTraitCreator.HealthItem(10)
+            },
+            InventorySpaceConsumed = 1
+        };
+
+        public static InventoryItem SmallBackpack = new InventoryItem
+        {
+            ItemName = "Small Backpack",
+            InOriginalLocation = true,
+            ItemDescription = "A small bag made of gray nylon.",
+            OriginalPlacementDescription = "Tucked behind your living room sofa is your small backpack, you just barely noticed it.",
+            GenericPlacementDescription = "An empty gray backpack is laying on the ground... It's pretty small.",
+            KeywordsForPickup = ItemKeywords.SmallBackpack,
             ItemTraits = new List<ItemTrait>
             {
-                Program.ItemTraitCreator.CarryingCapacityPlusTen,
-                Program.ItemTraitCreator.CarriedItemCountMinusOne
-            }
+                Program.ItemTraitCreator.CarryingCapacityIncrease(2),
+                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+            },
+            InventorySpaceConsumed = 0
         };
     }
 }

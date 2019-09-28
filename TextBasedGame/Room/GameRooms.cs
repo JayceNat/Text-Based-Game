@@ -14,10 +14,9 @@ namespace TextBasedGame.Room
         {
             RoomName = "Your Bedroom",
             InitialRoomDescription = "You are standing in your bedroom, next to your bed. \n" +
-                                     "There's a faint, early morning light coming in through the blinds of your open window. \n" +
-                                     "You can feel the cool autumn air coming in from outside.",
+                                     "There's faint moonlight coming in through the blinds of your open window. \n" +
+                                     "You can feel the cool night air coming in from outside.",
             GenericRoomDescription = "You are standing in your bedroom.",
-            AsExitDescription = "Behind you is the doorway into your bedroom.",
             AvailableExits = new RoomExit(),
             RoomItems = new Items
             {
@@ -37,19 +36,18 @@ namespace TextBasedGame.Room
         {
             RoomName = "Your Living Room",
             InitialRoomDescription = "You are now standing in your living room. \n" +
-                                     "You see the wind start blowing quite intensely through your living room windows. \n" +
+                                     "You hear the wind start blowing quite intensely through one of your open living room windows. \n" +
                                      "Tree branches rattle and tap on the glass just before the gusts of wind begin to calm down a bit. \n\n" +
                                      "Just then, you hear some strange and sudden *clank* sound from your kitchen.",
             GenericRoomDescription = "You are standing in your living room.",
-            AsExitDescription = "Ahead of you is the doorway leading to your living room.",
             AvailableExits = new RoomExit(),
             RoomItems = new Items
             {
                 InventoryItems = new List<InventoryItem>()
                 {
-                    Program.ItemCreator.Flashlight,
                     Program.ItemCreator.Backpack
-                }
+                },
+                WeaponItems = new List<WeaponItem>()
             },
             KeywordsToEnter = Constants.RoomKeywords.YourLivingRoom
         };
@@ -59,16 +57,15 @@ namespace TextBasedGame.Room
             RoomName = "Your Kitchen",
             InitialRoomDescription = "You've entered your kitchen, and you're looking around for anything that might \n" +
                                      "have made that strange noise... \n\n" +
-                                     "In an flurry of fur, you see a dark grey (and very plump) rat jump out from beneath your counter, \n" +
+                                     "In an flurry of fur, you see a dark gray (and very plump) rat jump out from beneath your counter, \n" +
                                      "and scurry through your living room and out of the house through a small hole in your window screen.",
             GenericRoomDescription = "You're standing in your kitchen, on the light beige floor tiles.",
-            AsExitDescription = "To your right is your kitchen.",
             AvailableExits = new RoomExit(),
             RoomItems = new Items
             {
                 InventoryItems = new List<InventoryItem>()
                 {
-
+                    Program.ItemCreator.PlainBagel
                 },
                 WeaponItems = new List<WeaponItem>()
                 {
@@ -86,8 +83,15 @@ namespace TextBasedGame.Room
                                      "You can hear it pushing tree limbs into each other, and what sounds like other things too. \n\n" +
                                      "It's getting really windy out there.",
             GenericRoomDescription = "You're standing inside the entryway of your home.",
-            AsExitDescription = "To your left is the small entryway of your house.",
             AvailableExits = new RoomExit(),
+            RoomItems = new Items
+            {
+                InventoryItems = new List<InventoryItem>
+                {
+                    Program.ItemCreator.Flashlight
+                },
+                WeaponItems = new List<WeaponItem>()
+            },
             KeywordsToEnter = Constants.RoomKeywords.YourFrontEntryway
         };
     }

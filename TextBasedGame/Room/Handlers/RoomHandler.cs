@@ -79,25 +79,29 @@ namespace TextBasedGame.Room.Handlers
             foreach (var word in inputWords)
             {
                 if (currentRoom.AvailableExits.NorthRoom?.KeywordsToEnter != null
-                    && currentRoom.AvailableExits.NorthRoom.KeywordsToEnter.Contains(word))
+                    && (currentRoom.AvailableExits.NorthRoom.KeywordsToEnter.Contains(word) 
+                        || word == "forward" || word == "ahead" || word == "north"))
                 {
                     return currentRoom.AvailableExits.NorthRoom;
                 }
 
                 if (currentRoom.AvailableExits.EastRoom?.KeywordsToEnter != null
-                    && currentRoom.AvailableExits.EastRoom.KeywordsToEnter.Contains(word))
+                    && (currentRoom.AvailableExits.EastRoom.KeywordsToEnter.Contains(word)
+                        || word == "right" || word == "east"))
                 {
                     return currentRoom.AvailableExits.EastRoom;
                 }
 
                 if (currentRoom.AvailableExits.SouthRoom?.KeywordsToEnter != null
-                    && currentRoom.AvailableExits.SouthRoom.KeywordsToEnter.Contains(word))
+                    && (currentRoom.AvailableExits.SouthRoom.KeywordsToEnter.Contains(word)
+                        || word == "behind" || word == "south"))
                 {
                     return currentRoom.AvailableExits.SouthRoom;
                 }
 
                 if (currentRoom.AvailableExits.WestRoom?.KeywordsToEnter != null
-                    && currentRoom.AvailableExits.WestRoom.KeywordsToEnter.Contains(word))
+                    && (currentRoom.AvailableExits.WestRoom.KeywordsToEnter.Contains(word)
+                        || word == "left" || word == "west"))
                 {
                     return currentRoom.AvailableExits.WestRoom;
                 }

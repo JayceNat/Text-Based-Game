@@ -8,19 +8,30 @@ namespace TextBasedGame.Item.Constants
         {
             "light",
             "flashlight",
-            "torch",
-            "led",
-            "lamp"
+            "led"
         };
 
         public static List<string> Shoes = new List<string>()
         {
             "shoe",
             "shoes",
-            "running shoes",
-            "sandals",
-            "boots",
-            "slippers"
+            "running shoes"
+        };
+
+        public static List<string> SmallBackpack = new List<string>()
+        {
+            "backpack",
+            "pack",
+            "bag",
+            "sack",
+            "bookbag"
+        };
+
+        public static List<string> PlainBagel = new List<string>
+        {
+            "bagel",
+            "plain",
+            "plainbagel"
         };
 
         public static List<string> BaseballBat = new List<string>()
@@ -30,14 +41,12 @@ namespace TextBasedGame.Item.Constants
             "club"
         };
 
-        public static List<string> Backpack = new List<string>()
+        public static List<string> MagnumRevolver = new List<string>()
         {
-            "backpack",
-            "pack",
-            "bag",
-            "knapsack",
-            "sack",
-            "bookbag"
+            "revolver",
+            "gun",
+            "magnum",
+            "44"
         };
     }
 }

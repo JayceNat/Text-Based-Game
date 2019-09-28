@@ -30,7 +30,13 @@ namespace TextBasedGame.Shared.Constants
         };
 
         // Printed just after the user completes trait setup, before first room entered
-        public static string GameIntro = "It was a dark and stormy night... \n";
+        public static string GameIntro = "It was a dark and windy night... \n\n" +
+                                         "So windy, in fact, that the power had been knocked out all the way from \n" +
+                                         "your house on the South side of town to Henry's cabin (miles North - on the outskirts of town). \n\n" +
+                                         "Something about tonight seems eery and unwelcoming... \n" +
+                                         "You'd even felt that way as you'd fallen asleep a bit earlier. \n\n" +
+                                         "You were jolted awake by the sounds of tree branches and debris clanking against your house. \n" +
+                                         "You can't get back to sleep now... You just heard haunting sounds outside your house. \n\n";
 
         public static string FirstRoomHelpHint =
             "<Type 'help' for info on where you are, available exits, and commands>";

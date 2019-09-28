@@ -56,8 +56,8 @@ namespace TextBasedGame.Character.Handlers
                     break;
                 case AttributeStrings.Stamina:
                     player.Attributes.Stamina += trait.TraitValue;
-                    player.MaximumHealthPoints += CharacterDefaults.StaminaPerPointIncrease * trait.TraitValue;
-                    player.HealthPoints += CharacterDefaults.StaminaPerPointIncrease * trait.TraitValue;
+                    player.MaximumHealthPoints += CharacterDefaults.HealthPerStaminaPointIncrease * trait.TraitValue;
+                    player.HealthPoints += CharacterDefaults.HealthPerStaminaPointIncrease * trait.TraitValue;
                     break;
                 case AttributeStrings.Strength:
                     player.Attributes.Strength += trait.TraitValue;
@@ -67,9 +67,6 @@ namespace TextBasedGame.Character.Handlers
                     break;
                 case AttributeStrings.MaxCarryingCapacity:
                     player.Attributes.MaximumCarryingCapacity += trait.TraitValue;
-                    break;
-                case AttributeStrings.CarriedItemsCount:
-                    player.Attributes.CarriedItemsCount += trait.TraitValue;
                     break;
             }
         }
@@ -90,8 +87,8 @@ namespace TextBasedGame.Character.Handlers
                     break;
                 case AttributeStrings.Stamina:
                     player.Attributes.Stamina -= trait.TraitValue;
-                    player.MaximumHealthPoints -= CharacterDefaults.StaminaPerPointIncrease * trait.TraitValue;
-                    player.HealthPoints -= CharacterDefaults.StaminaPerPointIncrease * trait.TraitValue;
+                    player.MaximumHealthPoints -= CharacterDefaults.HealthPerStaminaPointIncrease * trait.TraitValue;
+                    player.HealthPoints -= CharacterDefaults.HealthPerStaminaPointIncrease * trait.TraitValue;
                     break;
                 case AttributeStrings.Strength:
                     player.Attributes.Strength -= trait.TraitValue;
@@ -101,9 +98,6 @@ namespace TextBasedGame.Character.Handlers
                     break;
                 case AttributeStrings.MaxCarryingCapacity:
                     player.Attributes.MaximumCarryingCapacity -= trait.TraitValue;
-                    break;
-                case AttributeStrings.CarriedItemsCount:
-                    player.Attributes.CarriedItemsCount -= trait.TraitValue;
                     break;
             }
         }
