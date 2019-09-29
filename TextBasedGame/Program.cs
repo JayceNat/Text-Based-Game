@@ -20,7 +20,7 @@ namespace TextBasedGame
 
         public static GameTitle GameTitle = new GameTitle()
         {
-            Title = "Spooky Night",
+            Title = "The Haunting",
             TitleTextColor = Color.Aqua,
 
             Author = "Jayce Meyer",

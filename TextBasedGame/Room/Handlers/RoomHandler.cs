@@ -4,7 +4,10 @@ using System.Linq;
 using System.Threading;
 using Colorful;
 using TextBasedGame.Character.Handlers;
+using TextBasedGame.Item.Models;
+using TextBasedGame.Room.Constants;
 using TextBasedGame.Shared.Constants;
+using TextBasedGame.Shared.Models;
 using TextBasedGame.Shared.Utilities;
 
 namespace TextBasedGame.Room.Handlers
@@ -47,7 +50,25 @@ namespace TextBasedGame.Room.Handlers
 
                 if (firstRoomEntered)
                 {
+                    Console.Write("TUTORIAL: ", Color.MediumPurple);
+
+                    if (player.CarriedItems.Count == 0 || string.IsNullOrEmpty(player.WeaponItem.WeaponName))
+                    {
+                        Console.WriteLine("Collect the item and weapon in this room\n", Color.Aquamarine);
+                        Console.WriteLineStyled(ConsoleStrings.ItemsHints, ConsoleStringStyleSheets.GameHelpStyleSheet(Color.AliceBlue));
+                        Console.WriteLineStyled(ConsoleStrings.InfoHints, ConsoleStringStyleSheets.GameHelpStyleSheet(Color.AliceBlue));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Exit this room\n", Color.Red);
+                        Console.WriteLineStyled(ConsoleStrings.RoomHints, ConsoleStringStyleSheets.GameHelpStyleSheet(Color.AliceBlue));
+                    }
+
                     Console.WriteLine(ConsoleStrings.FirstRoomHelpHint, Color.MediumPurple);
+                }
+                if (player.ShowInputHelp && !firstRoomEntered)
+                {
+                    Console.WriteLineStyled(ConsoleStrings.InputHelper, RoomStyleSheets.InputHelperStyleSheet());
                 }
 
                 Console.WriteWithGradient(ConsoleStrings.PlayerInputPrompt, Color.SpringGreen, Color.NavajoWhite, 4);
@@ -60,6 +81,94 @@ namespace TextBasedGame.Room.Handlers
             }
 
             return nextRoom;
+        }
+
+        public static bool DoesPlayerMeetRequirementsToEnter(Character.Models.Character player, Models.Room currentRoom, Models.Room foundRoom)
+        {
+            Console.WriteLine();
+            var meetsRequirements = foundRoom?.AttributeRequirementToEnter == null && foundRoom?.ItemRequirementToEnter == null;
+            if (!meetsRequirements)
+            {
+                if (foundRoom?.AttributeRequirementToEnter != null 
+                    && CanPlayerEnterRoom(player, foundRoom, attrReq: foundRoom.AttributeRequirementToEnter))
+                {
+                    Console.WriteLine($"<{foundRoom.AttributeRequirementToEnter.RequirementName}>! \n", Color.Gold);
+                    meetsRequirements = true;
+                }
+
+                if (foundRoom?.ItemRequirementToEnter != null
+                    && CanPlayerEnterRoom(player, foundRoom, foundRoom.ItemRequirementToEnter))
+                {
+                    if (foundRoom.ItemRequirementToEnter.RelevantItem == Program.ItemCreator.Flashlight && Program.ItemCreator.Flashlight.ItemTraits.First().TraitValue == 0)
+                    {
+                        Console.WriteLine($"It's too dark. Your flashlight battery is dead... \nPut in a new battery to enter {foundRoom.RoomName}.\n", Color.DarkGoldenrod);
+                        return false;
+                    }
+                    Console.WriteLine($"Carrying: <{foundRoom.ItemRequirementToEnter.RequirementName}>! \n", Color.Gold);
+                    meetsRequirements = true;
+                }
+            }
+
+            if (meetsRequirements)
+            {
+                TypingAnimation.Animate("You go to " + foundRoom.RoomName + "... \n", Color.Chartreuse, 40);
+
+                if (foundRoom.ItemRequirementToEnter?.RelevantItem == Program.ItemCreator.Flashlight)
+                {
+                    var light = Program.ItemCreator.Flashlight;
+                    var batteryBefore = light.ItemTraits.First().TraitValue;
+                    if (batteryBefore - 2 < 0)
+                    {
+                        light.ItemTraits = new List<ItemTrait>
+                        {
+                            Program.ItemTraitCreator.BatteryPercentage(0)
+                        };
+                    }
+                    else
+                    {
+                        light.ItemTraits = new List<ItemTrait>
+                        {
+                            Program.ItemTraitCreator.BatteryPercentage(batteryBefore - 2)
+                        };
+                    }
+                    TypingAnimation.Animate("Used Flashlight: battery percent - 2 \n", Color.Chartreuse, 40);
+                }
+
+                Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
+                Console.ReadLine();
+                if (!currentRoom.RoomEntered)
+                {
+                    currentRoom.RoomEntered = true;
+                }
+
+                foundRoom.ItemRequirementToSee = null;
+                foundRoom.ItemRequirementToEnter = null;
+            }
+
+            return meetsRequirements;
+        }
+
+        private static bool CanPlayerEnterRoom(Character.Models.Character player, Models.Room foundRoom, ItemRequirement itemReq = null, AttributeRequirement attrReq = null)
+        {
+            if (itemReq != null)
+            {
+                if (player.CarriedItems.Contains(itemReq.RelevantItem))
+                {
+                    return true;
+                }
+                Console.WriteLine($"You need: <{itemReq.RequirementName}> to enter {foundRoom.RoomName}. \n", Color.DarkGoldenrod);
+            }
+
+            if (attrReq != null)
+            {
+                if (PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, attrReq))
+                {
+                    return true;
+                }
+                Console.WriteLine($"You need: <{attrReq.RequirementName}> to enter {foundRoom.RoomName}. \n", Color.DarkGoldenrod);
+            }
+
+            return false;
         }
 
         // Returns a Room that matches the players input keyword

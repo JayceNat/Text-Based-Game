@@ -24,5 +24,7 @@ namespace TextBasedGame.Item.Models
         public List<ItemTrait> WeaponTraits { get; set; } = new List<ItemTrait>();
 
         public AttributeRequirement AttributeRequirementToSee { get; set; } = null;
+
+        public AttributeRequirement AttributeRequirementToTake { get; set; } = null;
     }
 }

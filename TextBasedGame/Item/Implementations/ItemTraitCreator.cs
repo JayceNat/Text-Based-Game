@@ -17,6 +17,16 @@ namespace TextBasedGame.Item.Implementations
             };
         }
 
+        public ItemTrait BatteryItem(int newBatteryPercent)
+        {
+            return new ItemTrait
+            {
+                TraitName = $"This item has ({newBatteryPercent}%) battery",
+                RelevantCharacterAttribute = "",
+                TraitValue = newBatteryPercent
+            };
+        }
+
         public ItemTrait HealthItem(int healthRestored)
         {
             return new ItemTrait

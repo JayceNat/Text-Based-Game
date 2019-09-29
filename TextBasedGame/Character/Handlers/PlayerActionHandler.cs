@@ -28,12 +28,12 @@ namespace TextBasedGame.Character.Handlers
                 switch (inputWord)
                 {
                     case "pickup":
+                    case "pick":
                     case "grab":
                     case "get":
                     case "take":
                     case "collect":
                     case "gather":
-                        // TODO: Add logic to prevent player from taking items they aren't allowed to see
                         var roomItemKeywords = RoomHandler.GetAllRoomItemKeywords(currentRoom);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), roomItemKeywords,
@@ -74,20 +74,16 @@ namespace TextBasedGame.Character.Handlers
                     case "walk":
                     case "run":
                     case "enter":
-                        // TODO: Add logic to prevent player from entering rooms they aren't allowed to
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         var foundRoom = RoomHandler.FindAnyMatchingRoomByKeywords(substring.Trim(), currentRoom);
                         if (foundRoom != null)
                         {
-                            Console.WriteLine();
-                            TypingAnimation.Animate("You go into " + foundRoom.RoomName + "... \n", Color.Chartreuse, 40);
-                            Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
-                            Console.ReadLine();
-                            if (!currentRoom.RoomEntered)
+                            if (RoomHandler.DoesPlayerMeetRequirementsToEnter(player, currentRoom, foundRoom))
                             {
-                                currentRoom.RoomEntered = true;
+                                return foundRoom;
                             }
-                            return foundRoom;
+
+                            inputResolved = true;
                         }
                         break;
                     case "fight":
@@ -99,6 +95,9 @@ namespace TextBasedGame.Character.Handlers
                     case "consume":
                     case "eat":
                     case "drink":
+                    case "read":
+                    case "look at":
+                    case "open":
                     case "swing":
                     case "shoot":
                     case "fire":
@@ -107,16 +106,14 @@ namespace TextBasedGame.Character.Handlers
                         break;
                     case "item":
                     case "items":
-                        // TODO: Add logic to prevent player from seeing item descriptions they aren't allowed to
-                        var items = StringDescriptionBuilder.CreateStringOfItemDescriptions(currentRoom.RoomItems.InventoryItems);
+                        var items = StringDescriptionBuilder.CreateStringOfItemDescriptions(player, currentRoom.RoomItems.InventoryItems);
                         Console.WriteLine();
                         TypingAnimation.Animate(items == "" ? ConsoleStrings.NoItemsFound : items, Color.Aquamarine);
                         inputResolved = true;
                         break;
                     case "weapon":
                     case "weapons":
-                        // TODO: Add logic to prevent player from seeing weapon descriptions they aren't allowed to
-                        var weapons = StringDescriptionBuilder.CreateStringOfWeaponDescriptions(currentRoom.RoomItems.WeaponItems);
+                        var weapons = StringDescriptionBuilder.CreateStringOfWeaponDescriptions(player, currentRoom.RoomItems.WeaponItems);
                         Console.WriteLine();
                         TypingAnimation.Animate(weapons == "" ? ConsoleStrings.NoWeaponsFound : weapons, Color.Aquamarine);
                         inputResolved = true;
@@ -128,8 +125,7 @@ namespace TextBasedGame.Character.Handlers
                     case "doors":
                     case "out":
                     case "where":
-                        // TODO: Add logic to prevent player from seeing exit descriptions they aren't allowed to
-                        var exits = StringDescriptionBuilder.CreateStringOfExitDescriptions(currentRoom.AvailableExits);
+                        var exits = StringDescriptionBuilder.CreateStringOfExitDescriptions(player, currentRoom.AvailableExits);
                         Console.WriteLine();
                         TypingAnimation.Animate(exits, Color.Red);
                         inputResolved = true;
@@ -159,11 +155,17 @@ namespace TextBasedGame.Character.Handlers
                     case "assist":
                     case "assistance":
                     case "?":
-                        var exitDescriptions = StringDescriptionBuilder.CreateStringOfExitDescriptions(currentRoom.AvailableExits);
+                        Console.ReplaceAllColorsWithDefaults();
+                        Console.WriteLineStyled(ConsoleStrings.GameHelp, ConsoleStringStyleSheets.GameHelpStyleSheet(Color.MediumPurple));
+                        inputResolved = true;
+                        break;
+                    case "helpoff":
+                    case "helpon":
+                        player.ShowInputHelp = !player.ShowInputHelp;
+                        Console.WriteLine(
+                            player.ShowInputHelp ? "\nInput words shown above prompt text." : "\nInput words hidden from prompt text.",
+                            Color.MediumPurple);
                         Console.WriteLine();
-                        Console.WriteLine(currentRoom.GenericRoomDescription, Color.Bisque);
-                        Console.WriteLine(exitDescriptions, Color.Red);
-                        Console.WriteLine(ConsoleStrings.GameHelp, Color.MediumPurple);
                         inputResolved = true;
                         break;
                 }

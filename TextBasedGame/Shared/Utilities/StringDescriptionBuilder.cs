@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
+using TextBasedGame.Item.Handlers;
 using TextBasedGame.Item.Models;
+using TextBasedGame.Room.Handlers;
 using TextBasedGame.Room.Models;
+using TextBasedGame.Shared.Constants;
 
 namespace TextBasedGame.Shared.Utilities
 {
     public class StringDescriptionBuilder
     {
         // Used when user types 'items' or similar command
-        public static string CreateStringOfItemDescriptions(List<InventoryItem> roomItems)
+        public static string CreateStringOfItemDescriptions(Character.Models.Character player, List<InventoryItem> roomItems)
         {
             var itemDescriptions = "";
 
@@ -15,7 +18,11 @@ namespace TextBasedGame.Shared.Utilities
             {
                 foreach (var item in roomItems)
                 {
-                    if (item.InOriginalLocation)
+                    if (item?.AttributeRequirementToSee != null && !InventoryHandler.PlayerMeetsRequirementForItem(player, false, item))
+                    {
+                        itemDescriptions += $"{ConsoleStrings.LackingRequirementItemDescription} (<{item.AttributeRequirementToSee.RequirementName}> needed) \n\n";
+                    }
+                    else if (item.InOriginalLocation)
                     {
                         itemDescriptions += item.OriginalPlacementDescription + "\n\n";
                     }
@@ -30,7 +37,7 @@ namespace TextBasedGame.Shared.Utilities
         }
 
         // Used when user types 'weapons' or similar command
-        public static string CreateStringOfWeaponDescriptions(List<WeaponItem> roomWeapons)
+        public static string CreateStringOfWeaponDescriptions(Character.Models.Character player, List<WeaponItem> roomWeapons)
         {
             var weaponDescriptions = "";
 
@@ -38,7 +45,11 @@ namespace TextBasedGame.Shared.Utilities
             {
                 foreach (var weapon in roomWeapons)
                 {
-                    if (weapon.InOriginalLocation)
+                    if (weapon?.AttributeRequirementToSee != null && !InventoryHandler.PlayerMeetsRequirementForItem(player, false, weaponItem: weapon))
+                    {
+                        weaponDescriptions += $"{ConsoleStrings.LackingRequirementItemDescription} (<{weapon.AttributeRequirementToSee.RequirementName}> needed) \n\n";
+                    }
+                    else if (weapon.InOriginalLocation)
                     {
                         weaponDescriptions += weapon.OriginalPlacementDescription + "\n\n";
                     }
@@ -53,28 +64,108 @@ namespace TextBasedGame.Shared.Utilities
         }
 
         // Used when user types 'exits' or similar command
-        public static string CreateStringOfExitDescriptions(RoomExit roomExits)
+        public static string CreateStringOfExitDescriptions(Character.Models.Character player, RoomExit roomExits)
         {
             var allRoomExits = "";
 
             if (roomExits?.NorthRoom != null)
             {
-                allRoomExits += roomExits.NorthRoomDescription + "\n\n";
+                if (roomExits.NorthRoom?.AttributeRequirementToSee != null 
+                    && !PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, roomExits.NorthRoom.AttributeRequirementToSee))
+                {
+                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.NorthRoom.AttributeRequirementToSee.RequirementName}> needed) \n\n";
+                }
+                else if (roomExits.NorthRoom?.ItemRequirementToSee != null
+                    && !player.CarriedItems.Contains(roomExits.NorthRoom.ItemRequirementToSee.RelevantItem))
+                {
+                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.NorthRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                }
+                else
+                {
+                    if (roomExits.NorthRoom.RoomEntered)
+                    {
+                        allRoomExits += roomExits.NorthRoomDescription + " \t(entered)\n\n";
+                    }
+                    else
+                    {
+                        allRoomExits += roomExits.NorthRoomDescription + "\n\n";
+                    }
+                }
             }
 
             if (roomExits?.EastRoom != null)
             {
-                allRoomExits += roomExits.EastRoomDescription + "\n\n";
+                if (roomExits.EastRoom?.AttributeRequirementToSee != null
+                    && !PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, roomExits.EastRoom.AttributeRequirementToSee))
+                {
+                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.EastRoom.AttributeRequirementToSee.RequirementName}> needed) \n\n";
+                }
+                else if (roomExits.EastRoom?.ItemRequirementToSee != null
+                         && !player.CarriedItems.Contains(roomExits.EastRoom.ItemRequirementToSee.RelevantItem))
+                {
+                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.EastRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                }
+                else
+                {
+                    if (roomExits.EastRoom.RoomEntered)
+                    {
+                        allRoomExits += roomExits.EastRoomDescription + " \t(entered)\n\n";
+                    }
+                    else
+                    {
+                        allRoomExits += roomExits.EastRoomDescription + "\n\n";
+                    }
+                }
             }
 
             if (roomExits?.SouthRoom != null)
             {
-                allRoomExits += roomExits.SouthRoomDescription + "\n\n";
+                if (roomExits.SouthRoom?.AttributeRequirementToSee != null
+                    && !PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, roomExits.SouthRoom.AttributeRequirementToSee))
+                {
+                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.SouthRoom.AttributeRequirementToSee.RequirementName}> needed) \n\n";
+                }
+                else if (roomExits.SouthRoom?.ItemRequirementToSee != null
+                         && !player.CarriedItems.Contains(roomExits.SouthRoom.ItemRequirementToSee.RelevantItem))
+                {
+                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.SouthRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                }
+                else
+                {
+                    if (roomExits.SouthRoom.RoomEntered)
+                    {
+                        allRoomExits += roomExits.SouthRoomDescription + " \t(entered)\n\n";
+                    }
+                    else
+                    {
+                        allRoomExits += roomExits.SouthRoomDescription + "\n\n";
+                    }
+                }
             }
 
             if (roomExits?.WestRoom != null)
             {
-                allRoomExits += roomExits.WestRoomDescription + "\n\n";
+                if (roomExits.WestRoom?.AttributeRequirementToSee != null
+                    && !PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, roomExits.WestRoom.AttributeRequirementToSee))
+                {
+                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.WestRoom.AttributeRequirementToSee.RequirementName}> needed) \n\n";
+                }
+                else if (roomExits.WestRoom?.ItemRequirementToSee != null
+                         && !player.CarriedItems.Contains(roomExits.WestRoom.ItemRequirementToSee.RelevantItem))
+                {
+                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.WestRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                }
+                else
+                {
+                    if (roomExits.WestRoom.RoomEntered)
+                    {
+                        allRoomExits += roomExits.WestRoomDescription + " \t(entered)\n\n";
+                    }
+                    else
+                    {
+                        allRoomExits += roomExits.WestRoomDescription + "\n\n";
+                    }
+                }
             }
 
             return allRoomExits;

@@ -6,6 +6,8 @@ namespace TextBasedGame.Item.Interfaces
     {
         ItemTrait BatteryPercentage(int percent);
 
+        ItemTrait BatteryItem(int newBatteryPercent);
+
         ItemTrait HealthItem(int healthRestored);
 
         ItemTrait CarriedItemsIncrease(int amount);

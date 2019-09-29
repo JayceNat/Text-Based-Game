@@ -6,6 +6,7 @@ using TextBasedGame.Character.Constants;
 using TextBasedGame.Character.Handlers;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Shared.Constants;
+using TextBasedGame.Shared.Models;
 using TextBasedGame.Shared.Utilities;
 
 namespace TextBasedGame.Item.Handlers
@@ -20,10 +21,18 @@ namespace TextBasedGame.Item.Handlers
             {
                 // We are removing an item from a room, adding it to player inventory
                 case true:
-                    if (foundItem?.InventoryItems != null)
+                    if (foundItem?.InventoryItems?.First() != null)
                     {
+                        var meetsAnyRequirement = false;
                         var inventoryItemToAddToPlayer = foundItem.InventoryItems.First();
-                        if (PickupOrDropItemIsOk(player, foundItem))
+                        if (inventoryItemToAddToPlayer?.AttributeRequirementToTake == null) meetsAnyRequirement = true;
+
+                        else if (inventoryItemToAddToPlayer?.AttributeRequirementToTake != null 
+                            && CanPickupItemWithAttributeRequirement(player, inventoryItemToAddToPlayer))
+                        {
+                            meetsAnyRequirement = true;
+                        }
+                        if (PickupOrDropItemIsOk(player, foundItem) && meetsAnyRequirement)
                         {
                             AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, inventoryItemToAddToPlayer);
                             inventoryItemToAddToPlayer.InOriginalLocation = false;
@@ -35,9 +44,12 @@ namespace TextBasedGame.Item.Handlers
                         }
                         else
                         {
-                            Console.WriteLine();
-                            TypingAnimation.Animate("Your inventory is full! \n" +
-                                                    "Drop an item to pick up the " + inventoryItemToAddToPlayer?.ItemName + ".\n", Color.DarkOliveGreen);
+                            if (meetsAnyRequirement)
+                            {
+                                Console.WriteLine();
+                                TypingAnimation.Animate("Your inventory is full! \n" +
+                                                        "Drop or use an item to pick up the " + inventoryItemToAddToPlayer?.ItemName + ".\n", Color.DarkOliveGreen);
+                            }
                         }
                     }
                     else if (foundItem?.WeaponItems != null)
@@ -90,6 +102,44 @@ namespace TextBasedGame.Item.Handlers
             }
         }
 
+        public static bool CanPickupItemWithAttributeRequirement(Character.Models.Character player, InventoryItem inventoryItem = null, WeaponItem weaponItem = null)
+        {
+            if (weaponItem != null)
+            {
+                Console.WriteLine();
+                if (PlayerMeetsRequirementForItem(player, weaponItem: weaponItem))
+                {
+                    TypingAnimation.Animate($"<{weaponItem.AttributeRequirementToTake.RequirementName}>!", Color.Gold);
+                    weaponItem.AttributeRequirementToSee = null;
+                    weaponItem.AttributeRequirementToTake = null;
+                    return true;
+                }
+
+                TypingAnimation.Animate($"You need: <{weaponItem.AttributeRequirementToTake.RequirementName}> to take the {weaponItem.WeaponName}. \n",
+                    Color.DarkGoldenrod);
+                return false;
+            }
+
+            if (inventoryItem != null)
+            {
+                Console.WriteLine();
+                if (PlayerMeetsRequirementForItem(player, inventoryItem: inventoryItem))
+                {
+                    TypingAnimation.Animate($"<{inventoryItem.AttributeRequirementToTake.RequirementName}>!",
+                        Color.Gold);
+                    inventoryItem.AttributeRequirementToSee = null;
+                    inventoryItem.AttributeRequirementToTake = null;
+                    return true;
+                }
+
+                TypingAnimation.Animate($"You need: <{inventoryItem.AttributeRequirementToTake.RequirementName}> to take the {inventoryItem.ItemName}. \n",
+                    Color.DarkGoldenrod);
+                return false;
+            }
+
+            return false;
+        }
+
         public static bool PickupOrDropItemIsOk(Character.Models.Character player, Items foundItem, bool pickingUpItem = true)
         {
             if (foundItem?.WeaponItems != null)
@@ -98,8 +148,12 @@ namespace TextBasedGame.Item.Handlers
             }
 
             if (foundItem?.InventoryItems == null) return false;
-            if (foundItem.InventoryItems?.First()?.ItemTraits == null 
-                && player.Attributes.CarriedItemsCount + foundItem.InventoryItems.First().InventorySpaceConsumed <= player.Attributes.MaximumCarryingCapacity)
+            if (player.Attributes.CarriedItemsCount + foundItem.InventoryItems.First().InventorySpaceConsumed >
+                player.Attributes.MaximumCarryingCapacity)
+                return false;
+            if (foundItem.InventoryItems?.First()?.ItemTraits == null &&
+                player.Attributes.CarriedItemsCount + foundItem.InventoryItems.First().InventorySpaceConsumed <=
+                player.Attributes.MaximumCarryingCapacity)
                 return true;
 
             foreach (var itemTrait in foundItem.InventoryItems.First().ItemTraits)
@@ -122,22 +176,44 @@ namespace TextBasedGame.Item.Handlers
                            || player.Attributes.CarriedItemsCount + itemTrait.TraitValue <= player.Attributes.MaximumCarryingCapacity;
                 }
 
-                else
+                if (itemTrait.RelevantCharacterAttribute != AttributeStrings.MaxCarryingCapacity)
                 {
-                    if (itemTrait.RelevantCharacterAttribute != AttributeStrings.MaxCarryingCapacity)
-                    {
-                        return true;
-                    }
+                    return true;
+                }
 
-                    if (player.Attributes.MaximumCarryingCapacity - itemTrait.TraitValue <
-                        player.Attributes.CarriedItemsCount)
-                    {
-                        return false;
-                    }
+                if (player.Attributes.MaximumCarryingCapacity - itemTrait.TraitValue <
+                    player.Attributes.CarriedItemsCount)
+                {
+                    return false;
                 }
             }
 
             return true;
+        }
+
+        public static bool PlayerMeetsRequirementForItem(Character.Models.Character player, bool takeItem = true, InventoryItem inventoryItem = null, WeaponItem weaponItem = null)
+        {
+            if (inventoryItem != null)
+            {
+                if (takeItem)
+                {
+                    return PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, inventoryItem.AttributeRequirementToTake);
+                }
+
+                return PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, inventoryItem.AttributeRequirementToSee);
+            }
+
+            if (weaponItem != null)
+            {
+                if (takeItem)
+                {
+                    return PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, weaponItem.AttributeRequirementToTake);
+                }
+
+                return PlayerAttributeComparer.ComparePlayerTraitsToAttributeRequirement(player, weaponItem.AttributeRequirementToSee);
+            }
+
+            return false;
         }
 
         public static void DropItemInRoom(Character.Models.Character player, Room.Models.Room room,

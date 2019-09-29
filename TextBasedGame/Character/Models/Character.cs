@@ -16,5 +16,7 @@ namespace TextBasedGame.Character.Models
         public List<InventoryItem> CarriedItems { get; set; } = new List<InventoryItem>();
 
         public WeaponItem WeaponItem { get; set; } = new WeaponItem();
+
+        public bool ShowInputHelp { get; set; } = true;
     }
 }

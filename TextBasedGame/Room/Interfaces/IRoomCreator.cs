@@ -7,5 +7,7 @@
         Models.Room YourLivingRoom { get; }
         Models.Room YourKitchen { get; }
         Models.Room YourFrontEntryway { get; }
+        Models.Room YourBasement { get; }
+        Models.Room YourFrontPorch { get; }
     }
 }

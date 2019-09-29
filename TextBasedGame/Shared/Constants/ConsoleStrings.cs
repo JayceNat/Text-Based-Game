@@ -30,29 +30,56 @@ namespace TextBasedGame.Shared.Constants
         };
 
         // Printed just after the user completes trait setup, before first room entered
-        public static string GameIntro = "It was a dark and windy night... \n\n" +
-                                         "So windy, in fact, that the power had been knocked out all the way from \n" +
-                                         "your house on the South side of town to Henry's cabin (miles North - on the outskirts of town). \n\n" +
-                                         "Something about tonight seems eery and unwelcoming... \n" +
-                                         "You'd even felt that way as you'd fallen asleep a bit earlier. \n\n" +
-                                         "You were jolted awake by the sounds of tree branches and debris clanking against your house. \n" +
-                                         "You can't get back to sleep now... You just heard haunting sounds outside your house. \n\n";
+        public static List<string> GameIntro = new List<string>()
+        {
+            "It was a dark and windy night... \n",
+             "So windy, in fact, that the power had been knocked out all the way from",
+             "your house on the South side of town to Henry's cabin (miles North - on the outskirts of town). \n",
+             "Something about tonight seems eery and unwelcoming...",
+             "You'd even felt that way as you'd fallen asleep a bit earlier. \n",
+             "You were jolted awake by the sounds of tree branches and debris clanking against your house.",
+             "You can't get back to sleep now... You just heard haunting sounds outside your house. \n"
+        };
 
         public static string FirstRoomHelpHint =
-            "<Type 'help' for info on where you are, available exits, and commands>";
+            "<Type 'help' at this prompt for a list of these commands>";
+
+        public static string InputHelper =
+            "=========================Inputs=========================\n" +
+            "< items > < weapons > < exits > < inv > < stat > < use >\n" +
+            "========================================================\n";
+
+        public static string ItemsHints = "\tType  'items'   - view items in a room.\n" +
+                                          "\tType  'weapons' - view weapons in a room.\n\n" +
+                                          "\tType  'take' + <item keyword> to pick up a weapon or item.\n" +
+                                          "\tType  'drop' + <item keyword> to leave a weapon or item.\n";
+
+        public static string RoomHints = "\tType  'exits' - view all exits you have from a room.\n" +
+                                         "\tType  'enter' + <room keyword> to go into a room.\n";
+
+        public static string InfoHints = "\tType 'inventory' or 'inv' to view what you have.\n" +
+                                         "\tType  'status' or 'stat' to view your player info.\n";
 
         public static string NoItemsFound = "You look around, but you don't see any items in the room...\n";
 
         public static string NoWeaponsFound = "You look around, but you don't see any weapons in the room...\n";
 
-        public static string GameHelp = "Hint: Try typing in some of these inputs: \n" +
-                                        "\t - 'take' + <item name>: pick up a specific item or weapon\n" +
-                                        "\t - 'drop' + <item name>: drop a specific item or weapon\n" +
-                                        "\t - 'enter' + <room/exit name>: go to a specific room or exit\n" +
-                                        "\t - 'items': look around for items in a room\n" +
-                                        "\t - 'weapons': look around for weapons in a room\n" +
-                                        "\t - 'exits': see what exits there are from a room\n" +
-                                        "\t - '(inv)entory': view your character's carried items\n" +
-                                        "\t - '(stat)us': view stats about your character \n";
+        public static string LackingRequirementItemDescription =
+            "There seems to be some object, but you can't make out what it is...";
+
+        public static string LackingRequirementRoomDescription =
+            "There seems to be an exit, but you can't make out where it is...";
+
+        public static string GameHelp = "\nTry typing in some of these inputs: \n" +
+                                        "\t - 'items' --------------- look around for items in a room\n" +
+                                        "\t - 'weapons' ------------- look around for weapons in a room\n" +
+                                        "\t - 'exits' --------------- see what exits there are from a room\n\n" +
+                                        "\t - '(inv)entory' --------- view what you're carrying\n" +
+                                        "\t - '(stat)us' ------------ view info about your character \n\n" +
+                                        "\t - 'take' + <item name> -- pick up a specific item or weapon\n" +
+                                        "\t - 'drop' + <item name> -- leave a specific item or weapon\n" +
+                                        "\t - 'enter' + <room name> - go to a specific room or exit\n\n" +
+                                        "\t - 'use' + <item name> --- use an item in your inventory\n\n" +
+                                        "\t - 'helpoff/helpon' ------ toggle the input words shown above the prompt line \n";
     }
 }

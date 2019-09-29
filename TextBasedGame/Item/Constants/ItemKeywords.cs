@@ -11,6 +11,12 @@ namespace TextBasedGame.Item.Constants
             "led"
         };
 
+        public static List<string> FlashlightBattery = new List<string>()
+        {
+            "battery",
+            "flashlight"
+        };
+
         public static List<string> Shoes = new List<string>()
         {
             "shoe",
@@ -32,6 +38,22 @@ namespace TextBasedGame.Item.Constants
             "bagel",
             "plain",
             "plainbagel"
+        };
+
+        public static List<string> StrangeCreaturesBook = new List<string>
+        {
+            "book",
+            "strange",
+            "dusty",
+            "creatures",
+            "creature"
+        };
+
+        public static List<string> DirtyLetter = new List<string>
+        {
+            "letter",
+            "envelope",
+            "dirty"
         };
 
         public static List<string> BaseballBat = new List<string>()

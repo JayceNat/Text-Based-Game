@@ -8,8 +8,11 @@ namespace TextBasedGame.Item.Implementations
         // Declare all getters for any Items you will use here
         public InventoryItem Flashlight { get; }
         public InventoryItem RunningShoes { get; }
-        public InventoryItem Backpack { get; }
+        public InventoryItem SmallBackpack { get; }
         public InventoryItem PlainBagel { get; }
+        public InventoryItem StrangeCreaturesBook { get; }
+        public InventoryItem FlashlightBattery { get; }
+        public InventoryItem DirtyLetter { get; }
 
         // Declare all getters for any Weapons you will use here
         public WeaponItem BaseballBat { get; }
@@ -22,8 +25,11 @@ namespace TextBasedGame.Item.Implementations
             // Inventory Items
             Flashlight = GameItems.Flashlight;
             RunningShoes = GameItems.RunningShoes;
-            Backpack = GameItems.SmallBackpack;
+            SmallBackpack = GameItems.SmallBackpack;
             PlainBagel = GameItems.PlainBagel;
+            StrangeCreaturesBook = GameItems.StrangeCreaturesBook;
+            FlashlightBattery = GameItems.FlashlightBattery1;
+            DirtyLetter = GameItems.DirtyLetter;
 
             // Weapon Items
             BaseballBat = GameWeapons.BaseballBat;

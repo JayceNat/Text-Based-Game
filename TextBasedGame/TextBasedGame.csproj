@@ -60,6 +60,7 @@
     <Compile Include="Character\Implementations\CharacterCreator.cs" />
     <Compile Include="Character\Interfaces\IAttributeCreator.cs" />
     <Compile Include="Character\Interfaces\ICharacterCreator.cs" />
+    <Compile Include="Room\Constants\RoomStyleSheets.cs" />
     <Compile Include="Shared\Constants\ConsoleStrings.cs" />
     <Compile Include="Game\Handlers\GameSetupHandler.cs" />
     <Compile Include="Game\Models\GameTitle.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Room\Constants\RoomKeywords.cs" />
     <Compile Include="Room\Handlers\RoomHandler.cs" />
     <Compile Include="Room\GameRooms.cs" />
+    <Compile Include="Shared\Constants\ConsoleStringStyleSheets.cs" />
+    <Compile Include="Shared\Utilities\PlayerAttributeComparer.cs" />
     <Compile Include="Shared\Utilities\StringDescriptionBuilder.cs" />
     <Compile Include="Room\Implementations\RoomCreator.cs" />
     <Compile Include="Room\Interfaces\IRoomCreator.cs" />

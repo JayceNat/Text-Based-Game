@@ -7,7 +7,7 @@ namespace TextBasedGame.Shared.Utilities
     public class TypingAnimation
     {
         // Simple loop to iterate over characters and delay printing each one to console
-        public static void Animate(string text, Color color = default(Color), int delay = 30)
+        public static bool Animate(string text, Color color = default(Color), int delay = 30)
         {
             string printedText = "";
             string remainingText = text;
@@ -55,6 +55,7 @@ namespace TextBasedGame.Shared.Utilities
             }
 
             Console.WriteLine();
+            return enterKeyPressed;
         }
     }
 }

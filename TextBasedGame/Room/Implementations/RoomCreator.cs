@@ -10,6 +10,8 @@ namespace TextBasedGame.Room.Implementations
         public Models.Room YourLivingRoom { get; }
         public Models.Room YourKitchen { get; }
         public Models.Room YourFrontEntryway { get; }
+        public Models.Room YourBasement { get; }
+        public Models.Room YourFrontPorch { get; }
 
         // Constructor: Add the reference to all the Room Objects here
         public RoomCreator()
@@ -18,6 +20,8 @@ namespace TextBasedGame.Room.Implementations
             YourLivingRoom = GameRooms.YourLivingRoom;
             YourKitchen = GameRooms.YourKitchen;
             YourFrontEntryway = GameRooms.YourFrontEntryway;
+            YourBasement = GameRooms.YourBasement;
+            YourFrontPorch = GameRooms.YourFrontPorch;
 
             AddExitsToAllRooms();
         }
@@ -43,13 +47,30 @@ namespace TextBasedGame.Room.Implementations
 
             YourKitchen.AvailableExits = new RoomExit()
             {
+                NorthRoom = YourBasement,
+                NorthRoomDescription = "Ahead of you is the door into " + YourBasement.RoomName + ".",
                 WestRoom = YourLivingRoom,
                 WestRoomDescription = "To your left is the entrance to " + YourLivingRoom.RoomName + "."
             };
+
+            YourBasement.AvailableExits = new RoomExit()
+            {
+                SouthRoom = YourKitchen,
+                SouthRoomDescription = "Behind you is the stairway up to " + YourKitchen.RoomName + "."
+            };
+
             YourFrontEntryway.AvailableExits = new RoomExit()
             {
                 EastRoom = YourLivingRoom,
-                EastRoomDescription = "To your right is the entrance to " + YourLivingRoom.RoomName + "."
+                EastRoomDescription = "To your right is the entrance to " + YourLivingRoom.RoomName + ".",
+                WestRoom = YourFrontPorch,
+                WestRoomDescription = "To your left is the door out to " + YourFrontPorch.RoomName + "."
+            };
+
+            YourFrontPorch.AvailableExits = new RoomExit()
+            {
+                EastRoom = YourFrontEntryway,
+                EastRoomDescription = "To your right is the door into your house, " + YourFrontEntryway.RoomName + "."
             };
         }
     }

@@ -30,7 +30,25 @@ namespace TextBasedGame.Game.Handlers
         {
             Console.ReplaceAllColorsWithDefaults();
 
-            TypingAnimation.Animate(ConsoleStrings.GameIntro, Color.DarkTurquoise);
+            var enterKeyPressed = false;
+            var r = 255;
+            var g = 255;
+            var b = 255;
+            foreach (var line in ConsoleStrings.GameIntro)
+            {
+                if (enterKeyPressed)
+                {
+                    Console.WriteLine(line, Color.FromArgb(r, g, b));
+                }
+                else
+                {
+                    enterKeyPressed = TypingAnimation.Animate(line, Color.FromArgb(r, g, b));
+                }
+
+                g -= 25;
+                b -= 25;
+            }
+            //TypingAnimation.Animate(ConsoleStrings.GameIntro, Color.DarkTurquoise);
             Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
             Console.ReadLine();
         }
