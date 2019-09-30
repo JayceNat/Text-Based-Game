@@ -1,8 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
+using TextBasedGame.Character.SaveGameConverters;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Character.Models
 {
+    [TypeConverter(typeof(CharacterConverter))]
+    [SettingsSerializeAs(SettingsSerializeAs.String)]
     public class Character
     {
         public string Name { get; set; }
