@@ -24,6 +24,17 @@ namespace TextBasedGame.Item
             }
         };
 
+        public static WeaponItem LumberAxe = new WeaponItem
+        {
+            WeaponName = "Lumber Axe",
+            InOriginalLocation = true,
+            WeaponDescription = "A hefty red axe; made for chopping wood.",
+            OriginalPlacementDescription = "Leaning against the shed wall next to your leg is a lumber axe.",
+            GenericPlacementDescription = "A hefty red lumber axe is laying on the ground.",
+            AttackPower = 5,
+            KeywordsForPickup = ItemKeywords.LumberAxe,
+        };
+
         public static WeaponItem MagnumRevolver = new WeaponItem
         {
             WeaponName = ".44 Magnum",

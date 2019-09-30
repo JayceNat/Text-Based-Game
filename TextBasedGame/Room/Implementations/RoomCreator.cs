@@ -12,6 +12,9 @@ namespace TextBasedGame.Room.Implementations
         public Models.Room YourFrontEntryway { get; }
         public Models.Room YourBasement { get; }
         public Models.Room YourFrontPorch { get; }
+        public Models.Room YourDriveway { get; }
+        public Models.Room YourShed { get; }
+        public Models.Room RoadConnectingYourHouseToTown { get; }
 
         // Constructor: Add the reference to all the Room Objects here
         public RoomCreator()
@@ -22,6 +25,9 @@ namespace TextBasedGame.Room.Implementations
             YourFrontEntryway = GameRooms.YourFrontEntryway;
             YourBasement = GameRooms.YourBasement;
             YourFrontPorch = GameRooms.YourFrontPorch;
+            YourDriveway = GameRooms.YourDriveway;
+            YourShed = GameRooms.YourShed;
+            RoadConnectingYourHouseToTown = GameRooms.RoadConnectingYourHouseToTown;
 
             AddExitsToAllRooms();
         }
@@ -69,8 +75,26 @@ namespace TextBasedGame.Room.Implementations
 
             YourFrontPorch.AvailableExits = new RoomExit()
             {
+                NorthRoom = YourDriveway,
+                NorthRoomDescription = "Ahead of you is " + YourDriveway.RoomName + ".",
                 EastRoom = YourFrontEntryway,
-                EastRoomDescription = "To your right is the door into your house, " + YourFrontEntryway.RoomName + "."
+                EastRoomDescription = "To your right is the door into your house, " + YourFrontEntryway.RoomName + ".",
+                SouthRoom = YourShed,
+                SouthRoomDescription = "Behind you, a ways back towards the trees is " + YourShed.RoomName + "."
+            };
+
+            YourDriveway.AvailableExits = new RoomExit()
+            {
+                NorthRoom = RoadConnectingYourHouseToTown,
+                NorthRoomDescription = "To the North is the " + RoadConnectingYourHouseToTown.RoomName + ".",
+                SouthRoom = YourFrontPorch,
+                SouthRoomDescription = "Behind you, to the South, is " + YourFrontPorch.RoomName + "."
+            };
+
+            YourShed.AvailableExits = new RoomExit
+            {
+                NorthRoom = YourFrontPorch,
+                NorthRoomDescription = "A little ways ahead of you is " + YourFrontPorch.RoomName + "."
             };
         }
     }

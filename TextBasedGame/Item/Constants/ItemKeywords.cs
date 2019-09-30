@@ -24,13 +24,12 @@ namespace TextBasedGame.Item.Constants
             "running shoes"
         };
 
-        public static List<string> SmallBackpack = new List<string>()
+        public static List<string> TinyBackpack = new List<string>()
         {
             "backpack",
             "pack",
             "bag",
-            "sack",
-            "bookbag"
+            "sack"
         };
 
         public static List<string> PlainBagel = new List<string>
@@ -56,6 +55,29 @@ namespace TextBasedGame.Item.Constants
             "dirty"
         };
 
+        public static List<string> Newspaper = new List<string>
+        {
+            "news",
+            "paper",
+            "newspaper"
+        };
+
+        public static List<string> ScotchWhiskey = new List<string>
+        {
+            "scotch",
+            "whiskey",
+            "whisky"
+        };
+
+        public static List<string> CanvasBookBag = new List<string>
+        {
+            "bag",
+            "canvas",
+            "bookbag",
+            "sack",
+            "backpack"
+        };
+
         public static List<string> BaseballBat = new List<string>()
         {
             "slugger",
@@ -69,6 +91,14 @@ namespace TextBasedGame.Item.Constants
             "gun",
             "magnum",
             "44"
+        };
+
+        public static List<string> LumberAxe = new List<string>()
+        {
+            "lumber",
+            "wood",
+            "axe",
+            "chopper"
         };
     }
 }

@@ -68,7 +68,7 @@ namespace TextBasedGame.Shared.Constants
             "There seems to be some object, but you can't make out what it is...";
 
         public static string LackingRequirementRoomDescription =
-            "There seems to be an exit, but you can't make out where it is...";
+            "There seems to be another way to go, but you can't really tell...";
 
         public static string GameHelp = "\nTry typing in some of these inputs: \n" +
                                         "\t - 'items' --------------- look around for items in a room\n" +

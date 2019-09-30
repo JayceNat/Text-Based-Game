@@ -2,20 +2,20 @@
 {
     public class AttributeStrings
     {
-        public const string MaxCarryingCapacity = "maxcarryingcapacity";
+        public const string MaxCarryingCapacity = "Max Carrying Capacity";
 
-        public const string CarriedItemsCount = "carrieditemscount";
+        public const string CarriedItemsCount = "Carried Items Count";
 
-        public const string Defense = "defense";
+        public const string Defense = "Defense";
 
-        public const string Dexterity = "dexterity";
+        public const string Dexterity = "Dexterity";
 
-        public const string Luck = "luck";
+        public const string Luck = "Luck";
 
-        public const string Stamina = "stamina";
+        public const string Stamina = "Stamina";
 
-        public const string Strength = "strength";
+        public const string Strength = "Strength";
 
-        public const string Wisdom = "wisdom";
+        public const string Wisdom = "Wisdom";
     }
 }

@@ -36,7 +36,7 @@ namespace TextBasedGame.Room.Constants
             "entry",
             "foyer",
             "frontdoor",
-            "front"
+            "house"
         };
 
         public static List<string> YourBasement = new List<string>
@@ -55,6 +55,24 @@ namespace TextBasedGame.Room.Constants
             "porch",
             "frontdoor",
             "front"
+        };
+
+        public static List<string> YourDriveway = new List<string>()
+        {
+            "drive",
+            "way",
+            "driveway"
+        };
+
+        public static List<string> YourShed = new List<string>()
+        {
+            "shed",
+            "shack"
+        };
+
+        public static List<string> RoadConnectingYourHouseToTown = new List<string>()
+        {
+            "road"
         };
     }
 }

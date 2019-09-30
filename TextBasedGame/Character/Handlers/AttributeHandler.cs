@@ -1,4 +1,5 @@
 ﻿using TextBasedGame.Character.Constants;
+using TextBasedGame.Item.Constants;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Character.Handlers
@@ -9,7 +10,7 @@ namespace TextBasedGame.Character.Handlers
         public static void UpdatePlayerAttributesFromInventoryItem(Models.Character player,
             InventoryItem newInventoryItem, bool removeAttributes = false)
         {
-            if (newInventoryItem?.ItemTraits == null) return;
+            if (newInventoryItem?.ItemTraits == null || newInventoryItem.TreatItemAs == ItemUseTypes.ConsumableAttribute) return;
             foreach (var trait in newInventoryItem.ItemTraits)
             {
                 if (removeAttributes)

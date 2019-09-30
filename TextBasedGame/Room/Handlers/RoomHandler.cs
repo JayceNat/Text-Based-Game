@@ -117,21 +117,8 @@ namespace TextBasedGame.Room.Handlers
                 {
                     var light = Program.ItemCreator.Flashlight;
                     var batteryBefore = light.ItemTraits.First().TraitValue;
-                    if (batteryBefore - 2 < 0)
-                    {
-                        light.ItemTraits = new List<ItemTrait>
-                        {
-                            Program.ItemTraitCreator.BatteryPercentage(0)
-                        };
-                    }
-                    else
-                    {
-                        light.ItemTraits = new List<ItemTrait>
-                        {
-                            Program.ItemTraitCreator.BatteryPercentage(batteryBefore - 2)
-                        };
-                    }
-                    TypingAnimation.Animate("Used Flashlight: battery percent - 2 \n", Color.Chartreuse, 40);
+                    FlashlightBatteryUpdate.FlashlightBatteryChange(light, batteryBefore, 2);
+                    TypingAnimation.Animate("Used Flashlight: battery dropped by 2 \n", Color.Chartreuse, 40);
                 }
 
                 Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
@@ -141,8 +128,10 @@ namespace TextBasedGame.Room.Handlers
                     currentRoom.RoomEntered = true;
                 }
 
-                foundRoom.ItemRequirementToSee = null;
+                foundRoom.AttributeRequirementToEnter = null;
+                foundRoom.AttributeRequirementToSee = null;
                 foundRoom.ItemRequirementToEnter = null;
+                foundRoom.ItemRequirementToSee = null;
             }
 
             return meetsRequirements;

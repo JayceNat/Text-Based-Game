@@ -16,7 +16,7 @@ namespace TextBasedGame.Room.Models
 
         public string AsExitDescription { get; set; }
 
-        public RoomExit AvailableExits { get; set; }
+        public RoomExit AvailableExits { get; set; } = new RoomExit();
 
         public Items RoomItems { get; set; } = 
             new Items() { InventoryItems = new List<InventoryItem>(), WeaponItems = new List<WeaponItem>()};

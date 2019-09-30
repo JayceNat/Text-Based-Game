@@ -10,6 +10,8 @@ namespace TextBasedGame.Item.Interfaces
 
         ItemTrait HealthItem(int healthRestored);
 
+        ItemTrait ConsumedAttributeItem(string relevantAttribute, int traitValue);
+
         ItemTrait CarriedItemsIncrease(int amount);
 
         ItemTrait CarryingCapacityIncrease(int amount);

@@ -37,6 +37,16 @@ namespace TextBasedGame.Item.Implementations
             };
         }
 
+        public ItemTrait ConsumedAttributeItem(string relevantAttribute, int traitValue)
+        {
+            return new ItemTrait
+            {
+                TraitName = $"Use to increase {relevantAttribute} by ({traitValue})",
+                RelevantCharacterAttribute = relevantAttribute,
+                TraitValue = traitValue
+            };
+        }
+
         public ItemTrait CarriedItemsIncrease(int amount)
         {
             return new ItemTrait

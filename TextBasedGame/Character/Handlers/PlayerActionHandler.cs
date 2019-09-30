@@ -23,6 +23,7 @@ namespace TextBasedGame.Character.Handlers
             foreach (var inputWord in inputWords)
             {
                 string substring;
+                List<string> inventoryKeywords;
                 Items foundItem;
 
                 switch (inputWord)
@@ -47,7 +48,7 @@ namespace TextBasedGame.Character.Handlers
                     case "drop":
                     case "release":
                     case "letgo":
-                        var inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
+                        inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
                             player.CarriedItems, new List<WeaponItem>() { player.WeaponItem });
@@ -86,6 +87,10 @@ namespace TextBasedGame.Character.Handlers
                             inputResolved = true;
                         }
                         break;
+                    case "talk":
+                    case "ask":
+                    case "buy":
+                        // TODO: Implement a conversation/purchase system with a character in a room
                     case "fight":
                     case "kill":
                     case "attack":
@@ -101,8 +106,14 @@ namespace TextBasedGame.Character.Handlers
                     case "swing":
                     case "shoot":
                     case "fire":
-                        // TODO: Implement a system to use currently equipped weapon...
-                        // TODO: Implement item consumption system...
+                        inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
+                        substring = CreateSubstringOfActionInput(fullInput, inputWord);
+                        foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords, 
+                            player.CarriedItems, new List<WeaponItem>{ player.WeaponItem });
+                        if (foundItem != null)
+                        {
+                            inputResolved = InventoryHandler.HandleItemBeingUsed(player, foundItem, inputWord);
+                        }
                         break;
                     case "item":
                     case "items":

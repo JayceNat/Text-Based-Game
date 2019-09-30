@@ -9,5 +9,8 @@
         Models.Room YourFrontEntryway { get; }
         Models.Room YourBasement { get; }
         Models.Room YourFrontPorch { get; }
+        Models.Room YourDriveway { get; }
+        Models.Room YourShed { get; }
+        Models.Room RoadConnectingYourHouseToTown { get; }
     }
 }
