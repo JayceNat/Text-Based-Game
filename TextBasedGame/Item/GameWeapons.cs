@@ -33,6 +33,11 @@ namespace TextBasedGame.Item
             GenericPlacementDescription = "A hefty red lumber axe is laying on the ground.",
             AttackPower = 5,
             KeywordsForPickup = ItemKeywords.LumberAxe,
+            WeaponTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.DefenseIncrease(1),
+                Program.ItemTraitCreator.StrengthIncrease(1)
+            }
         };
 
         public static WeaponItem MagnumRevolver = new WeaponItem

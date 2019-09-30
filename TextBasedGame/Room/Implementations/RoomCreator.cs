@@ -48,7 +48,7 @@ namespace TextBasedGame.Room.Implementations
                 SouthRoom = YourBedroom,
                 SouthRoomDescription = "Behind you is the entrance to " + YourBedroom.RoomName + ".",
                 WestRoom = YourFrontEntryway,
-                WestRoomDescription = "To your left is the entrance to " + YourFrontEntryway.RoomName + "."
+                WestRoomDescription = "To your left is " + YourFrontEntryway.RoomName + "."
             };
 
             YourKitchen.AvailableExits = new RoomExit()

@@ -17,17 +17,17 @@
             "\nThe remainder of the page appears to have been ripped out.\n";
 
         public static string DirtyLetterText = 
-            "The letter has nothing on the envelope aside from your name, which looks hastily scribbled...\n" +
-            "\n\tIt says: \n" +
+            "The envelope has nothing on it aside from your name, which looks hastily scribbled...\n" +
+            "\n\tThe letter says: \n" +
             "\n\t\"Hey, \n" +
             "\n\t\tSo sorry to leave this here letter on your porch like this at such an odd hour of the night...\n" +
             "\tI really need to speak with you. It's urgent. Susan's gone missing. I... I know how crazy it's gonna sound.\n" +
-            "\tJust hear me out... I think it'd be best to explain it in person. \n" +
+            "\tJust hear me out... Well, perhaps it'd be best to explain it in person. \n" +
             "\n\t\tMeet me at my cabin, North of town. If you forgot how to get there, \n" +
             "\tjust go straight North from your place, follow the road through town.\n" +
             "\tThen just keep on going North 'til the pavement turns to dirt.\n" +
             "\n\t\tThe sooner you can get here, the better.\n" +
-            "\t\tOh, and just be alert if you're outside at night. Please." +
+            "\tOh, and just be alert if you're outside at night. Please.\n" +
             "\n\tTalk soon,\n" +
             "\tHenry\"\n";
 
@@ -35,11 +35,12 @@
             "The paper has a big, bold title running across the front page: \"TWELVE MISSING - SEARCH CONTINUES\"\n" +
             "\n\tThe paper says: \n" +
             "\n\t\t\"The number of missing Ashbury residents has reached an all time high of 12 today.\n" +
-            "\n\t'The search has been unsuccessful thus far,' says deputy chief Hockstetter, \n" +
+            "\t'The search has been unsuccessful thus far,' says deputy chief Hockstetter, \n" +
             "\t'We don't have any leads, and the majority of the residents won't talk sense with us. \n" +
             "\tMost claim they saw demons taking people... what ridiculousness! \n" +
-            "\tThough rest assured, we are doing everything in our power to bring each and every missing person home unharmed.'\n" +
-            "\n\tWith the number of missing persons on the rise, many refuse to leave their homes after sunset.\n" +
+            "\tThough rest assured, we are doing everything in our power to bring \n" +
+            "\teach and every missing person home unharmed.'\n\n" +
+            "\tWith the number of missing persons on the rise, many refuse to leave their homes after sunset.\n" +
             "\tThere seems to be a town-wide panic ensuing around these superstitions and speculations.\"\n";
     }
 }

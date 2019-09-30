@@ -179,7 +179,7 @@ namespace TextBasedGame.Room
             RoomName = "Your Shed",
             InitialRoomDescription = "You open the rusted metal makeshift shed door and it creaks and screeches loudly.\n\n" +
                                      "It's really cold in here, and the whole shed seems flimsy in the wind.\n" +
-                                     "It keeps shifting slightly from side to side and making unsettling noises with each gust",
+                                     "It keeps shifting slightly from side to side and making unsettling noises with each gust.",
             GenericRoomDescription = "You're in your rusted, creaky old shed.",
             RoomItems = new Items
             {
@@ -196,9 +196,9 @@ namespace TextBasedGame.Room
             KeywordsToEnter = Constants.RoomKeywords.YourShed,
             AttributeRequirementToSee = new AttributeRequirement
             {
-                RequirementName = "Wisdom - 4+",
+                RequirementName = "Wisdom - 3+",
                 RelevantCharacterAttribute = AttributeStrings.Wisdom,
-                MinimumAttributeValue = 4
+                MinimumAttributeValue = 3
             },
             ItemRequirementToEnter = new ItemRequirement
             {
