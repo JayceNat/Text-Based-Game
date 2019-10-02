@@ -6,15 +6,15 @@ namespace TextBasedGame.Room.Implementations
     public class RoomCreator : IRoomCreator
     {
         // Declare all getters for any Rooms you will use here
-        public Models.Room YourBedroom { get; }
-        public Models.Room YourLivingRoom { get; }
-        public Models.Room YourKitchen { get; }
-        public Models.Room YourFrontEntryway { get; }
-        public Models.Room YourBasement { get; }
-        public Models.Room YourFrontPorch { get; }
-        public Models.Room YourDriveway { get; }
-        public Models.Room YourShed { get; }
-        public Models.Room RoadConnectingYourHouseToTown { get; }
+        public Models.Room YourBedroom { get; set; }
+        public Models.Room YourLivingRoom { get; set; }
+        public Models.Room YourKitchen { get; set; }
+        public Models.Room YourFrontEntryway { get; set; }
+        public Models.Room YourBasement { get; set; }
+        public Models.Room YourFrontPorch { get; set; }
+        public Models.Room YourDriveway { get; set; }
+        public Models.Room YourShed { get; set; }
+        public Models.Room RoadConnectingYourHouseToTown { get; set; }
 
         // Constructor: Add the reference to all the Room Objects here
         public RoomCreator()
@@ -33,7 +33,7 @@ namespace TextBasedGame.Room.Implementations
         }
 
         // Used to add the Room references to Room Objects as the Exit Property
-        private void AddExitsToAllRooms()
+        public void AddExitsToAllRooms()
         {
             YourBedroom.AvailableExits = new RoomExit()
             {
@@ -96,6 +96,26 @@ namespace TextBasedGame.Room.Implementations
                 NorthRoom = YourFrontPorch,
                 NorthRoomDescription = "A little ways ahead of you is " + YourFrontPorch.RoomName + "."
             };
+        }
+
+        // Used to remove the room exits to avoid a circular dependency when serializing
+        public void RemoveExitsFromAllRooms()
+        {
+            YourBedroom.AvailableExits = new RoomExit();
+
+            YourLivingRoom.AvailableExits = new RoomExit();
+
+            YourKitchen.AvailableExits = new RoomExit();
+
+            YourBasement.AvailableExits = new RoomExit();
+
+            YourFrontEntryway.AvailableExits = new RoomExit();
+
+            YourFrontPorch.AvailableExits = new RoomExit();
+
+            YourDriveway.AvailableExits = new RoomExit();
+
+            YourShed.AvailableExits = new RoomExit();
         }
     }
 }

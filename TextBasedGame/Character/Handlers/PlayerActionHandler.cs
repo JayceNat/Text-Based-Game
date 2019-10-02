@@ -90,7 +90,7 @@ namespace TextBasedGame.Character.Handlers
                     case "talk":
                     case "ask":
                     case "buy":
-                        // TODO: Implement a conversation/purchase system with a character in a room
+                    // TODO: Implement a conversation/purchase system with a character in a room
                     case "fight":
                     case "kill":
                     case "attack":
@@ -108,8 +108,8 @@ namespace TextBasedGame.Character.Handlers
                     case "fire":
                         inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
-                        foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords, 
-                            player.CarriedItems, new List<WeaponItem>{ player.WeaponItem });
+                        foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
+                            player.CarriedItems, new List<WeaponItem> { player.WeaponItem });
                         if (foundItem != null)
                         {
                             inputResolved = InventoryHandler.HandleItemBeingUsed(player, foundItem, inputWord);
@@ -179,6 +179,27 @@ namespace TextBasedGame.Character.Handlers
                         Console.WriteLine();
                         inputResolved = true;
                         break;
+                    case "save":
+                        if (currentRoom.RoomName == "Your Bedroom")
+                        {
+                            Console.WriteLine($"\nYou need to leave {currentRoom.RoomName} before you can save.", Color.DarkOrange);
+                            inputResolved = true;
+                            break;
+                        }
+                        Console.WriteLine("\nSave the game and close? (y/n)", Color.White);
+                        Console.WriteLine("Note - This will overwrite any current save file!", Color.White);
+                        Console.Write(">", Color.White);
+                        var response = Console.ReadLine();
+                        if (string.IsNullOrEmpty(response) || response.ToLower()[0].Equals('n'))
+                        {
+                            Console.WriteLine("\nSave cancelled.", Color.White);
+                            inputResolved = true;
+                            break;
+                        }
+                        return new Room.Models.Room
+                        {
+                            RoomName = ConsoleStrings.SaveGame
+                        };
                 }
             }
 

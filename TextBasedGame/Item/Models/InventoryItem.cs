@@ -1,14 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using TextBasedGame.Item.Constants;
-using TextBasedGame.Item.SaveGameConverters;
 using TextBasedGame.Shared.Models;
 
 namespace TextBasedGame.Item.Models
 {
-    [TypeConverter(typeof(InventoryItemConverter))]
-    [SettingsSerializeAs(SettingsSerializeAs.String)]
     public class InventoryItem
     {
         public string ItemName { get; set; }

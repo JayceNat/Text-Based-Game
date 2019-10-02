@@ -1,12 +1,9 @@
-﻿using System.ComponentModel;
-using System.Configuration;
+﻿using System;
 using System.Drawing;
-using TextBasedGame.Game.SaveGameConverters;
 
 namespace TextBasedGame.Game.Models
 {
-    [TypeConverter(typeof(GameTitleConverter))]
-    [SettingsSerializeAs(SettingsSerializeAs.String)]
+    [Serializable]
     public class GameTitle
     {
         public string Title { get; set; }

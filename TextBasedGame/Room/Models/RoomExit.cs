@@ -1,11 +1,5 @@
-﻿using System.ComponentModel;
-using System.Configuration;
-using TextBasedGame.Room.SaveGameConverters;
-
-namespace TextBasedGame.Room.Models
+﻿namespace TextBasedGame.Room.Models
 {
-    [TypeConverter(typeof(RoomExitConverter))]
-    [SettingsSerializeAs(SettingsSerializeAs.String)]
     public class RoomExit
     {
         public Room NorthRoom { get; set; }

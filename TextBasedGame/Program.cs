@@ -1,4 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Xml;
+using System.Xml.Serialization;
 using TextBasedGame.Character.Handlers;
 using TextBasedGame.Character.Interfaces;
 using TextBasedGame.Game.Handlers;
@@ -10,6 +15,11 @@ namespace TextBasedGame
 {
     public class Program
     {
+        // Used for saving the game
+        public static XmlSerializer GameTitleSerializer = new XmlSerializer(typeof(GameTitle));
+        public static XmlSerializer CharacterSerializer = new XmlSerializer(typeof(Character.Models.Character));
+        public static XmlSerializer RoomSerializer = new XmlSerializer(typeof(Room.Models.Room));
+
         // These will build/create our Trait, Attr, Item, Character and Room objects from Game*.cs files
         // The order here is important, as some objects depend on others to already exist
         public static readonly IItemTraitCreator ItemTraitCreator = new Item.Implementations.ItemTraitCreator();
@@ -27,23 +37,42 @@ namespace TextBasedGame
             AuthorTextColor = Color.CadetBlue
         };
 
+        public Program(XmlSerializer gameTitleSerializer, XmlSerializer characterSerializer, XmlSerializer roomSerializer)
+        {
+            GameTitleSerializer = gameTitleSerializer;
+            CharacterSerializer = characterSerializer;
+            RoomSerializer = roomSerializer;
+        }
+
         // This is the Entry Point for the entire Game (the console application)
         private static void Main()
         {
             // Helper to pretty up and print the above variable
             GameSetupHandler.DisplayGameTitle(GameTitle);
 
+            // If a save file exists, ask to load it
+            var gameLoaded = GameSetupHandler.TryLoadGame();
+
             // This calls the Interface to { get; } a reference to our Player object we built earlier
             var player = CharacterCreator.Player;
 
-            // Gets the players name from console input
-            PlayerSetupHandler.WelcomePlayer(player);
+            if (!gameLoaded)
+            {
+                // Gets the players name from console input
+                PlayerSetupHandler.WelcomePlayer(player);
 
-            // User assigns their starting traits
-            PlayerSetupHandler.SetPlayerTraits(player);
+                // User assigns their starting traits
+                PlayerSetupHandler.SetPlayerTraits(player);
 
-            // Game ends once 'BeginAdventure' returns
-            GameSetupHandler.BeginAdventure(player, RoomCreator.YourBedroom);
+                // Game ends once 'BeginAdventure' returns
+                GameSetupHandler.BeginAdventure(player, RoomCreator.YourBedroom);
+            }
+            else
+            {
+                //                CharacterCreator.Player.CurrentLocation.RoomEntered = false;
+                // Game ends once 'BeginAdventure' returns
+                GameSetupHandler.TheAdventure(player, CharacterCreator.Player.CurrentLocation, false);
+            }
         }
     }
 }

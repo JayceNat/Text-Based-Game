@@ -29,6 +29,8 @@ namespace TextBasedGame.Shared.Constants
             'd', 'o', '?'
         };
 
+        public static string SaveGame = "SAVE_GAME";
+
         // Printed just after the user completes trait setup, before first room entered
         public static List<string> GameIntro = new List<string>()
         {
@@ -42,7 +44,7 @@ namespace TextBasedGame.Shared.Constants
         };
 
         public static string FirstRoomHelpHint =
-            "<Type 'help' at this prompt for a list of these commands>";
+            "<Type 'info' at this prompt for a list of game commands>";
 
         public static string InputHelper =
             "=========================Inputs=========================\n" +
@@ -80,6 +82,7 @@ namespace TextBasedGame.Shared.Constants
                                         "\t - 'drop' + <item name> -- leave a specific item or weapon\n" +
                                         "\t - 'enter' + <room name> - go to a specific room or exit\n\n" +
                                         "\t - 'use' + <item name> --- use an item in your inventory\n\n" +
-                                        "\t - 'helpoff/helpon' ------ toggle the input words shown above the prompt line \n";
+                                        "\t - 'helpoff/helpon' ------ toggle the input words shown above the prompt line \n" +
+                                        "\t - 'save' ---------------- save the game and close (it will ask to load when re-opened)\n";
     }
 }

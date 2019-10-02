@@ -60,23 +60,15 @@
     <Compile Include="Character\Implementations\CharacterCreator.cs" />
     <Compile Include="Character\Interfaces\IAttributeCreator.cs" />
     <Compile Include="Character\Interfaces\ICharacterCreator.cs" />
-    <Compile Include="Character\SaveGameConverters\CharacterAttributeConverter.cs" />
-    <Compile Include="Character\SaveGameConverters\CharacterConverter.cs" />
-    <Compile Include="Game\SaveGameConverters\GameTitleConverter.cs" />
     <Compile Include="Item\Constants\DocumentTexts.cs" />
     <Compile Include="Item\Constants\ItemUseTypes.cs" />
-    <Compile Include="Item\SaveGameConverters\InventoryItemConverter.cs" />
-    <Compile Include="Item\SaveGameConverters\ItemsConverter.cs" />
-    <Compile Include="Item\SaveGameConverters\ItemTraitConverter.cs" />
-    <Compile Include="Item\SaveGameConverters\WeaponItemConverter.cs" />
     <Compile Include="Room\Constants\RoomStyleSheets.cs" />
-    <Compile Include="Room\SaveGameConverters\RoomConverter.cs" />
-    <Compile Include="Room\SaveGameConverters\RoomExitConverter.cs" />
     <Compile Include="SaveGame.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>SaveGame.settings</DependentUpon>
     </Compile>
+    <Compile Include="Shared\Constants\ConsoleColors.cs" />
     <Compile Include="Shared\Constants\ConsoleStrings.cs" />
     <Compile Include="Game\Handlers\GameSetupHandler.cs" />
     <Compile Include="Game\Models\GameTitle.cs" />
@@ -98,8 +90,6 @@
     <Compile Include="Room\Handlers\RoomHandler.cs" />
     <Compile Include="Room\GameRooms.cs" />
     <Compile Include="Shared\Constants\ConsoleStringStyleSheets.cs" />
-    <Compile Include="Shared\SaveGameConverters\AttributeRequirementConverter.cs" />
-    <Compile Include="Shared\SaveGameConverters\ItemRequirementConverter.cs" />
     <Compile Include="Shared\Utilities\FlashlightBatteryUpdate.cs" />
     <Compile Include="Shared\Utilities\PlayerAttributeComparer.cs" />
     <Compile Include="Shared\Utilities\StringDescriptionBuilder.cs" />

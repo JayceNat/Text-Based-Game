@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using TextBasedGame.Item.Models;
-using TextBasedGame.Room.SaveGameConverters;
 using TextBasedGame.Shared.Models;
+using System;
 
 namespace TextBasedGame.Room.Models
 {
-    [TypeConverter(typeof(RoomConverter))]
-    [SettingsSerializeAs(SettingsSerializeAs.String)]
+    [Serializable]
     public class Room
     {
         public string RoomName { get; set; }

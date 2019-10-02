@@ -1,12 +1,7 @@
-﻿using System.ComponentModel;
-using System.Configuration;
-using TextBasedGame.Character.Constants;
-using TextBasedGame.Character.SaveGameConverters;
+﻿using TextBasedGame.Character.Constants;
 
 namespace TextBasedGame.Character.Models
 {
-    [TypeConverter(typeof(CharacterAttributeConverter))]
-    [SettingsSerializeAs(SettingsSerializeAs.String)]
     public class CharacterAttribute
     {
         public int AvailablePoints { get; set; } = CharacterDefaults.DefaultPointsToSpend;

@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <GameTitle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Title>The Haunting</Title>
+    <TitleTextColor />
+    <Author>Jayce Meyer</Author>
+    <AuthorTextColor />
+  </GameTitle>
+  <Character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Name>Hablbabby</Name>
+    <CurrentLocation>
+      <RoomName>Your Kitchen</RoomName>
+      <RoomEntered>false</RoomEntered>
+      <InitialRoomDescription>You've entered your kitchen, and you're looking around for anything that might 
+have made that strange noise... 
+
+In an flurry of fur, you see a dark gray (and very plump) rat jump out from beneath your counter, 
+and scurry through your living room and out of the house through a small hole in your window screen.</InitialRoomDescription>
+      <GenericRoomDescription>You're standing in your kitchen, on the light beige floor tiles.</GenericRoomDescription>
+      <AvailableExits />
+      <RoomItems>
+        <InventoryItems />
+        <WeaponItems />
+      </RoomItems>
+      <KeywordsToEnter>
+        <string>kitchen</string>
+        <string>kitch</string>
+        <string>cook</string>
+        <string>food</string>
+        <string>fridge</string>
+        <string>stairs</string>
+      </KeywordsToEnter>
+    </CurrentLocation>
+    <MaximumHealthPoints>50</MaximumHealthPoints>
+    <HealthPoints>50</HealthPoints>
+    <Attributes>
+      <AvailablePoints>0</AvailablePoints>
+      <MaximumCarryingCapacity>4</MaximumCarryingCapacity>
+      <CarriedItemsCount>1</CarriedItemsCount>
+      <Defense>1</Defense>
+      <Dexterity>0</Dexterity>
+      <Luck>7</Luck>
+      <Stamina>0</Stamina>
+      <Strength>0</Strength>
+      <Wisdom>0</Wisdom>
+    </Attributes>
+    <CarriedItems>
+      <InventoryItem>
+        <ItemName>Running Shoes</ItemName>
+        <InOriginalLocation>false</InOriginalLocation>
+        <ItemDescription>Your trusty old running shoes. You swear you run way faster in them.</ItemDescription>
+        <OriginalPlacementDescription>Your old red and white running shoes are peaking up at you from under your bed.</OriginalPlacementDescription>
+        <GenericPlacementDescription>A pair of red and white running shoes are laying on the floor.</GenericPlacementDescription>
+        <InventorySpaceConsumed>0</InventorySpaceConsumed>
+        <TreatItemAs>Default</TreatItemAs>
+        <KeywordsForPickup>
+          <string>shoe</string>
+          <string>shoes</string>
+          <string>running shoes</string>
+        </KeywordsForPickup>
+        <ItemTraits>
+          <ItemTrait>
+            <TraitName>Luck + (1)!</TraitName>
+            <RelevantCharacterAttribute>Luck</RelevantCharacterAttribute>
+            <TraitValue>1</TraitValue>
+          </ItemTrait>
+          <ItemTrait>
+            <TraitName>This item does not consume inventory space.</TraitName>
+            <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
+            <TraitValue>0</TraitValue>
+          </ItemTrait>
+        </ItemTraits>
+      </InventoryItem>
+      <InventoryItem>
+        <ItemName>Tiny Backpack</ItemName>
+        <InOriginalLocation>false</InOriginalLocation>
+        <ItemDescription>A tiny bag made of gray nylon.</ItemDescription>
+        <OriginalPlacementDescription>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</OriginalPlacementDescription>
+        <GenericPlacementDescription>An empty gray backpack is laying on the ground... It's tiny.</GenericPlacementDescription>
+        <InventorySpaceConsumed>0</InventorySpaceConsumed>
+        <TreatItemAs>Bag</TreatItemAs>
+        <KeywordsForPickup>
+          <string>backpack</string>
+          <string>pack</string>
+          <string>bag</string>
+          <string>sack</string>
+        </KeywordsForPickup>
+        <ItemTraits>
+          <ItemTrait>
+            <TraitName>Inventory Space + (2)!</TraitName>
+            <RelevantCharacterAttribute>Max Carrying Capacity</RelevantCharacterAttribute>
+            <TraitValue>2</TraitValue>
+          </ItemTrait>
+          <ItemTrait>
+            <TraitName>This item does not consume inventory space.</TraitName>
+            <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
+            <TraitValue>0</TraitValue>
+          </ItemTrait>
+        </ItemTraits>
+      </InventoryItem>
+      <InventoryItem>
+        <ItemName>Plain Bagel</ItemName>
+        <InOriginalLocation>false</InOriginalLocation>
+        <ItemDescription>A plain bagel. It doesn't even have cream cheese on it...</ItemDescription>
+        <OriginalPlacementDescription>There's a bagel on the counter that you'd planned to eat earlier.</OriginalPlacementDescription>
+        <GenericPlacementDescription>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</GenericPlacementDescription>
+        <InventorySpaceConsumed>1</InventorySpaceConsumed>
+        <TreatItemAs>Consumable Health</TreatItemAs>
+        <KeywordsForPickup>
+          <string>bagel</string>
+          <string>plain</string>
+          <string>plainbagel</string>
+        </KeywordsForPickup>
+        <ItemTraits>
+          <ItemTrait>
+            <TraitName>Use to restore (10) Health Points</TraitName>
+            <RelevantCharacterAttribute />
+            <TraitValue>10</TraitValue>
+          </ItemTrait>
+        </ItemTraits>
+      </InventoryItem>
+    </CarriedItems>
+    <WeaponItem>
+      <WeaponName>Baseball Bat</WeaponName>
+      <InOriginalLocation>false</InOriginalLocation>
+      <WeaponDescription>A solid maple wood baseball bat.</WeaponDescription>
+      <OriginalPlacementDescription>You notice your old baseball bat propped up in the corner of the room near your closet.</OriginalPlacementDescription>
+      <GenericPlacementDescription>A solid wood baseball bat lays across the floor. It looks like maple wood.</GenericPlacementDescription>
+      <AttackPower>2</AttackPower>
+      <AmmunitionAmount>-1</AmmunitionAmount>
+      <KeywordsForPickup>
+        <string>slugger</string>
+        <string>bat</string>
+        <string>club</string>
+      </KeywordsForPickup>
+      <WeaponTraits>
+        <ItemTrait>
+          <TraitName>Defense + (1)!</TraitName>
+          <RelevantCharacterAttribute>Defense</RelevantCharacterAttribute>
+          <TraitValue>1</TraitValue>
+        </ItemTrait>
+      </WeaponTraits>
+    </WeaponItem>
+    <ShowInputHelp>true</ShowInputHelp>
+  </Character>
+  <Character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Name>The Ghoul</Name>
+    <MaximumHealthPoints>110</MaximumHealthPoints>
+    <HealthPoints>110</HealthPoints>
+    <Attributes>
+      <AvailablePoints>0</AvailablePoints>
+      <MaximumCarryingCapacity>0</MaximumCarryingCapacity>
+      <CarriedItemsCount>0</CarriedItemsCount>
+      <Defense>7</Defense>
+      <Dexterity>4</Dexterity>
+      <Luck>6</Luck>
+      <Stamina>6</Stamina>
+      <Strength>9</Strength>
+      <Wisdom>4</Wisdom>
+    </Attributes>
+    <CarriedItems />
+    <WeaponItem>
+      <WeaponName>Ghoul Claws</WeaponName>
+      <InOriginalLocation>false</InOriginalLocation>
+      <WeaponDescription>Incredibly sharp, jagged claws from the tips of a Ghoul's bloody fingers.</WeaponDescription>
+      <OriginalPlacementDescription />
+      <GenericPlacementDescription>Bloodied and sharp black objects lay strewn on the floor... 
+ They almost look like shards of obsidian.</GenericPlacementDescription>
+      <AttackPower>8</AttackPower>
+      <AmmunitionAmount>-1</AmmunitionAmount>
+      <KeywordsForPickup />
+      <WeaponTraits />
+    </WeaponItem>
+    <ShowInputHelp>true</ShowInputHelp>
+  </Character>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomName>Your Bedroom</RoomName>
+    <RoomEntered>true</RoomEntered>
+    <InitialRoomDescription>You are standing in your bedroom, next to your bed. 
+There's faint moonlight coming in through the blinds of your open window. 
+You can feel the cool night air coming in from outside.</InitialRoomDescription>
+    <GenericRoomDescription>You are standing in your bedroom.</GenericRoomDescription>
+    <AvailableExits />
+    <RoomItems>
+      <InventoryItems />
+      <WeaponItems />
+    </RoomItems>
+    <KeywordsToEnter>
+      <string>bed</string>
+      <string>bedroom</string>
+      <string>room</string>
+    </KeywordsToEnter>
+  </Room>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomName>Your Living Room</RoomName>
+    <RoomEntered>true</RoomEntered>
+    <InitialRoomDescription>You are now standing in your living room. 
+You hear the wind start blowing quite intensely through one of your open living room windows. 
+Tree branches rattle and tap on the glass just before the gusts of wind begin to calm down a bit. 
+
+Just then, you hear some strange and sudden *clank* sound from your kitchen. 
+
+
+HINT: There are some items that require you to have high enough stats to see or take them. 
+Try typing 'items' - you will see the Tiny Backpack if your Luck is 1 or more.</InitialRoomDescription>
+    <GenericRoomDescription>You are standing in your living room.</GenericRoomDescription>
+    <AvailableExits />
+    <RoomItems>
+      <InventoryItems />
+      <WeaponItems />
+    </RoomItems>
+    <KeywordsToEnter>
+      <string>living</string>
+      <string>livingroom</string>
+      <string>room</string>
+    </KeywordsToEnter>
+  </Room>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomName>Your Kitchen</RoomName>
+    <RoomEntered>false</RoomEntered>
+    <InitialRoomDescription>You've entered your kitchen, and you're looking around for anything that might 
+have made that strange noise... 
+
+In an flurry of fur, you see a dark gray (and very plump) rat jump out from beneath your counter, 
+and scurry through your living room and out of the house through a small hole in your window screen.</InitialRoomDescription>
+    <GenericRoomDescription>You're standing in your kitchen, on the light beige floor tiles.</GenericRoomDescription>
+    <AvailableExits />
+    <RoomItems>
+      <InventoryItems />
+      <WeaponItems />
+    </RoomItems>
+    <KeywordsToEnter>
+      <string>kitchen</string>
+      <string>kitch</string>
+      <string>cook</string>
+      <string>food</string>
+      <string>fridge</string>
+      <string>stairs</string>
+    </KeywordsToEnter>
+  </Room>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomName>Your Basement</RoomName>
+    <RoomEntered>false</RoomEntered>
+    <InitialRoomDescription>You walked down the dark stairs into your basement, thanks to the flashlight.
+The wind seems far quieter from down here... Almost silent, in fact.
+
+Something about being in the basement right now is giving you the creeps.
+
+Just then, your flashlight briefly flickers.</InitialRoomDescription>
+    <GenericRoomDescription>You're in your basement. It's really dark and creepy in here.</GenericRoomDescription>
+    <AvailableExits />
+    <RoomItems>
+      <InventoryItems>
+        <InventoryItem>
+          <ItemName>Book on Strange Creatures</ItemName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <ItemDescription>A book on mythical creatures. Henry (your friend who lives in a cabin across town) gave it to you.
+		(Type 'use book' to read it)</ItemDescription>
+          <OriginalPlacementDescription>On a dusty metal table you spot an old book that Henry gave to you a while back.</OriginalPlacementDescription>
+          <GenericPlacementDescription>A dusty old book on strange creatures is laying on the floor.</GenericPlacementDescription>
+          <InventorySpaceConsumed>1</InventorySpaceConsumed>
+          <TreatItemAs>Document</TreatItemAs>
+          <DocumentText>There's a page marked in a section of the book called "Ghouls, Demons, &amp; Poltergeists"... 
+
+	It says: 
+
+		"Many have heard tell of Demons and Poltergeists: 
+	creatures summoned from the afterlife, or Hell itself 
+	in order to wreak havoc on the physical world we know and inhabit.
+
+		A Ghoul, which is less widely known, is considered to be one of the most horrific 
+	and formidable creatures known to man. They are known to decimate entire towns without being seen.
+	Not only are they incredibly strong and merciless, but their diet consists entirely of human flesh.
+	They are known to hunt at night, and are believed to hunt alone, as Ghouls have never been seen in groups.
+
+		Many are convinced that they are immortal, though there is one account
+	of a man who claims he brought one nearly to it's demise by ..."
+
+The remainder of the page appears to have been ripped out.
+</DocumentText>
+          <KeywordsForPickup>
+            <string>book</string>
+            <string>strange</string>
+            <string>dusty</string>
+            <string>creatures</string>
+            <string>creature</string>
+          </KeywordsForPickup>
+          <ItemTraits>
+            <ItemTrait>
+              <TraitName>Wisdom + (2)!</TraitName>
+              <RelevantCharacterAttribute>Wisdom</RelevantCharacterAttribute>
+              <TraitValue>2</TraitValue>
+            </ItemTrait>
+            <ItemTrait>
+              <TraitName>Dexterity + (1)!</TraitName>
+              <RelevantCharacterAttribute>Dexterity</RelevantCharacterAttribute>
+              <TraitValue>1</TraitValue>
+            </ItemTrait>
+          </ItemTraits>
+        </InventoryItem>
+        <InventoryItem>
+          <ItemName>Old Flashlight Battery</ItemName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <ItemDescription>A used battery for an LED flashlight. 
+		(Type 'use battery' to use it)</ItemDescription>
+          <OriginalPlacementDescription>On a wood shelf to your left is a flashlight battery.</OriginalPlacementDescription>
+          <GenericPlacementDescription>There's a flashlight battery on the floor.</GenericPlacementDescription>
+          <InventorySpaceConsumed>1</InventorySpaceConsumed>
+          <TreatItemAs>Consumable Battery</TreatItemAs>
+          <KeywordsForPickup>
+            <string>battery</string>
+            <string>flashlight</string>
+          </KeywordsForPickup>
+          <ItemTraits>
+            <ItemTrait>
+              <TraitName>This item has (21%) battery</TraitName>
+              <RelevantCharacterAttribute />
+              <TraitValue>21</TraitValue>
+            </ItemTrait>
+          </ItemTraits>
+        </InventoryItem>
+      </InventoryItems>
+      <WeaponItems />
+    </RoomItems>
+    <KeywordsToEnter>
+      <string>basement</string>
+      <string>dark</string>
+      <string>down</string>
+    </KeywordsToEnter>
+    <ItemRequirementToSee>
+      <RequirementName>Flashlight</RequirementName>
+      <RelevantItem>
+        <ItemName>Flashlight</ItemName>
+        <InOriginalLocation>true</InOriginalLocation>
+        <ItemDescription>A small LED flashlight that fits in your pocket.</ItemDescription>
+        <OriginalPlacementDescription>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</OriginalPlacementDescription>
+        <GenericPlacementDescription>There's a small LED flashlight resting on the ground beneath your feet.</GenericPlacementDescription>
+        <InventorySpaceConsumed>1</InventorySpaceConsumed>
+        <TreatItemAs>Default</TreatItemAs>
+        <KeywordsForPickup>
+          <string>light</string>
+          <string>flashlight</string>
+          <string>led</string>
+        </KeywordsForPickup>
+        <ItemTraits>
+          <ItemTrait>
+            <TraitName>Battery Percentage - 12</TraitName>
+            <RelevantCharacterAttribute />
+            <TraitValue>12</TraitValue>
+          </ItemTrait>
+        </ItemTraits>
+      </RelevantItem>
+    </ItemRequirementToSee>
+    <ItemRequirementToEnter>
+      <RequirementName>Flashlight</RequirementName>
+      <RelevantItem>
+        <ItemName>Flashlight</ItemName>
+        <InOriginalLocation>true</InOriginalLocation>
+        <ItemDescription>A small LED flashlight that fits in your pocket.</ItemDescription>
+        <OriginalPlacementDescription>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</OriginalPlacementDescription>
+        <GenericPlacementDescription>There's a small LED flashlight resting on the ground beneath your feet.</GenericPlacementDescription>
+        <InventorySpaceConsumed>1</InventorySpaceConsumed>
+        <TreatItemAs>Default</TreatItemAs>
+        <KeywordsForPickup>
+          <string>light</string>
+          <string>flashlight</string>
+          <string>led</string>
+        </KeywordsForPickup>
+        <ItemTraits>
+          <ItemTrait>
+            <TraitName>Battery Percentage - 12</TraitName>
+            <RelevantCharacterAttribute />
+            <TraitValue>12</TraitValue>
+          </ItemTrait>
+        </ItemTraits>
+      </RelevantItem>
+    </ItemRequirementToEnter>
+  </Room>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomName>Your Front Entryway</RoomName>
+    <RoomEntered>false</RoomEntered>
+    <InitialRoomDescription>Now you're standing just inside the front door of your house, in the entryway. 
+As you begin to notice the sound of your own breathing, the wind picks up outside again. 
+You can hear it pushing tree limbs into each other, and what sounds like other things too. 
+
+It's getting really windy out there. 
+
+
+HINT: There are some rooms that require you to have specific items or high enough stats to enter them. 
+Try typing 'exits' - you will see the exits from this room.
+Try typing 'enter the porch' - if you are carrying the Tiny Backpack you can leave the house.</InitialRoomDescription>
+    <GenericRoomDescription>You're standing inside the entryway of your home.</GenericRoomDescription>
+    <AvailableExits />
+    <RoomItems>
+      <InventoryItems>
+        <InventoryItem>
+          <ItemName>Flashlight</ItemName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <ItemDescription>A small LED flashlight that fits in your pocket.</ItemDescription>
+          <OriginalPlacementDescription>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</OriginalPlacementDescription>
+          <GenericPlacementDescription>There's a small LED flashlight resting on the ground beneath your feet.</GenericPlacementDescription>
+          <InventorySpaceConsumed>1</InventorySpaceConsumed>
+          <TreatItemAs>Default</TreatItemAs>
+          <KeywordsForPickup>
+            <string>light</string>
+            <string>flashlight</string>
+            <string>led</string>
+          </KeywordsForPickup>
+          <ItemTraits>
+            <ItemTrait>
+              <TraitName>Battery Percentage - 12</TraitName>
+              <RelevantCharacterAttribute />
+              <TraitValue>12</TraitValue>
+            </ItemTrait>
+          </ItemTraits>
+        </InventoryItem>
+      </InventoryItems>
+      <WeaponItems />
+    </RoomItems>
+    <KeywordsToEnter>
+      <string>front</string>
+      <string>entrance</string>
+      <string>entryway</string>
+      <string>entry</string>
+      <string>foyer</string>
+      <string>frontdoor</string>
+      <string>house</string>
+    </KeywordsToEnter>
+  </Room>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomName>Your Front Porch</RoomName>
+    <RoomEntered>false</RoomEntered>
+    <InitialRoomDescription>You've just walked out of your house, and you're standing outside the front door. 
+The wind is gusting aggressively in the trees overhead, but the air is oddly calm around you. 
+
+Those haunting sounds that woke you up seem to be non-existent... Maybe you dreamt them? 
+
+You suddenly notice a small, dirty letter poking out from under your doormat... 
+It definitely wasn't there when you came home earlier.</InitialRoomDescription>
+    <GenericRoomDescription>You're on your front porch, just outside the front door of your house.</GenericRoomDescription>
+    <AvailableExits />
+    <RoomItems>
+      <InventoryItems>
+        <InventoryItem>
+          <ItemName>Dirty Letter</ItemName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <ItemDescription>It's a small, dirty letter that you found under your front doormat. 
+		(Type 'use letter' to read it)</ItemDescription>
+          <OriginalPlacementDescription>A small, dirty letter is sticking half way out from under your doormat.</OriginalPlacementDescription>
+          <GenericPlacementDescription>A small, dirty letter is on the ground.</GenericPlacementDescription>
+          <InventorySpaceConsumed>1</InventorySpaceConsumed>
+          <TreatItemAs>Document</TreatItemAs>
+          <DocumentText>The envelope has nothing on it aside from your name, which looks hastily scribbled...
+
+	The letter says: 
+
+	"Hey, 
+
+		So sorry to leave this here letter on your porch like this at such an odd hour of the night...
+	I really need to speak with you. It's urgent. Susan's gone missing. I... I know how crazy it's gonna sound.
+	Just hear me out... Well, perhaps it'd be best to explain it in person. 
+
+		Meet me at my cabin, North of town. If you forgot how to get there, 
+	just go straight North from your place, follow the road through town.
+	Then just keep on going North 'til the pavement turns to dirt.
+
+		The sooner you can get here, the better.
+	Oh, and just be alert if you're outside at night. Please.
+
+	Talk soon,
+	Henry"
+</DocumentText>
+          <KeywordsForPickup>
+            <string>letter</string>
+            <string>envelope</string>
+            <string>dirty</string>
+          </KeywordsForPickup>
+          <ItemTraits />
+        </InventoryItem>
+      </InventoryItems>
+      <WeaponItems />
+    </RoomItems>
+    <KeywordsToEnter>
+      <string>front</string>
+      <string>door</string>
+      <string>entrance</string>
+      <string>entryway</string>
+      <string>porch</string>
+      <string>frontdoor</string>
+      <string>front</string>
+    </KeywordsToEnter>
+    <ItemRequirementToEnter>
+      <RequirementName>Tiny Backpack</RequirementName>
+      <RelevantItem>
+        <ItemName>Tiny Backpack</ItemName>
+        <InOriginalLocation>false</InOriginalLocation>
+        <ItemDescription>A tiny bag made of gray nylon.</ItemDescription>
+        <OriginalPlacementDescription>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</OriginalPlacementDescription>
+        <GenericPlacementDescription>An empty gray backpack is laying on the ground... It's tiny.</GenericPlacementDescription>
+        <InventorySpaceConsumed>0</InventorySpaceConsumed>
+        <TreatItemAs>Bag</TreatItemAs>
+        <KeywordsForPickup>
+          <string>backpack</string>
+          <string>pack</string>
+          <string>bag</string>
+          <string>sack</string>
+        </KeywordsForPickup>
+        <ItemTraits>
+          <ItemTrait>
+            <TraitName>Inventory Space + (2)!</TraitName>
+            <RelevantCharacterAttribute>Max Carrying Capacity</RelevantCharacterAttribute>
+            <TraitValue>2</TraitValue>
+          </ItemTrait>
+          <ItemTrait>
+            <TraitName>This item does not consume inventory space.</TraitName>
+            <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
+            <TraitValue>0</TraitValue>
+          </ItemTrait>
+        </ItemTraits>
+      </RelevantItem>
+    </ItemRequirementToEnter>
+  </Room>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomName>Your Shed</RoomName>
+    <RoomEntered>false</RoomEntered>
+    <InitialRoomDescription>You open the rusted metal makeshift shed door and it creaks and screeches loudly.
+
+It's really cold in here, and the whole shed seems flimsy in the wind.
+It keeps shifting slightly from side to side and making unsettling noises with each gust.</InitialRoomDescription>
+    <GenericRoomDescription>You're in your rusted, creaky old shed.</GenericRoomDescription>
+    <AvailableExits />
+    <RoomItems>
+      <InventoryItems>
+        <InventoryItem>
+          <ItemName>Scotch Whiskey</ItemName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <ItemDescription>It'll warm you right up.</ItemDescription>
+          <OriginalPlacementDescription>You smile as you notice a small bottle of Scotch Whiskey stashed in the corner of the shed.</OriginalPlacementDescription>
+          <GenericPlacementDescription>A bottle of some good Scotch Whiskey seems to have been left here.</GenericPlacementDescription>
+          <InventorySpaceConsumed>1</InventorySpaceConsumed>
+          <TreatItemAs>Consumable Attribute</TreatItemAs>
+          <KeywordsForPickup>
+            <string>scotch</string>
+            <string>whiskey</string>
+            <string>whisky</string>
+          </KeywordsForPickup>
+          <ItemTraits>
+            <ItemTrait>
+              <TraitName>Use to increase Stamina by (1)</TraitName>
+              <RelevantCharacterAttribute>Stamina</RelevantCharacterAttribute>
+              <TraitValue>1</TraitValue>
+            </ItemTrait>
+          </ItemTraits>
+          <AttributeRequirementToSee>
+            <RequirementName>Luck - 2+</RequirementName>
+            <RelevantCharacterAttribute>Luck</RelevantCharacterAttribute>
+            <MinimumAttributeValue>2</MinimumAttributeValue>
+          </AttributeRequirementToSee>
+        </InventoryItem>
+        <InventoryItem>
+          <ItemName>Canvas Book-Bag</ItemName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <ItemDescription>A decently large bag made from rugged canvas.</ItemDescription>
+          <OriginalPlacementDescription>There's a canvas book-bag sitting on the floor of the shed.</OriginalPlacementDescription>
+          <GenericPlacementDescription>A rugged canvas book-bag is laying empty on the floor.</GenericPlacementDescription>
+          <InventorySpaceConsumed>0</InventorySpaceConsumed>
+          <TreatItemAs>Bag</TreatItemAs>
+          <KeywordsForPickup>
+            <string>bag</string>
+            <string>canvas</string>
+            <string>bookbag</string>
+            <string>sack</string>
+            <string>backpack</string>
+          </KeywordsForPickup>
+          <ItemTraits>
+            <ItemTrait>
+              <TraitName>Inventory Space + (6)!</TraitName>
+              <RelevantCharacterAttribute>Max Carrying Capacity</RelevantCharacterAttribute>
+              <TraitValue>6</TraitValue>
+            </ItemTrait>
+            <ItemTrait>
+              <TraitName>This item does not consume inventory space.</TraitName>
+              <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
+              <TraitValue>0</TraitValue>
+            </ItemTrait>
+          </ItemTraits>
+        </InventoryItem>
+      </InventoryItems>
+      <WeaponItems>
+        <WeaponItem>
+          <WeaponName>Lumber Axe</WeaponName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <WeaponDescription>A hefty red axe; made for chopping wood.</WeaponDescription>
+          <OriginalPlacementDescription>Leaning against the shed wall next to your leg is a lumber axe.</OriginalPlacementDescription>
+          <GenericPlacementDescription>A hefty red lumber axe is laying on the ground.</GenericPlacementDescription>
+          <AttackPower>5</AttackPower>
+          <AmmunitionAmount>-1</AmmunitionAmount>
+          <KeywordsForPickup>
+            <string>lumber</string>
+            <string>wood</string>
+            <string>axe</string>
+            <string>chopper</string>
+          </KeywordsForPickup>
+          <WeaponTraits>
+            <ItemTrait>
+              <TraitName>Defense + (1)!</TraitName>
+              <RelevantCharacterAttribute>Defense</RelevantCharacterAttribute>
+              <TraitValue>1</TraitValue>
+            </ItemTrait>
+            <ItemTrait>
+              <TraitName>Strength + (1)!</TraitName>
+              <RelevantCharacterAttribute>Strength</RelevantCharacterAttribute>
+              <TraitValue>1</TraitValue>
+            </ItemTrait>
+          </WeaponTraits>
+        </WeaponItem>
+      </WeaponItems>
+    </RoomItems>
+    <KeywordsToEnter>
+      <string>shed</string>
+      <string>shack</string>
+    </KeywordsToEnter>
+    <AttributeRequirementToSee>
+      <RequirementName>Wisdom - 3+</RequirementName>
+      <RelevantCharacterAttribute>Wisdom</RelevantCharacterAttribute>
+      <MinimumAttributeValue>3</MinimumAttributeValue>
+    </AttributeRequirementToSee>
+    <ItemRequirementToEnter>
+      <RequirementName>Flashlight</RequirementName>
+      <RelevantItem>
+        <ItemName>Flashlight</ItemName>
+        <InOriginalLocation>true</InOriginalLocation>
+        <ItemDescription>A small LED flashlight that fits in your pocket.</ItemDescription>
+        <OriginalPlacementDescription>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</OriginalPlacementDescription>
+        <GenericPlacementDescription>There's a small LED flashlight resting on the ground beneath your feet.</GenericPlacementDescription>
+        <InventorySpaceConsumed>1</InventorySpaceConsumed>
+        <TreatItemAs>Default</TreatItemAs>
+        <KeywordsForPickup>
+          <string>light</string>
+          <string>flashlight</string>
+          <string>led</string>
+        </KeywordsForPickup>
+        <ItemTraits>
+          <ItemTrait>
+            <TraitName>Battery Percentage - 12</TraitName>
+            <RelevantCharacterAttribute />
+            <TraitValue>12</TraitValue>
+          </ItemTrait>
+        </ItemTraits>
+      </RelevantItem>
+    </ItemRequirementToEnter>
+  </Room>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomName>Your Driveway</RoomName>
+    <RoomEntered>false</RoomEntered>
+    <InitialRoomDescription>You walk over to your driveway in the moonlight.
+
+Very quickly you notice the hood of your car is open, and the battery is missing...
+You start wondering if Henry did that... And if so, why?
+
+The walk to town is about 2 miles North.
+
+The wind picks up suddenly and...
+
+... Wait... It almost sounds like someone is stomping around in the grove of trees behind your house.</InitialRoomDescription>
+    <GenericRoomDescription>You're standing outside your house on the moonlit driveway.</GenericRoomDescription>
+    <AvailableExits />
+    <RoomItems>
+      <InventoryItems>
+        <InventoryItem>
+          <ItemName>Newspaper</ItemName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <ItemDescription>The local newspaper that was on your driveway.</ItemDescription>
+          <OriginalPlacementDescription>There's a newspaper laying on the driveway that you forgot to pick up yesterday.</OriginalPlacementDescription>
+          <GenericPlacementDescription>A copy of the local newspaper is on the ground. Looks brand new.</GenericPlacementDescription>
+          <InventorySpaceConsumed>1</InventorySpaceConsumed>
+          <TreatItemAs>Document</TreatItemAs>
+          <DocumentText>The paper has a big, bold title running across the front page: "TWELVE MISSING - SEARCH CONTINUES"
+
+	The paper says: 
+
+		"The number of missing Ashbury residents has reached an all time high of 12 today.
+	'The search has been unsuccessful thus far,' says deputy chief Hockstetter, 
+	'We don't have any leads, and the majority of the residents won't talk sense with us. 
+	Most claim they saw demons taking people... what ridiculousness! 
+	Though rest assured, we are doing everything in our power to bring 
+	each and every missing person home unharmed.'
+
+	With the number of missing persons on the rise, many refuse to leave their homes after sunset.
+	There seems to be a town-wide panic ensuing around these superstitions and speculations."
+</DocumentText>
+          <KeywordsForPickup>
+            <string>news</string>
+            <string>paper</string>
+            <string>newspaper</string>
+          </KeywordsForPickup>
+          <ItemTraits />
+        </InventoryItem>
+      </InventoryItems>
+      <WeaponItems />
+    </RoomItems>
+    <KeywordsToEnter>
+      <string>drive</string>
+      <string>way</string>
+      <string>driveway</string>
+    </KeywordsToEnter>
+  </Room>
+  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RoomEntered>false</RoomEntered>
+    <AvailableExits />
+  </Room>
+</root>

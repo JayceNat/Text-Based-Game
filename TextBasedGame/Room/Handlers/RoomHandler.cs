@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using Colorful;
 using TextBasedGame.Character.Handlers;
-using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Constants;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Models;
@@ -21,6 +20,7 @@ namespace TextBasedGame.Room.Handlers
         {
             var redisplayRoomDesc = false;
             Models.Room nextRoom = null;
+            Program.CharacterCreator.Player.CurrentLocation = room;
 
             // Implement a while loop such that:
             //      1. It runs forever until the user enters a room keyword (one from a room connected to current room - RoomKeywords.cs)
@@ -76,7 +76,7 @@ namespace TextBasedGame.Room.Handlers
                 Console.Write("> ");
                 var playerInput = Console.ReadLine();
                 nextRoom = PlayerActionHandler.HandlePlayerInput(playerInput.ToLower(), player, room);
-                
+
                 redisplayRoomDesc = true;
             }
 

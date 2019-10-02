@@ -1,13 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using TextBasedGame.Item.SaveGameConverters;
 using TextBasedGame.Shared.Models;
 
 namespace TextBasedGame.Item.Models
 {
-    [TypeConverter(typeof(WeaponItemConverter))]
-    [SettingsSerializeAs(SettingsSerializeAs.String)]
     public class WeaponItem
     {
         public string WeaponName { get; set; }

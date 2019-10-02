@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using TextBasedGame.Character.SaveGameConverters;
+﻿using System;
+using System.Collections.Generic;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Character.Models
 {
-    [TypeConverter(typeof(CharacterConverter))]
-    [SettingsSerializeAs(SettingsSerializeAs.String)]
+    [Serializable]
     public class Character
     {
         public string Name { get; set; }
+
+        public Room.Models.Room CurrentLocation { get; set; }
 
         public int MaximumHealthPoints { get; set; } = Constants.CharacterDefaults.DefaultMaximumHealthPoints;
 
