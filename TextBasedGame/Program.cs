@@ -1,8 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Xml;
+﻿using System.Drawing;
 using System.Xml.Serialization;
 using TextBasedGame.Character.Handlers;
 using TextBasedGame.Character.Interfaces;
@@ -69,9 +65,7 @@ namespace TextBasedGame
             }
             else
             {
-                //                CharacterCreator.Player.CurrentLocation.RoomEntered = false;
-                // Game ends once 'BeginAdventure' returns
-                var roomToLoad = GameSetupHandler.GetCurrentRoomFromRoomName(CharacterCreator.Player.CurrentLocation);
+                var roomToLoad = GameSetupHandler.GetCurrentRoomFromRoomName(CharacterCreator.Player.CurrentRoomName);
                 GameSetupHandler.TheAdventure(player, roomToLoad, false);
             }
         }

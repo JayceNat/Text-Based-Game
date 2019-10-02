@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using TextBasedGame.Character.Constants;
 using TextBasedGame.Character.Handlers;
 using TextBasedGame.Item.Constants;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Shared.Constants;
-using TextBasedGame.Shared.Models;
 using TextBasedGame.Shared.Utilities;
 
 namespace TextBasedGame.Item.Handlers

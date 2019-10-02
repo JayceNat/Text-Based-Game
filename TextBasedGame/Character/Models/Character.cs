@@ -9,7 +9,7 @@ namespace TextBasedGame.Character.Models
     {
         public string Name { get; set; }
 
-        public string CurrentLocation { get; set; }
+        public string CurrentRoomName { get; set; }
 
         public int MaximumHealthPoints { get; set; } = Constants.CharacterDefaults.DefaultMaximumHealthPoints;
 

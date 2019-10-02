@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using TextBasedGame.Item.Handlers;
 using TextBasedGame.Item.Models;
-using TextBasedGame.Room.Handlers;
 using TextBasedGame.Room.Models;
 using TextBasedGame.Shared.Constants;
 
