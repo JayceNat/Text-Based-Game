@@ -20,7 +20,7 @@ namespace TextBasedGame.Room.Handlers
         {
             var redisplayRoomDesc = false;
             Models.Room nextRoom = null;
-            Program.CharacterCreator.Player.CurrentLocation = room;
+            Program.CharacterCreator.Player.CurrentLocation = room.RoomName;
 
             // Implement a while loop such that:
             //      1. It runs forever until the user enters a room keyword (one from a room connected to current room - RoomKeywords.cs)

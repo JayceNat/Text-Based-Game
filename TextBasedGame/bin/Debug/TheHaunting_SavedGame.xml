@@ -7,42 +7,20 @@
     <AuthorTextColor />
   </GameTitle>
   <Character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Name>Hablbabby</Name>
-    <CurrentLocation>
-      <RoomName>Your Kitchen</RoomName>
-      <RoomEntered>false</RoomEntered>
-      <InitialRoomDescription>You've entered your kitchen, and you're looking around for anything that might 
-have made that strange noise... 
-
-In an flurry of fur, you see a dark gray (and very plump) rat jump out from beneath your counter, 
-and scurry through your living room and out of the house through a small hole in your window screen.</InitialRoomDescription>
-      <GenericRoomDescription>You're standing in your kitchen, on the light beige floor tiles.</GenericRoomDescription>
-      <AvailableExits />
-      <RoomItems>
-        <InventoryItems />
-        <WeaponItems />
-      </RoomItems>
-      <KeywordsToEnter>
-        <string>kitchen</string>
-        <string>kitch</string>
-        <string>cook</string>
-        <string>food</string>
-        <string>fridge</string>
-        <string>stairs</string>
-      </KeywordsToEnter>
-    </CurrentLocation>
-    <MaximumHealthPoints>50</MaximumHealthPoints>
-    <HealthPoints>50</HealthPoints>
+    <Name>Arn</Name>
+    <CurrentLocation>Your Kitchen</CurrentLocation>
+    <MaximumHealthPoints>60</MaximumHealthPoints>
+    <HealthPoints>60</HealthPoints>
     <Attributes>
       <AvailablePoints>0</AvailablePoints>
       <MaximumCarryingCapacity>4</MaximumCarryingCapacity>
-      <CarriedItemsCount>1</CarriedItemsCount>
-      <Defense>1</Defense>
-      <Dexterity>0</Dexterity>
-      <Luck>7</Luck>
-      <Stamina>0</Stamina>
-      <Strength>0</Strength>
-      <Wisdom>0</Wisdom>
+      <CarriedItemsCount>0</CarriedItemsCount>
+      <Defense>2</Defense>
+      <Dexterity>1</Dexterity>
+      <Luck>2</Luck>
+      <Stamina>1</Stamina>
+      <Strength>1</Strength>
+      <Wisdom>1</Wisdom>
     </Attributes>
     <CarriedItems>
       <InventoryItem>
@@ -95,27 +73,6 @@ and scurry through your living room and out of the house through a small hole in
             <TraitName>This item does not consume inventory space.</TraitName>
             <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
             <TraitValue>0</TraitValue>
-          </ItemTrait>
-        </ItemTraits>
-      </InventoryItem>
-      <InventoryItem>
-        <ItemName>Plain Bagel</ItemName>
-        <InOriginalLocation>false</InOriginalLocation>
-        <ItemDescription>A plain bagel. It doesn't even have cream cheese on it...</ItemDescription>
-        <OriginalPlacementDescription>There's a bagel on the counter that you'd planned to eat earlier.</OriginalPlacementDescription>
-        <GenericPlacementDescription>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</GenericPlacementDescription>
-        <InventorySpaceConsumed>1</InventorySpaceConsumed>
-        <TreatItemAs>Consumable Health</TreatItemAs>
-        <KeywordsForPickup>
-          <string>bagel</string>
-          <string>plain</string>
-          <string>plainbagel</string>
-        </KeywordsForPickup>
-        <ItemTraits>
-          <ItemTrait>
-            <TraitName>Use to restore (10) Health Points</TraitName>
-            <RelevantCharacterAttribute />
-            <TraitValue>10</TraitValue>
           </ItemTrait>
         </ItemTraits>
       </InventoryItem>
@@ -226,7 +183,29 @@ and scurry through your living room and out of the house through a small hole in
     <GenericRoomDescription>You're standing in your kitchen, on the light beige floor tiles.</GenericRoomDescription>
     <AvailableExits />
     <RoomItems>
-      <InventoryItems />
+      <InventoryItems>
+        <InventoryItem>
+          <ItemName>Plain Bagel</ItemName>
+          <InOriginalLocation>true</InOriginalLocation>
+          <ItemDescription>A plain bagel. It doesn't even have cream cheese on it...</ItemDescription>
+          <OriginalPlacementDescription>There's a bagel on the counter that you'd planned to eat earlier.</OriginalPlacementDescription>
+          <GenericPlacementDescription>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</GenericPlacementDescription>
+          <InventorySpaceConsumed>1</InventorySpaceConsumed>
+          <TreatItemAs>Consumable Health</TreatItemAs>
+          <KeywordsForPickup>
+            <string>bagel</string>
+            <string>plain</string>
+            <string>plainbagel</string>
+          </KeywordsForPickup>
+          <ItemTraits>
+            <ItemTrait>
+              <TraitName>Use to restore (10) Health Points</TraitName>
+              <RelevantCharacterAttribute />
+              <TraitValue>10</TraitValue>
+            </ItemTrait>
+          </ItemTraits>
+        </InventoryItem>
+      </InventoryItems>
       <WeaponItems />
     </RoomItems>
     <KeywordsToEnter>
@@ -708,5 +687,10 @@ The wind picks up suddenly and...
   <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <RoomEntered>false</RoomEntered>
     <AvailableExits />
+    <RoomItems>
+      <InventoryItems />
+      <WeaponItems />
+    </RoomItems>
+    <KeywordsToEnter />
   </Room>
 </root>

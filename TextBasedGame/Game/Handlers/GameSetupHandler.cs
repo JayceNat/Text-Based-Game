@@ -79,6 +79,7 @@ namespace TextBasedGame.Game.Handlers
                 else if (currentRoom.RoomName == ConsoleStrings.SaveGame)
                 {
                     SaveGame();
+                    break;
                 }
             }
         }
@@ -125,7 +126,7 @@ namespace TextBasedGame.Game.Handlers
                             // Skip root node
                             reader.ReadToFollowing("Character"); // Name of first class
 
-//                            Program.GameTitle = (GameTitle) gameTitleSerializer.Deserialize(reader);
+                            //                            Program.GameTitle = (GameTitle) gameTitleSerializer.Deserialize(reader);
 
                             Program.CharacterCreator.Player = (Character.Models.Character)Program.CharacterSerializer.Deserialize(reader);
                             Program.CharacterCreator.Ghoul = (Character.Models.Character)Program.CharacterSerializer.Deserialize(reader);
@@ -157,6 +158,50 @@ namespace TextBasedGame.Game.Handlers
 
             Console.Clear();
             return false;
+        }
+
+        public static Room.Models.Room GetCurrentRoomFromRoomName(string playerCurrentLocation)
+        {
+            if (playerCurrentLocation == Program.RoomCreator.YourBedroom.RoomName)
+            {
+                return Program.RoomCreator.YourBedroom;
+            }
+            else if (playerCurrentLocation == Program.RoomCreator.YourLivingRoom.RoomName)
+            {
+                return Program.RoomCreator.YourLivingRoom;
+            }
+            else if (playerCurrentLocation == Program.RoomCreator.YourKitchen.RoomName)
+            {
+                return Program.RoomCreator.YourKitchen;
+            }
+            else if (playerCurrentLocation == Program.RoomCreator.YourBasement.RoomName)
+            {
+                return Program.RoomCreator.YourBasement;
+            }
+            else if (playerCurrentLocation == Program.RoomCreator.YourFrontEntryway.RoomName)
+            {
+                return Program.RoomCreator.YourFrontEntryway;
+            }
+            else if (playerCurrentLocation == Program.RoomCreator.YourFrontPorch.RoomName)
+            {
+                return Program.RoomCreator.YourFrontPorch;
+            }
+            else if (playerCurrentLocation == Program.RoomCreator.YourShed.RoomName)
+            {
+                return Program.RoomCreator.YourShed;
+            }
+            else if (playerCurrentLocation == Program.RoomCreator.YourDriveway.RoomName)
+            {
+                return Program.RoomCreator.YourDriveway;
+            }
+            else if (playerCurrentLocation == Program.RoomCreator.RoadConnectingYourHouseToTown.RoomName)
+            {
+                return Program.RoomCreator.RoadConnectingYourHouseToTown;
+            }
+            else
+            {
+                return Program.RoomCreator.YourBedroom;
+            }
         }
     }
 }

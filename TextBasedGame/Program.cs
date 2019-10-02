@@ -71,7 +71,8 @@ namespace TextBasedGame
             {
                 //                CharacterCreator.Player.CurrentLocation.RoomEntered = false;
                 // Game ends once 'BeginAdventure' returns
-                GameSetupHandler.TheAdventure(player, CharacterCreator.Player.CurrentLocation, false);
+                var roomToLoad = GameSetupHandler.GetCurrentRoomFromRoomName(CharacterCreator.Player.CurrentLocation);
+                GameSetupHandler.TheAdventure(player, roomToLoad, false);
             }
         }
     }

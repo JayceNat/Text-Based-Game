@@ -190,16 +190,16 @@ namespace TextBasedGame.Character.Handlers
                         Console.WriteLine("Note - This will overwrite any current save file!", Color.White);
                         Console.Write(">", Color.White);
                         var response = Console.ReadLine();
-                        if (string.IsNullOrEmpty(response) || response.ToLower()[0].Equals('n'))
+                        if (!string.IsNullOrEmpty(response) && response.ToLower()[0].Equals('y'))
                         {
-                            Console.WriteLine("\nSave cancelled.", Color.White);
-                            inputResolved = true;
-                            break;
+                            return new Room.Models.Room
+                            {
+                                RoomName = ConsoleStrings.SaveGame
+                            };
                         }
-                        return new Room.Models.Room
-                        {
-                            RoomName = ConsoleStrings.SaveGame
-                        };
+                        Console.WriteLine("\nSave cancelled.", Color.White);
+                        inputResolved = true;
+                        break;
                 }
             }
 
