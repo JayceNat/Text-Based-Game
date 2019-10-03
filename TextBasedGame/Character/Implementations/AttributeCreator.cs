@@ -7,12 +7,14 @@ namespace TextBasedGame.Character.Implementations
     {
         // Declare all getters for any Character Attributes you will use here
         public CharacterAttribute PlayerAttributes { get; }
+        public CharacterAttribute HenryAttributes { get; }
         public CharacterAttribute GhoulAttributes { get; }
 
         // Constructor: Add the reference to all the Attribute Objects here
         public AttributeCreator()
         {
             PlayerAttributes = GameAttributes.PlayerAttributes;
+            HenryAttributes = GameAttributes.HenryAttributes;
             GhoulAttributes = GameAttributes.GhoulAttributes;
         }
     }

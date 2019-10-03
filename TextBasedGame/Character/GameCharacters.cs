@@ -13,6 +13,17 @@ namespace TextBasedGame.Character
             Attributes = Program.AttributeCreator.PlayerAttributes
         };
 
+        public static Models.Character Henry = new Models.Character
+        {
+            Name = "Henry",
+            MaximumHealthPoints = CharacterDefaults.DefaultMaximumHealthPoints
+                                  + (CharacterDefaults.HealthPerStaminaPointIncrease * Program.AttributeCreator.HenryAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
+            HealthPoints = CharacterDefaults.DefaultMaximumHealthPoints
+                           + (CharacterDefaults.HealthPerStaminaPointIncrease * Program.AttributeCreator.HenryAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
+            Attributes = Program.AttributeCreator.HenryAttributes,
+            WeaponItem = Program.ItemCreator.MagnumRevolver
+        };
+
         public static Models.Character Ghoul = new Models.Character
         {
             Name = "The Ghoul",

@@ -48,7 +48,7 @@ namespace TextBasedGame.Item
             OriginalPlacementDescription = "",
             GenericPlacementDescription = "Someone seems to have left a revolver laying on the floor here.",
             AttackPower = 20,
-            AmmunitionAmount = 5,
+            AmmunitionAmount = 12,
             KeywordsForPickup = ItemKeywords.MagnumRevolver,
             WeaponTraits = new List<ItemTrait>
             {

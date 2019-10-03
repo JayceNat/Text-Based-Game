@@ -155,10 +155,14 @@ namespace TextBasedGame.Room.Handlers
         {
             if (itemReq != null)
             {
-                if (player.CarriedItems.Contains(itemReq.RelevantItem))
+                foreach (var item in player.CarriedItems)
                 {
-                    return true;
+                    if (item.ItemName == itemReq.RelevantItem.ItemName)
+                    {
+                        return true;
+                    }
                 }
+
                 Console.WriteLine($"You need: <{itemReq.RequirementName}> to enter {foundRoom.RoomName}. \n", Color.DarkGoldenrod);
             }
 

@@ -6,6 +6,7 @@ namespace TextBasedGame.Character.Interfaces
     {
         // Declare all getters for any Character Attributes you will use here
         CharacterAttribute PlayerAttributes { get; }
+        CharacterAttribute HenryAttributes { get; }
         CharacterAttribute GhoulAttributes { get; }
     }
 }

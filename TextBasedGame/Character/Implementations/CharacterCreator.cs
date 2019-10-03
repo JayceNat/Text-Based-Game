@@ -13,7 +13,7 @@ namespace TextBasedGame.Character.Implementations
         public CharacterCreator()
         {
             Player = GameCharacters.Player;
-            //Henry = GameCharacters.Henry;
+            Henry = GameCharacters.Henry;
             Ghoul = GameCharacters.Ghoul;
         }
     }

@@ -90,9 +90,9 @@ namespace TextBasedGame.Item
             InventorySpaceConsumed = 0,
             AttributeRequirementToSee = new AttributeRequirement
             {
-                RequirementName = "Luck - 2+",
+                RequirementName = "Luck - 1+",
                 RelevantCharacterAttribute = AttributeStrings.Luck,
-                MinimumAttributeValue = 2
+                MinimumAttributeValue = 1
             },
             AttributeRequirementToTake = new AttributeRequirement
             {

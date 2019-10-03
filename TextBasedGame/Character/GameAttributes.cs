@@ -20,6 +20,18 @@ namespace TextBasedGame.Character
             Wisdom = CharacterDefaults.DefaultValueForAllAttributes
         };
 
+        public static CharacterAttribute HenryAttributes = new CharacterAttribute
+        {
+            AvailablePoints = 0,
+            MaximumCarryingCapacity = 5,
+            Defense = 8,
+            Dexterity = 9,
+            Luck = 2,
+            Stamina = 5,
+            Strength = 6,
+            Wisdom = 10
+        };
+
         public static CharacterAttribute GhoulAttributes = new CharacterAttribute
         {
             AvailablePoints = 0,
