@@ -52,18 +52,19 @@ namespace TextBasedGame.Game.Handlers
                 g -= 25;
                 b -= 25;
             }
-            //TypingAnimation.Animate(ConsoleStrings.GameIntro, Color.DarkTurquoise);
+            
             Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
             Console.ReadLine();
         }
 
+        // Kind of a goofy method... but allows us to skip displaying the intro if we need to
         public static void BeginAdventure(Character.Models.Character player, Room.Models.Room room)
         {
             DisplayGameIntro();
             TheAdventure(player, room, true);
         }
 
-        // This is the main game loop, and only stops when the player enters a 'null' room
+        // This is the main game loop, and only stops when the player goes into a 'null' room (or saves)
         public static void TheAdventure(Character.Models.Character player, Room.Models.Room room, bool firstRoomEntered)
         {
             var firstRoom = firstRoomEntered;
@@ -85,17 +86,23 @@ namespace TextBasedGame.Game.Handlers
             }
         }
 
+        // Serialize all objects to save the game state
         public static void SaveGame()
         {
-            // Serialize all objects to save the game state
+            // This is needed to prevent a circular dependency (our roomExits are Room Models which have roomExits which are Room Models...)
             Program.RoomCreator.RemoveExitsFromAllRooms();
+            
+            // This will create a file in the same directory as the .exe since we didn't specify a path
             using (var xmlWriter = XmlWriter.Create("TheHaunting_SavedGame.xml", new XmlWriterSettings { Indent = true }))
             {
                 xmlWriter.WriteStartElement("root");
 
+                // We only need to serialize the biggest objects; all the other ones are children of them
+
+                // Characters
                 Program.CharacterSerializer.Serialize(xmlWriter, Program.CharacterCreator.Player);
                 Program.CharacterSerializer.Serialize(xmlWriter, Program.CharacterCreator.Ghoul);
-
+                // Rooms
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.YourBedroom);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.YourLivingRoom);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.YourKitchen);
@@ -123,7 +130,7 @@ namespace TextBasedGame.Game.Handlers
                         using (var reader = XmlReader.Create(saveFile))
                         {
                             // Skip root node
-                            reader.ReadToFollowing("C"); // Name of first class
+                            reader.ReadToFollowing("C"); // Name of first class, we serialize Character as "C" for XML sneakiness :)
 
                             Program.CharacterCreator.Player = (Character.Models.Character)Program.CharacterSerializer.Deserialize(reader);
                             Program.CharacterCreator.Ghoul = (Character.Models.Character)Program.CharacterSerializer.Deserialize(reader);
@@ -140,6 +147,7 @@ namespace TextBasedGame.Game.Handlers
                         }
 
                         Console.Clear();
+                        // Important that we add all the room exits back to the rooms, or we can't go anywhere!
                         Program.RoomCreator.AddExitsToAllRooms();
                         return true;
                     }
@@ -157,7 +165,7 @@ namespace TextBasedGame.Game.Handlers
             return false;
         }
 
-        // This method is needed in order to place the player in the proper room object after the exits have been added,
+        // This method is needed in order to place the player in the proper room object after the exits have been re-added,
         // otherwise we would place the player in a room object with no exits 
         public static Room.Models.Room GetCurrentRoomFromRoomName(string playerCurrentLocation)
         {

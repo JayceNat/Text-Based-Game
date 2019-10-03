@@ -28,6 +28,9 @@ namespace TextBasedGame.Character.Handlers
 
                 switch (inputWord)
                 {
+                    // We wouldn't normally use so many fall-throughs in an application...
+                    // But for a text based game it's really handy for supporting many inputs.
+                    // We don't want the user to try a word that should work and get frustrated.
                     case "pickup":
                     case "pick":
                     case "grab":
@@ -205,6 +208,7 @@ namespace TextBasedGame.Character.Handlers
                         inputResolved = true;
                         break;
                     case "save":
+                        // This isn't really necessary, I just liked the idea of the user having to complete the tutorial first
                         if (currentRoom.RoomName == "Your Bedroom")
                         {
                             Console.WriteLine($"\nYou need to leave {currentRoom.RoomName} before you can save.", Color.DarkOrange);
@@ -228,6 +232,7 @@ namespace TextBasedGame.Character.Handlers
                 }
             }
 
+            // We don't know what the user is trying to do at this point
             if (!inputResolved)
             {
                 Console.WriteLine();
@@ -235,6 +240,7 @@ namespace TextBasedGame.Character.Handlers
                 TypingAnimation.Animate(". . . Nothing happens. \n", Color.Chartreuse, 40);
             }
 
+            // Keeps the Item, Weapon, or Exit descriptions displayed for easier play
             if (!player.PersistDisplayedItems && !player.PersistDisplayedWeapons && !player.PersistDisplayedExits)
             {
                 Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
@@ -247,18 +253,18 @@ namespace TextBasedGame.Character.Handlers
             return null;
         }
 
-        public static void PrintExitsToConsole(Models.Character player, Room.Models.Room currentRoom, bool animate = true)
+        public static void PrintItemsToConsole(Models.Character player, Room.Models.Room currentRoom, bool animate = true)
         {
-            var exits = StringDescriptionBuilder.CreateStringOfExitDescriptions(player, currentRoom.AvailableExits);
-            
+            var items = StringDescriptionBuilder.CreateStringOfItemDescriptions(player, currentRoom.RoomItems.InventoryItems);
+
             if (animate)
             {
                 Console.WriteLine();
-                TypingAnimation.Animate(exits, Color.Red);
+                TypingAnimation.Animate(items == "" ? ConsoleStrings.NoItemsFound + "\n" : items, Color.Aquamarine);
             }
             else
             {
-                Console.WriteLine(exits, Color.Red);
+                Console.WriteLine(items == "" ? ConsoleStrings.NoItemsFound + "\n" : items, Color.Aquamarine);
             }
         }
 
@@ -277,18 +283,18 @@ namespace TextBasedGame.Character.Handlers
             }
         }
 
-        public static void PrintItemsToConsole(Models.Character player, Room.Models.Room currentRoom, bool animate = true)
+        public static void PrintExitsToConsole(Models.Character player, Room.Models.Room currentRoom, bool animate = true)
         {
-            var items = StringDescriptionBuilder.CreateStringOfItemDescriptions(player, currentRoom.RoomItems.InventoryItems);
-            
+            var exits = StringDescriptionBuilder.CreateStringOfExitDescriptions(player, currentRoom.AvailableExits);
+
             if (animate)
             {
                 Console.WriteLine();
-                TypingAnimation.Animate(items == "" ? ConsoleStrings.NoItemsFound + "\n" : items, Color.Aquamarine);
+                TypingAnimation.Animate(exits, Color.Red);
             }
             else
             {
-                Console.WriteLine(items == "" ? ConsoleStrings.NoItemsFound + "\n" : items, Color.Aquamarine);
+                Console.WriteLine(exits, Color.Red);
             }
         }
 

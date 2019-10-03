@@ -21,19 +21,13 @@ namespace TextBasedGame.Room.Handlers
             var redisplayRoomDesc = false;
             Models.Room nextRoom = null;
             Program.CharacterCreator.Player.CurrentRoomName = room.RoomName;
-
-            // Implement a while loop such that:
-            //      1. It runs forever until the user enters a room keyword (one from a room connected to current room - RoomKeywords.cs)
-            //      2. Prints the current room description to the console every time the loop runs
-            //      3. Ask for user input, and calls PlayerActionHandler.HandlePlayerInput to handle the input
-            //          - Note that the PlayerActionHandler returns null, unless the input matches a room keyword (then it returns the next room)
-            //      4. If the PlayerActionHandler returns null, the loop iterates again. Otherwise, returns the next room
+            
             while (nextRoom == null)
             {
                 Console.Clear();
                 Console.ReplaceAllColorsWithDefaults();
 
-                // Print out the current Room description to the console
+                // Print out the current Room description to the console (animate the first time)
                 if (redisplayRoomDesc)
                 {
                     Console.WriteLine(room.RoomEntered ? room.GenericRoomDescription : room.InitialRoomDescription,
@@ -183,12 +177,6 @@ namespace TextBasedGame.Room.Handlers
         // Returns a Room that matches the players input keyword
         public static Models.Room FindAnyMatchingRoomByKeywords(string inputSubstring, Models.Room currentRoom)
         {
-            // Implement this helper method such that:
-            //      1. 
-            //      2. It returns a room if its keywords match the player input
-            //      3. Ask for user input, and calls PlayerActionHandler.HandlePlayerInput to handle the input
-            //          - Note that the PlayerActionHandler returns null, unless the input matches a room keyword (then it returns the next room)
-            //      4. If the PlayerActionHandler returns null, the loop iterates again. Otherwise, returns the next room
             if (inputSubstring.Length == 0)
             {
                 return null;

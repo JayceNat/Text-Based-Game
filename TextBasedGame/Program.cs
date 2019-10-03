@@ -27,10 +27,10 @@ namespace TextBasedGame
         public static GameTitle GameTitle = new GameTitle()
         {
             Title = "The Haunting",
-            TitleTextColor = Color.Aqua,
+            TitleTextColor = Color.Brown,
 
             Author = "Jayce Meyer",
-            AuthorTextColor = Color.CadetBlue
+            AuthorTextColor = Color.DimGray
         };
 
         public Program(XmlSerializer gameTitleSerializer, XmlSerializer characterSerializer, XmlSerializer roomSerializer)
@@ -65,6 +65,7 @@ namespace TextBasedGame
             }
             else
             {
+                // Shortcut the call to TheAdventure so we don't print the gameIntro when we load from save
                 var roomToLoad = GameSetupHandler.GetCurrentRoomFromRoomName(CharacterCreator.Player.CurrentRoomName);
                 GameSetupHandler.TheAdventure(player, roomToLoad, false);
             }
