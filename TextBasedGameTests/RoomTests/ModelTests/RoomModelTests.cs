@@ -69,20 +69,6 @@ namespace TextBasedGameTests.RoomTests.ModelTests
         }
 
         [TestMethod]
-        public void RoomModel_HasAsExitDescriptionProperty()
-        {
-            const string asExitDescription = "I'm seen from a connected room you're already in.";
-
-            var roomModel = new Room()
-            {
-                AsExitDescription = asExitDescription
-            };
-
-            Assert.AreEqual(asExitDescription, roomModel.AsExitDescription);
-        }
-
-
-        [TestMethod]
         public void RoomModel_HasAvailableExitsProperty()
         {
             var availableExits = new RoomExit()

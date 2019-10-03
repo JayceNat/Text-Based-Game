@@ -38,15 +38,35 @@ namespace TextBasedGame.Room.Handlers
                 {
                     Console.WriteLine(room.RoomEntered ? room.GenericRoomDescription : room.InitialRoomDescription,
                         Color.Bisque);
+
+                    if (player.PersistDisplayedItems)
+                    {
+                        PlayerActionHandler.PrintItemsToConsole(player, room);
+                    }
+
+                    else if (player.PersistDisplayedWeapons)
+                    {
+                        PlayerActionHandler.PrintWeaponsToConsole(player, room);
+                    }
+
+                    else if (player.PersistDisplayedExits)
+                    {
+                        PlayerActionHandler.PrintExitsToConsole(player, room);
+                    }
+
+                    else
+                    {
+                        Console.WriteLine();
+                    }
                 }
                 else
                 {
                     TypingAnimation.Animate(room.RoomEntered ? room.GenericRoomDescription : room.InitialRoomDescription,
                         Color.Bisque);
+                    Console.WriteLine();
                 }
 
                 Thread.Sleep(50);
-                Console.WriteLine();
 
                 if (firstRoomEntered)
                 {

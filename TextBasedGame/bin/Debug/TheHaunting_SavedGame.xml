@@ -1,157 +1,178 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <GameTitle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Title>The Haunting</Title>
-    <TitleTextColor />
-    <Author>Jayce Meyer</Author>
-    <AuthorTextColor />
-  </GameTitle>
-  <Character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Name>Arn</Name>
-    <CurrentLocation>Your Kitchen</CurrentLocation>
-    <MaximumHealthPoints>60</MaximumHealthPoints>
-    <HealthPoints>60</HealthPoints>
-    <Attributes>
-      <AvailablePoints>0</AvailablePoints>
-      <MaximumCarryingCapacity>4</MaximumCarryingCapacity>
-      <CarriedItemsCount>0</CarriedItemsCount>
-      <Defense>2</Defense>
-      <Dexterity>1</Dexterity>
-      <Luck>2</Luck>
-      <Stamina>1</Stamina>
-      <Strength>1</Strength>
-      <Wisdom>1</Wisdom>
-    </Attributes>
-    <CarriedItems>
-      <InventoryItem>
-        <ItemName>Running Shoes</ItemName>
-        <InOriginalLocation>false</InOriginalLocation>
-        <ItemDescription>Your trusty old running shoes. You swear you run way faster in them.</ItemDescription>
-        <OriginalPlacementDescription>Your old red and white running shoes are peaking up at you from under your bed.</OriginalPlacementDescription>
-        <GenericPlacementDescription>A pair of red and white running shoes are laying on the floor.</GenericPlacementDescription>
-        <InventorySpaceConsumed>0</InventorySpaceConsumed>
-        <TreatItemAs>Default</TreatItemAs>
-        <KeywordsForPickup>
-          <string>shoe</string>
-          <string>shoes</string>
-          <string>running shoes</string>
-        </KeywordsForPickup>
-        <ItemTraits>
-          <ItemTrait>
-            <TraitName>Luck + (1)!</TraitName>
-            <RelevantCharacterAttribute>Luck</RelevantCharacterAttribute>
-            <TraitValue>1</TraitValue>
-          </ItemTrait>
-          <ItemTrait>
-            <TraitName>This item does not consume inventory space.</TraitName>
-            <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
-            <TraitValue>0</TraitValue>
-          </ItemTrait>
-        </ItemTraits>
-      </InventoryItem>
-      <InventoryItem>
-        <ItemName>Tiny Backpack</ItemName>
-        <InOriginalLocation>false</InOriginalLocation>
-        <ItemDescription>A tiny bag made of gray nylon.</ItemDescription>
-        <OriginalPlacementDescription>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</OriginalPlacementDescription>
-        <GenericPlacementDescription>An empty gray backpack is laying on the ground... It's tiny.</GenericPlacementDescription>
-        <InventorySpaceConsumed>0</InventorySpaceConsumed>
-        <TreatItemAs>Bag</TreatItemAs>
-        <KeywordsForPickup>
-          <string>backpack</string>
-          <string>pack</string>
-          <string>bag</string>
-          <string>sack</string>
-        </KeywordsForPickup>
-        <ItemTraits>
-          <ItemTrait>
-            <TraitName>Inventory Space + (2)!</TraitName>
-            <RelevantCharacterAttribute>Max Carrying Capacity</RelevantCharacterAttribute>
-            <TraitValue>2</TraitValue>
-          </ItemTrait>
-          <ItemTrait>
-            <TraitName>This item does not consume inventory space.</TraitName>
-            <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
-            <TraitValue>0</TraitValue>
-          </ItemTrait>
-        </ItemTraits>
-      </InventoryItem>
-    </CarriedItems>
-    <WeaponItem>
-      <WeaponName>Baseball Bat</WeaponName>
-      <InOriginalLocation>false</InOriginalLocation>
-      <WeaponDescription>A solid maple wood baseball bat.</WeaponDescription>
-      <OriginalPlacementDescription>You notice your old baseball bat propped up in the corner of the room near your closet.</OriginalPlacementDescription>
-      <GenericPlacementDescription>A solid wood baseball bat lays across the floor. It looks like maple wood.</GenericPlacementDescription>
-      <AttackPower>2</AttackPower>
-      <AmmunitionAmount>-1</AmmunitionAmount>
-      <KeywordsForPickup>
-        <string>slugger</string>
-        <string>bat</string>
-        <string>club</string>
-      </KeywordsForPickup>
-      <WeaponTraits>
-        <ItemTrait>
-          <TraitName>Defense + (1)!</TraitName>
-          <RelevantCharacterAttribute>Defense</RelevantCharacterAttribute>
-          <TraitValue>1</TraitValue>
-        </ItemTrait>
-      </WeaponTraits>
-    </WeaponItem>
-    <ShowInputHelp>true</ShowInputHelp>
-  </Character>
-  <Character xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Name>The Ghoul</Name>
-    <MaximumHealthPoints>110</MaximumHealthPoints>
-    <HealthPoints>110</HealthPoints>
-    <Attributes>
-      <AvailablePoints>0</AvailablePoints>
-      <MaximumCarryingCapacity>0</MaximumCarryingCapacity>
-      <CarriedItemsCount>0</CarriedItemsCount>
-      <Defense>7</Defense>
-      <Dexterity>4</Dexterity>
-      <Luck>6</Luck>
-      <Stamina>6</Stamina>
-      <Strength>9</Strength>
-      <Wisdom>4</Wisdom>
-    </Attributes>
-    <CarriedItems />
-    <WeaponItem>
-      <WeaponName>Ghoul Claws</WeaponName>
-      <InOriginalLocation>false</InOriginalLocation>
-      <WeaponDescription>Incredibly sharp, jagged claws from the tips of a Ghoul's bloody fingers.</WeaponDescription>
-      <OriginalPlacementDescription />
-      <GenericPlacementDescription>Bloodied and sharp black objects lay strewn on the floor... 
- They almost look like shards of obsidian.</GenericPlacementDescription>
-      <AttackPower>8</AttackPower>
-      <AmmunitionAmount>-1</AmmunitionAmount>
-      <KeywordsForPickup />
-      <WeaponTraits />
-    </WeaponItem>
-    <ShowInputHelp>true</ShowInputHelp>
-  </Character>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomName>Your Bedroom</RoomName>
-    <RoomEntered>true</RoomEntered>
-    <InitialRoomDescription>You are standing in your bedroom, next to your bed. 
+  <C xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Arn</nom>
+    <loc>Your Kitchen</loc>
+    <hepomax>60</hepomax>
+    <hepo>60</hepo>
+    <trib>
+      <avlpo>0</avlpo>
+      <macacap>4</macacap>
+      <nocai>1</nocai>
+      <fen>2</fen>
+      <x>1</x>
+      <ck>2</ck>
+      <min>1</min>
+      <ren>1</ren>
+      <om>1</om>
+    </trib>
+    <ci>
+      <i>
+        <nom>Running Shoes</nom>
+        <inog>false</inog>
+        <idr>Your trusty old running shoes. You swear you run way faster in them.</idr>
+        <ogdr>Your old red and white running shoes are peaking up at you from under your bed.</ogdr>
+        <gendr>A pair of red and white running shoes are laying on the floor.</gendr>
+        <inv>0</inv>
+        <typ>Default</typ>
+        <kwds>
+          <kwd>shoe</kwd>
+          <kwd>shoes</kwd>
+          <kwd>running shoes</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Luck + (1)!</nom>
+            <reltrib>Luck</reltrib>
+            <v>1</v>
+          </tr>
+          <tr>
+            <nom>This item does not consume inventory space.</nom>
+            <reltrib>Carried Items Count</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Tiny Backpack</nom>
+        <inog>false</inog>
+        <idr>A tiny bag made of gray nylon.</idr>
+        <ogdr>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</ogdr>
+        <gendr>An empty gray backpack is laying on the ground... It's tiny.</gendr>
+        <inv>0</inv>
+        <typ>Bag</typ>
+        <kwds>
+          <kwd>backpack</kwd>
+          <kwd>pack</kwd>
+          <kwd>bag</kwd>
+          <kwd>sack</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Inventory Space + (2)!</nom>
+            <reltrib>Max Carrying Capacity</reltrib>
+            <v>2</v>
+          </tr>
+          <tr>
+            <nom>This item does not consume inventory space.</nom>
+            <reltrib>Carried Items Count</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Plain Bagel</nom>
+        <inog>false</inog>
+        <idr>A plain bagel. It doesn't even have cream cheese on it...</idr>
+        <ogdr>There's a bagel on the counter that you'd planned to eat earlier.</ogdr>
+        <gendr>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Health</typ>
+        <kwds>
+          <kwd>bagel</kwd>
+          <kwd>plain</kwd>
+          <kwd>plainbagel</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Use to restore (10) Health Points</nom>
+            <reltrib />
+            <v>10</v>
+          </tr>
+        </trs>
+      </i>
+    </ci>
+    <cw>
+      <nom>Baseball Bat</nom>
+      <inog>false</inog>
+      <wdr>A solid maple wood baseball bat.</wdr>
+      <ogdr>You notice your old baseball bat propped up in the corner of the room near your closet.</ogdr>
+      <gendr>A solid wood baseball bat lays across the floor. It looks like maple wood.</gendr>
+      <akpwr>2</akpwr>
+      <am>-1</am>
+      <kwrds>
+        <kwrd>slugger</kwrd>
+        <kwrd>bat</kwrd>
+        <kwrd>club</kwrd>
+      </kwrds>
+      <trs>
+        <tr>
+          <nom>Defense + (1)!</nom>
+          <reltrib>Defense</reltrib>
+          <v>1</v>
+        </tr>
+      </trs>
+    </cw>
+    <hebar>true</hebar>
+    <pdisi>false</pdisi>
+    <pdisw>false</pdisw>
+    <pdise>false</pdise>
+  </C>
+  <C xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>The Ghoul</nom>
+    <hepomax>110</hepomax>
+    <hepo>110</hepo>
+    <trib>
+      <avlpo>0</avlpo>
+      <macacap>0</macacap>
+      <nocai>0</nocai>
+      <fen>7</fen>
+      <x>4</x>
+      <ck>6</ck>
+      <min>6</min>
+      <ren>9</ren>
+      <om>4</om>
+    </trib>
+    <ci />
+    <cw>
+      <nom>Ghoul Claws</nom>
+      <inog>false</inog>
+      <wdr>Incredibly sharp, jagged claws from the tips of a Ghoul's bloody fingers.</wdr>
+      <ogdr />
+      <gendr>Bloodied and sharp black objects lay strewn on the floor... 
+ They almost look like shards of obsidian.</gendr>
+      <akpwr>8</akpwr>
+      <am>-1</am>
+      <kwrds />
+      <trs />
+    </cw>
+    <hebar>true</hebar>
+    <pdisi>false</pdisi>
+    <pdisw>false</pdisw>
+    <pdise>false</pdise>
+  </C>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Bedroom</nom>
+    <ent>true</ent>
+    <initdr>You are standing in your bedroom, next to your bed. 
 There's faint moonlight coming in through the blinds of your open window. 
-You can feel the cool night air coming in from outside.</InitialRoomDescription>
-    <GenericRoomDescription>You are standing in your bedroom.</GenericRoomDescription>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems />
-      <WeaponItems />
-    </RoomItems>
-    <KeywordsToEnter>
-      <string>bed</string>
-      <string>bedroom</string>
-      <string>room</string>
-    </KeywordsToEnter>
-  </Room>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomName>Your Living Room</RoomName>
-    <RoomEntered>true</RoomEntered>
-    <InitialRoomDescription>You are now standing in your living room. 
+You can feel the cool night air coming in from outside.</initdr>
+    <gendr>You are standing in your bedroom.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>bed</kwrd>
+      <kwrd>bedroom</kwrd>
+      <kwrd>room</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Living Room</nom>
+    <ent>true</ent>
+    <initdr>You are now standing in your living room. 
 You hear the wind start blowing quite intensely through one of your open living room windows. 
 Tree branches rattle and tap on the glass just before the gusts of wind begin to calm down a bit. 
 
@@ -159,87 +180,65 @@ Just then, you hear some strange and sudden *clank* sound from your kitchen.
 
 
 HINT: There are some items that require you to have high enough stats to see or take them. 
-Try typing 'items' - you will see the Tiny Backpack if your Luck is 1 or more.</InitialRoomDescription>
-    <GenericRoomDescription>You are standing in your living room.</GenericRoomDescription>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems />
-      <WeaponItems />
-    </RoomItems>
-    <KeywordsToEnter>
-      <string>living</string>
-      <string>livingroom</string>
-      <string>room</string>
-    </KeywordsToEnter>
-  </Room>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomName>Your Kitchen</RoomName>
-    <RoomEntered>false</RoomEntered>
-    <InitialRoomDescription>You've entered your kitchen, and you're looking around for anything that might 
+Try typing 'items' - you will see the Tiny Backpack if your Luck is 1 or more.</initdr>
+    <gendr>You are standing in your living room.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>living</kwrd>
+      <kwrd>livingroom</kwrd>
+      <kwrd>room</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Kitchen</nom>
+    <ent>false</ent>
+    <initdr>You've entered your kitchen, and you're looking around for anything that might 
 have made that strange noise... 
 
 In an flurry of fur, you see a dark gray (and very plump) rat jump out from beneath your counter, 
-and scurry through your living room and out of the house through a small hole in your window screen.</InitialRoomDescription>
-    <GenericRoomDescription>You're standing in your kitchen, on the light beige floor tiles.</GenericRoomDescription>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems>
-        <InventoryItem>
-          <ItemName>Plain Bagel</ItemName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <ItemDescription>A plain bagel. It doesn't even have cream cheese on it...</ItemDescription>
-          <OriginalPlacementDescription>There's a bagel on the counter that you'd planned to eat earlier.</OriginalPlacementDescription>
-          <GenericPlacementDescription>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</GenericPlacementDescription>
-          <InventorySpaceConsumed>1</InventorySpaceConsumed>
-          <TreatItemAs>Consumable Health</TreatItemAs>
-          <KeywordsForPickup>
-            <string>bagel</string>
-            <string>plain</string>
-            <string>plainbagel</string>
-          </KeywordsForPickup>
-          <ItemTraits>
-            <ItemTrait>
-              <TraitName>Use to restore (10) Health Points</TraitName>
-              <RelevantCharacterAttribute />
-              <TraitValue>10</TraitValue>
-            </ItemTrait>
-          </ItemTraits>
-        </InventoryItem>
-      </InventoryItems>
-      <WeaponItems />
-    </RoomItems>
-    <KeywordsToEnter>
-      <string>kitchen</string>
-      <string>kitch</string>
-      <string>cook</string>
-      <string>food</string>
-      <string>fridge</string>
-      <string>stairs</string>
-    </KeywordsToEnter>
-  </Room>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomName>Your Basement</RoomName>
-    <RoomEntered>false</RoomEntered>
-    <InitialRoomDescription>You walked down the dark stairs into your basement, thanks to the flashlight.
+and scurry through your living room and out of the house through a small hole in your window screen.</initdr>
+    <gendr>You're standing in your kitchen, on the light beige floor tiles.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>kitchen</kwrd>
+      <kwrd>kitch</kwrd>
+      <kwrd>cook</kwrd>
+      <kwrd>food</kwrd>
+      <kwrd>fridge</kwrd>
+      <kwrd>stairs</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Basement</nom>
+    <ent>false</ent>
+    <initdr>You walked down the dark stairs into your basement, thanks to the flashlight.
 The wind seems far quieter from down here... Almost silent, in fact.
 
 Something about being in the basement right now is giving you the creeps.
 
-Just then, your flashlight briefly flickers.</InitialRoomDescription>
-    <GenericRoomDescription>You're in your basement. It's really dark and creepy in here.</GenericRoomDescription>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems>
-        <InventoryItem>
-          <ItemName>Book on Strange Creatures</ItemName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <ItemDescription>A book on mythical creatures. Henry (your friend who lives in a cabin across town) gave it to you.
-		(Type 'use book' to read it)</ItemDescription>
-          <OriginalPlacementDescription>On a dusty metal table you spot an old book that Henry gave to you a while back.</OriginalPlacementDescription>
-          <GenericPlacementDescription>A dusty old book on strange creatures is laying on the floor.</GenericPlacementDescription>
-          <InventorySpaceConsumed>1</InventorySpaceConsumed>
-          <TreatItemAs>Document</TreatItemAs>
-          <DocumentText>There's a page marked in a section of the book called "Ghouls, Demons, &amp; Poltergeists"... 
+Just then, your flashlight briefly flickers.</initdr>
+    <gendr>You're in your basement. It's really dark and creepy in here.</gendr>
+    <exs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Book on Strange Creatures</nom>
+          <inog>true</inog>
+          <idr>A book on mythical creatures. Henry (your friend who lives in a cabin across town) gave it to you.
+		(Type 'use book' to read it)</idr>
+          <ogdr>On a dusty metal table you spot an old book that Henry gave to you a while back.</ogdr>
+          <gendr>A dusty old book on strange creatures is laying on the floor.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <docx>There's a page marked in a section of the book called "Ghouls, Demons, &amp; Poltergeists"... 
 
 	It says: 
 
@@ -256,109 +255,109 @@ Just then, your flashlight briefly flickers.</InitialRoomDescription>
 	of a man who claims he brought one nearly to it's demise by ..."
 
 The remainder of the page appears to have been ripped out.
-</DocumentText>
-          <KeywordsForPickup>
-            <string>book</string>
-            <string>strange</string>
-            <string>dusty</string>
-            <string>creatures</string>
-            <string>creature</string>
-          </KeywordsForPickup>
-          <ItemTraits>
-            <ItemTrait>
-              <TraitName>Wisdom + (2)!</TraitName>
-              <RelevantCharacterAttribute>Wisdom</RelevantCharacterAttribute>
-              <TraitValue>2</TraitValue>
-            </ItemTrait>
-            <ItemTrait>
-              <TraitName>Dexterity + (1)!</TraitName>
-              <RelevantCharacterAttribute>Dexterity</RelevantCharacterAttribute>
-              <TraitValue>1</TraitValue>
-            </ItemTrait>
-          </ItemTraits>
-        </InventoryItem>
-        <InventoryItem>
-          <ItemName>Old Flashlight Battery</ItemName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <ItemDescription>A used battery for an LED flashlight. 
-		(Type 'use battery' to use it)</ItemDescription>
-          <OriginalPlacementDescription>On a wood shelf to your left is a flashlight battery.</OriginalPlacementDescription>
-          <GenericPlacementDescription>There's a flashlight battery on the floor.</GenericPlacementDescription>
-          <InventorySpaceConsumed>1</InventorySpaceConsumed>
-          <TreatItemAs>Consumable Battery</TreatItemAs>
-          <KeywordsForPickup>
-            <string>battery</string>
-            <string>flashlight</string>
-          </KeywordsForPickup>
-          <ItemTraits>
-            <ItemTrait>
-              <TraitName>This item has (21%) battery</TraitName>
-              <RelevantCharacterAttribute />
-              <TraitValue>21</TraitValue>
-            </ItemTrait>
-          </ItemTraits>
-        </InventoryItem>
-      </InventoryItems>
-      <WeaponItems />
-    </RoomItems>
-    <KeywordsToEnter>
-      <string>basement</string>
-      <string>dark</string>
-      <string>down</string>
-    </KeywordsToEnter>
-    <ItemRequirementToSee>
-      <RequirementName>Flashlight</RequirementName>
-      <RelevantItem>
-        <ItemName>Flashlight</ItemName>
-        <InOriginalLocation>true</InOriginalLocation>
-        <ItemDescription>A small LED flashlight that fits in your pocket.</ItemDescription>
-        <OriginalPlacementDescription>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</OriginalPlacementDescription>
-        <GenericPlacementDescription>There's a small LED flashlight resting on the ground beneath your feet.</GenericPlacementDescription>
-        <InventorySpaceConsumed>1</InventorySpaceConsumed>
-        <TreatItemAs>Default</TreatItemAs>
-        <KeywordsForPickup>
-          <string>light</string>
-          <string>flashlight</string>
-          <string>led</string>
-        </KeywordsForPickup>
-        <ItemTraits>
-          <ItemTrait>
-            <TraitName>Battery Percentage - 12</TraitName>
-            <RelevantCharacterAttribute />
-            <TraitValue>12</TraitValue>
-          </ItemTrait>
-        </ItemTraits>
-      </RelevantItem>
-    </ItemRequirementToSee>
-    <ItemRequirementToEnter>
-      <RequirementName>Flashlight</RequirementName>
-      <RelevantItem>
-        <ItemName>Flashlight</ItemName>
-        <InOriginalLocation>true</InOriginalLocation>
-        <ItemDescription>A small LED flashlight that fits in your pocket.</ItemDescription>
-        <OriginalPlacementDescription>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</OriginalPlacementDescription>
-        <GenericPlacementDescription>There's a small LED flashlight resting on the ground beneath your feet.</GenericPlacementDescription>
-        <InventorySpaceConsumed>1</InventorySpaceConsumed>
-        <TreatItemAs>Default</TreatItemAs>
-        <KeywordsForPickup>
-          <string>light</string>
-          <string>flashlight</string>
-          <string>led</string>
-        </KeywordsForPickup>
-        <ItemTraits>
-          <ItemTrait>
-            <TraitName>Battery Percentage - 12</TraitName>
-            <RelevantCharacterAttribute />
-            <TraitValue>12</TraitValue>
-          </ItemTrait>
-        </ItemTraits>
-      </RelevantItem>
-    </ItemRequirementToEnter>
-  </Room>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomName>Your Front Entryway</RoomName>
-    <RoomEntered>false</RoomEntered>
-    <InitialRoomDescription>Now you're standing just inside the front door of your house, in the entryway. 
+</docx>
+          <kwds>
+            <kwd>book</kwd>
+            <kwd>strange</kwd>
+            <kwd>dusty</kwd>
+            <kwd>creatures</kwd>
+            <kwd>creature</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Wisdom + (2)!</nom>
+              <reltrib>Wisdom</reltrib>
+              <v>2</v>
+            </tr>
+            <tr>
+              <nom>Dexterity + (1)!</nom>
+              <reltrib>Dexterity</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+        </ii>
+        <ii>
+          <nom>Old Flashlight Battery</nom>
+          <inog>true</inog>
+          <idr>A used battery for an LED flashlight. 
+		(Type 'use battery' to use it)</idr>
+          <ogdr>On a wood shelf to your left is a flashlight battery.</ogdr>
+          <gendr>There's a flashlight battery on the floor.</gendr>
+          <inv>1</inv>
+          <typ>Consumable Battery</typ>
+          <kwds>
+            <kwd>battery</kwd>
+            <kwd>flashlight</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>This item has (21%) battery</nom>
+              <reltrib />
+              <v>21</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>basement</kwrd>
+      <kwrd>dark</kwrd>
+      <kwrd>down</kwrd>
+    </kwrds>
+    <iqs>
+      <nom>Flashlight</nom>
+      <reli>
+        <nom>Flashlight</nom>
+        <inog>true</inog>
+        <idr>A small LED flashlight that fits in your pocket.</idr>
+        <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</ogdr>
+        <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
+        <inv>1</inv>
+        <typ>Default</typ>
+        <kwds>
+          <kwd>light</kwd>
+          <kwd>flashlight</kwd>
+          <kwd>led</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Battery Percentage - 12</nom>
+            <reltrib />
+            <v>12</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqs>
+    <iqe>
+      <nom>Flashlight</nom>
+      <reli>
+        <nom>Flashlight</nom>
+        <inog>true</inog>
+        <idr>A small LED flashlight that fits in your pocket.</idr>
+        <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</ogdr>
+        <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
+        <inv>1</inv>
+        <typ>Default</typ>
+        <kwds>
+          <kwd>light</kwd>
+          <kwd>flashlight</kwd>
+          <kwd>led</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Battery Percentage - 12</nom>
+            <reltrib />
+            <v>12</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqe>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Front Entryway</nom>
+    <ent>false</ent>
+    <initdr>Now you're standing just inside the front door of your house, in the entryway. 
 As you begin to notice the sound of your own breathing, the wind picks up outside again. 
 You can hear it pushing tree limbs into each other, and what sounds like other things too. 
 
@@ -367,69 +366,69 @@ It's getting really windy out there.
 
 HINT: There are some rooms that require you to have specific items or high enough stats to enter them. 
 Try typing 'exits' - you will see the exits from this room.
-Try typing 'enter the porch' - if you are carrying the Tiny Backpack you can leave the house.</InitialRoomDescription>
-    <GenericRoomDescription>You're standing inside the entryway of your home.</GenericRoomDescription>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems>
-        <InventoryItem>
-          <ItemName>Flashlight</ItemName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <ItemDescription>A small LED flashlight that fits in your pocket.</ItemDescription>
-          <OriginalPlacementDescription>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</OriginalPlacementDescription>
-          <GenericPlacementDescription>There's a small LED flashlight resting on the ground beneath your feet.</GenericPlacementDescription>
-          <InventorySpaceConsumed>1</InventorySpaceConsumed>
-          <TreatItemAs>Default</TreatItemAs>
-          <KeywordsForPickup>
-            <string>light</string>
-            <string>flashlight</string>
-            <string>led</string>
-          </KeywordsForPickup>
-          <ItemTraits>
-            <ItemTrait>
-              <TraitName>Battery Percentage - 12</TraitName>
-              <RelevantCharacterAttribute />
-              <TraitValue>12</TraitValue>
-            </ItemTrait>
-          </ItemTraits>
-        </InventoryItem>
-      </InventoryItems>
-      <WeaponItems />
-    </RoomItems>
-    <KeywordsToEnter>
-      <string>front</string>
-      <string>entrance</string>
-      <string>entryway</string>
-      <string>entry</string>
-      <string>foyer</string>
-      <string>frontdoor</string>
-      <string>house</string>
-    </KeywordsToEnter>
-  </Room>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomName>Your Front Porch</RoomName>
-    <RoomEntered>false</RoomEntered>
-    <InitialRoomDescription>You've just walked out of your house, and you're standing outside the front door. 
+Try typing 'enter the porch' - if you are carrying the Tiny Backpack you can leave the house.</initdr>
+    <gendr>You're standing inside the entryway of your home.</gendr>
+    <exs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Flashlight</nom>
+          <inog>true</inog>
+          <idr>A small LED flashlight that fits in your pocket.</idr>
+          <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</ogdr>
+          <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
+          <inv>1</inv>
+          <typ>Default</typ>
+          <kwds>
+            <kwd>light</kwd>
+            <kwd>flashlight</kwd>
+            <kwd>led</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Battery Percentage - 12</nom>
+              <reltrib />
+              <v>12</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>front</kwrd>
+      <kwrd>entrance</kwrd>
+      <kwrd>entryway</kwrd>
+      <kwrd>entry</kwrd>
+      <kwrd>foyer</kwrd>
+      <kwrd>frontdoor</kwrd>
+      <kwrd>house</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Front Porch</nom>
+    <ent>false</ent>
+    <initdr>You've just walked out of your house, and you're standing outside the front door. 
 The wind is gusting aggressively in the trees overhead, but the air is oddly calm around you. 
 
 Those haunting sounds that woke you up seem to be non-existent... Maybe you dreamt them? 
 
 You suddenly notice a small, dirty letter poking out from under your doormat... 
-It definitely wasn't there when you came home earlier.</InitialRoomDescription>
-    <GenericRoomDescription>You're on your front porch, just outside the front door of your house.</GenericRoomDescription>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems>
-        <InventoryItem>
-          <ItemName>Dirty Letter</ItemName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <ItemDescription>It's a small, dirty letter that you found under your front doormat. 
-		(Type 'use letter' to read it)</ItemDescription>
-          <OriginalPlacementDescription>A small, dirty letter is sticking half way out from under your doormat.</OriginalPlacementDescription>
-          <GenericPlacementDescription>A small, dirty letter is on the ground.</GenericPlacementDescription>
-          <InventorySpaceConsumed>1</InventorySpaceConsumed>
-          <TreatItemAs>Document</TreatItemAs>
-          <DocumentText>The envelope has nothing on it aside from your name, which looks hastily scribbled...
+It definitely wasn't there when you came home earlier.</initdr>
+    <gendr>You're on your front porch, just outside the front door of your house.</gendr>
+    <exs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Dirty Letter</nom>
+          <inog>true</inog>
+          <idr>It's a small, dirty letter that you found under your front doormat. 
+		(Type 'use letter' to read it)</idr>
+          <ogdr>A small, dirty letter is sticking half way out from under your doormat.</ogdr>
+          <gendr>A small, dirty letter is on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <docx>The envelope has nothing on it aside from your name, which looks hastily scribbled...
 
 	The letter says: 
 
@@ -448,191 +447,191 @@ It definitely wasn't there when you came home earlier.</InitialRoomDescription>
 
 	Talk soon,
 	Henry"
-</DocumentText>
-          <KeywordsForPickup>
-            <string>letter</string>
-            <string>envelope</string>
-            <string>dirty</string>
-          </KeywordsForPickup>
-          <ItemTraits />
-        </InventoryItem>
-      </InventoryItems>
-      <WeaponItems />
-    </RoomItems>
-    <KeywordsToEnter>
-      <string>front</string>
-      <string>door</string>
-      <string>entrance</string>
-      <string>entryway</string>
-      <string>porch</string>
-      <string>frontdoor</string>
-      <string>front</string>
-    </KeywordsToEnter>
-    <ItemRequirementToEnter>
-      <RequirementName>Tiny Backpack</RequirementName>
-      <RelevantItem>
-        <ItemName>Tiny Backpack</ItemName>
-        <InOriginalLocation>false</InOriginalLocation>
-        <ItemDescription>A tiny bag made of gray nylon.</ItemDescription>
-        <OriginalPlacementDescription>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</OriginalPlacementDescription>
-        <GenericPlacementDescription>An empty gray backpack is laying on the ground... It's tiny.</GenericPlacementDescription>
-        <InventorySpaceConsumed>0</InventorySpaceConsumed>
-        <TreatItemAs>Bag</TreatItemAs>
-        <KeywordsForPickup>
-          <string>backpack</string>
-          <string>pack</string>
-          <string>bag</string>
-          <string>sack</string>
-        </KeywordsForPickup>
-        <ItemTraits>
-          <ItemTrait>
-            <TraitName>Inventory Space + (2)!</TraitName>
-            <RelevantCharacterAttribute>Max Carrying Capacity</RelevantCharacterAttribute>
-            <TraitValue>2</TraitValue>
-          </ItemTrait>
-          <ItemTrait>
-            <TraitName>This item does not consume inventory space.</TraitName>
-            <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
-            <TraitValue>0</TraitValue>
-          </ItemTrait>
-        </ItemTraits>
-      </RelevantItem>
-    </ItemRequirementToEnter>
-  </Room>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomName>Your Shed</RoomName>
-    <RoomEntered>false</RoomEntered>
-    <InitialRoomDescription>You open the rusted metal makeshift shed door and it creaks and screeches loudly.
+</docx>
+          <kwds>
+            <kwd>letter</kwd>
+            <kwd>envelope</kwd>
+            <kwd>dirty</kwd>
+          </kwds>
+          <trs />
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>front</kwrd>
+      <kwrd>door</kwrd>
+      <kwrd>entrance</kwrd>
+      <kwrd>entryway</kwrd>
+      <kwrd>porch</kwrd>
+      <kwrd>frontdoor</kwrd>
+      <kwrd>front</kwrd>
+    </kwrds>
+    <iqe>
+      <nom>Tiny Backpack</nom>
+      <reli>
+        <nom>Tiny Backpack</nom>
+        <inog>false</inog>
+        <idr>A tiny bag made of gray nylon.</idr>
+        <ogdr>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</ogdr>
+        <gendr>An empty gray backpack is laying on the ground... It's tiny.</gendr>
+        <inv>0</inv>
+        <typ>Bag</typ>
+        <kwds>
+          <kwd>backpack</kwd>
+          <kwd>pack</kwd>
+          <kwd>bag</kwd>
+          <kwd>sack</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Inventory Space + (2)!</nom>
+            <reltrib>Max Carrying Capacity</reltrib>
+            <v>2</v>
+          </tr>
+          <tr>
+            <nom>This item does not consume inventory space.</nom>
+            <reltrib>Carried Items Count</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqe>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Shed</nom>
+    <ent>false</ent>
+    <initdr>You open the rusted metal makeshift shed door and it creaks and screeches loudly.
 
 It's really cold in here, and the whole shed seems flimsy in the wind.
-It keeps shifting slightly from side to side and making unsettling noises with each gust.</InitialRoomDescription>
-    <GenericRoomDescription>You're in your rusted, creaky old shed.</GenericRoomDescription>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems>
-        <InventoryItem>
-          <ItemName>Scotch Whiskey</ItemName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <ItemDescription>It'll warm you right up.</ItemDescription>
-          <OriginalPlacementDescription>You smile as you notice a small bottle of Scotch Whiskey stashed in the corner of the shed.</OriginalPlacementDescription>
-          <GenericPlacementDescription>A bottle of some good Scotch Whiskey seems to have been left here.</GenericPlacementDescription>
-          <InventorySpaceConsumed>1</InventorySpaceConsumed>
-          <TreatItemAs>Consumable Attribute</TreatItemAs>
-          <KeywordsForPickup>
-            <string>scotch</string>
-            <string>whiskey</string>
-            <string>whisky</string>
-          </KeywordsForPickup>
-          <ItemTraits>
-            <ItemTrait>
-              <TraitName>Use to increase Stamina by (1)</TraitName>
-              <RelevantCharacterAttribute>Stamina</RelevantCharacterAttribute>
-              <TraitValue>1</TraitValue>
-            </ItemTrait>
-          </ItemTraits>
-          <AttributeRequirementToSee>
-            <RequirementName>Luck - 2+</RequirementName>
-            <RelevantCharacterAttribute>Luck</RelevantCharacterAttribute>
-            <MinimumAttributeValue>2</MinimumAttributeValue>
-          </AttributeRequirementToSee>
-        </InventoryItem>
-        <InventoryItem>
-          <ItemName>Canvas Book-Bag</ItemName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <ItemDescription>A decently large bag made from rugged canvas.</ItemDescription>
-          <OriginalPlacementDescription>There's a canvas book-bag sitting on the floor of the shed.</OriginalPlacementDescription>
-          <GenericPlacementDescription>A rugged canvas book-bag is laying empty on the floor.</GenericPlacementDescription>
-          <InventorySpaceConsumed>0</InventorySpaceConsumed>
-          <TreatItemAs>Bag</TreatItemAs>
-          <KeywordsForPickup>
-            <string>bag</string>
-            <string>canvas</string>
-            <string>bookbag</string>
-            <string>sack</string>
-            <string>backpack</string>
-          </KeywordsForPickup>
-          <ItemTraits>
-            <ItemTrait>
-              <TraitName>Inventory Space + (6)!</TraitName>
-              <RelevantCharacterAttribute>Max Carrying Capacity</RelevantCharacterAttribute>
-              <TraitValue>6</TraitValue>
-            </ItemTrait>
-            <ItemTrait>
-              <TraitName>This item does not consume inventory space.</TraitName>
-              <RelevantCharacterAttribute>Carried Items Count</RelevantCharacterAttribute>
-              <TraitValue>0</TraitValue>
-            </ItemTrait>
-          </ItemTraits>
-        </InventoryItem>
-      </InventoryItems>
-      <WeaponItems>
-        <WeaponItem>
-          <WeaponName>Lumber Axe</WeaponName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <WeaponDescription>A hefty red axe; made for chopping wood.</WeaponDescription>
-          <OriginalPlacementDescription>Leaning against the shed wall next to your leg is a lumber axe.</OriginalPlacementDescription>
-          <GenericPlacementDescription>A hefty red lumber axe is laying on the ground.</GenericPlacementDescription>
-          <AttackPower>5</AttackPower>
-          <AmmunitionAmount>-1</AmmunitionAmount>
-          <KeywordsForPickup>
-            <string>lumber</string>
-            <string>wood</string>
-            <string>axe</string>
-            <string>chopper</string>
-          </KeywordsForPickup>
-          <WeaponTraits>
-            <ItemTrait>
-              <TraitName>Defense + (1)!</TraitName>
-              <RelevantCharacterAttribute>Defense</RelevantCharacterAttribute>
-              <TraitValue>1</TraitValue>
-            </ItemTrait>
-            <ItemTrait>
-              <TraitName>Strength + (1)!</TraitName>
-              <RelevantCharacterAttribute>Strength</RelevantCharacterAttribute>
-              <TraitValue>1</TraitValue>
-            </ItemTrait>
-          </WeaponTraits>
-        </WeaponItem>
-      </WeaponItems>
-    </RoomItems>
-    <KeywordsToEnter>
-      <string>shed</string>
-      <string>shack</string>
-    </KeywordsToEnter>
-    <AttributeRequirementToSee>
-      <RequirementName>Wisdom - 3+</RequirementName>
-      <RelevantCharacterAttribute>Wisdom</RelevantCharacterAttribute>
-      <MinimumAttributeValue>3</MinimumAttributeValue>
-    </AttributeRequirementToSee>
-    <ItemRequirementToEnter>
-      <RequirementName>Flashlight</RequirementName>
-      <RelevantItem>
-        <ItemName>Flashlight</ItemName>
-        <InOriginalLocation>true</InOriginalLocation>
-        <ItemDescription>A small LED flashlight that fits in your pocket.</ItemDescription>
-        <OriginalPlacementDescription>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</OriginalPlacementDescription>
-        <GenericPlacementDescription>There's a small LED flashlight resting on the ground beneath your feet.</GenericPlacementDescription>
-        <InventorySpaceConsumed>1</InventorySpaceConsumed>
-        <TreatItemAs>Default</TreatItemAs>
-        <KeywordsForPickup>
-          <string>light</string>
-          <string>flashlight</string>
-          <string>led</string>
-        </KeywordsForPickup>
-        <ItemTraits>
-          <ItemTrait>
-            <TraitName>Battery Percentage - 12</TraitName>
-            <RelevantCharacterAttribute />
-            <TraitValue>12</TraitValue>
-          </ItemTrait>
-        </ItemTraits>
-      </RelevantItem>
-    </ItemRequirementToEnter>
-  </Room>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomName>Your Driveway</RoomName>
-    <RoomEntered>false</RoomEntered>
-    <InitialRoomDescription>You walk over to your driveway in the moonlight.
+It keeps shifting slightly from side to side and making unsettling noises with each gust.</initdr>
+    <gendr>You're in your rusted, creaky old shed.</gendr>
+    <exs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Scotch Whiskey</nom>
+          <inog>true</inog>
+          <idr>It'll warm you right up.</idr>
+          <ogdr>You smile as you notice a small bottle of Scotch Whiskey stashed in the corner of the shed.</ogdr>
+          <gendr>A bottle of some good Scotch Whiskey seems to have been left here.</gendr>
+          <inv>1</inv>
+          <typ>Consumable Attribute</typ>
+          <kwds>
+            <kwd>scotch</kwd>
+            <kwd>whiskey</kwd>
+            <kwd>whisky</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Use to increase Stamina by (1)</nom>
+              <reltrib>Stamina</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+          <tribqs>
+            <nom>Luck - 2+</nom>
+            <reltrib>Luck</reltrib>
+            <v>2</v>
+          </tribqs>
+        </ii>
+        <ii>
+          <nom>Canvas Book-Bag</nom>
+          <inog>true</inog>
+          <idr>A decently large bag made from rugged canvas.</idr>
+          <ogdr>There's a canvas book-bag sitting on the floor of the shed.</ogdr>
+          <gendr>A rugged canvas book-bag is laying empty on the floor.</gendr>
+          <inv>0</inv>
+          <typ>Bag</typ>
+          <kwds>
+            <kwd>bag</kwd>
+            <kwd>canvas</kwd>
+            <kwd>bookbag</kwd>
+            <kwd>sack</kwd>
+            <kwd>backpack</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Inventory Space + (6)!</nom>
+              <reltrib>Max Carrying Capacity</reltrib>
+              <v>6</v>
+            </tr>
+            <tr>
+              <nom>This item does not consume inventory space.</nom>
+              <reltrib>Carried Items Count</reltrib>
+              <v>0</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis>
+        <wi>
+          <nom>Lumber Axe</nom>
+          <inog>true</inog>
+          <wdr>A hefty red axe; made for chopping wood.</wdr>
+          <ogdr>Leaning against the shed wall next to your leg is a lumber axe.</ogdr>
+          <gendr>A hefty red lumber axe is laying on the ground.</gendr>
+          <akpwr>5</akpwr>
+          <am>-1</am>
+          <kwrds>
+            <kwrd>lumber</kwrd>
+            <kwrd>wood</kwrd>
+            <kwrd>axe</kwrd>
+            <kwrd>chopper</kwrd>
+          </kwrds>
+          <trs>
+            <tr>
+              <nom>Defense + (1)!</nom>
+              <reltrib>Defense</reltrib>
+              <v>1</v>
+            </tr>
+            <tr>
+              <nom>Strength + (1)!</nom>
+              <reltrib>Strength</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+        </wi>
+      </wis>
+    </is>
+    <kwrds>
+      <kwrd>shed</kwrd>
+      <kwrd>shack</kwrd>
+    </kwrds>
+    <tribqs>
+      <nom>Wisdom - 3+</nom>
+      <reltrib>Wisdom</reltrib>
+      <v>3</v>
+    </tribqs>
+    <iqe>
+      <nom>Flashlight</nom>
+      <reli>
+        <nom>Flashlight</nom>
+        <inog>true</inog>
+        <idr>A small LED flashlight that fits in your pocket.</idr>
+        <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</ogdr>
+        <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
+        <inv>1</inv>
+        <typ>Default</typ>
+        <kwds>
+          <kwd>light</kwd>
+          <kwd>flashlight</kwd>
+          <kwd>led</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Battery Percentage - 12</nom>
+            <reltrib />
+            <v>12</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqe>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Driveway</nom>
+    <ent>false</ent>
+    <initdr>You walk over to your driveway in the moonlight.
 
 Very quickly you notice the hood of your car is open, and the battery is missing...
 You start wondering if Henry did that... And if so, why?
@@ -641,20 +640,20 @@ The walk to town is about 2 miles North.
 
 The wind picks up suddenly and...
 
-... Wait... It almost sounds like someone is stomping around in the grove of trees behind your house.</InitialRoomDescription>
-    <GenericRoomDescription>You're standing outside your house on the moonlit driveway.</GenericRoomDescription>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems>
-        <InventoryItem>
-          <ItemName>Newspaper</ItemName>
-          <InOriginalLocation>true</InOriginalLocation>
-          <ItemDescription>The local newspaper that was on your driveway.</ItemDescription>
-          <OriginalPlacementDescription>There's a newspaper laying on the driveway that you forgot to pick up yesterday.</OriginalPlacementDescription>
-          <GenericPlacementDescription>A copy of the local newspaper is on the ground. Looks brand new.</GenericPlacementDescription>
-          <InventorySpaceConsumed>1</InventorySpaceConsumed>
-          <TreatItemAs>Document</TreatItemAs>
-          <DocumentText>The paper has a big, bold title running across the front page: "TWELVE MISSING - SEARCH CONTINUES"
+... Wait... It almost sounds like someone is stomping around in the grove of trees behind your house.</initdr>
+    <gendr>You're standing outside your house on the moonlit driveway.</gendr>
+    <exs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Newspaper</nom>
+          <inog>true</inog>
+          <idr>The local newspaper that was on your driveway.</idr>
+          <ogdr>There's a newspaper laying on the driveway that you forgot to pick up yesterday.</ogdr>
+          <gendr>A copy of the local newspaper is on the ground. Looks brand new.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <docx>The paper has a big, bold title running across the front page: "TWELVE MISSING - SEARCH CONTINUES"
 
 	The paper says: 
 
@@ -667,30 +666,30 @@ The wind picks up suddenly and...
 
 	With the number of missing persons on the rise, many refuse to leave their homes after sunset.
 	There seems to be a town-wide panic ensuing around these superstitions and speculations."
-</DocumentText>
-          <KeywordsForPickup>
-            <string>news</string>
-            <string>paper</string>
-            <string>newspaper</string>
-          </KeywordsForPickup>
-          <ItemTraits />
-        </InventoryItem>
-      </InventoryItems>
-      <WeaponItems />
-    </RoomItems>
-    <KeywordsToEnter>
-      <string>drive</string>
-      <string>way</string>
-      <string>driveway</string>
-    </KeywordsToEnter>
-  </Room>
-  <Room xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <RoomEntered>false</RoomEntered>
-    <AvailableExits />
-    <RoomItems>
-      <InventoryItems />
-      <WeaponItems />
-    </RoomItems>
-    <KeywordsToEnter />
-  </Room>
+</docx>
+          <kwds>
+            <kwd>news</kwd>
+            <kwd>paper</kwd>
+            <kwd>newspaper</kwd>
+          </kwds>
+          <trs />
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>drive</kwrd>
+      <kwrd>way</kwrd>
+      <kwrd>driveway</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ent>false</ent>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds />
+  </R>
 </root>

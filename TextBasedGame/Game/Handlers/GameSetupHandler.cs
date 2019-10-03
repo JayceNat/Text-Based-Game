@@ -76,7 +76,8 @@ namespace TextBasedGame.Game.Handlers
                 {
                     break;
                 }
-                else if (currentRoom.RoomName == ConsoleStrings.SaveGame)
+
+                if (currentRoom.RoomName == ConsoleStrings.SaveGame)
                 {
                     SaveGame();
                     break;
@@ -91,8 +92,6 @@ namespace TextBasedGame.Game.Handlers
             using (var xmlWriter = XmlWriter.Create("TheHaunting_SavedGame.xml", new XmlWriterSettings { Indent = true }))
             {
                 xmlWriter.WriteStartElement("root");
-
-                Program.GameTitleSerializer.Serialize(xmlWriter, Program.GameTitle);
 
                 Program.CharacterSerializer.Serialize(xmlWriter, Program.CharacterCreator.Player);
                 Program.CharacterSerializer.Serialize(xmlWriter, Program.CharacterCreator.Ghoul);
@@ -114,7 +113,7 @@ namespace TextBasedGame.Game.Handlers
             const string saveFile = "TheHaunting_SavedGame.xml";
             if (File.Exists(saveFile) && File.ReadAllText(saveFile).Length != 0)
             {
-                Console.WriteLine("A save file was found, would you like to load it? (y/n)", Color.DarkOrange);
+                TypingAnimation.Animate("A save file was found, would you like to load it? (y/n)", Color.DarkOrange);
                 Console.Write(">", Color.DarkOrange);
                 var response = System.Console.ReadLine();
                 if (string.IsNullOrEmpty(response) || response?.ToLower()[0] == 'y')
@@ -124,9 +123,7 @@ namespace TextBasedGame.Game.Handlers
                         using (var reader = XmlReader.Create(saveFile))
                         {
                             // Skip root node
-                            reader.ReadToFollowing("Character"); // Name of first class
-
-                            //                            Program.GameTitle = (GameTitle) gameTitleSerializer.Deserialize(reader);
+                            reader.ReadToFollowing("C"); // Name of first class
 
                             Program.CharacterCreator.Player = (Character.Models.Character)Program.CharacterSerializer.Deserialize(reader);
                             Program.CharacterCreator.Ghoul = (Character.Models.Character)Program.CharacterSerializer.Deserialize(reader);
@@ -160,48 +157,56 @@ namespace TextBasedGame.Game.Handlers
             return false;
         }
 
+        // This method is needed in order to place the player in the proper room object after the exits have been added,
+        // otherwise we would place the player in a room object with no exits 
         public static Room.Models.Room GetCurrentRoomFromRoomName(string playerCurrentLocation)
         {
             if (playerCurrentLocation == Program.RoomCreator.YourBedroom.RoomName)
             {
                 return Program.RoomCreator.YourBedroom;
             }
-            else if (playerCurrentLocation == Program.RoomCreator.YourLivingRoom.RoomName)
+
+            if (playerCurrentLocation == Program.RoomCreator.YourLivingRoom.RoomName)
             {
                 return Program.RoomCreator.YourLivingRoom;
             }
-            else if (playerCurrentLocation == Program.RoomCreator.YourKitchen.RoomName)
+
+            if (playerCurrentLocation == Program.RoomCreator.YourKitchen.RoomName)
             {
                 return Program.RoomCreator.YourKitchen;
             }
-            else if (playerCurrentLocation == Program.RoomCreator.YourBasement.RoomName)
+
+            if (playerCurrentLocation == Program.RoomCreator.YourBasement.RoomName)
             {
                 return Program.RoomCreator.YourBasement;
             }
-            else if (playerCurrentLocation == Program.RoomCreator.YourFrontEntryway.RoomName)
+
+            if (playerCurrentLocation == Program.RoomCreator.YourFrontEntryway.RoomName)
             {
                 return Program.RoomCreator.YourFrontEntryway;
             }
-            else if (playerCurrentLocation == Program.RoomCreator.YourFrontPorch.RoomName)
+
+            if (playerCurrentLocation == Program.RoomCreator.YourFrontPorch.RoomName)
             {
                 return Program.RoomCreator.YourFrontPorch;
             }
-            else if (playerCurrentLocation == Program.RoomCreator.YourShed.RoomName)
+
+            if (playerCurrentLocation == Program.RoomCreator.YourShed.RoomName)
             {
                 return Program.RoomCreator.YourShed;
             }
-            else if (playerCurrentLocation == Program.RoomCreator.YourDriveway.RoomName)
+
+            if (playerCurrentLocation == Program.RoomCreator.YourDriveway.RoomName)
             {
                 return Program.RoomCreator.YourDriveway;
             }
-            else if (playerCurrentLocation == Program.RoomCreator.RoadConnectingYourHouseToTown.RoomName)
+
+            if (playerCurrentLocation == Program.RoomCreator.RoadConnectingYourHouseToTown.RoomName)
             {
                 return Program.RoomCreator.RoadConnectingYourHouseToTown;
             }
-            else
-            {
-                return Program.RoomCreator.YourBedroom;
-            }
+
+            return Program.RoomCreator.YourBedroom;
         }
     }
 }

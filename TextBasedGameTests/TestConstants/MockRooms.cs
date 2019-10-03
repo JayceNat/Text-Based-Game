@@ -12,7 +12,6 @@ namespace TextBasedGameTests.TestConstants
             RoomEntered = false,
             InitialRoomDescription = "You walk into the observatory. It really does have an incredibly ominous air about it.",
             GenericRoomDescription = "You're standing in the ominous observatory.",
-            AsExitDescription = "To the right is a large set of glass doors into an ominous looking room.",
             AvailableExits = new RoomExit(),
             RoomItems = new Items
             {
@@ -40,7 +39,6 @@ namespace TextBasedGameTests.TestConstants
             RoomEntered = true,
             InitialRoomDescription = "You enter into a nursery that seems to be lived in... there's a bed here with a nightstand.",
             GenericRoomDescription = "You're in the nursery that's been made into some kind of bedroom.",
-            AsExitDescription = "To your left is a room with plant leaves poking from the entrance. Maybe a nursery?",
             AvailableExits = new RoomExit(),
             RoomItems = new Items
             {
@@ -64,7 +62,6 @@ namespace TextBasedGameTests.TestConstants
             RoomEntered = false,
             InitialRoomDescription = "This place is filthy... It's probably going to give you nightmares.",
             GenericRoomDescription = "A filthy bathroom. Just get out.",
-            AsExitDescription = "Behind you is what looks to be a bathroom door.",
             AvailableExits = new RoomExit(),
             RoomItems = new Items(),
             KeywordsToEnter = new List<string>()

@@ -35,6 +35,9 @@ namespace TextBasedGame.Character.Handlers
                     case "take":
                     case "collect":
                     case "gather":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         var roomItemKeywords = RoomHandler.GetAllRoomItemKeywords(currentRoom);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), roomItemKeywords,
@@ -48,6 +51,9 @@ namespace TextBasedGame.Character.Handlers
                     case "drop":
                     case "release":
                     case "letgo":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
@@ -75,6 +81,9 @@ namespace TextBasedGame.Character.Handlers
                     case "walk":
                     case "run":
                     case "enter":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         var foundRoom = RoomHandler.FindAnyMatchingRoomByKeywords(substring.Trim(), currentRoom);
                         if (foundRoom != null)
@@ -90,7 +99,8 @@ namespace TextBasedGame.Character.Handlers
                     case "talk":
                     case "ask":
                     case "buy":
-                    // TODO: Implement a conversation/purchase system with a character in a room
+                        // TODO: Implement a conversation/purchase system with a character in a room
+                        break;
                     case "fight":
                     case "kill":
                     case "attack":
@@ -106,6 +116,9 @@ namespace TextBasedGame.Character.Handlers
                     case "swing":
                     case "shoot":
                     case "fire":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
@@ -117,16 +130,16 @@ namespace TextBasedGame.Character.Handlers
                         break;
                     case "item":
                     case "items":
-                        var items = StringDescriptionBuilder.CreateStringOfItemDescriptions(player, currentRoom.RoomItems.InventoryItems);
-                        Console.WriteLine();
-                        TypingAnimation.Animate(items == "" ? ConsoleStrings.NoItemsFound : items, Color.Aquamarine);
+                        player.PersistDisplayedItems = true;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         inputResolved = true;
                         break;
                     case "weapon":
                     case "weapons":
-                        var weapons = StringDescriptionBuilder.CreateStringOfWeaponDescriptions(player, currentRoom.RoomItems.WeaponItems);
-                        Console.WriteLine();
-                        TypingAnimation.Animate(weapons == "" ? ConsoleStrings.NoWeaponsFound : weapons, Color.Aquamarine);
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = true;
+                        player.PersistDisplayedExits = false;
                         inputResolved = true;
                         break;
                     case "exit":
@@ -136,9 +149,9 @@ namespace TextBasedGame.Character.Handlers
                     case "doors":
                     case "out":
                     case "where":
-                        var exits = StringDescriptionBuilder.CreateStringOfExitDescriptions(player, currentRoom.AvailableExits);
-                        Console.WriteLine();
-                        TypingAnimation.Animate(exits, Color.Red);
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = true;
                         inputResolved = true;
                         break;
                     case "inventory":
@@ -146,6 +159,9 @@ namespace TextBasedGame.Character.Handlers
                     case "carried":
                     case "carrying":
                     case "pockets":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         var playerInventory = StringDescriptionBuilder.CreateStringOfPlayerInventory(player, true);
                         Console.WriteLine();
                         Console.WriteLine(playerInventory, Color.ForestGreen);
@@ -155,6 +171,9 @@ namespace TextBasedGame.Character.Handlers
                     case "status":
                     case "stat":
                     case "stats":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         var characterInfo = StringDescriptionBuilder.CreateStringOfPlayerInfo(player);
                         Console.WriteLine();
                         Console.WriteLine(characterInfo, Color.ForestGreen);
@@ -166,12 +185,18 @@ namespace TextBasedGame.Character.Handlers
                     case "assist":
                     case "assistance":
                     case "?":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         Console.ReplaceAllColorsWithDefaults();
                         Console.WriteLineStyled(ConsoleStrings.GameHelp, ConsoleStringStyleSheets.GameHelpStyleSheet(Color.MediumPurple));
                         inputResolved = true;
                         break;
                     case "helpoff":
                     case "helpon":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
                         player.ShowInputHelp = !player.ShowInputHelp;
                         Console.WriteLine(
                             player.ShowInputHelp ? "\nInput words shown above prompt text." : "\nInput words hidden from prompt text.",
@@ -210,12 +235,61 @@ namespace TextBasedGame.Character.Handlers
                 TypingAnimation.Animate(". . . Nothing happens. \n", Color.Chartreuse, 40);
             }
 
-            Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
-            Console.ReadLine();
+            if (!player.PersistDisplayedItems && !player.PersistDisplayedWeapons && !player.PersistDisplayedExits)
+            {
+                Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
+                Console.ReadLine();
+            }
+            
             Console.Clear();
             Console.ReplaceAllColorsWithDefaults();
 
             return null;
+        }
+
+        public static void PrintExitsToConsole(Models.Character player, Room.Models.Room currentRoom, bool animate = true)
+        {
+            var exits = StringDescriptionBuilder.CreateStringOfExitDescriptions(player, currentRoom.AvailableExits);
+            
+            if (animate)
+            {
+                Console.WriteLine();
+                TypingAnimation.Animate(exits, Color.Red);
+            }
+            else
+            {
+                Console.WriteLine(exits, Color.Red);
+            }
+        }
+
+        public static void PrintWeaponsToConsole(Models.Character player, Room.Models.Room currentRoom, bool animate = true)
+        {
+            var weapons = StringDescriptionBuilder.CreateStringOfWeaponDescriptions(player, currentRoom.RoomItems.WeaponItems);
+            
+            if (animate)
+            {
+                Console.WriteLine();
+                TypingAnimation.Animate(weapons == "" ? ConsoleStrings.NoWeaponsFound + "\n" : weapons, Color.Aquamarine);
+            }
+            else
+            {
+                Console.WriteLine(weapons == "" ? ConsoleStrings.NoWeaponsFound + "\n" : weapons, Color.Aquamarine);
+            }
+        }
+
+        public static void PrintItemsToConsole(Models.Character player, Room.Models.Room currentRoom, bool animate = true)
+        {
+            var items = StringDescriptionBuilder.CreateStringOfItemDescriptions(player, currentRoom.RoomItems.InventoryItems);
+            
+            if (animate)
+            {
+                Console.WriteLine();
+                TypingAnimation.Animate(items == "" ? ConsoleStrings.NoItemsFound + "\n" : items, Color.Aquamarine);
+            }
+            else
+            {
+                Console.WriteLine(items == "" ? ConsoleStrings.NoItemsFound + "\n" : items, Color.Aquamarine);
+            }
         }
 
         // This returns a substring of remaining words in a player input that followed the first word
