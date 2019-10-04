@@ -48,11 +48,11 @@ namespace TextBasedGame.Item
             ItemDescription = "Your trusty old running shoes. You swear you run way faster in them.",
             OriginalPlacementDescription = "Your old red and white running shoes are peaking up at you from under your bed.",
             GenericPlacementDescription = "A pair of red and white running shoes are laying on the floor.",
+            TreatItemAs = ItemUseTypes.Wearable,
             KeywordsForPickup = ItemKeywords.Shoes,
             ItemTraits = new List<ItemTrait>()
             {
-                Program.ItemTraitCreator.LuckIncrease(1),
-                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+                Program.ItemTraitCreator.LuckIncrease(1)
             },
             InventorySpaceConsumed = 0
         };
@@ -84,8 +84,7 @@ namespace TextBasedGame.Item
             KeywordsForPickup = ItemKeywords.TinyBackpack,
             ItemTraits = new List<ItemTrait>
             {
-                Program.ItemTraitCreator.CarryingCapacityIncrease(2),
-                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+                Program.ItemTraitCreator.CarryingCapacityIncrease(2)
             },
             InventorySpaceConsumed = 0,
             AttributeRequirementToSee = new AttributeRequirement
@@ -181,8 +180,7 @@ namespace TextBasedGame.Item
             KeywordsForPickup = ItemKeywords.CanvasBookBag,
             ItemTraits = new List<ItemTrait>
             {
-                Program.ItemTraitCreator.CarryingCapacityIncrease(6),
-                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+                Program.ItemTraitCreator.CarryingCapacityIncrease(6)
             }
         };
     }

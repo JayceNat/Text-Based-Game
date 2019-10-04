@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using TextBasedGame.Item.Constants;
 using TextBasedGame.Item.Handlers;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Models;
@@ -199,21 +201,44 @@ namespace TextBasedGame.Shared.Utilities
 
             if (player.CarriedItems.Count != 0)
             {
+                inventory += "\n\tWorn Items (these do not consume space): \n";
+                var carriedItems = "\n\tCarried Items: \n";
+
                 foreach (var item in inventoryItems)
                 {
-                    inventory += "\n\t - " + item.ItemName + "\n";
-                    if (displayDescription)
+                    if (item.TreatItemAs == ItemUseTypes.Bag || item.TreatItemAs == ItemUseTypes.Wearable)
                     {
-                        inventory += "\t\t" + item.ItemDescription + "\n";
-                    }
-                    if (item.ItemTraits != null)
-                    {
-                        foreach (var trait in item.ItemTraits)
+                        inventory += "\n\t\t-" + item.ItemName + "\n";
+                        if (displayDescription)
                         {
-                            inventory += "\t\tTrait: \t" + trait.TraitName + "\n";
+                            inventory += "\t\t\t" + item.ItemDescription + "\n";
+                        }
+                        if (item.ItemTraits != null)
+                        {
+                            foreach (var trait in item.ItemTraits)
+                            {
+                                inventory += "\t\t\tTrait: \t" + trait.TraitName + "\n";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        carriedItems += "\n\t\t-" + item.ItemName + "\n";
+                        if (displayDescription)
+                        {
+                            carriedItems += "\t\t\t" + item.ItemDescription + "\n";
+                        }
+                        if (item.ItemTraits != null)
+                        {
+                            foreach (var trait in item.ItemTraits)
+                            {
+                                carriedItems += "\t\t\tTrait: \t" + trait.TraitName + "\n";
+                            }
                         }
                     }
                 }
+
+                inventory += carriedItems;
             }
 
             if (string.IsNullOrEmpty(player.WeaponItem?.WeaponName) && player.CarriedItems.Count == 0)

@@ -2,13 +2,13 @@
 <root>
   <C xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Arn</nom>
-    <loc>Your Front Porch</loc>
+    <loc>Your Kitchen</loc>
     <hepomax>60</hepomax>
     <hepo>60</hepo>
     <trib>
       <avlpo>0</avlpo>
       <macacap>4</macacap>
-      <nocai>0</nocai>
+      <nocai>1</nocai>
       <fen>2</fen>
       <x>1</x>
       <ck>2</ck>
@@ -24,7 +24,7 @@
         <ogdr>Your old red and white running shoes are peaking up at you from under your bed.</ogdr>
         <gendr>A pair of red and white running shoes are laying on the floor.</gendr>
         <inv>0</inv>
-        <typ>Default</typ>
+        <typ>Wearable</typ>
         <kwds>
           <kwd>shoe</kwd>
           <kwd>shoes</kwd>
@@ -35,11 +35,6 @@
             <nom>Luck + (1)!</nom>
             <reltrib>Luck</reltrib>
             <v>1</v>
-          </tr>
-          <tr>
-            <nom>This item does not consume inventory space.</nom>
-            <reltrib>Carried Items Count</reltrib>
-            <v>0</v>
           </tr>
         </trs>
       </i>
@@ -63,10 +58,26 @@
             <reltrib>Max Carrying Capacity</reltrib>
             <v>2</v>
           </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Plain Bagel</nom>
+        <inog>false</inog>
+        <idr>A plain bagel. It doesn't even have cream cheese on it...</idr>
+        <ogdr>There's a bagel on the counter that you'd planned to eat earlier.</ogdr>
+        <gendr>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Health</typ>
+        <kwds>
+          <kwd>bagel</kwd>
+          <kwd>plain</kwd>
+          <kwd>plainbagel</kwd>
+        </kwds>
+        <trs>
           <tr>
-            <nom>This item does not consume inventory space.</nom>
-            <reltrib>Carried Items Count</reltrib>
-            <v>0</v>
+            <nom>Use to restore (10) Health Points</nom>
+            <reltrib />
+            <v>10</v>
           </tr>
         </trs>
       </i>
@@ -183,29 +194,7 @@ and scurry through your living room and out of the house through a small hole in
     <gendr>You're standing in your kitchen, on the light beige floor tiles.</gendr>
     <exs />
     <is>
-      <iis>
-        <ii>
-          <nom>Plain Bagel</nom>
-          <inog>true</inog>
-          <idr>A plain bagel. It doesn't even have cream cheese on it...</idr>
-          <ogdr>There's a bagel on the counter that you'd planned to eat earlier.</ogdr>
-          <gendr>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</gendr>
-          <inv>1</inv>
-          <typ>Consumable Health</typ>
-          <kwds>
-            <kwd>bagel</kwd>
-            <kwd>plain</kwd>
-            <kwd>plainbagel</kwd>
-          </kwds>
-          <trs>
-            <tr>
-              <nom>Use to restore (10) Health Points</nom>
-              <reltrib />
-              <v>10</v>
-            </tr>
-          </trs>
-        </ii>
-      </iis>
+      <iis />
       <wis />
     </is>
     <kwrds>
@@ -357,7 +346,7 @@ The remainder of the page appears to have been ripped out.
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Your Front Entryway</nom>
-    <ent>true</ent>
+    <ent>false</ent>
     <initdr>Now you're standing just inside the front door of your house, in the entryway. 
 As you begin to notice the sound of your own breathing, the wind picks up outside again. 
 You can hear it pushing tree limbs into each other, and what sounds like other things too. 
@@ -468,6 +457,31 @@ It definitely wasn't there when you came home earlier.</initdr>
       <kwrd>frontdoor</kwrd>
       <kwrd>front</kwrd>
     </kwrds>
+    <iqe>
+      <nom>Tiny Backpack</nom>
+      <reli>
+        <nom>Tiny Backpack</nom>
+        <inog>false</inog>
+        <idr>A tiny bag made of gray nylon.</idr>
+        <ogdr>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</ogdr>
+        <gendr>An empty gray backpack is laying on the ground... It's tiny.</gendr>
+        <inv>0</inv>
+        <typ>Bag</typ>
+        <kwds>
+          <kwd>backpack</kwd>
+          <kwd>pack</kwd>
+          <kwd>bag</kwd>
+          <kwd>sack</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Inventory Space + (2)!</nom>
+            <reltrib>Max Carrying Capacity</reltrib>
+            <v>2</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqe>
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Your Shed</nom>
@@ -526,11 +540,6 @@ It keeps shifting slightly from side to side and making unsettling noises with e
               <nom>Inventory Space + (6)!</nom>
               <reltrib>Max Carrying Capacity</reltrib>
               <v>6</v>
-            </tr>
-            <tr>
-              <nom>This item does not consume inventory space.</nom>
-              <reltrib>Carried Items Count</reltrib>
-              <v>0</v>
             </tr>
           </trs>
         </ii>
@@ -657,10 +666,5 @@ The wind picks up suddenly and...
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <ent>false</ent>
     <exs />
-    <is>
-      <iis />
-      <wis />
-    </is>
-    <kwrds />
   </R>
 </root>

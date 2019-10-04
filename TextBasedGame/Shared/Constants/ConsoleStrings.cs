@@ -62,9 +62,9 @@ namespace TextBasedGame.Shared.Constants
         public static string InfoHints = "\tType 'inventory' or 'inv' to view what you have.\n" +
                                          "\tType  'status' or 'stat' to view your player info.\n";
 
-        public static string NoItemsFound = "You look around, but you don't see any items in the room...\n";
+        public static string NoItemsFound = "You look around, but you don't see any items here...\n";
 
-        public static string NoWeaponsFound = "You look around, but you don't see any weapons in the room...\n";
+        public static string NoWeaponsFound = "You look around, but you don't see any weapons here...\n";
 
         public static string LackingRequirementItemDescription =
             "There seems to be some object, but you can't make out what it is...";
