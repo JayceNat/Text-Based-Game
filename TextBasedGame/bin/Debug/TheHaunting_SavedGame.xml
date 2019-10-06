@@ -2,61 +2,43 @@
 <root>
   <C xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Arn</nom>
-    <loc>Your Kitchen</loc>
-    <hepomax>60</hepomax>
-    <hepo>60</hepo>
+    <loc>Ashbury - South Square</loc>
+    <hepomax>150</hepomax>
+    <hepo>150</hepo>
     <trib>
       <avlpo>0</avlpo>
-      <macacap>4</macacap>
-      <nocai>1</nocai>
-      <fen>2</fen>
-      <x>1</x>
-      <ck>2</ck>
-      <min>1</min>
-      <ren>1</ren>
-      <om>1</om>
+      <macacap>12</macacap>
+      <nocai>12</nocai>
+      <fen>12</fen>
+      <x>8</x>
+      <ck>7</ck>
+      <min>10</min>
+      <ren>6</ren>
+      <om>8</om>
     </trib>
     <ci>
       <i>
-        <nom>Running Shoes</nom>
+        <nom>Flashlight</nom>
         <inog>false</inog>
-        <idr>Your trusty old running shoes. You swear you run way faster in them.</idr>
-        <ogdr>Your old red and white running shoes are peaking up at you from under your bed.</ogdr>
-        <gendr>A pair of red and white running shoes are laying on the floor.</gendr>
-        <inv>0</inv>
-        <typ>Wearable</typ>
+        <idr>A small LED flashlight that fits in your pocket.</idr>
+        <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.
+HINT: You should search your house for a battery before you leave.</ogdr>
+        <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
+        <inv>1</inv>
+        <typ>Default</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
         <kwds>
-          <kwd>shoe</kwd>
-          <kwd>shoes</kwd>
-          <kwd>running shoes</kwd>
+          <kwd>light</kwd>
+          <kwd>flashlight</kwd>
+          <kwd>led</kwd>
         </kwds>
         <trs>
           <tr>
-            <nom>Luck + (1)!</nom>
-            <reltrib>Luck</reltrib>
-            <v>1</v>
-          </tr>
-        </trs>
-      </i>
-      <i>
-        <nom>Tiny Backpack</nom>
-        <inog>false</inog>
-        <idr>A tiny bag made of gray nylon.</idr>
-        <ogdr>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</ogdr>
-        <gendr>An empty gray backpack is laying on the ground... It's tiny.</gendr>
-        <inv>0</inv>
-        <typ>Bag</typ>
-        <kwds>
-          <kwd>backpack</kwd>
-          <kwd>pack</kwd>
-          <kwd>bag</kwd>
-          <kwd>sack</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom>Inventory Space + (2)!</nom>
-            <reltrib>Max Carrying Capacity</reltrib>
-            <v>2</v>
+            <nom>Battery - 0%</nom>
+            <reltrib />
+            <v>0</v>
           </tr>
         </trs>
       </i>
@@ -68,6 +50,9 @@
         <gendr>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</gendr>
         <inv>1</inv>
         <typ>Consumable Health</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
         <kwds>
           <kwd>bagel</kwd>
           <kwd>plain</kwd>
@@ -75,31 +60,583 @@
         </kwds>
         <trs>
           <tr>
-            <nom>Use to restore (10) Health Points</nom>
+            <nom>Use: restores (10) Health Points</nom>
             <reltrib />
             <v>10</v>
           </tr>
         </trs>
       </i>
+      <i>
+        <nom>Worn Leather Boots</nom>
+        <inog>false</inog>
+        <idr>They're well used and well taken care of. The leather is dark brown.</idr>
+        <ogdr>You spot a pair of leather boots tucked underneath one of the sleeping bags.</ogdr>
+        <gendr>A pair of worn leather boots are on the ground.</gendr>
+        <inv>0</inv>
+        <typ>Wearable</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert>Footwear</wert>
+        <kwds>
+          <kwd>worn</kwd>
+          <kwd>leather</kwd>
+          <kwd>boots</kwd>
+          <kwd>boot</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Defense + (1)!</nom>
+            <reltrib>Defense</reltrib>
+            <v>1</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Woman's Necklace</nom>
+        <inog>false</inog>
+        <idr>A silver necklace with a sapphire on it. It's beautiful.</idr>
+        <ogdr>Something in the grass is glinting in the moonlight... maybe jewelry?</ogdr>
+        <gendr>Someone left a beautiful necklace here.</gendr>
+        <inv>0</inv>
+        <typ>Wearable</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert>Neck-wear</wert>
+        <kwds>
+          <kwd>necklace</kwd>
+          <kwd>woman</kwd>
+          <kwd>womans</kwd>
+          <kwd>jewelry</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Stamina + (1)!</nom>
+            <reltrib>Stamina</reltrib>
+            <v>1</v>
+          </tr>
+          <tr>
+            <nom>Strength + (1)!</nom>
+            <reltrib>Strength</reltrib>
+            <v>1</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Bloody Jeans</nom>
+        <inog>false</inog>
+        <idr>Somebody must've been hurt pretty badly in these...</idr>
+        <ogdr>Against the base of a tree, half-covered in twigs is a pair of bloody jeans...
+Strangely, they're your size.</ogdr>
+        <gendr>Somebody left bloody jeans here.</gendr>
+        <inv>0</inv>
+        <typ>Wearable</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert>Leg-wear</wert>
+        <kwds>
+          <kwd>jeans</kwd>
+          <kwd>bloody</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Defense + (1)!</nom>
+            <reltrib>Defense</reltrib>
+            <v>1</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Large Knapsack</nom>
+        <inog>false</inog>
+        <idr>It has a high carrying capacity, and it looks pretty cool.</idr>
+        <ogdr>Just to the right of the camp, you spot what looks like a bag hanging in a tree.</ogdr>
+        <gendr>A large knapsack has been left here... Seems pretty nice.</gendr>
+        <inv>0</inv>
+        <typ>Bag</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>bag</kwd>
+          <kwd>sack</kwd>
+          <kwd>large</kwd>
+          <kwd>knapsack</kwd>
+          <kwd>backpack</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Inventory Space + (10)!</nom>
+            <reltrib>Max Carrying Capacity</reltrib>
+            <v>10</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Rabbit's Foot</nom>
+        <inog>false</inog>
+        <idr>A small keychain holding a rabbit's foot. The cream-colored fur is incredibly soft.</idr>
+        <ogdr>Tucked into a corner of the tent, near the unzipped door-flap, there's a small cream-colored object...
+It looks like fur.</ogdr>
+        <gendr>A small, cream-colored rabbit's foot rests on the ground.</gendr>
+        <inv>1</inv>
+        <typ>Default</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>cream</kwd>
+          <kwd>creme</kwd>
+          <kwd>fur</kwd>
+          <kwd>white</kwd>
+          <kwd>foot</kwd>
+          <kwd>object</kwd>
+          <kwd>rabbit</kwd>
+          <kwd>rabbits</kwd>
+          <kwd>keychain</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Luck + (3)!</nom>
+            <reltrib>Luck</reltrib>
+            <v>3</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Box of Shotgun Shells</nom>
+        <inog>false</inog>
+        <idr>A box with some ammo for a shotgun... Could be handy.</idr>
+        <ogdr>On the ground between two of the tents is an overturned box of shotgun ammo.</ogdr>
+        <gendr>A box of shotgun shells is on the ground.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Ammo</typ>
+        <amtyp>Shotgun Ammo</amtyp>
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>shells</kwd>
+          <kwd>ammo</kwd>
+          <kwd>box</kwd>
+          <kwd>shotgun</kwd>
+        </kwds>
+        <trs />
+      </i>
+      <i>
+        <nom>Abandoned Flashlight Battery</nom>
+        <inog>false</inog>
+        <idr>A perfectly good battery that was left behind.</idr>
+        <ogdr>A flashlight battery is sitting on one of the pillows.</ogdr>
+        <gendr>There's a flashlight battery on the ground.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Battery</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>battery</kwd>
+          <kwd>batteries</kwd>
+          <kwd>flashlight</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>This item has (21%) battery</nom>
+            <reltrib />
+            <v>21</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Strange Thermos</nom>
+        <inog>false</inog>
+        <idr>It seems to have some strange kind of coffee or maybe Hot Chocolate in it.
+			... and it's still slightly warm.</idr>
+        <ogdr>There's a thermos laying on the floor of the tent.</ogdr>
+        <gendr>A thermos containing a strange liquid is on the ground.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Health</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>strange</kwd>
+          <kwd>liquid</kwd>
+          <kwd>thermos</kwd>
+          <kwd>coffee</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Use: restores (65) Health Points</nom>
+            <reltrib />
+            <v>65</v>
+          </tr>
+          <tr>
+            <nom>Use: decreases Wisdom by (-1)</nom>
+            <reltrib>Wisdom</reltrib>
+            <v>-1</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Bomber Jacket</nom>
+        <inog>false</inog>
+        <idr>A tan vintage looking jacket with ribbed sleeve cuffs and a wool collar.</idr>
+        <ogdr>In one of the tents you can see a jacket that was left behind.</ogdr>
+        <gendr>A vintage bomber jacket is on the ground.</gendr>
+        <inv>0</inv>
+        <typ>Wearable</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert>Chest</wert>
+        <kwds>
+          <kwd>jacket</kwd>
+          <kwd>bomber</kwd>
+          <kwd>coat</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Defense + (2)!</nom>
+            <reltrib>Defense</reltrib>
+            <v>2</v>
+          </tr>
+          <tr>
+            <nom>Stamina + (2)!</nom>
+            <reltrib>Stamina</reltrib>
+            <v>2</v>
+          </tr>
+        </trs>
+        <tribqs>
+          <nom>Luck - 4+</nom>
+          <reltrib>Luck</reltrib>
+          <v>4</v>
+        </tribqs>
+      </i>
+      <i>
+        <nom>Bloody Gold Bullet</nom>
+        <inog>false</inog>
+        <idr>The caliber is unlike any you've ever seen. 
+			It's covered in blood, but it's clearly made of gold.</idr>
+        <ogdr>There's something gold in the pit of burnt out campfire ashes...</ogdr>
+        <gendr>A bloody gold bullet is on the ground...</gendr>
+        <inv>1</inv>
+        <typ>Consumable Ammo</typ>
+        <amtyp>Rare Gold Ammo</amtyp>
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>bloody</kwd>
+          <kwd>gold</kwd>
+          <kwd>bullet</kwd>
+        </kwds>
+        <trs />
+      </i>
+      <i>
+        <nom>Hunting Cap</nom>
+        <inog>false</inog>
+        <idr>A red flannel cap with ear flaps.</idr>
+        <ogdr>On top of the rocks near the water is an upturned hat.</ogdr>
+        <gendr>Someone's red hunting cap is on the ground here.</gendr>
+        <inv>0</inv>
+        <typ>Wearable</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert>Head-wear</wert>
+        <kwds>
+          <kwd>red</kwd>
+          <kwd>hat</kwd>
+          <kwd>hunting</kwd>
+          <kwd>cap</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Defense + (1)!</nom>
+            <reltrib>Defense</reltrib>
+            <v>1</v>
+          </tr>
+          <tr>
+            <nom>Dexterity + (1)!</nom>
+            <reltrib>Dexterity</reltrib>
+            <v>1</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>South Gate Key</nom>
+        <inog>false</inog>
+        <idr>A steel key with a tag that says "South Gate."</idr>
+        <ogdr>Looks like there's a key taped to a large boulder near the riverside.</ogdr>
+        <gendr>A steel key is on the ground.</gendr>
+        <inv>0</inv>
+        <typ>Key</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>key</kwd>
+          <kwd>gate</kwd>
+          <kwd>town</kwd>
+          <kwd>south</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>This item does not consume inventory space.</nom>
+            <reltrib>Carried Items Count</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Somber Note</nom>
+        <inog>false</inog>
+        <idr>A note left by the riverside of the East Forest River.</idr>
+        <ogdr>There's a folded up piece of paper wedged partially under a large boulder on the riverside.</ogdr>
+        <gendr>There's a folded up note on the ground.</gendr>
+        <inv>1</inv>
+        <typ>Document</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <docx>The note is written in blue pen, with very neat handwriting.
+
+	It says: 
+
+	"Lucy,
+
+		This is just to say that I'll always love you.
+	I miss you more than I can bear. I have a hard time going home these days, 
+	knowing you won't be there. The police have all given up on finding you.
+	They seem far more concerned with the people who went missing after you did.
+	I don't feel anger so much anymore... It's mostly just sadness now.
+
+		Everyone is convinced of some frightening beast that keeps swooping our loved ones away,
+	stealing them from us in the night. I just can't believe all that.
+	But I just don't seem to care any longer. All I feel is emptiness, there is nothing 
+	for me now but the memory of you.
+		I'm leaving my wedding ring here, on our boulder. The one we sat on together 
+	that night, so many years ago, when I asked you to marry me.
+	When you were staring up at the stars and I was staring at you.
+	And I knew that when you looked down from those stars, you'd be looking at me.
+
+		I hope you're in those stars now, looking down at me still.
+	I'll see you soon. I just hope the river isn't too cold."
+</docx>
+        <wert />
+        <kwds>
+          <kwd>somber</kwd>
+          <kwd>sad</kwd>
+          <kwd>note</kwd>
+          <kwd>letter</kwd>
+          <kwd>paper</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom />
+            <reltrib>Dexterity</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Platinum Ring</nom>
+        <inog>false</inog>
+        <idr>It's heavy for it's size, and fits on your index finger.</idr>
+        <ogdr>Sitting on a large boulder on the riverside is a ring. You can't believe you noticed it.</ogdr>
+        <gendr>A platinum ring has been left on the ground here.</gendr>
+        <inv>0</inv>
+        <typ>Wearable</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert>Ring</wert>
+        <kwds>
+          <kwd>ring</kwd>
+          <kwd>platinum</kwd>
+          <kwd>jewelry</kwd>
+          <kwd>band</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Stamina + (2)!</nom>
+            <reltrib>Stamina</reltrib>
+            <v>2</v>
+          </tr>
+        </trs>
+        <tribqs>
+          <nom>Dexterity - 5+</nom>
+          <reltrib>Dexterity</reltrib>
+          <v>5</v>
+        </tribqs>
+      </i>
+      <i>
+        <nom>Box of .44 Magnum Ammo</nom>
+        <inog>false</inog>
+        <idr>These bullets don't mess around.</idr>
+        <ogdr>There's a box of ammo for a .44 revolver sitting behind a pile of river rocks.</ogdr>
+        <gendr>There's a box of ammunition for a .44 revolver here.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Ammo</typ>
+        <amtyp>.44 Caliber Ammo</amtyp>
+        <amamt>4</amamt>
+        <wert />
+        <kwds>
+          <kwd>box</kwd>
+          <kwd>bullets</kwd>
+          <kwd>ammo</kwd>
+          <kwd>44</kwd>
+          <kwd>magnum</kwd>
+        </kwds>
+        <trs />
+      </i>
+      <i>
+        <nom>Wet Gold Bullet</nom>
+        <inog>false</inog>
+        <idr>The caliber is unlike any you've ever seen. 
+			It's covered in water, but it's clearly made of gold.</idr>
+        <ogdr>There's something gold hidden in the river rocks.</ogdr>
+        <gendr>A gold bullet is on the ground... looks wet.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Ammo</typ>
+        <amtyp>Rare Gold Ammo</amtyp>
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>wet</kwd>
+          <kwd>bullet</kwd>
+          <kwd>gold</kwd>
+        </kwds>
+        <trs />
+      </i>
+      <i>
+        <nom>Snake Bracelet</nom>
+        <inog>false</inog>
+        <idr>It's a really solid metal. You feel safer wearing it.</idr>
+        <ogdr>Sitting on the wood table is a metal bracelet.</ogdr>
+        <gendr>A snake bracelet is on the ground.</gendr>
+        <inv>0</inv>
+        <typ>Wearable</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert>Bracelet</wert>
+        <kwds>
+          <kwd>metal</kwd>
+          <kwd>snake</kwd>
+          <kwd>bracelet</kwd>
+          <kwd>bangle</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Defense + (3)!</nom>
+            <reltrib>Defense</reltrib>
+            <v>3</v>
+          </tr>
+          <tr>
+            <nom>Strength + (1)!</nom>
+            <reltrib>Strength</reltrib>
+            <v>1</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Waterlogged Journal</nom>
+        <inog>false</inog>
+        <idr>A weathered leather journal from the cave behind the East Forest River waterfall.
+			There's a snake symbol stamped into the cover.</idr>
+        <ogdr>On the floor under the wooden chair is a waterlogged looking journal.</ogdr>
+        <gendr>There's a waterlogged leather journal on the floor.</gendr>
+        <inv>1</inv>
+        <typ>Document</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <docx>You open the waterlogged journal. The pages crackle a bit as you do.
+
+	It says: 
+
+	"I've seen it. The beast exists. 
+	It's skin is as white as the moonlight, and it's as tall as a man standing on another mans shoulders.
+	What are we to do? There is no hope anymore... I've read everything, researched it all.
+ 	Nothing can prevent the fate that this entire town will face. We will all be consumed.
+	DEVOURED by this wretched THING!
+
+		Though I fear the worst, I mustn't give up... There must be something I'm missing..."
+
+
+	It continues: 
+
+	"I've made a discovery. 
+	The beast can be warded temporarily with symbols or items resembling snakes.
+	Confirming it seemed lunacy to me at the time, but it did in fact work!
+
+	I'd fashioned a snake bangle and worn it into the woods. I heard the stomping.
+	The monster appeared, and went down on all fours in pursuit of me... 
+	I was terrified. But as it got closer to me, it veered off in the other direction.
+	I was fifteen feet from that creature, and I survived... Perhaps ~~"
+
+The remaining pages are blank.
+</docx>
+        <wert />
+        <kwds>
+          <kwd>journal</kwd>
+          <kwd>waterlogged</kwd>
+          <kwd>book</kwd>
+          <kwd>diary</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom />
+            <reltrib>Wisdom</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Dirty Gold Bullet</nom>
+        <inog>false</inog>
+        <idr>The caliber is unlike any you've ever seen. 
+			It's covered in dirt, but it's clearly made of gold.</idr>
+        <ogdr>In the roadside gravel, you notice something shiny glinting in the moonlight...</ogdr>
+        <gendr>There's a dirty bullet on the ground... It looks like gold.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Ammo</typ>
+        <amtyp>Rare Gold Ammo</amtyp>
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>bullet</kwd>
+          <kwd>gold</kwd>
+          <kwd>dirty</kwd>
+          <kwd>gravel</kwd>
+          <kwd>shiny</kwd>
+        </kwds>
+        <trs />
+      </i>
     </ci>
     <cw>
-      <nom>Baseball Bat</nom>
+      <nom>Fireman's Axe</nom>
       <inog>false</inog>
-      <wdr>A solid maple wood baseball bat.</wdr>
-      <ogdr>You notice your old baseball bat propped up in the corner of the room near your closet.</ogdr>
-      <gendr>A solid wood baseball bat lays across the floor. It looks like maple wood.</gendr>
-      <akpwr>2</akpwr>
+      <wdr>A hefty red fireman's axe; made for breaking down doors.</wdr>
+      <ogdr>Leaning against the burnt out campfire is a lumber axe.</ogdr>
+      <gendr>A hefty red fireman's axe is laying on the ground.</gendr>
+      <akpwr>7</akpwr>
       <am>-1</am>
+      <amtyp />
       <kwrds>
-        <kwrd>slugger</kwrd>
-        <kwrd>bat</kwrd>
-        <kwrd>club</kwrd>
+        <kwrd>fireman</kwrd>
+        <kwrd>firemans</kwrd>
+        <kwrd>axe</kwrd>
+        <kwrd>chopper</kwrd>
       </kwrds>
       <trs>
         <tr>
-          <nom>Defense + (1)!</nom>
+          <nom>Defense + (2)!</nom>
           <reltrib>Defense</reltrib>
+          <v>2</v>
+        </tr>
+        <tr>
+          <nom>Stamina + (1)!</nom>
+          <reltrib>Stamina</reltrib>
           <v>1</v>
+        </tr>
+        <tr>
+          <nom>Strength + (2)!</nom>
+          <reltrib>Strength</reltrib>
+          <v>2</v>
         </tr>
       </trs>
     </cw>
@@ -133,6 +670,7 @@
  They almost look like shards of obsidian.</gendr>
       <akpwr>8</akpwr>
       <am>-1</am>
+      <amtyp />
       <kwrds />
       <trs />
     </cw>
@@ -178,6 +716,7 @@ Try typing 'items' - you will see the Tiny Backpack if your Luck is 1 or more.</
       <wis />
     </is>
     <kwrds>
+      <kwrd>liv</kwrd>
       <kwrd>living</kwrd>
       <kwrd>livingroom</kwrd>
       <kwrd>room</kwrd>
@@ -185,7 +724,7 @@ Try typing 'items' - you will see the Tiny Backpack if your Luck is 1 or more.</
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Your Kitchen</nom>
-    <ent>false</ent>
+    <ent>true</ent>
     <initdr>You've entered your kitchen, and you're looking around for anything that might 
 have made that strange noise... 
 
@@ -208,7 +747,7 @@ and scurry through your living room and out of the house through a small hole in
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Your Basement</nom>
-    <ent>false</ent>
+    <ent>true</ent>
     <initdr>You walked down the dark stairs into your basement, thanks to the flashlight.
 The wind seems far quieter from down here... Almost silent, in fact.
 
@@ -221,13 +760,16 @@ Just then, your flashlight briefly flickers.</initdr>
       <iis>
         <ii>
           <nom>Book on Strange Creatures</nom>
-          <inog>true</inog>
-          <idr>A book on mythical creatures. Henry (your friend who lives in a cabin across town) gave it to you.
-		(Type 'use book' to read it)</idr>
+          <inog>false</inog>
+          <idr>A book on mythical creatures. 
+			Henry (your friend who lives in a cabin across town) gave it to you.
+			(Type 'use book' to read it)</idr>
           <ogdr>On a dusty metal table you spot an old book that Henry gave to you a while back.</ogdr>
           <gendr>A dusty old book on strange creatures is laying on the floor.</gendr>
           <inv>1</inv>
           <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
           <docx>There's a page marked in a section of the book called "Ghouls, Demons, &amp; Poltergeists"... 
 
 	It says: 
@@ -246,6 +788,7 @@ Just then, your flashlight briefly flickers.</initdr>
 
 The remainder of the page appears to have been ripped out.
 </docx>
+          <wert />
           <kwds>
             <kwd>book</kwd>
             <kwd>strange</kwd>
@@ -255,35 +798,14 @@ The remainder of the page appears to have been ripped out.
           </kwds>
           <trs>
             <tr>
-              <nom>Wisdom + (2)!</nom>
+              <nom />
               <reltrib>Wisdom</reltrib>
-              <v>2</v>
+              <v>0</v>
             </tr>
             <tr>
-              <nom>Dexterity + (1)!</nom>
+              <nom />
               <reltrib>Dexterity</reltrib>
-              <v>1</v>
-            </tr>
-          </trs>
-        </ii>
-        <ii>
-          <nom>Old Flashlight Battery</nom>
-          <inog>true</inog>
-          <idr>A used battery for an LED flashlight. 
-		(Type 'use battery' to use it)</idr>
-          <ogdr>On a wood shelf to your left is a flashlight battery.</ogdr>
-          <gendr>There's a flashlight battery on the floor.</gendr>
-          <inv>1</inv>
-          <typ>Consumable Battery</typ>
-          <kwds>
-            <kwd>battery</kwd>
-            <kwd>flashlight</kwd>
-          </kwds>
-          <trs>
-            <tr>
-              <nom>This item has (21%) battery</nom>
-              <reltrib />
-              <v>21</v>
+              <v>0</v>
             </tr>
           </trs>
         </ii>
@@ -295,58 +817,10 @@ The remainder of the page appears to have been ripped out.
       <kwrd>dark</kwrd>
       <kwrd>down</kwrd>
     </kwrds>
-    <iqs>
-      <nom>Flashlight</nom>
-      <reli>
-        <nom>Flashlight</nom>
-        <inog>true</inog>
-        <idr>A small LED flashlight that fits in your pocket.</idr>
-        <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</ogdr>
-        <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
-        <inv>1</inv>
-        <typ>Default</typ>
-        <kwds>
-          <kwd>light</kwd>
-          <kwd>flashlight</kwd>
-          <kwd>led</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom>Battery Percentage - 12</nom>
-            <reltrib />
-            <v>12</v>
-          </tr>
-        </trs>
-      </reli>
-    </iqs>
-    <iqe>
-      <nom>Flashlight</nom>
-      <reli>
-        <nom>Flashlight</nom>
-        <inog>true</inog>
-        <idr>A small LED flashlight that fits in your pocket.</idr>
-        <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</ogdr>
-        <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
-        <inv>1</inv>
-        <typ>Default</typ>
-        <kwds>
-          <kwd>light</kwd>
-          <kwd>flashlight</kwd>
-          <kwd>led</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom>Battery Percentage - 12</nom>
-            <reltrib />
-            <v>12</v>
-          </tr>
-        </trs>
-      </reli>
-    </iqe>
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Your Front Entryway</nom>
-    <ent>false</ent>
+    <ent>true</ent>
     <initdr>Now you're standing just inside the front door of your house, in the entryway. 
 As you begin to notice the sound of your own breathing, the wind picks up outside again. 
 You can hear it pushing tree limbs into each other, and what sounds like other things too. 
@@ -360,29 +834,7 @@ Try typing 'enter the porch' - if you are carrying the Tiny Backpack you can lea
     <gendr>You're standing inside the entryway of your home.</gendr>
     <exs />
     <is>
-      <iis>
-        <ii>
-          <nom>Flashlight</nom>
-          <inog>true</inog>
-          <idr>A small LED flashlight that fits in your pocket.</idr>
-          <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</ogdr>
-          <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
-          <inv>1</inv>
-          <typ>Default</typ>
-          <kwds>
-            <kwd>light</kwd>
-            <kwd>flashlight</kwd>
-            <kwd>led</kwd>
-          </kwds>
-          <trs>
-            <tr>
-              <nom>Battery Percentage - 12</nom>
-              <reltrib />
-              <v>12</v>
-            </tr>
-          </trs>
-        </ii>
-      </iis>
+      <iis />
       <wis />
     </is>
     <kwrds>
@@ -397,7 +849,7 @@ Try typing 'enter the porch' - if you are carrying the Tiny Backpack you can lea
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Your Front Porch</nom>
-    <ent>false</ent>
+    <ent>true</ent>
     <initdr>You've just walked out of your house, and you're standing outside the front door. 
 The wind is gusting aggressively in the trees overhead, but the air is oddly calm around you. 
 
@@ -408,44 +860,7 @@ It definitely wasn't there when you came home earlier.</initdr>
     <gendr>You're on your front porch, just outside the front door of your house.</gendr>
     <exs />
     <is>
-      <iis>
-        <ii>
-          <nom>Dirty Letter</nom>
-          <inog>true</inog>
-          <idr>It's a small, dirty letter that you found under your front doormat. 
-		(Type 'use letter' to read it)</idr>
-          <ogdr>A small, dirty letter is sticking half way out from under your doormat.</ogdr>
-          <gendr>A small, dirty letter is on the ground.</gendr>
-          <inv>1</inv>
-          <typ>Document</typ>
-          <docx>The envelope has nothing on it aside from your name, which looks hastily scribbled...
-
-	The letter says: 
-
-	"Hey, 
-
-		So sorry to leave this here letter on your porch like this at such an odd hour of the night...
-	I really need to speak with you. It's urgent. Susan's gone missing. I... I know how crazy it's gonna sound.
-	Just hear me out... Well, perhaps it'd be best to explain it in person. 
-
-		Meet me at my cabin, North of town. If you forgot how to get there, 
-	just go straight North from your place, follow the road through town.
-	Then just keep on going North 'til the pavement turns to dirt.
-
-		The sooner you can get here, the better.
-	Oh, and just be alert if you're outside at night. Please.
-
-	Talk soon,
-	Henry"
-</docx>
-          <kwds>
-            <kwd>letter</kwd>
-            <kwd>envelope</kwd>
-            <kwd>dirty</kwd>
-          </kwds>
-          <trs />
-        </ii>
-      </iis>
+      <iis />
       <wis />
     </is>
     <kwrds>
@@ -457,102 +872,478 @@ It definitely wasn't there when you came home earlier.</initdr>
       <kwrd>frontdoor</kwrd>
       <kwrd>front</kwrd>
     </kwrds>
-    <iqe>
-      <nom>Tiny Backpack</nom>
-      <reli>
-        <nom>Tiny Backpack</nom>
-        <inog>false</inog>
-        <idr>A tiny bag made of gray nylon.</idr>
-        <ogdr>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</ogdr>
-        <gendr>An empty gray backpack is laying on the ground... It's tiny.</gendr>
-        <inv>0</inv>
-        <typ>Bag</typ>
-        <kwds>
-          <kwd>backpack</kwd>
-          <kwd>pack</kwd>
-          <kwd>bag</kwd>
-          <kwd>sack</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom>Inventory Space + (2)!</nom>
-            <reltrib>Max Carrying Capacity</reltrib>
-            <v>2</v>
-          </tr>
-        </trs>
-      </reli>
-    </iqe>
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Your Shed</nom>
-    <ent>false</ent>
+    <ent>true</ent>
     <initdr>You open the rusted metal makeshift shed door and it creaks and screeches loudly.
 
 It's really cold in here, and the whole shed seems flimsy in the wind.
-It keeps shifting slightly from side to side and making unsettling noises with each gust.</initdr>
+It keeps shifting slightly from side to side and making unsettling noises with each gust.
+You keep hearing strange sounds in the forest just outside the shed...
+Almost sounds like far off footsteps.</initdr>
     <gendr>You're in your rusted, creaky old shed.</gendr>
     <exs />
     <is>
       <iis>
         <ii>
-          <nom>Scotch Whiskey</nom>
-          <inog>true</inog>
-          <idr>It'll warm you right up.</idr>
-          <ogdr>You smile as you notice a small bottle of Scotch Whiskey stashed in the corner of the shed.</ogdr>
-          <gendr>A bottle of some good Scotch Whiskey seems to have been left here.</gendr>
-          <inv>1</inv>
-          <typ>Consumable Attribute</typ>
-          <kwds>
-            <kwd>scotch</kwd>
-            <kwd>whiskey</kwd>
-            <kwd>whisky</kwd>
-          </kwds>
-          <trs>
-            <tr>
-              <nom>Use to increase Stamina by (1)</nom>
-              <reltrib>Stamina</reltrib>
-              <v>1</v>
-            </tr>
-          </trs>
-          <tribqs>
-            <nom>Luck - 2+</nom>
-            <reltrib>Luck</reltrib>
-            <v>2</v>
-          </tribqs>
-        </ii>
-        <ii>
-          <nom>Canvas Book-Bag</nom>
-          <inog>true</inog>
-          <idr>A decently large bag made from rugged canvas.</idr>
-          <ogdr>There's a canvas book-bag sitting on the floor of the shed.</ogdr>
-          <gendr>A rugged canvas book-bag is laying empty on the floor.</gendr>
+          <nom>Tiny Backpack</nom>
+          <inog>false</inog>
+          <idr>A tiny bag made of gray nylon.</idr>
+          <ogdr>Tucked behind your living room sofa is your tiny backpack, you just barely noticed it.</ogdr>
+          <gendr>An empty gray backpack is laying on the ground... It's tiny.</gendr>
           <inv>0</inv>
           <typ>Bag</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert />
           <kwds>
-            <kwd>bag</kwd>
-            <kwd>canvas</kwd>
-            <kwd>bookbag</kwd>
-            <kwd>sack</kwd>
             <kwd>backpack</kwd>
+            <kwd>pack</kwd>
+            <kwd>bag</kwd>
+            <kwd>sack</kwd>
           </kwds>
           <trs>
             <tr>
-              <nom>Inventory Space + (6)!</nom>
+              <nom>Inventory Space + (2)!</nom>
               <reltrib>Max Carrying Capacity</reltrib>
-              <v>6</v>
+              <v>2</v>
             </tr>
           </trs>
         </ii>
       </iis>
       <wis>
         <wi>
+          <nom>Little Letter Opener</nom>
+          <inog>false</inog>
+          <wdr>It's really not even sharp. Maybe you could kill a rat with it?</wdr>
+          <ogdr>On your dresser is a small letter opener made of brass.</ogdr>
+          <gendr>There's a little brass letter opener on the ground.</gendr>
+          <akpwr>1</akpwr>
+          <am>-1</am>
+          <amtyp />
+          <kwrds>
+            <kwrd>letter</kwrd>
+            <kwrd>opener</kwrd>
+            <kwrd>brass</kwrd>
+          </kwrds>
+          <trs />
+        </wi>
+      </wis>
+    </is>
+    <kwrds>
+      <kwrd>shed</kwrd>
+      <kwrd>shack</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Your Driveway</nom>
+    <ent>true</ent>
+    <initdr>You walk over to your driveway in the moonlight.
+
+Very quickly you notice the hood of your car is open, and the battery is missing...
+You start wondering if Henry did that... And if so, why?
+
+The walk to town is about a mile North.
+
+The wind picks up suddenly and...
+
+... Wait... It almost sounds like someone is stomping around in the grove of trees behind your house.</initdr>
+    <gendr>You're standing outside your house on the moonlit driveway.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>drive</kwrd>
+      <kwrd>way</kwrd>
+      <kwrd>driveway</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>The Road Between Your House and Town</nom>
+    <ent>true</ent>
+    <initdr>You've started walking North away from your house, towards town.
+The road is well lit by the bright moonlight, but the forest on 
+each side of the road is incredibly dark and ominous.
+
+Seems a bit crazy to you that you're about to walk to Henry's at this time of night...
+
+Though with everything that's been going on around here lately, you know it's justified.
+Maybe you'll be able to help Henry find his wife before morning.</initdr>
+    <gendr>You're on the moonlit road that's between your house and town.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>road</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>The Lake in the Forest</nom>
+    <ent>true</ent>
+    <initdr>You've entered the forest on the West side of the road between your house and town.
+It' so incredibly dark in the thick trees, but luckily you have a flashlight.
+
+You keep on walking between the trees and through the fallen branches that cover the ground.
+You can't fight off the feeling that you're being watched... 
+
+. . . . . . .
+
+You finally make it to an opening in the trees, and you walk out of the forest
+onto the sandy bank of the moonlit Forest Lake.</initdr>
+    <gendr>You've traversed through the forest on the West side of the road between your house and town,
+and you're standing on the sandy bank of the moonlit Forest Lake.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>lake</kwrd>
+      <kwrd>west</kwrd>
+      <kwrd>forestlake</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Collapsed Lakeside Tent</nom>
+    <ent>true</ent>
+    <initdr>You followed the shoreline of the lake until you reached the Collapsed Lakeside Tent. 
+It seems like it hasn't been here very long, almost like it was abandoned in a hurry.
+
+The front door flap is wide open, and just the rear portion of the tent is collapsed.
+Shining the flashlight into the tent reveals some pillows
+and sleeping bags that appear to have been left behind... 
+
+... Is that... blood in the back of the collapsed tent?</initdr>
+    <gendr>You walked along the shoreline and are standing at the Collapsed Lakeside Tent.
+There appears to be blood inside the tent, near the abandoned suitcases.</gendr>
+    <exs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Running Shoes</nom>
+          <inog>false</inog>
+          <idr>Your trusty old running shoes. You swear you run way faster in them.</idr>
+          <ogdr>Your old red and white running shoes are peaking up at you from under your bed.</ogdr>
+          <gendr>A pair of red and white running shoes are laying on the floor.</gendr>
+          <inv>0</inv>
+          <typ>Wearable</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert>Footwear</wert>
+          <kwds>
+            <kwd>shoe</kwd>
+            <kwd>shoes</kwd>
+            <kwd>running shoes</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Luck + (1)!</nom>
+              <reltrib>Luck</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>tent</kwrd>
+      <kwrd>collapsed</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>The East Forest</nom>
+    <ent>true</ent>
+    <initdr>You wander from the moonlit road into the dark forest to the East...
+As soon as you pass the first row of trees, you feel engulfed by the darkness.
+You begin to feel convinced that, if it weren't for your flashlight, 
+you'd become dinner for some creature in these woods. 
+
+You hear the wind creaking and bending the trees, and to the South you're pretty positive
+that occasionally you can faintly hear that stomping sound you'd heard out behind your house...
+
+But you keep on trekking through the trees; their tops swaying insanely to the song of the wind,
+and their trunks staying perfectly still - as though nothing could move them at all.</initdr>
+    <gendr>You're standing in the forest, East of the road between your house and town.
+It's really dark here, and you almost feel hunted.</gendr>
+    <exs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Newspaper</nom>
+          <inog>false</inog>
+          <idr>The local newspaper that was on your driveway.</idr>
+          <ogdr>There's a newspaper laying on the driveway that you forgot to pick up yesterday.</ogdr>
+          <gendr>A copy of the local newspaper is on the ground. Looks brand new.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The paper has a big, bold title running across the front page: "TWELVE MISSING - SEARCH CONTINUES"
+
+	The paper says: 
+
+		"The number of missing Ashbury residents has reached an all time high of 12 today.
+	'The search has been unsuccessful thus far,' says deputy chief Hockstetter, 
+	'We don't have any leads, and the majority of the residents won't talk sense with us. 
+	Most claim they saw demons taking people... what ridiculousness! 
+	Though rest assured, we are doing everything in our power to bring 
+	each and every missing person home unharmed.'
+
+	With the number of missing persons on the rise, many refuse to leave their homes after sunset.
+	There seems to be a town-wide panic ensuing around these superstitions and speculations.
+	Residents are reminded that Ashbury has put a curfew into effect, and all townspeople
+	will need to use their previously distributed keys to enter the town gates after dark."
+</docx>
+          <wert />
+          <kwds>
+            <kwd>news</kwd>
+            <kwd>paper</kwd>
+            <kwd>newspaper</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom />
+              <reltrib>Wisdom</reltrib>
+              <v>0</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>path</kwrd>
+      <kwrd>pathway</kwrd>
+      <kwrd>trail</kwrd>
+      <kwrd>east</kwrd>
+      <kwrd>forest</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>East Forest Lower Clearing</nom>
+    <ent>true</ent>
+    <initdr>You kept walking East, and you've made it out of the forest 
+into a small clearing about the size of a football field.
+
+You're standing at the South end of it, and to the North the grade slopes down
+enough that you can see the top of some of the vast forest.
+
+You can see the moon again, and you're beginning to feel comforted by it.
+It bathes your surroundings with enough light that you know where you are.
+You almost don't want to go into the forest again... 
+You feel like it's making you crazy just to be walking in there this late at night.
+
+... And you're pretty sure that stomping sound you were hearing was getting closer.</initdr>
+    <gendr>You're at the South end of the football-field sized clearing in the East Forest. 
+The moon is bright here, but you don't feel too safe...</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>clearing</kwrd>
+      <kwrd>lower</kwrd>
+      <kwrd>opening</kwrd>
+      <kwrd>clear</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>East Forest Upper Clearing</nom>
+    <ent>true</ent>
+    <initdr>You go North, still in the clearing. You're grateful for the moonlight. 
+You notice that you aren't walking nearly as quickly as you were in the forest.
+It's almost like the wall of trees surrounding you create a safe-haven,
+and the yellow-white light of the moon acts as a ward against the fear setting into you.
+
+You almost want to smile, in fact. But you don't, because you know that to get out of here
+you're going to have to go back into the forest................ Wait........
+......... Is that the stomping sound again?
+
+You turn around and look in the direction of the sound, by where you came into the clearing.
+You see a white looking thing, very briefly, before it dashes back into the trees...
+
+It almost looked like a person, but... bigger?
+You notice your hands are shaking from fear and adrenaline... You need to get out of here.</initdr>
+    <gendr>You're at the North end of the football-field sized clearing in the East Forest. 
+The moon is bright here, and you feel safe somehow...
+
+... But you know you're not.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>clearing</kwrd>
+      <kwrd>upper</kwrd>
+      <kwrd>opening</kwrd>
+      <kwrd>clear</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Deep East Forest</nom>
+    <ent>true</ent>
+    <initdr>You hesitantly go back into the dense darkness of the trees,
+and as the moonlight fades away, you think about the thing you saw in the clearing.
+
+You tell yourself it wasn't real, that you're just getting tired and seeing things...
+
+That thought quickly vanishes from your mind as you begin to hear the stomping again.</initdr>
+    <gendr>You're deep in the East Forest... 
+It's pitch black all around you, and you feel very uneasy here.</gendr>
+    <exs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Ashbury Resident Curfew Notice</nom>
+          <inog>false</inog>
+          <idr>A flyer containing details on the town curfew and evening lockdowns.</idr>
+          <ogdr>In a box on the bulletin board is a stack of notices with curfew information.</ogdr>
+          <gendr>A notice about the Ashbury curfew and lockdown is on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The notice has bold, red lettering across the top: "Town of Ashbury - Curfew &amp; Lockdown In Effect!"
+
+	The flyer says: 
+
+	"Attention all Ashbury residents: 
+		In consideration of the recent missing persons as well as the well-being of all townspeople,
+		Mayor Finch has put a full curfew and town-wide lockdown into effect.
+
+		The curfew will be strictly enforced each night beginning at sundown, and all gated entrances into
+		the town will be shut. Each resident will be given a key to the gate nearest their home,
+		but it is vehemently advised that everybody remain in the confines of the town after sunset.
+
+		Mayor Finch does not encourage or promote the recent hysteria or speculations of demons or wild beasts.
+		It is important to note that the lockdown and curfew have been put into effect specifically to ease
+		the minds of all Ashbury residents, as many have requested this be enforced."
+</docx>
+          <wert />
+          <kwds>
+            <kwd>notice</kwd>
+            <kwd>paper</kwd>
+            <kwd>curfew</kwd>
+            <kwd>info</kwd>
+            <kwd>flyer</kwd>
+            <kwd>document</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom />
+              <reltrib>Wisdom</reltrib>
+              <v>0</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis>
+        <wi>
+          <nom>Baseball Bat</nom>
+          <inog>false</inog>
+          <wdr>A solid maple wood baseball bat.</wdr>
+          <ogdr>You notice your old baseball bat propped up in the corner of the shed.</ogdr>
+          <gendr>A solid wood baseball bat lays across the floor. It looks like maple wood.</gendr>
+          <akpwr>3</akpwr>
+          <am>-1</am>
+          <amtyp />
+          <kwrds>
+            <kwrd>slugger</kwrd>
+            <kwrd>bat</kwrd>
+            <kwrd>club</kwrd>
+          </kwrds>
+          <trs>
+            <tr>
+              <nom>Defense + (1)!</nom>
+              <reltrib>Defense</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+        </wi>
+      </wis>
+    </is>
+    <kwrds>
+      <kwrd>deep</kwrd>
+      <kwrd>forest</kwrd>
+      <kwrd>trees</kwrd>
+      <kwrd>wood</kwrd>
+      <kwrd>woods</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>East Forest Lower River</nom>
+    <ent>true</ent>
+    <initdr>You followed the sound of running water, and made it to the Southern bank of the
+East Forest River. The current is going South, and it's really roaring. 
+You reach down and feel the icy water running between your fingers. 
+
+It makes you wonder what would happen if you fell in.</initdr>
+    <gendr>You're on the Southern bank of the roaring East Forest River. The water is freezing.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>river</kwrd>
+      <kwrd>lower</kwrd>
+      <kwrd>water</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>East Forest Upper River</nom>
+    <ent>true</ent>
+    <initdr>You follow the riverbank North, where the treeline gets closer to the water.
+Northwards up the river is a waterfall; maybe 25 feet high. It's plunging loudly.
+
+A cloud rolls over the moon, and for a moment you think you see something moving
+in the trees on the other side of the river...
+
+You hear an owl *Who*, and as the moonlight returns, you decide that what you
+might have seen across the river was just in your imagination.</initdr>
+    <gendr>You're on the Northern bank of the East Forest River, just South of a waterfall. 
+An owls yellow eyes stare down at you from the trees.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>river</kwrd>
+      <kwrd>upper</kwrd>
+      <kwrd>water</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>East Forest River Waterfall Cave</nom>
+    <ent>true</ent>
+    <initdr>You carefully shimmy behind the waterfall of the East Forest River,
+into the hidden cave behind the falls. It's pretty cold inside.
+
+You quickly notice that there's a wooden chair, a table, and some bedding...
+Someone must be living here.</initdr>
+    <gendr>You made your way into the hidden cave behind the falls of the East Forest River.</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis>
+        <wi>
           <nom>Lumber Axe</nom>
-          <inog>true</inog>
-          <wdr>A hefty red axe; made for chopping wood.</wdr>
-          <ogdr>Leaning against the shed wall next to your leg is a lumber axe.</ogdr>
-          <gendr>A hefty red lumber axe is laying on the ground.</gendr>
+          <inog>false</inog>
+          <wdr>An ordinary axe with a wood handle; made for chopping wood.</wdr>
+          <ogdr>Leaning against the burnt out campfire is a lumber axe.</ogdr>
+          <gendr>An ordinary lumber axe is laying on the ground.</gendr>
           <akpwr>5</akpwr>
           <am>-1</am>
+          <amtyp />
           <kwrds>
             <kwrd>lumber</kwrd>
             <kwrd>wood</kwrd>
@@ -575,96 +1366,254 @@ It keeps shifting slightly from side to side and making unsettling noises with e
       </wis>
     </is>
     <kwrds>
-      <kwrd>shed</kwrd>
-      <kwrd>shack</kwrd>
+      <kwrd>fall</kwrd>
+      <kwrd>falls</kwrd>
+      <kwrd>waterfall</kwrd>
+      <kwrd>cave</kwrd>
+      <kwrd>hidden</kwrd>
     </kwrds>
-    <tribqs>
-      <nom>Wisdom - 3+</nom>
-      <reltrib>Wisdom</reltrib>
-      <v>3</v>
-    </tribqs>
-    <iqe>
-      <nom>Flashlight</nom>
-      <reli>
-        <nom>Flashlight</nom>
-        <inog>true</inog>
-        <idr>A small LED flashlight that fits in your pocket.</idr>
-        <ogdr>Your LED flashlight is resting on a small table, just to the left of a candle. The battery is low.</ogdr>
-        <gendr>There's a small LED flashlight resting on the ground beneath your feet.</gendr>
-        <inv>1</inv>
-        <typ>Default</typ>
-        <kwds>
-          <kwd>light</kwd>
-          <kwd>flashlight</kwd>
-          <kwd>led</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom>Battery Percentage - 12</nom>
-            <reltrib />
-            <v>12</v>
-          </tr>
-        </trs>
-      </reli>
-    </iqe>
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <nom>Your Driveway</nom>
-    <ent>false</ent>
-    <initdr>You walk over to your driveway in the moonlight.
+    <nom>East Forest Camp</nom>
+    <ent>true</ent>
+    <initdr>You continue West, and notice the trees are a bit less dense here.
+You see three tents and a burnt out campfire here... But all the tents are torn up
+and there is blood on and around them...
+You see various items strewn around the camp, as if there had been a tussle going on... 
+To you, it almost looks like a bear attack or something.
 
-Very quickly you notice the hood of your car is open, and the battery is missing...
-You start wondering if Henry did that... And if so, why?
-
-The walk to town is about 2 miles North.
-
-The wind picks up suddenly and...
-
-... Wait... It almost sounds like someone is stomping around in the grove of trees behind your house.</initdr>
-    <gendr>You're standing outside your house on the moonlit driveway.</gendr>
+And then you notice a thick trail of blood behind one of the tents...</initdr>
+    <gendr>You're standing in the center of a wrecked campsite. 
+Three tents are torn up and stained with blood...</gendr>
     <exs />
     <is>
       <iis>
         <ii>
-          <nom>Newspaper</nom>
-          <inog>true</inog>
-          <idr>The local newspaper that was on your driveway.</idr>
-          <ogdr>There's a newspaper laying on the driveway that you forgot to pick up yesterday.</ogdr>
-          <gendr>A copy of the local newspaper is on the ground. Looks brand new.</gendr>
+          <nom>Dirty Letter</nom>
+          <inog>false</inog>
+          <idr>It's a small, dirty letter that you found under your front doormat. 
+			(Type 'use letter' to read it)</idr>
+          <ogdr>A small, dirty letter is sticking half way out from under your doormat.</ogdr>
+          <gendr>A small, dirty letter is on the ground.</gendr>
           <inv>1</inv>
           <typ>Document</typ>
-          <docx>The paper has a big, bold title running across the front page: "TWELVE MISSING - SEARCH CONTINUES"
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The envelope has nothing on it aside from your name, which looks hastily scribbled...
 
-	The paper says: 
+	The letter says: 
 
-		"The number of missing Ashbury residents has reached an all time high of 12 today.
-	'The search has been unsuccessful thus far,' says deputy chief Hockstetter, 
-	'We don't have any leads, and the majority of the residents won't talk sense with us. 
-	Most claim they saw demons taking people... what ridiculousness! 
-	Though rest assured, we are doing everything in our power to bring 
-	each and every missing person home unharmed.'
+	"Hey, 
 
-	With the number of missing persons on the rise, many refuse to leave their homes after sunset.
-	There seems to be a town-wide panic ensuing around these superstitions and speculations."
+		So sorry to leave this here letter on your porch like this at such an odd hour of the night...
+	I really need to speak with you. It's urgent. Susan's gone missing. I... I know how crazy it's gonna sound.
+	Just hear me out... Well, perhaps it'd be best to explain it in person. 
+
+		Meet me at my cabin, North of town. If you forgot how to get there, 
+	just go straight North from your place, follow the road through town.
+	Then just keep on going North 'til the pavement turns to dirt.
+
+		The sooner you can get here, the better.
+	Oh, and just be alert if you're outside at night. Please.
+
+	Talk soon,
+	Henry"
 </docx>
+          <wert />
           <kwds>
-            <kwd>news</kwd>
-            <kwd>paper</kwd>
-            <kwd>newspaper</kwd>
+            <kwd>letter</kwd>
+            <kwd>envelope</kwd>
+            <kwd>dirty</kwd>
           </kwds>
           <trs />
         </ii>
+        <ii>
+          <nom>Canvas Book-Bag</nom>
+          <inog>false</inog>
+          <idr>A decently large bag made from rugged canvas.</idr>
+          <ogdr>There's a canvas book-bag sitting on the floor of the shed.</ogdr>
+          <gendr>A rugged canvas book-bag is laying empty on the floor.</gendr>
+          <inv>0</inv>
+          <typ>Bag</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert />
+          <kwds>
+            <kwd>bag</kwd>
+            <kwd>canvas</kwd>
+            <kwd>bookbag</kwd>
+            <kwd>sack</kwd>
+            <kwd>backpack</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Inventory Space + (6)!</nom>
+              <reltrib>Max Carrying Capacity</reltrib>
+              <v>6</v>
+            </tr>
+          </trs>
+        </ii>
+        <ii>
+          <nom>Plain Bathrobe</nom>
+          <inog>false</inog>
+          <idr>Your plain old bathrobe. At least it's plaid-patterned.</idr>
+          <ogdr>Your plaid bathrobe is on the bed.</ogdr>
+          <gendr>Somebody's plaid bathrobe was left here.</gendr>
+          <inv>0</inv>
+          <typ>Wearable</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert>Chest</wert>
+          <kwds>
+            <kwd>robe</kwd>
+            <kwd>bath</kwd>
+            <kwd>bathrobe</kwd>
+            <kwd>plaid</kwd>
+          </kwds>
+          <trs />
+        </ii>
+        <ii>
+          <nom>Human Teeth</nom>
+          <inog>false</inog>
+          <idr>Human teeth... Why are you carrying these?</idr>
+          <ogdr>In the brush under your feet, you notice small white objects.
+Are those... Teeth?</ogdr>
+          <gendr>There are human teeth on the ground...</gendr>
+          <inv>1</inv>
+          <typ>Default</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert />
+          <kwds>
+            <kwd>white</kwd>
+            <kwd>objects</kwd>
+            <kwd>teeth</kwd>
+            <kwd>chompers</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Dexterity - (-2)</nom>
+              <reltrib>Dexterity</reltrib>
+              <v>-2</v>
+            </tr>
+            <tr>
+              <nom>Strength + (2)!</nom>
+              <reltrib>Strength</reltrib>
+              <v>2</v>
+            </tr>
+            <tr>
+              <nom>Wisdom - (-4)</nom>
+              <reltrib>Wisdom</reltrib>
+              <v>-4</v>
+            </tr>
+          </trs>
+        </ii>
       </iis>
-      <wis />
+      <wis>
+        <wi>
+          <nom>Femur</nom>
+          <inog>false</inog>
+          <wdr>A human femur... There's still flesh on it...</wdr>
+          <ogdr>Is that... a femur... There's still flesh on it.</ogdr>
+          <gendr>There's a... femur on the ground...</gendr>
+          <akpwr>2</akpwr>
+          <am>-1</am>
+          <amtyp />
+          <kwrds>
+            <kwrd>bone</kwrd>
+            <kwrd>femur</kwrd>
+          </kwrds>
+          <trs>
+            <tr>
+              <nom>Defense + (2)!</nom>
+              <reltrib>Defense</reltrib>
+              <v>2</v>
+            </tr>
+            <tr>
+              <nom>Dexterity - (-3)</nom>
+              <reltrib>Dexterity</reltrib>
+              <v>-3</v>
+            </tr>
+            <tr>
+              <nom>Stamina - (-1)</nom>
+              <reltrib>Stamina</reltrib>
+              <v>-1</v>
+            </tr>
+            <tr>
+              <nom>Strength + (1)!</nom>
+              <reltrib>Strength</reltrib>
+              <v>1</v>
+            </tr>
+            <tr>
+              <nom>Luck - (-1)</nom>
+              <reltrib>Luck</reltrib>
+              <v>-1</v>
+            </tr>
+            <tr>
+              <nom>Wisdom - (-5)</nom>
+              <reltrib>Wisdom</reltrib>
+              <v>-5</v>
+            </tr>
+          </trs>
+        </wi>
+      </wis>
     </is>
     <kwrds>
-      <kwrd>drive</kwrd>
-      <kwrd>way</kwrd>
-      <kwrd>driveway</kwrd>
+      <kwrd>camp</kwrd>
+      <kwrd>campground</kwrd>
+      <kwrd>tent</kwrd>
+      <kwrd>site</kwrd>
+      <kwrd>campsite</kwrd>
     </kwrds>
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <ent>false</ent>
+    <nom>Ashbury - South Entrance</nom>
+    <ent>true</ent>
+    <initdr>After some time (and jogging), you approach the South entrance of Ashbury.
+It looks barricaded, and the South town gate is shut...
+
+This entrance to town has been sealed off.
+Through the South gate you can easily tell that the whole town is dark,
+the power is out here also.
+It's completely silent, aside from the gusts of wind.
+
+You see a bulletin board near the gate with a box full of papers that says: 
+"Ashbury Residents - Please Read."</initdr>
+    <gendr>You're standing just outside the South Gate of Ashbury.
+The whole town is dark...</gendr>
     <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>town</kwrd>
+      <kwrd>entrance</kwrd>
+      <kwrd>gate</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - South Square</nom>
+    <ent>true</ent>
+    <initdr>You make your way through the South gate, and you're standing in the South Square.
+The town looks ghostly to you with all the power out... Almost like no one has ever even lived here.
+
+Being inside the town walls makes you finally feel very safe and secure.
+You are starting to feel convinced that there really is some beast out there...
+And that perhaps you glimpsed it... ever so briefly.
+
+You really need to get to Henry's.</initdr>
+    <gendr>You're in the South Square of Ashbury.
+The town feels ghostly with all the power being out...</gendr>
+    <exs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>town</kwrd>
+      <kwrd>square</kwrd>
+      <kwrd>inside</kwrd>
+    </kwrds>
   </R>
 </root>

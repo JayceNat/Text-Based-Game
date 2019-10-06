@@ -28,8 +28,17 @@ namespace TextBasedGame.Item.Models
         [XmlElement("typ")]
         public string TreatItemAs { get; set; } = ItemUseTypes.Default;
 
+        [XmlElement("amtyp")]
+        public string AmmunitionType { get; set; } = "";
+
+        [XmlElement("amamt")]
+        public int AmmunitionAmount { get; set; } = 1;
+
         [XmlElement("docx")]
         public string DocumentText { get; set; } = null;
+
+        [XmlElement("wert")]
+        public string WearableType { get; set; } = "";
 
         [XmlArray("kwds")]
         [XmlArrayItem("kwd")]

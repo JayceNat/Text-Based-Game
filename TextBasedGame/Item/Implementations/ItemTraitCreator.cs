@@ -11,7 +11,7 @@ namespace TextBasedGame.Item.Implementations
         {
             return new ItemTrait
             {
-                TraitName = $"Battery Percentage - {percent}",
+                TraitName = $"Battery - {percent}%",
                 RelevantCharacterAttribute = "",
                 TraitValue = percent
             };
@@ -31,7 +31,7 @@ namespace TextBasedGame.Item.Implementations
         {
             return new ItemTrait
             {
-                TraitName = $"Use to restore ({healthRestored}) Health Points",
+                TraitName = $"Use: restores ({healthRestored}) Health Points",
                 RelevantCharacterAttribute = "",
                 TraitValue = healthRestored
             };
@@ -41,7 +41,7 @@ namespace TextBasedGame.Item.Implementations
         {
             return new ItemTrait
             {
-                TraitName = $"Use to increase {relevantAttribute} by ({traitValue})",
+                TraitName = traitValue >= 0 ? $"Use: increases {relevantAttribute} by ({traitValue})" : $"Use: decreases {relevantAttribute} by ({traitValue})",
                 RelevantCharacterAttribute = relevantAttribute,
                 TraitValue = traitValue
             };

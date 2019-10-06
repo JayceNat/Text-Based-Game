@@ -24,8 +24,8 @@ namespace TextBasedGame.Item.Handlers
                     if (foundItem?.InventoryItems?.First() != null)
                     {
                         var meetsAnyRequirement = false;
-                        var needsToDropOldBagFirst = false;
-                        InventoryItem oldBag = null;
+                        var needsToDropSameTypeItemFirst = false;
+                        InventoryItem carriedItemOfSameType = null;
                         var inventoryItemToAddToPlayer = foundItem.InventoryItems.First();
 
                         if (inventoryItemToAddToPlayer?.AttributeRequirementToTake == null) meetsAnyRequirement = true;
@@ -36,14 +36,17 @@ namespace TextBasedGame.Item.Handlers
                             meetsAnyRequirement = true;
                         }
 
-                        if (inventoryItemToAddToPlayer.TreatItemAs == ItemUseTypes.Bag)
+                        if (inventoryItemToAddToPlayer.TreatItemAs == ItemUseTypes.Bag
+                            || inventoryItemToAddToPlayer.TreatItemAs == ItemUseTypes.Wearable)
                         {
                             foreach (var item in player.CarriedItems)
                             {
-                                if (item.TreatItemAs == ItemUseTypes.Bag)
+                                if (item.TreatItemAs == ItemUseTypes.Bag && inventoryItemToAddToPlayer.TreatItemAs == ItemUseTypes.Bag
+                                    || item.WearableType != "" && item.WearableType == inventoryItemToAddToPlayer.WearableType)
                                 {
-                                    oldBag = item;
-                                    needsToDropOldBagFirst = true;
+                                    carriedItemOfSameType = item;
+                                    needsToDropSameTypeItemFirst = true;
+                                    break;
                                 }
                             }
                         }
@@ -51,9 +54,9 @@ namespace TextBasedGame.Item.Handlers
                         if (PickupOrDropItemIsOk(player, foundItem) && meetsAnyRequirement)
                         {
                             Console.WriteLine();
-                            if (needsToDropOldBagFirst)
+                            if (needsToDropSameTypeItemFirst)
                             {
-                                TypingAnimation.Animate("You need to drop your " + oldBag.ItemName + " before you can take the " + inventoryItemToAddToPlayer?.ItemName + ".\n",
+                                TypingAnimation.Animate("You need to drop your " + carriedItemOfSameType.ItemName + " before you can take the " + inventoryItemToAddToPlayer?.ItemName + ".\n",
                                 Color.ForestGreen);
                             }
                             else
@@ -77,7 +80,8 @@ namespace TextBasedGame.Item.Handlers
                             }
                         }
                     }
-                    else if (foundItem?.WeaponItems != null)
+                    else 
+                    if (foundItem?.WeaponItems != null)
                     {
                         var weaponItemToAddToPlayer = foundItem.WeaponItems.First();
                         if (string.IsNullOrEmpty(player.WeaponItem.WeaponName))
@@ -93,7 +97,6 @@ namespace TextBasedGame.Item.Handlers
                         {
                             var oldWeapon = player.WeaponItem.WeaponName.Clone();
                             DropWeaponAndPickupNew(player, currentRoom, weaponItemToAddToPlayer);
-                            AttributeHandler.UpdatePlayerAttributesFromWeaponItem(player, weaponItemToAddToPlayer);
                             player.WeaponItem = weaponItemToAddToPlayer;
                             currentRoom.RoomItems.WeaponItems.Remove(weaponItemToAddToPlayer);
                             Console.WriteLine();
@@ -349,17 +352,41 @@ namespace TextBasedGame.Item.Handlers
             if (foundItem?.InventoryItems?.First() != null)
             {
                 var item = foundItem.InventoryItems.First();
-                if (item.TreatItemAs == ItemUseTypes.Default)
+                if (item.TreatItemAs == ItemUseTypes.Default || item.TreatItemAs == ItemUseTypes.Key)
                 {
                     Console.WriteLine();
-                    TypingAnimation.Animate($"You {playerInput} the {item.ItemName} but nothing happens...\n", Color.ForestGreen);
+                    TypingAnimation.Animate($"You {playerInput} the {item.ItemName} but nothing happens...\n",
+                        Color.ForestGreen);
+                    return true;
+                }
+
+                if (item.TreatItemAs == ItemUseTypes.Wearable)
+                {
+                    Console.WriteLine();
+                    TypingAnimation.Animate($"You're already wearing the {item.ItemName}...\n", Color.ForestGreen);
                     return true;
                 }
 
                 if (item.TreatItemAs == ItemUseTypes.Document)
                 {
+                    var traitsAdded = "";
+                    foreach (var trait in item.ItemTraits)
+                    {
+                        if (!string.IsNullOrEmpty(trait.RelevantCharacterAttribute))
+                        {
+                            if (trait.TraitValue > 0)
+                            {
+                                traitsAdded += $"\n\t{trait.RelevantCharacterAttribute} + ({trait.TraitValue})!";
+                                AttributeHandler.AddCharacterAttributesByTrait(player, trait);
+                                trait.TraitName = "";
+                                trait.TraitValue = 0;
+                            }
+                        }
+                    }
+
                     Console.WriteLine();
-                    TypingAnimation.Animate($"You read the {item.ItemName}: \n\n{item.DocumentText}\n", Color.GhostWhite);
+                    TypingAnimation.Animate($"You read the {item.ItemName}: {traitsAdded}\n \n\n{item.DocumentText}\n",
+                        Color.GhostWhite);
                     return true;
                 }
 
@@ -384,17 +411,20 @@ namespace TextBasedGame.Item.Handlers
 
                 if (item.TreatItemAs == ItemUseTypes.ConsumableBattery)
                 {
+                    var flashlight = player.CarriedItems.SingleOrDefault(i =>
+                        i.ItemName == Program.ItemCreator.Flashlight.ItemName);
                     var traitsAdded = "";
                     foreach (var trait in item.ItemTraits)
                     {
-                        if (player.CarriedItems.Contains(Program.ItemCreator.Flashlight))
+                        if (!string.IsNullOrEmpty(flashlight?.ItemName))
                         {
                             traitsAdded += $"\n\tFlashlight battery: ({trait.TraitValue}%)!";
-                            FlashlightBatteryUpdate.FlashlightBatteryChange(Program.ItemCreator.Flashlight, percentToSet: trait.TraitValue);
+                            FlashlightBatteryUpdate.FlashlightBatteryChange(flashlight,
+                                percentToSet: trait.TraitValue);
                         }
                     }
 
-                    if (player.CarriedItems.Contains(Program.ItemCreator.Flashlight))
+                    if (!string.IsNullOrEmpty(flashlight?.ItemName))
                     {
                         player.Attributes.CarriedItemsCount -= item.InventorySpaceConsumed;
                         player.CarriedItems.Remove(item);
@@ -414,19 +444,28 @@ namespace TextBasedGame.Item.Handlers
                 if (item.TreatItemAs == ItemUseTypes.ConsumableHealth)
                 {
                     var traitsAdded = "";
-                    foreach (var trait in item.ItemTraits)
+                    if (player.HealthPoints < player.MaximumHealthPoints)
                     {
-                        if (player.HealthPoints < player.MaximumHealthPoints)
+                        foreach (var trait in item.ItemTraits)
                         {
-                            if (player.HealthPoints + trait.TraitValue > player.MaximumHealthPoints)
+                            if (string.IsNullOrEmpty(trait.RelevantCharacterAttribute))
                             {
-                                player.HealthPoints = player.MaximumHealthPoints;
+                                if (player.HealthPoints + trait.TraitValue > player.MaximumHealthPoints)
+                                {
+                                    player.HealthPoints = player.MaximumHealthPoints;
+                                }
+                                else
+                                {
+                                    player.HealthPoints += trait.TraitValue;
+                                }
+
+                                traitsAdded += $"\n\tHealth Points: + ({trait.TraitValue})!";
                             }
                             else
                             {
-                                player.HealthPoints += trait.TraitValue;
+                                traitsAdded += trait.TraitValue >= 0 ? $"\n\t{trait.RelevantCharacterAttribute} + ({trait.TraitValue})!" : $"\n\t{trait.RelevantCharacterAttribute} - ({-1 * trait.TraitValue})";
+                                AttributeHandler.AddCharacterAttributesByTrait(player, trait);
                             }
-                            traitsAdded += $"\n\tHealth Points: + ({trait.TraitValue})!";
                         }
                     }
 
@@ -435,16 +474,39 @@ namespace TextBasedGame.Item.Handlers
                         player.Attributes.CarriedItemsCount -= item.InventorySpaceConsumed;
                         player.CarriedItems.Remove(item);
                         Console.WriteLine();
-                        TypingAnimation.Animate($"You consume the {item.ItemName}: \n{traitsAdded}\n", Color.ForestGreen);
+                        TypingAnimation.Animate($"You consume the {item.ItemName}: \n{traitsAdded}\n",
+                            Color.ForestGreen);
                         return true;
                     }
-                    else
+
+                    Console.WriteLine();
+                    TypingAnimation.Animate(
+                        $"You don't need to use the {item.ItemName}, you have full Health Points...\n",
+                        Color.DarkOliveGreen);
+                    return true;
+                }
+
+                if (item.TreatItemAs == ItemUseTypes.ConsumableAmmo)
+                {
+                    var traitsAdded = "";
+
+                    if (!string.IsNullOrEmpty(player.WeaponItem?.WeaponName)
+                        && !string.IsNullOrEmpty(player.WeaponItem?.AmmunitionType)
+                        && player.WeaponItem.AmmunitionType == item.AmmunitionType)
                     {
+                        player.WeaponItem.AmmunitionAmount += item.AmmunitionAmount;
+                        traitsAdded += $"\n\t{player.WeaponItem.WeaponName} Ammo + ({item.AmmunitionAmount}) = ({player.WeaponItem.AmmunitionAmount})!";
+                        player.Attributes.CarriedItemsCount -= item.InventorySpaceConsumed;
+                        player.CarriedItems.Remove(item);
                         Console.WriteLine();
-                        TypingAnimation.Animate($"You don't need to use the {item.ItemName}, you have full Health Points...\n",
-                            Color.DarkOliveGreen);
+                        TypingAnimation.Animate($"You use the {item.ItemName}: \n{traitsAdded}\n", Color.ForestGreen);
                         return true;
                     }
+
+                    Console.WriteLine();
+                    TypingAnimation.Animate($"You don't have a weapon that uses {item.AmmunitionType}...\n",
+                        Color.DarkOliveGreen);
+                    return true;
                 }
             }
 

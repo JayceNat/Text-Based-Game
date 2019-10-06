@@ -1,4 +1,6 @@
-﻿using TextBasedGame.Character.Constants;
+﻿using System.Collections.Generic;
+using TextBasedGame.Character.Constants;
+using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Character
 {
@@ -10,7 +12,11 @@ namespace TextBasedGame.Character
         public static Models.Character Player = new Models.Character
         {
             Name = null,
-            Attributes = Program.AttributeCreator.PlayerAttributes
+            Attributes = Program.AttributeCreator.PlayerAttributes,
+            CarriedItems = new List<InventoryItem>
+            {
+                Program.ItemCreator.Bathrobe
+            }
         };
 
         public static Models.Character Henry = new Models.Character

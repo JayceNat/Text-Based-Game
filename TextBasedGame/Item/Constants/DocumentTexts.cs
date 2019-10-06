@@ -41,6 +41,60 @@
             "\tThough rest assured, we are doing everything in our power to bring \n" +
             "\teach and every missing person home unharmed.'\n\n" +
             "\tWith the number of missing persons on the rise, many refuse to leave their homes after sunset.\n" +
-            "\tThere seems to be a town-wide panic ensuing around these superstitions and speculations.\"\n";
+            "\tThere seems to be a town-wide panic ensuing around these superstitions and speculations.\n" +
+            "\tResidents are reminded that Ashbury has put a curfew into effect, and all townspeople\n" +
+            "\twill need to use their previously distributed keys to enter the town gates after dark.\"\n";
+
+        public static string TownCurfewNotice =
+            "The notice has bold, red lettering across the top: \"Town of Ashbury - Curfew & Lockdown In Effect!\"\n" +
+            "\n\tThe flyer says: \n" +
+            "\n\t\"Attention all Ashbury residents: \n" +
+            "\t\tIn consideration of the recent missing persons as well as the well-being of all townspeople,\n" +
+            "\t\tMayor Finch has put a full curfew and town-wide lockdown into effect.\n" +
+            "\n\t\tThe curfew will be strictly enforced each night beginning at sundown, and all gated entrances into\n" +
+            "\t\tthe town will be shut. Each resident will be given a key to the gate nearest their home,\n" +
+            "\t\tbut it is vehemently advised that everybody remain in the confines of the town after sunset.\n" +
+            "\n\t\tMayor Finch does not encourage or promote the recent hysteria or speculations of demons or wild beasts.\n" +
+            "\t\tIt is important to note that the lockdown and curfew have been put into effect specifically to ease\n" +
+            "\t\tthe minds of all Ashbury residents, as many have requested this be enforced.\"\n";
+
+        public static string SomberNote =
+            "The note is written in blue pen, with very neat handwriting.\n" +
+            "\n\tIt says: \n" +
+            "\n\t\"Lucy,\n" +
+            "\n\t\tThis is just to say that I'll always love you.\n" +
+            "\tI miss you more than I can bear. I have a hard time going home these days, \n" +
+            "\tknowing you won't be there. The police have all given up on finding you.\n" +
+            "\tThey seem far more concerned with the people who went missing after you did.\n" +
+            "\tI don't feel anger so much anymore... It's mostly just sadness now.\n" +
+            "\n\t\tEveryone is convinced of some frightening beast that keeps swooping our loved ones away,\n" +
+            "\tstealing them from us in the night. I just can't believe all that.\n" +
+            "\tBut I just don't seem to care any longer. All I feel is emptiness, there is nothing \n" +
+            "\tfor me now but the memory of you." +
+            "\n\t\tI'm leaving my wedding ring here, on our boulder. The one we sat on together \n" +
+            "\tthat night, so many years ago, when I asked you to marry me.\n" +
+            "\tWhen you were staring up at the stars and I was staring at you.\n" +
+            "\tAnd I knew that when you looked down from those stars, you'd be looking at me.\n" +
+            "\n\t\tI hope you're in those stars now, looking down at me still.\n" +
+            "\tI'll see you soon. I just hope the river isn't too cold.\"\n";
+
+        public static string WaterloggedJournal =
+            "You open the waterlogged journal. The pages crackle a bit as you do.\n" +
+            "\n\tIt says: \n" +
+            "\n\t\"I've seen it. The beast exists. \n" +
+            "\tIt's skin is as white as the moonlight, and it's as tall as a man standing on another mans shoulders.\n" +
+            "\tWhat are we to do? There is no hope anymore... I've read everything, researched it all.\n " +
+            "\tNothing can prevent the fate that this entire town will face. We will all be consumed.\n" +
+            "\tDEVOURED by this wretched THING!\n" +
+            "\n\t\tThough I fear the worst, I mustn't give up... There must be something I'm missing...\"\n" +
+            "\n\n\tIt continues: \n" +
+            "\n\t\"I've made a discovery. \n" +
+            "\tThe beast can be warded temporarily with symbols or items resembling snakes.\n" +
+            "\tConfirming it seemed lunacy to me at the time, but it did in fact work!\n" +
+            "\n\tI'd fashioned a snake bangle and worn it into the woods. I heard the stomping.\n" +
+            "\tThe monster appeared, and went down on all fours in pursuit of me... \n" +
+            "\tI was terrified. But as it got closer to me, it veered off in the other direction.\n" +
+            "\tI was fifteen feet from that creature, and I survived... Perhaps ~~\"\n" +
+            "\nThe remaining pages are blank.\n";
     }
 }

@@ -10,7 +10,12 @@ namespace TextBasedGame.Character.Handlers
         public static void UpdatePlayerAttributesFromInventoryItem(Models.Character player,
             InventoryItem newInventoryItem, bool removeAttributes = false)
         {
-            if (newInventoryItem?.ItemTraits == null || newInventoryItem.TreatItemAs == ItemUseTypes.ConsumableAttribute) return;
+            if (newInventoryItem?.ItemTraits == null
+                || newInventoryItem.TreatItemAs == ItemUseTypes.ConsumableAttribute
+                || newInventoryItem.TreatItemAs == ItemUseTypes.ConsumableAmmo
+                || newInventoryItem.TreatItemAs == ItemUseTypes.ConsumableHealth
+                || newInventoryItem.TreatItemAs == ItemUseTypes.Document
+                || newInventoryItem.TreatItemAs == ItemUseTypes.Key) return;
             foreach (var trait in newInventoryItem.ItemTraits)
             {
                 if (removeAttributes)
@@ -44,6 +49,7 @@ namespace TextBasedGame.Character.Handlers
         // Helper used by the two methods above
         public static void AddCharacterAttributesByTrait(Models.Character player, ItemTrait trait)
         {
+
             switch (trait.RelevantCharacterAttribute)
             {
                 case AttributeStrings.Defense:

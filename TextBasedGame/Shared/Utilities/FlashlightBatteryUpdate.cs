@@ -5,7 +5,7 @@ namespace TextBasedGame.Shared.Utilities
 {
     public class FlashlightBatteryUpdate
     {
-        public static void FlashlightBatteryChange(InventoryItem item, int percentBefore = 0, int percentToReduce = 0, int percentToSet = -1)
+        public static bool FlashlightBatteryChange(InventoryItem item, int percentBefore = 0, int percentToReduce = 0, int percentToSet = -1)
         {
             if (percentToSet > -1)
             {
@@ -22,6 +22,7 @@ namespace TextBasedGame.Shared.Utilities
                     {
                         Program.ItemTraitCreator.BatteryPercentage(0)
                     };
+                    return false;
                 }
                 else
                 {
@@ -31,6 +32,8 @@ namespace TextBasedGame.Shared.Utilities
                     };
                 }
             }
+
+            return true;
         }
     }
 }

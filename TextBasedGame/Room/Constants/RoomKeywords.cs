@@ -13,6 +13,7 @@ namespace TextBasedGame.Room.Constants
 
         public static List<string> YourLivingRoom = new List<string>()
         {
+            "liv",
             "living",
             "livingroom",
             "room"
@@ -73,6 +74,100 @@ namespace TextBasedGame.Room.Constants
         public static List<string> RoadConnectingYourHouseToTown = new List<string>()
         {
             "road"
+        };
+
+        public static List<string> ForestLake = new List<string>()
+        {
+            "lake",
+            "west",
+            "forestlake"
+        };
+
+        public static List<string> ForestLakeTent = new List<string>()
+        {
+            "tent",
+            "collapsed"
+        };
+
+        public static List<string> EastForest = new List<string>()
+        {
+            "path",
+            "pathway",
+            "trail",
+            "east",
+            "forest"
+        };
+
+        public static List<string> EastForestLowerClearing = new List<string>()
+        {
+            "clearing",
+            "lower",
+            "opening",
+            "clear"
+        };
+
+        public static List<string> EastForestUpperClearing = new List<string>()
+        {
+            "clearing",
+            "upper",
+            "opening",
+            "clear"
+        };
+
+        public static List<string> DeepEastForest = new List<string>()
+        {
+            "deep",
+            "forest",
+            "trees",
+            "wood",
+            "woods"
+        };
+
+        public static List<string> DeepEastForestLowerRiver = new List<string>()
+        {
+            "river",
+            "lower",
+            "water"
+        };
+
+        public static List<string> DeepEastForestUpperRiver = new List<string>()
+        {
+            "river",
+            "upper",
+            "water"
+        };
+
+        public static List<string> DeepEastForestUpperRiverCave = new List<string>()
+        {
+            "fall",
+            "falls",
+            "waterfall",
+            "cave",
+            "hidden"
+        };
+
+        public static List<string> EastForestCampground = new List<string>()
+        {
+            "camp",
+            "campground",
+            "tent",
+            "site",
+            "campsite"
+        };
+
+
+        public static List<string> TownSouthEntrance = new List<string>()
+        {
+            "town",
+            "entrance",
+            "gate"
+        };
+
+        public static List<string> AshburySouthSquare = new List<string>()
+        {
+            "town",
+            "square",
+            "inside"
         };
     }
 }

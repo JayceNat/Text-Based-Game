@@ -27,6 +27,9 @@ namespace TextBasedGame.Item.Models
         [XmlElement("am")]
         public int AmmunitionAmount { get; set; } = -1;
 
+        [XmlElement("amtyp")]
+        public string AmmunitionType { get; set; } = "";
+
         [XmlArray("kwrds")]
         [XmlArrayItem("kwrd")]
         public List<string> KeywordsForPickup { get; set; } = new List<string>();

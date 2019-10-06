@@ -76,10 +76,25 @@ namespace TextBasedGame.Shared.Utilities
                 {
                     allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.NorthRoom.AttributeRequirementToSee.RequirementName}> needed) \n\n";
                 }
-                else if (roomExits.NorthRoom?.ItemRequirementToSee != null
-                    && !player.CarriedItems.Contains(roomExits.NorthRoom.ItemRequirementToSee.RelevantItem))
+                else if (roomExits.NorthRoom?.ItemRequirementToSee != null)
                 {
-                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.NorthRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                    var hasItem = false;
+                    foreach (var item in player.CarriedItems)
+                    {
+                        if (item.ItemName == roomExits.NorthRoom.ItemRequirementToSee.RelevantItem.ItemName)
+                        {
+                            hasItem = true;
+                        }
+                    }
+
+                    if (hasItem)
+                    {
+                        allRoomExits += roomExits.NorthRoomDescription + "\n\n";
+                    }
+                    else
+                    {
+                        allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.NorthRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                    }
                 }
                 else
                 {
@@ -101,10 +116,25 @@ namespace TextBasedGame.Shared.Utilities
                 {
                     allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.EastRoom.AttributeRequirementToSee.RequirementName}> needed) \n\n";
                 }
-                else if (roomExits.EastRoom?.ItemRequirementToSee != null
-                         && !player.CarriedItems.Contains(roomExits.EastRoom.ItemRequirementToSee.RelevantItem))
+                else if (roomExits.EastRoom?.ItemRequirementToSee != null)
                 {
-                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.EastRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                    var hasItem = false;
+                    foreach (var item in player.CarriedItems)
+                    {
+                        if (item.ItemName == roomExits.EastRoom.ItemRequirementToSee.RelevantItem.ItemName)
+                        {
+                            hasItem = true;
+                        }
+                    }
+
+                    if (hasItem)
+                    {
+                        allRoomExits += roomExits.EastRoomDescription + "\n\n";
+                    }
+                    else
+                    {
+                        allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.EastRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                    }
                 }
                 else
                 {
@@ -126,10 +156,25 @@ namespace TextBasedGame.Shared.Utilities
                 {
                     allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.SouthRoom.AttributeRequirementToSee.RequirementName}> needed) \n\n";
                 }
-                else if (roomExits.SouthRoom?.ItemRequirementToSee != null
-                         && !player.CarriedItems.Contains(roomExits.SouthRoom.ItemRequirementToSee.RelevantItem))
+                else if (roomExits.SouthRoom?.ItemRequirementToSee != null)
                 {
-                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.SouthRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                    var hasItem = false;
+                    foreach (var item in player.CarriedItems)
+                    {
+                        if (item.ItemName == roomExits.SouthRoom.ItemRequirementToSee.RelevantItem.ItemName)
+                        {
+                            hasItem = true;
+                        }
+                    }
+
+                    if (hasItem)
+                    {
+                        allRoomExits += roomExits.SouthRoomDescription + "\n\n";
+                    }
+                    else
+                    {
+                        allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.SouthRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                    }
                 }
                 else
                 {
@@ -151,10 +196,25 @@ namespace TextBasedGame.Shared.Utilities
                 {
                     allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.WestRoom.AttributeRequirementToSee.RequirementName}> needed) \n\n";
                 }
-                else if (roomExits.WestRoom?.ItemRequirementToSee != null
-                         && !player.CarriedItems.Contains(roomExits.WestRoom.ItemRequirementToSee.RelevantItem))
+                else if (roomExits.WestRoom?.ItemRequirementToSee != null)
                 {
-                    allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.WestRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                    var hasItem = false;
+                    foreach (var item in player.CarriedItems)
+                    {
+                        if (item.ItemName == roomExits.WestRoom.ItemRequirementToSee.RelevantItem.ItemName)
+                        {
+                            hasItem = true;
+                        }
+                    }
+
+                    if (hasItem)
+                    {
+                        allRoomExits += roomExits.WestRoomDescription + "\n\n";
+                    }
+                    else
+                    {
+                        allRoomExits += $"{ConsoleStrings.LackingRequirementRoomDescription} (<{roomExits.WestRoom.ItemRequirementToSee.RequirementName}> needed) \n\n";
+                    }
                 }
                 else
                 {
@@ -217,7 +277,10 @@ namespace TextBasedGame.Shared.Utilities
                         {
                             foreach (var trait in item.ItemTraits)
                             {
-                                inventory += "\t\t\tTrait: \t" + trait.TraitName + "\n";
+                                if (trait.TraitName != "")
+                                {
+                                    inventory += "\t\t\tTrait: \t" + trait.TraitName + "\n";
+                                }
                             }
                         }
                     }
@@ -232,7 +295,10 @@ namespace TextBasedGame.Shared.Utilities
                         {
                             foreach (var trait in item.ItemTraits)
                             {
-                                carriedItems += "\t\t\tTrait: \t" + trait.TraitName + "\n";
+                                if (trait.TraitName != "")
+                                {
+                                    carriedItems += "\t\t\tTrait: \t" + trait.TraitName + "\n";
+                                }
                             }
                         }
                     }

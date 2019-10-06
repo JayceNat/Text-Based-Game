@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using Colorful;
 using TextBasedGame.Character.Handlers;
+using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Constants;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Models;
@@ -103,14 +104,14 @@ namespace TextBasedGame.Room.Handlers
             var meetsRequirements = foundRoom?.AttributeRequirementToEnter == null && foundRoom?.ItemRequirementToEnter == null;
             if (!meetsRequirements)
             {
-                if (foundRoom?.AttributeRequirementToEnter != null 
+                if (foundRoom?.AttributeRequirementToEnter != null && foundRoom?.ItemRequirementToEnter == null
                     && CanPlayerEnterRoom(player, foundRoom, attrReq: foundRoom.AttributeRequirementToEnter))
                 {
                     Console.WriteLine($"<{foundRoom.AttributeRequirementToEnter.RequirementName}>! \n", Color.Gold);
                     meetsRequirements = true;
                 }
 
-                if (foundRoom?.ItemRequirementToEnter != null
+                else if (foundRoom?.ItemRequirementToEnter != null && foundRoom?.AttributeRequirementToEnter == null
                     && CanPlayerEnterRoom(player, foundRoom, foundRoom.ItemRequirementToEnter))
                 {
                     if (foundRoom.ItemRequirementToEnter.RelevantItem == Program.ItemCreator.Flashlight && Program.ItemCreator.Flashlight.ItemTraits.First().TraitValue == 0)
@@ -121,18 +122,39 @@ namespace TextBasedGame.Room.Handlers
                     Console.WriteLine($"Carrying: <{foundRoom.ItemRequirementToEnter.RequirementName}>! \n", Color.Gold);
                     meetsRequirements = true;
                 }
+
+                else
+                {
+                    if (CanPlayerEnterRoom(player, foundRoom, attrReq: foundRoom.AttributeRequirementToEnter)
+                    && CanPlayerEnterRoom(player, foundRoom, itemReq: foundRoom.ItemRequirementToEnter))
+                    {
+                        if (foundRoom.ItemRequirementToEnter.RelevantItem == Program.ItemCreator.Flashlight && Program.ItemCreator.Flashlight.ItemTraits.First().TraitValue == 0)
+                        {
+                            Console.WriteLine($"It's too dark. Your flashlight battery is dead... \nPut in a new battery to enter {foundRoom.RoomName}.\n", Color.DarkGoldenrod);
+                            return false;
+                        }
+                        Console.WriteLine($"<{foundRoom.AttributeRequirementToEnter.RequirementName}>! \n", Color.Gold);
+                        Console.WriteLine($"Carrying: <{foundRoom.ItemRequirementToEnter.RequirementName}>! \n", Color.Gold);
+                        meetsRequirements = true;
+                    }
+                }
             }
 
             if (meetsRequirements)
             {
                 TypingAnimation.Animate("You go to " + foundRoom.RoomName + "... \n", Color.Chartreuse, 40);
 
-                if (foundRoom.ItemRequirementToEnter?.RelevantItem == Program.ItemCreator.Flashlight)
+                if (foundRoom.ItemRequirementToEnter?.RelevantItem.ItemName == Program.ItemCreator.Flashlight.ItemName)
                 {
-                    var light = Program.ItemCreator.Flashlight;
+                    var consoleInfo = "Used Flashlight: battery dropped by 2% \n";
+                    var light = player.CarriedItems.Single(i => i.ItemName == Program.ItemCreator.Flashlight.ItemName);
                     var batteryBefore = light.ItemTraits.First().TraitValue;
-                    FlashlightBatteryUpdate.FlashlightBatteryChange(light, batteryBefore, 2);
-                    TypingAnimation.Animate("Used Flashlight: battery dropped by 2 \n", Color.Chartreuse, 40);
+                    var hasBattery = FlashlightBatteryUpdate.FlashlightBatteryChange(light, batteryBefore, 2);
+                    if (!hasBattery)
+                    {
+                        consoleInfo = "Used Flashlight: now the battery is dead! \n";
+                    }
+                    TypingAnimation.Animate(consoleInfo, Color.Chartreuse, 40);
                 }
 
                 Console.WriteWithGradient(ConsoleStrings.PressEnterPrompt, Color.Yellow, Color.DarkRed, 4);
