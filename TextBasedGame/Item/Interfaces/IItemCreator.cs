@@ -41,6 +41,22 @@ namespace TextBasedGame.Item.Interfaces
         InventoryItem BomberJacket { get; }
         InventoryItem BoxOfShotgunShells { get; }
         InventoryItem LargeKnapsack { get; }
+        InventoryItem CannedMeat { get; }
+        InventoryItem TownNorthGateKey { get; }
+        InventoryItem GoldWristwatch { get; }
+        InventoryItem TownWestGateKey { get; }
+        InventoryItem WestForestNotice { get; }
+        InventoryItem TownEastGateKey { get; }
+        InventoryItem Crowbar { get; }
+        InventoryItem ToyBoat { get; }
+        InventoryItem BottleOfRum { get; }
+        InventoryItem SteelToedBoots { get; }
+
+        // Missing Person Posters
+        InventoryItem MissingPersonPosterLucy { get; }
+        InventoryItem MissingPersonPosterPenny { get; }
+        InventoryItem MissingPersonPosterSimon { get; }
+        InventoryItem MissingPersonPosterArthur { get; }
 
         // Declare all getters for any Weapons you will use here
         WeaponItem LetterOpener { get; }

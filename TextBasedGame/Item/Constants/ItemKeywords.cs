@@ -247,7 +247,8 @@ namespace TextBasedGame.Item.Constants
             "key",
             "gate",
             "town",
-            "south"
+            "south",
+            "steel"
         };
 
         public static List<string> EnergyBar = new List<string>()
@@ -275,9 +276,9 @@ namespace TextBasedGame.Item.Constants
             "magnum"
         };
 
-        public static List<string> WetGoldBullet = new List<string>()
+        public static List<string> MuddyGoldBullet = new List<string>()
         {
-            "wet",
+            "muddy",
             "bullet",
             "gold"
         };
@@ -334,6 +335,100 @@ namespace TextBasedGame.Item.Constants
             "large",
             "knapsack",
             "backpack"
+        };
+
+        public static List<string> CannedMeat = new List<string>()
+        {
+            "can",
+            "meat",
+            "food",
+            "canned",
+            "cooked"
+        };
+
+        public static List<string> TownNorthGateKey = new List<string>()
+        {
+            "key",
+            "gate",
+            "town",
+            "north",
+            "steel"
+        };
+
+        public static List<string> TownEastGateKey = new List<string>()
+        {
+            "key",
+            "gate",
+            "town",
+            "east",
+            "steel"
+        };
+
+        public static List<string> TownWestGateKey = new List<string>()
+        {
+            "key",
+            "gate",
+            "town",
+            "west",
+            "rusted"
+        };
+
+        public static List<string> GoldWristwatch = new List<string>()
+        {
+            "watch",
+            "gold",
+            "shiny",
+            "wrist",
+            "wristwatch"
+        };
+
+        public static List<string> WestForestNotice = new List<string>()
+        {
+            "crinkled",
+            "parchment",
+            "paper",
+            "notice",
+            "forest"
+        };
+
+        public static List<string> Crowbar = new List<string>()
+        {
+            "crowbar",
+            "bar",
+            "crow",
+            "tool"
+        };
+
+        public static List<string> ToyBoat = new List<string>()
+        {
+            "toy",
+            "boat",
+            "plastic"
+        };
+
+        public static List<string> BottleOfRum = new List<string>()
+        {
+            "bottle",
+            "rum",
+            "alcohol",
+            "drink",
+            "booze"
+        };
+
+        public static List<string> SteelToedBoots = new List<string>()
+        {
+            "boots",
+            "steel",
+            "toed",
+            "shoes"
+        };
+
+        public static List<string> MissingPersonPoster = new List<string>()
+        {
+            "poster",
+            "missing",
+            "person",
+            "paper"
         };
     }
 }

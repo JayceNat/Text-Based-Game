@@ -114,7 +114,7 @@ namespace TextBasedGame.Room.Handlers
                 else if (foundRoom?.ItemRequirementToEnter != null && foundRoom?.AttributeRequirementToEnter == null
                     && CanPlayerEnterRoom(player, foundRoom, foundRoom.ItemRequirementToEnter))
                 {
-                    if (foundRoom.ItemRequirementToEnter.RelevantItem == Program.ItemCreator.Flashlight && Program.ItemCreator.Flashlight.ItemTraits.First().TraitValue == 0)
+                    if (foundRoom.ItemRequirementToEnter.RelevantItem.ItemName == Program.ItemCreator.Flashlight.ItemName && Program.ItemCreator.Flashlight.ItemTraits.First().TraitValue == 0)
                     {
                         Console.WriteLine($"It's too dark. Your flashlight battery is dead... \nPut in a new battery to enter {foundRoom.RoomName}.\n", Color.DarkGoldenrod);
                         return false;
@@ -128,10 +128,17 @@ namespace TextBasedGame.Room.Handlers
                     if (CanPlayerEnterRoom(player, foundRoom, attrReq: foundRoom.AttributeRequirementToEnter)
                     && CanPlayerEnterRoom(player, foundRoom, itemReq: foundRoom.ItemRequirementToEnter))
                     {
-                        if (foundRoom.ItemRequirementToEnter.RelevantItem == Program.ItemCreator.Flashlight && Program.ItemCreator.Flashlight.ItemTraits.First().TraitValue == 0)
+                        if (foundRoom.ItemRequirementToEnter.RelevantItem.ItemName == Program.ItemCreator.Flashlight.ItemName)
                         {
-                            Console.WriteLine($"It's too dark. Your flashlight battery is dead... \nPut in a new battery to enter {foundRoom.RoomName}.\n", Color.DarkGoldenrod);
-                            return false;
+                            foreach (var item in Program.CharacterCreator.Player.CarriedItems)
+                            {
+                                if (item.ItemName == Program.ItemCreator.Flashlight.ItemName &&
+                                    item.ItemTraits.First().TraitValue == 0)
+                                {
+                                    Console.WriteLine($"It's too dark. Your flashlight battery is dead... \nPut in a new battery to enter {foundRoom.RoomName}.\n", Color.DarkGoldenrod);
+                                    return false;
+                                }
+                            }
                         }
                         Console.WriteLine($"<{foundRoom.AttributeRequirementToEnter.RequirementName}>! \n", Color.Gold);
                         Console.WriteLine($"Carrying: <{foundRoom.ItemRequirementToEnter.RequirementName}>! \n", Color.Gold);

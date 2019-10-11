@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character\Constants\CharacterTypes.cs" />
     <Compile Include="Character\GameAttributes.cs" />
     <Compile Include="Character\Constants\CharacterDefaults.cs" />
     <Compile Include="Character\Models\CharacterAttribute.cs" />
@@ -63,6 +64,9 @@
     <Compile Include="Item\Constants\DocumentTexts.cs" />
     <Compile Include="Item\Constants\ItemUseTypes.cs" />
     <Compile Include="Room\Constants\RoomStyleSheets.cs" />
+    <Compile Include="Room\GameRooms\Forest.cs" />
+    <Compile Include="Room\GameRooms\Town.cs" />
+    <Compile Include="Room\GameRooms\YourHouse.cs" />
     <Compile Include="SaveGame.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -88,7 +92,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room\Constants\RoomKeywords.cs" />
     <Compile Include="Room\Handlers\RoomHandler.cs" />
-    <Compile Include="Room\GameRooms.cs" />
     <Compile Include="Shared\Constants\ConsoleStringStyleSheets.cs" />
     <Compile Include="Shared\Utilities\FlashlightBatteryUpdate.cs" />
     <Compile Include="Shared\Utilities\PlayerAttributeComparer.cs" />

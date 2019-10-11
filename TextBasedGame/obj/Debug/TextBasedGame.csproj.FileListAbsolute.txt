@@ -2,7 +2,6 @@ C:\Users\meyerja\OneDrive - Vertafore, Inc\Bootcamp Exercise\TextBasedGame\TextB
 C:\Users\meyerja\OneDrive - Vertafore, Inc\Bootcamp Exercise\TextBasedGame\TextBasedGame\bin\Debug\TextBasedGame.exe
 C:\Users\meyerja\OneDrive - Vertafore, Inc\Bootcamp Exercise\TextBasedGame\TextBasedGame\bin\Debug\TextBasedGame.pdb
 C:\Users\meyerja\OneDrive - Vertafore, Inc\Bootcamp Exercise\TextBasedGame\TextBasedGame\bin\Debug\Colorful.Console.dll
-C:\Users\meyerja\OneDrive - Vertafore, Inc\Bootcamp Exercise\TextBasedGame\TextBasedGame\obj\Debug\TextBasedGame.csproj.CoreCompileInputs.cache
 C:\Users\meyerja\OneDrive - Vertafore, Inc\Bootcamp Exercise\TextBasedGame\TextBasedGame\obj\Debug\TextBasedGame.csproj.CopyComplete
 C:\Users\meyerja\OneDrive - Vertafore, Inc\Bootcamp Exercise\TextBasedGame\TextBasedGame\obj\Debug\TextBasedGame.exe
 C:\Users\meyerja\OneDrive - Vertafore, Inc\Bootcamp Exercise\TextBasedGame\TextBasedGame\obj\Debug\TextBasedGame.pdb

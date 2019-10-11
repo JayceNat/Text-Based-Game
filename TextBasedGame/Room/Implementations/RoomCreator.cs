@@ -1,4 +1,5 @@
-﻿using TextBasedGame.Room.Interfaces;
+﻿using TextBasedGame.Room.GameRooms;
+using TextBasedGame.Room.Interfaces;
 using TextBasedGame.Room.Models;
 
 namespace TextBasedGame.Room.Implementations
@@ -6,8 +7,9 @@ namespace TextBasedGame.Room.Implementations
     public class RoomCreator : IRoomCreator
     {
         // Files to edit when adding a room: GameRooms.cs, RoomCreator.cs, GameSetupHandler.cs
-
         // Declare all getters for any Rooms you will use here
+
+        // Your House
         public Models.Room YourBedroom { get; set; }
         public Models.Room YourLivingRoom { get; set; }
         public Models.Room YourKitchen { get; set; }
@@ -17,6 +19,8 @@ namespace TextBasedGame.Room.Implementations
         public Models.Room YourDriveway { get; set; }
         public Models.Room YourShed { get; set; }
         public Models.Room RoadConnectingYourHouseToTown { get; set; }
+
+        // Forest
         public Models.Room ForestLake { get; set; }
         public Models.Room ForestLakeTent { get; set; }
         public Models.Room EastForest { get; set; }
@@ -27,33 +31,66 @@ namespace TextBasedGame.Room.Implementations
         public Models.Room DeepEastForestUpperRiver { get; set; }
         public Models.Room DeepEastForestUpperRiverCave { get; set; }
         public Models.Room EastForestCampground { get; set; }
+        public Models.Room PathBetweenCampAndEastRoad { get; set; }
+        public Models.Room EastRoadToTown { get; set; }
+
+        // Town
         public Models.Room TownSouthEntrance { get; set; }
+        public Models.Room TownNorthEntrance { get; set; }
+        public Models.Room TownEastEntrance { get; set; }
+        public Models.Room TownWestEntrance { get; set; }
         public Models.Room AshburySouthSquare { get; set; }
+        public Models.Room AshburyNorthSquare { get; set; }
+        public Models.Room AshburyEastSquare { get; set; }
+        public Models.Room AshburyWestSquare { get; set; }
+        public Models.Room AshburySouthMainStreet { get; set; }
+        public Models.Room AshburyNorthMainStreet { get; set; }
+        public Models.Room AshburyEastPlaza { get; set; }
+        public Models.Room AshburyWestPlaza { get; set; }
+        public Models.Room AshburyTownCenter { get; set; }
 
         // Constructor: Add the reference to all the Room Objects here
         public RoomCreator()
         {
-            YourBedroom = GameRooms.YourBedroom;
-            YourLivingRoom = GameRooms.YourLivingRoom;
-            YourKitchen = GameRooms.YourKitchen;
-            YourFrontEntryway = GameRooms.YourFrontEntryway;
-            YourBasement = GameRooms.YourBasement;
-            YourFrontPorch = GameRooms.YourFrontPorch;
-            YourDriveway = GameRooms.YourDriveway;
-            YourShed = GameRooms.YourShed;
-            RoadConnectingYourHouseToTown = GameRooms.RoadConnectingYourHouseToTown;
-            ForestLake = GameRooms.ForestLake;
-            ForestLakeTent = GameRooms.ForestLakeTent;
-            EastForest = GameRooms.EastForest;
-            EastForestLowerClearing = GameRooms.EastForestLowerClearing;
-            EastForestUpperClearing = GameRooms.EastForestUpperClearing;
-            DeepEastForest = GameRooms.DeepEastForest;
-            DeepEastForestLowerRiver = GameRooms.DeepEastForestLowerRiver;
-            DeepEastForestUpperRiver = GameRooms.DeepEastForestUpperRiver;
-            DeepEastForestUpperRiverCave = GameRooms.DeepEastForestUpperRiverCave;
-            EastForestCampground = GameRooms.EastForestCampground;
-            TownSouthEntrance = GameRooms.TownSouthEntrance;
-            AshburySouthSquare = GameRooms.AshburySouthSquare;
+            // Your House
+            YourBedroom = YourHouse.YourBedroom;
+            YourLivingRoom = YourHouse.YourLivingRoom;
+            YourKitchen = YourHouse.YourKitchen;
+            YourFrontEntryway = YourHouse.YourFrontEntryway;
+            YourBasement = YourHouse.YourBasement;
+            YourFrontPorch = YourHouse.YourFrontPorch;
+            YourDriveway = YourHouse.YourDriveway;
+            YourShed = YourHouse.YourShed;
+            RoadConnectingYourHouseToTown = YourHouse.RoadConnectingYourHouseToTown;
+
+            // Forest
+            ForestLake = Forest.ForestLake;
+            ForestLakeTent = Forest.ForestLakeTent;
+            EastForest = Forest.EastForest;
+            EastForestLowerClearing = Forest.EastForestLowerClearing;
+            EastForestUpperClearing = Forest.EastForestUpperClearing;
+            DeepEastForest = Forest.DeepEastForest;
+            DeepEastForestLowerRiver = Forest.DeepEastForestLowerRiver;
+            DeepEastForestUpperRiver = Forest.DeepEastForestUpperRiver;
+            DeepEastForestUpperRiverCave = Forest.DeepEastForestUpperRiverCave;
+            EastForestCampground = Forest.EastForestCampground;
+            PathBetweenCampAndEastRoad = Forest.PathBetweenCampAndEastRoad;
+            EastRoadToTown = Forest.EastRoadToTown;
+
+            // Town
+            TownSouthEntrance = Town.TownSouthEntrance;
+            TownNorthEntrance = Town.TownNorthEntrance;
+            TownEastEntrance = Town.TownEastEntrance;
+            TownWestEntrance = Town.TownWestEntrance;
+            AshburySouthSquare = Town.AshburySouthSquare;
+            AshburyNorthSquare = Town.AshburyNorthSquare;
+            AshburyEastSquare = Town.AshburyEastSquare;
+            AshburyWestSquare = Town.AshburyWestSquare;
+            AshburySouthMainStreet = Town.AshburySouthMainStreet;
+            AshburyNorthMainStreet = Town.AshburyNorthMainStreet;
+            AshburyEastPlaza = Town.AshburyEastPlaza;
+            AshburyWestPlaza = Town.AshburyWestPlaza;
+            AshburyTownCenter = Town.AshburyTownCenter;
 
             AddExitsToAllRooms();
         }
@@ -61,6 +98,11 @@ namespace TextBasedGame.Room.Implementations
         // Used to add the Room references to Room Objects as the Exit Property
         public void AddExitsToAllRooms()
         {
+            //*******************************************************************************************
+            // Your House
+            //*******************************************************************************************
+            #region Your House
+
             YourBedroom.AvailableExits = new RoomExit()
             {
                 NorthRoom = YourLivingRoom,
@@ -131,6 +173,13 @@ namespace TextBasedGame.Room.Implementations
                 SouthRoomDescription = "Behind you, you can faintly see " + YourDriveway.RoomName + " in the distance."
             };
 
+            #endregion
+
+            //*******************************************************************************************
+            // Forest
+            //*******************************************************************************************
+            #region Forest
+
             ForestLake.AvailableExits = new RoomExit
             {
 //                NorthRoom = null,
@@ -193,10 +242,27 @@ namespace TextBasedGame.Room.Implementations
 
             EastForestCampground.AvailableExits = new RoomExit
             {
-                //NorthRoom = DirtRoadToTown,
-                //NorthRoomDescription = "Ahead of you is a dirt road going North that looks like it might go to town.",
+                NorthRoom = PathBetweenCampAndEastRoad,
+                NorthRoomDescription = "Ahead of you is a well walked dirt path going North that looks like it might go to town.\n" +
+                                       "It gets really foggy that way.",
                 EastRoom = DeepEastForest,
                 EastRoomDescription = "To your right is the way back into the Deep East Forest."
+            };
+
+            PathBetweenCampAndEastRoad.AvailableExits = new RoomExit
+            {
+                NorthRoom = EastRoadToTown,
+                NorthRoomDescription = "The fog makes it hard to tell, but you think going North should get you closer to town.",
+                SouthRoom = EastForestCampground,
+                SouthRoomDescription = "The path South from where you came leads to the East Forest Campground."
+            };
+
+            EastRoadToTown.AvailableExits = new RoomExit
+            {
+                SouthRoom = PathBetweenCampAndEastRoad,
+                SouthRoomDescription = "To the South you can just make out the dirt path towards the Campground",
+                WestRoom = TownEastEntrance,
+                WestRoomDescription = "Following this road West should lead you to town..."
             };
 
             DeepEastForestLowerRiver.AvailableExits = new RoomExit
@@ -221,6 +287,13 @@ namespace TextBasedGame.Room.Implementations
                 SouthRoomDescription = "Behind you is the cave mouth leading back to the upper river."
             };
 
+            #endregion
+
+            //*******************************************************************************************
+            // Town
+            //*******************************************************************************************
+            #region Town
+
             TownSouthEntrance.AvailableExits = new RoomExit
             {
                 NorthRoom = AshburySouthSquare,
@@ -233,10 +306,34 @@ namespace TextBasedGame.Room.Implementations
                 WestRoomDescription = "To your left, you see a sign for the trail to a lake farther West into the forest."
             };
 
+            TownNorthEntrance.AvailableExits = new RoomExit
+            {
+                //NorthRoom = RoadBetweenHenrysHouseAndTown,
+                //NorthRoomDescription = "To the North, the road away from town serpentines into the cold darkness...",
+                SouthRoom = AshburyNorthSquare,
+                SouthRoomDescription = "Behind you is the North Gate entrance into Ashbury."
+            };
+
+            TownEastEntrance.AvailableExits = new RoomExit
+            {
+                EastRoom = EastRoadToTown,
+                EastRoomDescription = "To the East, the road away from town drops into fog going towards the East Forest...",
+                WestRoom = AshburyEastSquare,
+                WestRoomDescription = "To the West is the East Gate entrance into Ashbury."
+            };
+
+            TownWestEntrance.AvailableExits = new RoomExit
+            {
+                EastRoom = AshburyWestSquare,
+                EastRoomDescription = "To the East is the West Gate entrance into Ashbury.",
+                //WestRoom = RoadIntoWestForest,
+                //WestRoomDescription = "To the West is the crumbling road into the West Forest."
+            };
+
             AshburySouthSquare.AvailableExits = new RoomExit
             {
-//                NorthRoom = null,
-//                NorthRoomDescription = "Ahead of you, and to the North, is the Town Square.",
+                NorthRoom = AshburySouthMainStreet,
+                NorthRoomDescription = "Ahead of you, and to the North, is the metal alley door to South Main Street.",
 //                EastRoom = null,
 //                EastRoomDescription = "",
                 SouthRoom = TownSouthEntrance,
@@ -244,52 +341,132 @@ namespace TextBasedGame.Room.Implementations
 //                WestRoom = null,
 //                WestRoomDescription = ""
             };
+
+            AshburyNorthSquare.AvailableExits = new RoomExit
+            {
+                NorthRoom = TownNorthEntrance,
+                NorthRoomDescription = "Ahead of you, and to the North, is the North Gate going out of town.",
+                //                EastRoom = null,
+                //                EastRoomDescription = "",
+                SouthRoom = AshburyNorthMainStreet,
+                SouthRoomDescription = "Behind you, and to the South, is North Main Street.",
+                //                WestRoom = null,
+                //                WestRoomDescription = ""
+            };
+
+            AshburyEastSquare.AvailableExits = new RoomExit
+            {
+                EastRoom = TownEastEntrance,
+                EastRoomDescription = "To your right (East) is the East Gate going out of town.",
+                WestRoom = AshburyEastPlaza,
+                WestRoomDescription = "To your left (West) is the Ashbury East Plaza."
+            };
+
+            AshburyWestSquare.AvailableExits = new RoomExit
+            {
+                EastRoom = AshburyWestPlaza,
+                EastRoomDescription = "To your right (East) is the Ashbury West Plaza.",
+                WestRoom = TownWestEntrance,
+                WestRoomDescription = "To your left (West) is the West Gate going out of town."
+            };
+
+            AshburySouthMainStreet.AvailableExits = new RoomExit
+            {
+                NorthRoom = AshburyTownCenter,
+                NorthRoomDescription = "To the North is the Ashbury Town Center.",
+                SouthRoom = AshburySouthSquare,
+                SouthRoomDescription = "To the South is the South Square of Ashbury."
+            };
+
+            AshburyNorthMainStreet.AvailableExits = new RoomExit
+            {
+                NorthRoom = AshburyNorthSquare,
+                NorthRoomDescription = "To the North is the North Square of Ashbury.",
+                SouthRoom = AshburyTownCenter,
+                SouthRoomDescription = "To the South is the Ashbury Town Center."
+            };
+
+            AshburyEastPlaza.AvailableExits = new RoomExit
+            {
+//                NorthRoom = null,
+//                NorthRoomDescription = null,
+                EastRoom = AshburyEastSquare,
+                EastRoomDescription = "To the East is the East Square of Ashbury.",
+//                SouthRoom = null,
+//                SouthRoomDescription = null,
+                WestRoom = AshburyTownCenter,
+                WestRoomDescription = "To the West is Ashbury Town Center."
+            };
+
+            AshburyWestPlaza.AvailableExits = new RoomExit
+            {
+//                NorthRoom = null,
+//                NorthRoomDescription = null,
+                EastRoom = AshburyTownCenter,
+                EastRoomDescription = "To the East is Ashbury Town Center.",
+//                SouthRoom = null,
+//                SouthRoomDescription = null,
+                WestRoom = AshburyWestSquare,
+                WestRoomDescription = "To the West is the West Square of Ashbury."
+            };
+
+            AshburyTownCenter.AvailableExits = new RoomExit
+            {
+                NorthRoom = AshburyNorthMainStreet,
+                NorthRoomDescription = "To the North is North Main Street.",
+                EastRoom = AshburyEastPlaza,
+                EastRoomDescription = "To the East is the East Plaza.",
+                SouthRoom = AshburySouthMainStreet,
+                SouthRoomDescription = "To the South is South Main Street.",
+                WestRoom = AshburyWestPlaza,
+                WestRoomDescription = "To the West is the West Plaza."
+            };
+
+            #endregion
         }
 
         // Used to remove the room exits to avoid a circular dependency when serializing
         public void RemoveExitsFromAllRooms()
         {
+            // Your House
             YourBedroom.AvailableExits = new RoomExit();
-
             YourLivingRoom.AvailableExits = new RoomExit();
-
             YourKitchen.AvailableExits = new RoomExit();
-
             YourBasement.AvailableExits = new RoomExit();
-
             YourFrontEntryway.AvailableExits = new RoomExit();
-
             YourFrontPorch.AvailableExits = new RoomExit();
-
             YourDriveway.AvailableExits = new RoomExit();
-
             YourShed.AvailableExits = new RoomExit();
-
             RoadConnectingYourHouseToTown.AvailableExits = new RoomExit();
 
+            // Forest
             ForestLake.AvailableExits = new RoomExit();
-
             ForestLakeTent.AvailableExits = new RoomExit();
-
             EastForest.AvailableExits = new RoomExit();
-
             EastForestLowerClearing.AvailableExits = new RoomExit();
-
             EastForestUpperClearing.AvailableExits = new RoomExit();
-
             DeepEastForest.AvailableExits = new RoomExit();
-
             DeepEastForestLowerRiver.AvailableExits = new RoomExit();
-
             DeepEastForestUpperRiver.AvailableExits = new RoomExit();
-
             DeepEastForestUpperRiverCave.AvailableExits = new RoomExit();
-
             EastForestCampground.AvailableExits = new RoomExit();
+            PathBetweenCampAndEastRoad.AvailableExits = new RoomExit();
+            EastRoadToTown.AvailableExits = new RoomExit();
 
+            // Town
             TownSouthEntrance.AvailableExits = new RoomExit();
-
+            TownNorthEntrance.AvailableExits = new RoomExit();
+            TownEastEntrance.AvailableExits = new RoomExit();
+            TownWestEntrance.AvailableExits = new RoomExit();
             AshburySouthSquare.AvailableExits = new RoomExit();
+            AshburyNorthSquare.AvailableExits = new RoomExit();
+            AshburyEastSquare.AvailableExits = new RoomExit();
+            AshburyWestSquare.AvailableExits = new RoomExit();
+            AshburySouthMainStreet.AvailableExits = new RoomExit();
+            AshburyNorthMainStreet.AvailableExits = new RoomExit();
+            AshburyEastPlaza.AvailableExits = new RoomExit();
+            AshburyWestPlaza.AvailableExits = new RoomExit();
+            AshburyTownCenter.AvailableExits = new RoomExit();
         }
     }
 }

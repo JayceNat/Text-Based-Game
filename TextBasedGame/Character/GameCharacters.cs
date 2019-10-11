@@ -12,6 +12,7 @@ namespace TextBasedGame.Character
         public static Models.Character Player = new Models.Character
         {
             Name = null,
+            CharacterType = CharacterTypes.Player,
             Attributes = Program.AttributeCreator.PlayerAttributes,
             CarriedItems = new List<InventoryItem>
             {
@@ -19,9 +20,23 @@ namespace TextBasedGame.Character
             }
         };
 
+        public static Models.Character Charlie = new Models.Character
+        {
+            Name = "Charlie",
+            CharacterType = CharacterTypes.Friendly,
+            CurrentRoomName = null,
+            MaximumHealthPoints = 30 + 
+                                  (CharacterDefaults.HealthPerStaminaPointIncrease * Program.AttributeCreator.CharlieAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
+            HealthPoints = 30 + 
+                           (CharacterDefaults.HealthPerStaminaPointIncrease * Program.AttributeCreator.CharlieAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
+            Attributes = Program.AttributeCreator.CharlieAttributes,
+            CarriedItems = null
+        };
+
         public static Models.Character Henry = new Models.Character
         {
             Name = "Henry",
+            CharacterType = CharacterTypes.Friendly,
             MaximumHealthPoints = CharacterDefaults.DefaultMaximumHealthPoints
                                   + (CharacterDefaults.HealthPerStaminaPointIncrease * Program.AttributeCreator.HenryAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
             HealthPoints = CharacterDefaults.DefaultMaximumHealthPoints
@@ -33,6 +48,7 @@ namespace TextBasedGame.Character
         public static Models.Character Ghoul = new Models.Character
         {
             Name = "The Ghoul",
+            CharacterType = CharacterTypes.Enemy,
             MaximumHealthPoints = CharacterDefaults.DefaultMaximumHealthPoints 
                                   + (CharacterDefaults.HealthPerStaminaPointIncrease * Program.AttributeCreator.GhoulAttributes.Stamina - CharacterDefaults.DefaultValueForAllAttributes),
             HealthPoints = CharacterDefaults.DefaultMaximumHealthPoints

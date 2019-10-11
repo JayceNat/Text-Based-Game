@@ -263,7 +263,7 @@ namespace TextBasedGame.Item
             KeywordsForPickup = ItemKeywords.RabbitsFoot,
             ItemTraits = new List<ItemTrait>
             {
-                Program.ItemTraitCreator.LuckIncrease(3)
+                Program.ItemTraitCreator.LuckIncrease(4)
             }
         };
 
@@ -448,7 +448,7 @@ namespace TextBasedGame.Item
 
         public static InventoryItem TownSouthGateKey = new InventoryItem
         {
-            ItemName = "South Gate Key",
+            ItemName = "Ashbury South Gate Key",
             InOriginalLocation = true,
             ItemDescription = "A steel key with a tag that says \"South Gate.\"",
             OriginalPlacementDescription = "Looks like there's a key taped to a large boulder near the riverside.",
@@ -528,18 +528,18 @@ namespace TextBasedGame.Item
             KeywordsForPickup = ItemKeywords.BoxOf44MagnumAmmo,
         };
 
-        public static InventoryItem WetGoldBullet = new InventoryItem
+        public static InventoryItem MuddyGoldBullet = new InventoryItem
         {
-            ItemName = "Wet Gold Bullet",
+            ItemName = "Muddy Gold Bullet",
             InOriginalLocation = true,
             ItemDescription = "The caliber is unlike any you've ever seen. \n" +
-                              "\t\t\tIt's covered in water, but it's clearly made of gold.",
+                              "\t\t\tIt's covered in mud, but it's clearly made of gold.",
             OriginalPlacementDescription = "There's something gold hidden in the river rocks.",
-            GenericPlacementDescription = "A gold bullet is on the ground... looks wet.",
+            GenericPlacementDescription = "A gold bullet is on the ground... looks muddy.",
             InventorySpaceConsumed = 1,
             TreatItemAs = ItemUseTypes.ConsumableAmmo,
             AmmunitionType = ItemUseTypes.AmmoGold,
-            KeywordsForPickup = ItemKeywords.WetGoldBullet,
+            KeywordsForPickup = ItemKeywords.MuddyGoldBullet,
             AttributeRequirementToSee = new AttributeRequirement
             {
                 RequirementName = "Stamina - 7+",
@@ -699,6 +699,241 @@ namespace TextBasedGame.Item
             ItemTraits = new List<ItemTrait>
             {
                 Program.ItemTraitCreator.CarryingCapacityIncrease(10)
+            }
+        };
+
+        public static InventoryItem CannedMeat = new InventoryItem
+        {
+            ItemName = "Canned Meat",
+            InOriginalLocation = true,
+            ItemDescription = "Must not taste too good if it was left behind...",
+            OriginalPlacementDescription = "On top of a brick pillar to the left of the gate\n" +
+                                           "is an unopened can of cooked meat.",
+            GenericPlacementDescription = "There's an unopened can of cooked meat on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.ConsumableHealth,
+            KeywordsForPickup = ItemKeywords.CannedMeat,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.HealthItem(45),
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Strength, 2)
+            }
+        };
+
+        public static InventoryItem TownNorthGateKey = new InventoryItem
+        {
+            ItemName = "Ashbury North Gate Key",
+            InOriginalLocation = false,
+            ItemDescription = "A steel key with a tag that says \"North Gate.\"",
+            OriginalPlacementDescription = "Charlie has the North Gate Key in his pocket.",
+            GenericPlacementDescription = "A steel key is on the ground.",
+            InventorySpaceConsumed = 0,
+            TreatItemAs = ItemUseTypes.Key,
+            KeywordsForPickup = ItemKeywords.TownNorthGateKey,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+            }
+        };
+
+        public static InventoryItem TownEastGateKey = new InventoryItem
+        {
+            ItemName = "Ashbury East Gate Key",
+            InOriginalLocation = true,
+            ItemDescription = "A steel key with a tag that says \"East Gate.\"",
+            OriginalPlacementDescription = "A KEYYYYYY!",
+            GenericPlacementDescription = "A steel key is on the ground.",
+            InventorySpaceConsumed = 0,
+            TreatItemAs = ItemUseTypes.Key,
+            KeywordsForPickup = ItemKeywords.TownEastGateKey,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+            }
+        };
+
+        public static InventoryItem TownWestGateKey = new InventoryItem
+        {
+            ItemName = "Ashbury West Gate Key",
+            InOriginalLocation = true,
+            ItemDescription = "A rusted key with strange markings gouged into it...",
+            OriginalPlacementDescription = "A RUSTED KEYYY!",
+            GenericPlacementDescription = "A rusted key is on the ground.",
+            InventorySpaceConsumed = 0,
+            TreatItemAs = ItemUseTypes.Key,
+            KeywordsForPickup = ItemKeywords.TownWestGateKey,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+            }
+        };
+
+        public static InventoryItem GoldWristwatch = new InventoryItem
+        {
+            ItemName = "Gold Wristwatch",
+            InOriginalLocation = true,
+            ItemDescription = "It's incredibly nice. Definitely made of gold.",
+            OriginalPlacementDescription = "Laying in the dirt to the side of the road near \n" +
+                                           "the gate is something shiny and gold...",
+            GenericPlacementDescription = "A gold wristwatch is on the ground.",
+            InventorySpaceConsumed = 0,
+            TreatItemAs = ItemUseTypes.Wearable,
+            WearableType = ItemUseTypes.BraceletWear,
+            KeywordsForPickup = ItemKeywords.GoldWristwatch,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.DefenseIncrease(4),
+                Program.ItemTraitCreator.DexterityIncrease(2),
+                Program.ItemTraitCreator.StrengthIncrease(2),
+                Program.ItemTraitCreator.LuckIncrease(2)
+            }
+        };
+
+        public static InventoryItem WestForestNotice = new InventoryItem
+        {
+            ItemName = "West Forest Notice",
+            InOriginalLocation = true,
+            ItemDescription = "A crinkled and weathered parchment with info on the West Forest.",
+            OriginalPlacementDescription = "On the ground under a bench is a weathered piece of paper.",
+            GenericPlacementDescription = "There's a notice about the West Forest on the floor.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.Document,
+            DocumentText = DocumentTexts.WestForestNotice,
+            KeywordsForPickup = ItemKeywords.WestForestNotice,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Wisdom, 1)
+            }
+        };
+
+        public static InventoryItem Crowbar = new InventoryItem
+        {
+            ItemName = "Crowbar",
+            InOriginalLocation = true,
+            ItemDescription = "A heavy and effective tool for breaking and entering.",
+            OriginalPlacementDescription = "Laying over old Emmett Skepp's foot is a crowbar.",
+            GenericPlacementDescription = "There's a crowbar on the ground.",
+            InventorySpaceConsumed = 2,
+            KeywordsForPickup = ItemKeywords.Crowbar,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.CarriedItemsIncrease(2)
+            }
+        };
+
+        public static InventoryItem ToyBoat = new InventoryItem
+        {
+            ItemName = "Toy Boat",
+            InOriginalLocation = true,
+            ItemDescription = "A small toy boat made of plastic. \n" +
+                              "\t\t\t\"Charlie\" is scribbled on the bottom.",
+            OriginalPlacementDescription = "Resting solemnly on the fountain is a forgotten toy boat.",
+            GenericPlacementDescription = "A toy boat is on the ground.",
+            InventorySpaceConsumed = 1,
+            KeywordsForPickup = ItemKeywords.ToyBoat
+        };
+
+        public static InventoryItem BottleOfRum = new InventoryItem
+        {
+            ItemName = "Bottle of Rum",
+            InOriginalLocation = true,
+            ItemDescription = "It's nearly empty, but there's enough to perk you up.",
+            OriginalPlacementDescription = "Sitting upright next to the leg of a bench is a bottle of rum.",
+            GenericPlacementDescription = "There's a bottle of rum on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.ConsumableAttribute,
+            KeywordsForPickup = ItemKeywords.BottleOfRum,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Strength, 2),
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.MaxCarryingCapacity, 2),
+            }
+        };
+
+        public static InventoryItem SteelToedBoots = new InventoryItem
+        {
+            ItemName = "Steel Toed Boots",
+            InOriginalLocation = true,
+            ItemDescription = "They're very sturdy, and surprisingly very comfortable.",
+            OriginalPlacementDescription = "FIX STEEL TOE BOOTS",
+            GenericPlacementDescription = "A pair of steel toed boots are on the ground.",
+            InventorySpaceConsumed = 0,
+            TreatItemAs = ItemUseTypes.Wearable,
+            WearableType = ItemUseTypes.FootWear,
+            KeywordsForPickup = ItemKeywords.SteelToedBoots,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.DefenseIncrease(3)
+            }
+        };
+
+        public static InventoryItem MissingPersonPosterLucy = new InventoryItem
+        {
+            ItemName = "Missing Person Poster for Lucy Durrow",
+            InOriginalLocation = true,
+            ItemDescription = DocumentTexts.MissingPersonPosterDescription,
+            OriginalPlacementDescription = "Trapped low to the ground in a tall patch of grass to the\n" +
+                                           "left of the gate is a missing person poster.",
+            GenericPlacementDescription = "There's a missing person poster on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.Document,
+            DocumentText = DocumentTexts.MissingPersonLucy,
+            KeywordsForPickup = ItemKeywords.MissingPersonPoster,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Dexterity, 1)
+            }
+        };
+
+        public static InventoryItem MissingPersonPosterPenny = new InventoryItem
+        {
+            ItemName = "Missing Person Poster for Penny Lune",
+            InOriginalLocation = true,
+            ItemDescription = DocumentTexts.MissingPersonPosterDescription,
+            OriginalPlacementDescription = "There's a missing person poster that's been stapled to a tree.",
+            GenericPlacementDescription = "There's a missing person poster on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.Document,
+            DocumentText = DocumentTexts.MissingPersonPenny,
+            KeywordsForPickup = ItemKeywords.MissingPersonPoster,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Defense, 1)
+            }
+        };
+
+        public static InventoryItem MissingPersonPosterSimon = new InventoryItem
+        {
+            ItemName = "Missing Person Poster for Simon Durrow",
+            InOriginalLocation = true,
+            ItemDescription = DocumentTexts.MissingPersonPosterDescription,
+            OriginalPlacementDescription = "Pasted at a crooked angle on the ice cream shop window \n" +
+                                           "is a missing person poster.",
+            GenericPlacementDescription = "There's a missing person poster on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.Document,
+            DocumentText = DocumentTexts.MissingPersonSimon,
+            KeywordsForPickup = ItemKeywords.MissingPersonPoster,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Luck, 1)
+            }
+        };
+
+        public static InventoryItem MissingPersonPosterArthur = new InventoryItem
+        {
+            ItemName = "Missing Person Poster for Arthur Walden",
+            InOriginalLocation = true,
+            ItemDescription = DocumentTexts.MissingPersonPosterDescription,
+            OriginalPlacementDescription = "You notice a missing person poster sticking halfway out of a trashcan.",
+            GenericPlacementDescription = "There's a missing person poster on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.Document,
+            DocumentText = DocumentTexts.MissingPersonArthur,
+            KeywordsForPickup = ItemKeywords.MissingPersonPoster,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Strength, 1)
             }
         };
     }

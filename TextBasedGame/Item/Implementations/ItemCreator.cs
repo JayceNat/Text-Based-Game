@@ -42,6 +42,22 @@ namespace TextBasedGame.Item.Implementations
         public InventoryItem BomberJacket { get; }
         public InventoryItem BoxOfShotgunShells { get; }
         public InventoryItem LargeKnapsack { get; }
+        public InventoryItem CannedMeat { get; }
+        public InventoryItem TownNorthGateKey { get; }
+        public InventoryItem GoldWristwatch { get; }
+        public InventoryItem TownWestGateKey { get; }
+        public InventoryItem WestForestNotice { get; }
+        public InventoryItem TownEastGateKey { get; }
+        public InventoryItem Crowbar { get; }
+        public InventoryItem ToyBoat { get; }
+        public InventoryItem BottleOfRum { get; }
+        public InventoryItem SteelToedBoots { get; }
+
+        // Missing Person Posters
+        public InventoryItem MissingPersonPosterLucy { get; }
+        public InventoryItem MissingPersonPosterPenny { get; }
+        public InventoryItem MissingPersonPosterSimon { get; }
+        public InventoryItem MissingPersonPosterArthur { get; }
 
         // Declare all getters for any Weapons you will use here
         public WeaponItem LetterOpener { get; }
@@ -85,7 +101,7 @@ namespace TextBasedGame.Item.Implementations
             EnergyBar = GameItems.EnergyBar;
             BottleOfScentMask = GameItems.BottleOfScentMask;
             BoxOf44MagnumAmmo = GameItems.BoxOf44MagnumAmmo;
-            WetGoldBullet = GameItems.WetGoldBullet;
+            WetGoldBullet = GameItems.MuddyGoldBullet;
             MiracleTonic = GameItems.MiracleTonic;
             SnakeBracelet = GameItems.SnakeBracelet;
             WaterloggedJournal = GameItems.WaterloggedJournal;
@@ -93,6 +109,20 @@ namespace TextBasedGame.Item.Implementations
             BomberJacket = GameItems.BomberJacket;
             BoxOfShotgunShells = GameItems.BoxOfShotgunShells;
             LargeKnapsack = GameItems.LargeKnapsack;
+            CannedMeat = GameItems.CannedMeat;
+            TownNorthGateKey = GameItems.TownNorthGateKey;
+            TownEastGateKey = GameItems.TownEastGateKey;
+            TownWestGateKey = GameItems.TownWestGateKey;
+            GoldWristwatch = GameItems.GoldWristwatch;
+            WestForestNotice = GameItems.WestForestNotice;
+            Crowbar = GameItems.Crowbar;
+            ToyBoat = GameItems.ToyBoat;
+            BottleOfRum = GameItems.BottleOfRum;
+            SteelToedBoots = GameItems.SteelToedBoots;
+            MissingPersonPosterLucy = GameItems.MissingPersonPosterLucy;
+            MissingPersonPosterPenny = GameItems.MissingPersonPosterPenny;
+            MissingPersonPosterSimon = GameItems.MissingPersonPosterSimon;
+            MissingPersonPosterArthur = GameItems.MissingPersonPosterArthur;
 
             // Weapon Items
             LetterOpener = GameWeapons.LetterOpener;

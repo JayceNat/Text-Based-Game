@@ -102,6 +102,7 @@ namespace TextBasedGame.Game.Handlers
                 // Characters
                 Program.CharacterSerializer.Serialize(xmlWriter, Program.CharacterCreator.Player);
                 Program.CharacterSerializer.Serialize(xmlWriter, Program.CharacterCreator.Ghoul);
+                
                 // Rooms
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.YourBedroom);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.YourLivingRoom);
@@ -112,6 +113,7 @@ namespace TextBasedGame.Game.Handlers
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.YourShed);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.YourDriveway);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.RoadConnectingYourHouseToTown);
+
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.ForestLake);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.ForestLakeTent);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.EastForest);
@@ -122,8 +124,22 @@ namespace TextBasedGame.Game.Handlers
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.DeepEastForestUpperRiver);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.DeepEastForestUpperRiverCave);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.EastForestCampground);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.PathBetweenCampAndEastRoad);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.EastRoadToTown);
+
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.TownSouthEntrance);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.TownNorthEntrance);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.TownEastEntrance);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.TownWestEntrance);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthSquare);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyNorthSquare);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyEastSquare);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyWestSquare);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthMainStreet);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyNorthMainStreet);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyEastPlaza);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyWestPlaza);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyTownCenter);
             }
         }
 
@@ -144,9 +160,11 @@ namespace TextBasedGame.Game.Handlers
                             // Skip root node
                             reader.ReadToFollowing("C"); // Name of first class, we serialize Character as "C" for XML sneakiness :)
 
+                            // Characters
                             Program.CharacterCreator.Player = (Character.Models.Character)Program.CharacterSerializer.Deserialize(reader);
                             Program.CharacterCreator.Ghoul = (Character.Models.Character)Program.CharacterSerializer.Deserialize(reader);
 
+                            // Rooms
                             Program.RoomCreator.YourBedroom = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.YourLivingRoom = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.YourKitchen = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
@@ -156,6 +174,7 @@ namespace TextBasedGame.Game.Handlers
                             Program.RoomCreator.YourShed = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.YourDriveway = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.RoadConnectingYourHouseToTown = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+
                             Program.RoomCreator.ForestLake = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.ForestLakeTent = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.EastForest = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
@@ -166,8 +185,22 @@ namespace TextBasedGame.Game.Handlers
                             Program.RoomCreator.DeepEastForestUpperRiver = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.DeepEastForestUpperRiverCave = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.EastForestCampground = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.PathBetweenCampAndEastRoad = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.EastRoadToTown = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+
                             Program.RoomCreator.TownSouthEntrance = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.TownNorthEntrance = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.TownEastEntrance = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.TownWestEntrance = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.AshburySouthSquare = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburyNorthSquare = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburyEastSquare = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburyWestSquare = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburySouthMainStreet = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburyNorthMainStreet = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburyEastPlaza = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburyWestPlaza = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburyTownCenter = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                         }
 
                         Console.Clear();
@@ -193,6 +226,9 @@ namespace TextBasedGame.Game.Handlers
         // otherwise we would place the player in a room object with no exits 
         public static Room.Models.Room GetCurrentRoomFromRoomName(string playerCurrentLocation)
         {
+            // Your House
+            #region Your House
+
             if (playerCurrentLocation == Program.RoomCreator.YourBedroom.RoomName)
             {
                 return Program.RoomCreator.YourBedroom;
@@ -237,6 +273,11 @@ namespace TextBasedGame.Game.Handlers
             {
                 return Program.RoomCreator.RoadConnectingYourHouseToTown;
             }
+
+            #endregion
+
+            // Forest
+            #region Forest
 
             if (playerCurrentLocation == Program.RoomCreator.ForestLake.RoomName)
             {
@@ -288,15 +329,87 @@ namespace TextBasedGame.Game.Handlers
                 return Program.RoomCreator.EastForestCampground;
             }
 
+            if (playerCurrentLocation == Program.RoomCreator.PathBetweenCampAndEastRoad.RoomName)
+            {
+                return Program.RoomCreator.PathBetweenCampAndEastRoad;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.EastRoadToTown.RoomName)
+            {
+                return Program.RoomCreator.EastRoadToTown;
+            }
+
+            #endregion
+
+            // Town
+            #region Town
+
             if (playerCurrentLocation == Program.RoomCreator.TownSouthEntrance.RoomName)
             {
                 return Program.RoomCreator.TownSouthEntrance;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.TownNorthEntrance.RoomName)
+            {
+                return Program.RoomCreator.TownNorthEntrance;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.TownEastEntrance.RoomName)
+            {
+                return Program.RoomCreator.TownEastEntrance;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.TownWestEntrance.RoomName)
+            {
+                return Program.RoomCreator.TownWestEntrance;
             }
 
             if (playerCurrentLocation == Program.RoomCreator.AshburySouthSquare.RoomName)
             {
                 return Program.RoomCreator.AshburySouthSquare;
             }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburyNorthSquare.RoomName)
+            {
+                return Program.RoomCreator.AshburyNorthSquare;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburyEastSquare.RoomName)
+            {
+                return Program.RoomCreator.AshburyEastSquare;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburyWestSquare.RoomName)
+            {
+                return Program.RoomCreator.AshburyWestSquare;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburySouthMainStreet.RoomName)
+            {
+                return Program.RoomCreator.AshburySouthMainStreet;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburyNorthMainStreet.RoomName)
+            {
+                return Program.RoomCreator.AshburyNorthMainStreet;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburyEastPlaza.RoomName)
+            {
+                return Program.RoomCreator.AshburyEastPlaza;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburyWestPlaza.RoomName)
+            {
+                return Program.RoomCreator.AshburyWestPlaza;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburyTownCenter.RoomName)
+            {
+                return Program.RoomCreator.AshburyTownCenter;
+            }
+
+            #endregion
 
             return Program.RoomCreator.YourBedroom;
         }

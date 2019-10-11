@@ -155,19 +155,50 @@ namespace TextBasedGame.Room.Constants
             "campsite"
         };
 
+        public static List<string> PathBetweenCampAndEastRoad = new List<string>()
+        {
+            "path",
+            "dirt",
+            "trail"
+        };
 
-        public static List<string> TownSouthEntrance = new List<string>()
+        public static List<string> EastRoadToTown = new List<string>()
+        {
+            "road",
+            "street"
+        };
+
+        public static List<string> TownEntrance = new List<string>()
         {
             "town",
             "entrance",
             "gate"
         };
 
-        public static List<string> AshburySouthSquare = new List<string>()
+        public static List<string> AshburySquare = new List<string>()
         {
             "town",
             "square",
             "inside"
+        };
+
+        public static List<string> AshburyMainStreet = new List<string>()
+        {
+            "main",
+            "street"
+        };
+
+        public static List<string> AshburyPlaza = new List<string>()
+        {
+            "plaza",
+            "street"
+        };
+
+        public static List<string> AshburyTownCenter = new List<string>()
+        {
+            "center",
+            "town",
+            "middle"
         };
     }
 }

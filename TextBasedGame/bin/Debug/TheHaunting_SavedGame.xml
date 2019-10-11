@@ -2,19 +2,20 @@
 <root>
   <C xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Arn</nom>
+    <typ>Player</typ>
     <loc>Ashbury - South Square</loc>
     <hepomax>150</hepomax>
     <hepo>150</hepo>
     <trib>
       <avlpo>0</avlpo>
       <macacap>12</macacap>
-      <nocai>12</nocai>
+      <nocai>8</nocai>
       <fen>12</fen>
-      <x>8</x>
+      <x>9</x>
       <ck>7</ck>
       <min>10</min>
-      <ren>6</ren>
-      <om>8</om>
+      <ren>7</ren>
+      <om>7</om>
     </trib>
     <ci>
       <i>
@@ -36,33 +37,9 @@ HINT: You should search your house for a battery before you leave.</ogdr>
         </kwds>
         <trs>
           <tr>
-            <nom>Battery - 0%</nom>
+            <nom>Battery - 15%</nom>
             <reltrib />
-            <v>0</v>
-          </tr>
-        </trs>
-      </i>
-      <i>
-        <nom>Plain Bagel</nom>
-        <inog>false</inog>
-        <idr>A plain bagel. It doesn't even have cream cheese on it...</idr>
-        <ogdr>There's a bagel on the counter that you'd planned to eat earlier.</ogdr>
-        <gendr>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</gendr>
-        <inv>1</inv>
-        <typ>Consumable Health</typ>
-        <amtyp />
-        <amamt>1</amamt>
-        <wert />
-        <kwds>
-          <kwd>bagel</kwd>
-          <kwd>plain</kwd>
-          <kwd>plainbagel</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom>Use: restores (10) Health Points</nom>
-            <reltrib />
-            <v>10</v>
+            <v>15</v>
           </tr>
         </trs>
       </i>
@@ -88,6 +65,37 @@ HINT: You should search your house for a battery before you leave.</ogdr>
             <nom>Defense + (1)!</nom>
             <reltrib>Defense</reltrib>
             <v>1</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Rabbit's Foot</nom>
+        <inog>false</inog>
+        <idr>A small keychain holding a rabbit's foot. The cream-colored fur is incredibly soft.</idr>
+        <ogdr>Tucked into a corner of the tent, near the unzipped door-flap, there's a small cream-colored object...
+It looks like fur.</ogdr>
+        <gendr>A small, cream-colored rabbit's foot rests on the ground.</gendr>
+        <inv>1</inv>
+        <typ>Default</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>cream</kwd>
+          <kwd>creme</kwd>
+          <kwd>fur</kwd>
+          <kwd>white</kwd>
+          <kwd>foot</kwd>
+          <kwd>object</kwd>
+          <kwd>rabbit</kwd>
+          <kwd>rabbits</kwd>
+          <kwd>keychain</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Luck + (3)!</nom>
+            <reltrib>Luck</reltrib>
+            <v>3</v>
           </tr>
         </trs>
       </i>
@@ -172,80 +180,6 @@ Strangely, they're your size.</ogdr>
         </trs>
       </i>
       <i>
-        <nom>Rabbit's Foot</nom>
-        <inog>false</inog>
-        <idr>A small keychain holding a rabbit's foot. The cream-colored fur is incredibly soft.</idr>
-        <ogdr>Tucked into a corner of the tent, near the unzipped door-flap, there's a small cream-colored object...
-It looks like fur.</ogdr>
-        <gendr>A small, cream-colored rabbit's foot rests on the ground.</gendr>
-        <inv>1</inv>
-        <typ>Default</typ>
-        <amtyp />
-        <amamt>1</amamt>
-        <wert />
-        <kwds>
-          <kwd>cream</kwd>
-          <kwd>creme</kwd>
-          <kwd>fur</kwd>
-          <kwd>white</kwd>
-          <kwd>foot</kwd>
-          <kwd>object</kwd>
-          <kwd>rabbit</kwd>
-          <kwd>rabbits</kwd>
-          <kwd>keychain</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom>Luck + (3)!</nom>
-            <reltrib>Luck</reltrib>
-            <v>3</v>
-          </tr>
-        </trs>
-      </i>
-      <i>
-        <nom>Box of Shotgun Shells</nom>
-        <inog>false</inog>
-        <idr>A box with some ammo for a shotgun... Could be handy.</idr>
-        <ogdr>On the ground between two of the tents is an overturned box of shotgun ammo.</ogdr>
-        <gendr>A box of shotgun shells is on the ground.</gendr>
-        <inv>1</inv>
-        <typ>Consumable Ammo</typ>
-        <amtyp>Shotgun Ammo</amtyp>
-        <amamt>1</amamt>
-        <wert />
-        <kwds>
-          <kwd>shells</kwd>
-          <kwd>ammo</kwd>
-          <kwd>box</kwd>
-          <kwd>shotgun</kwd>
-        </kwds>
-        <trs />
-      </i>
-      <i>
-        <nom>Abandoned Flashlight Battery</nom>
-        <inog>false</inog>
-        <idr>A perfectly good battery that was left behind.</idr>
-        <ogdr>A flashlight battery is sitting on one of the pillows.</ogdr>
-        <gendr>There's a flashlight battery on the ground.</gendr>
-        <inv>1</inv>
-        <typ>Consumable Battery</typ>
-        <amtyp />
-        <amamt>1</amamt>
-        <wert />
-        <kwds>
-          <kwd>battery</kwd>
-          <kwd>batteries</kwd>
-          <kwd>flashlight</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom>This item has (21%) battery</nom>
-            <reltrib />
-            <v>21</v>
-          </tr>
-        </trs>
-      </i>
-      <i>
         <nom>Strange Thermos</nom>
         <inog>false</inog>
         <idr>It seems to have some strange kind of coffee or maybe Hot Chocolate in it.
@@ -275,6 +209,68 @@ It looks like fur.</ogdr>
             <v>-1</v>
           </tr>
         </trs>
+      </i>
+      <i>
+        <nom>Plain Bagel</nom>
+        <inog>false</inog>
+        <idr>A plain bagel. It doesn't even have cream cheese on it...</idr>
+        <ogdr>There's a bagel on the counter that you'd planned to eat earlier.</ogdr>
+        <gendr>There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Health</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>bagel</kwd>
+          <kwd>plain</kwd>
+          <kwd>plainbagel</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Use: restores (10) Health Points</nom>
+            <reltrib />
+            <v>10</v>
+          </tr>
+        </trs>
+      </i>
+      <i>
+        <nom>Box of Shotgun Shells</nom>
+        <inog>false</inog>
+        <idr>A box with some ammo for a shotgun... Could be handy.</idr>
+        <ogdr>On the ground between two of the tents is an overturned box of shotgun ammo.</ogdr>
+        <gendr>A box of shotgun shells is on the ground.</gendr>
+        <inv>1</inv>
+        <typ>Consumable Ammo</typ>
+        <amtyp>Shotgun Ammo</amtyp>
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>shells</kwd>
+          <kwd>ammo</kwd>
+          <kwd>box</kwd>
+          <kwd>shotgun</kwd>
+        </kwds>
+        <trs />
+      </i>
+      <i>
+        <nom>Bloody Gold Bullet</nom>
+        <inog>false</inog>
+        <idr>The caliber is unlike any you've ever seen. 
+			It's covered in blood, but it's clearly made of gold.</idr>
+        <ogdr>There's something gold in the pit of burnt out campfire ashes...</ogdr>
+        <gendr>A bloody gold bullet is on the ground...</gendr>
+        <inv>1</inv>
+        <typ>Consumable Ammo</typ>
+        <amtyp>Rare Gold Ammo</amtyp>
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>bloody</kwd>
+          <kwd>gold</kwd>
+          <kwd>bullet</kwd>
+        </kwds>
+        <trs />
       </i>
       <i>
         <nom>Bomber Jacket</nom>
@@ -311,25 +307,6 @@ It looks like fur.</ogdr>
         </tribqs>
       </i>
       <i>
-        <nom>Bloody Gold Bullet</nom>
-        <inog>false</inog>
-        <idr>The caliber is unlike any you've ever seen. 
-			It's covered in blood, but it's clearly made of gold.</idr>
-        <ogdr>There's something gold in the pit of burnt out campfire ashes...</ogdr>
-        <gendr>A bloody gold bullet is on the ground...</gendr>
-        <inv>1</inv>
-        <typ>Consumable Ammo</typ>
-        <amtyp>Rare Gold Ammo</amtyp>
-        <amamt>1</amamt>
-        <wert />
-        <kwds>
-          <kwd>bloody</kwd>
-          <kwd>gold</kwd>
-          <kwd>bullet</kwd>
-        </kwds>
-        <trs />
-      </i>
-      <i>
         <nom>Hunting Cap</nom>
         <inog>false</inog>
         <idr>A red flannel cap with ear flaps.</idr>
@@ -360,7 +337,7 @@ It looks like fur.</ogdr>
         </trs>
       </i>
       <i>
-        <nom>South Gate Key</nom>
+        <nom>Ashbury South Gate Key</nom>
         <inog>false</inog>
         <idr>A steel key with a tag that says "South Gate."</idr>
         <ogdr>Looks like there's a key taped to a large boulder near the riverside.</ogdr>
@@ -375,61 +352,12 @@ It looks like fur.</ogdr>
           <kwd>gate</kwd>
           <kwd>town</kwd>
           <kwd>south</kwd>
+          <kwd>steel</kwd>
         </kwds>
         <trs>
           <tr>
             <nom>This item does not consume inventory space.</nom>
             <reltrib>Carried Items Count</reltrib>
-            <v>0</v>
-          </tr>
-        </trs>
-      </i>
-      <i>
-        <nom>Somber Note</nom>
-        <inog>false</inog>
-        <idr>A note left by the riverside of the East Forest River.</idr>
-        <ogdr>There's a folded up piece of paper wedged partially under a large boulder on the riverside.</ogdr>
-        <gendr>There's a folded up note on the ground.</gendr>
-        <inv>1</inv>
-        <typ>Document</typ>
-        <amtyp />
-        <amamt>1</amamt>
-        <docx>The note is written in blue pen, with very neat handwriting.
-
-	It says: 
-
-	"Lucy,
-
-		This is just to say that I'll always love you.
-	I miss you more than I can bear. I have a hard time going home these days, 
-	knowing you won't be there. The police have all given up on finding you.
-	They seem far more concerned with the people who went missing after you did.
-	I don't feel anger so much anymore... It's mostly just sadness now.
-
-		Everyone is convinced of some frightening beast that keeps swooping our loved ones away,
-	stealing them from us in the night. I just can't believe all that.
-	But I just don't seem to care any longer. All I feel is emptiness, there is nothing 
-	for me now but the memory of you.
-		I'm leaving my wedding ring here, on our boulder. The one we sat on together 
-	that night, so many years ago, when I asked you to marry me.
-	When you were staring up at the stars and I was staring at you.
-	And I knew that when you looked down from those stars, you'd be looking at me.
-
-		I hope you're in those stars now, looking down at me still.
-	I'll see you soon. I just hope the river isn't too cold."
-</docx>
-        <wert />
-        <kwds>
-          <kwd>somber</kwd>
-          <kwd>sad</kwd>
-          <kwd>note</kwd>
-          <kwd>letter</kwd>
-          <kwd>paper</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom />
-            <reltrib>Dexterity</reltrib>
             <v>0</v>
           </tr>
         </trs>
@@ -533,85 +461,12 @@ It looks like fur.</ogdr>
           </tr>
         </trs>
       </i>
-      <i>
-        <nom>Waterlogged Journal</nom>
-        <inog>false</inog>
-        <idr>A weathered leather journal from the cave behind the East Forest River waterfall.
-			There's a snake symbol stamped into the cover.</idr>
-        <ogdr>On the floor under the wooden chair is a waterlogged looking journal.</ogdr>
-        <gendr>There's a waterlogged leather journal on the floor.</gendr>
-        <inv>1</inv>
-        <typ>Document</typ>
-        <amtyp />
-        <amamt>1</amamt>
-        <docx>You open the waterlogged journal. The pages crackle a bit as you do.
-
-	It says: 
-
-	"I've seen it. The beast exists. 
-	It's skin is as white as the moonlight, and it's as tall as a man standing on another mans shoulders.
-	What are we to do? There is no hope anymore... I've read everything, researched it all.
- 	Nothing can prevent the fate that this entire town will face. We will all be consumed.
-	DEVOURED by this wretched THING!
-
-		Though I fear the worst, I mustn't give up... There must be something I'm missing..."
-
-
-	It continues: 
-
-	"I've made a discovery. 
-	The beast can be warded temporarily with symbols or items resembling snakes.
-	Confirming it seemed lunacy to me at the time, but it did in fact work!
-
-	I'd fashioned a snake bangle and worn it into the woods. I heard the stomping.
-	The monster appeared, and went down on all fours in pursuit of me... 
-	I was terrified. But as it got closer to me, it veered off in the other direction.
-	I was fifteen feet from that creature, and I survived... Perhaps ~~"
-
-The remaining pages are blank.
-</docx>
-        <wert />
-        <kwds>
-          <kwd>journal</kwd>
-          <kwd>waterlogged</kwd>
-          <kwd>book</kwd>
-          <kwd>diary</kwd>
-        </kwds>
-        <trs>
-          <tr>
-            <nom />
-            <reltrib>Wisdom</reltrib>
-            <v>0</v>
-          </tr>
-        </trs>
-      </i>
-      <i>
-        <nom>Dirty Gold Bullet</nom>
-        <inog>false</inog>
-        <idr>The caliber is unlike any you've ever seen. 
-			It's covered in dirt, but it's clearly made of gold.</idr>
-        <ogdr>In the roadside gravel, you notice something shiny glinting in the moonlight...</ogdr>
-        <gendr>There's a dirty bullet on the ground... It looks like gold.</gendr>
-        <inv>1</inv>
-        <typ>Consumable Ammo</typ>
-        <amtyp>Rare Gold Ammo</amtyp>
-        <amamt>1</amamt>
-        <wert />
-        <kwds>
-          <kwd>bullet</kwd>
-          <kwd>gold</kwd>
-          <kwd>dirty</kwd>
-          <kwd>gravel</kwd>
-          <kwd>shiny</kwd>
-        </kwds>
-        <trs />
-      </i>
     </ci>
     <cw>
       <nom>Fireman's Axe</nom>
       <inog>false</inog>
       <wdr>A hefty red fireman's axe; made for breaking down doors.</wdr>
-      <ogdr>Leaning against the burnt out campfire is a lumber axe.</ogdr>
+      <ogdr>Leaning against the cave wall is a bright red fireman's axe.</ogdr>
       <gendr>A hefty red fireman's axe is laying on the ground.</gendr>
       <akpwr>7</akpwr>
       <am>-1</am>
@@ -647,18 +502,19 @@ The remaining pages are blank.
   </C>
   <C xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>The Ghoul</nom>
-    <hepomax>110</hepomax>
-    <hepo>110</hepo>
+    <typ>Enemy</typ>
+    <hepomax>220</hepomax>
+    <hepo>220</hepo>
     <trib>
       <avlpo>0</avlpo>
-      <macacap>0</macacap>
+      <macacap>2</macacap>
       <nocai>0</nocai>
-      <fen>7</fen>
-      <x>4</x>
-      <ck>6</ck>
-      <min>6</min>
-      <ren>9</ren>
-      <om>4</om>
+      <fen>20</fen>
+      <x>12</x>
+      <ck>10</ck>
+      <min>17</min>
+      <ren>25</ren>
+      <om>5</om>
     </trib>
     <ci />
     <cw>
@@ -687,6 +543,7 @@ There's faint moonlight coming in through the blinds of your open window.
 You can feel the cool night air coming in from outside.</initdr>
     <gendr>You are standing in your bedroom.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -711,6 +568,7 @@ HINT: There are some items that require you to have high enough stats to see or 
 Try typing 'items' - you will see the Tiny Backpack if your Luck is 1 or more.</initdr>
     <gendr>You are standing in your living room.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -732,6 +590,7 @@ In an flurry of fur, you see a dark gray (and very plump) rat jump out from bene
 and scurry through your living room and out of the house through a small hole in your window screen.</initdr>
     <gendr>You're standing in your kitchen, on the light beige floor tiles.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -756,6 +615,7 @@ Something about being in the basement right now is giving you the creeps.
 Just then, your flashlight briefly flickers.</initdr>
     <gendr>You're in your basement. It's really dark and creepy in here.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis>
         <ii>
@@ -833,6 +693,7 @@ Try typing 'exits' - you will see the exits from this room.
 Try typing 'enter the porch' - if you are carrying the Tiny Backpack you can leave the house.</initdr>
     <gendr>You're standing inside the entryway of your home.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -859,8 +720,49 @@ You suddenly notice a small, dirty letter poking out from under your doormat...
 It definitely wasn't there when you came home earlier.</initdr>
     <gendr>You're on your front porch, just outside the front door of your house.</gendr>
     <exs />
+    <chrs />
     <is>
-      <iis />
+      <iis>
+        <ii>
+          <nom>Dirty Letter</nom>
+          <inog>false</inog>
+          <idr>It's a small, dirty letter that you found under your front doormat. 
+			(Type 'use letter' to read it)</idr>
+          <ogdr>A small, dirty letter is sticking half way out from under your doormat.</ogdr>
+          <gendr>A small, dirty letter is on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The envelope has nothing on it aside from your name, which looks hastily scribbled...
+
+	The letter says: 
+
+	"Hey, 
+
+		So sorry to leave this here letter on your porch like this at such an odd hour of the night...
+	I really need to speak with you. It's urgent. Susan's gone missing. I... I know how crazy it's gonna sound.
+	Just hear me out... Well, perhaps it'd be best to explain it in person. 
+
+		Meet me at my cabin, North of town. If you forgot how to get there, 
+	just go straight North from your place, follow the road through town.
+	Then just keep on going North 'til the pavement turns to dirt.
+
+		The sooner you can get here, the better.
+	Oh, and just be alert if you're outside at night. Please.
+
+	Talk soon,
+	Henry"
+</docx>
+          <wert />
+          <kwds>
+            <kwd>letter</kwd>
+            <kwd>envelope</kwd>
+            <kwd>dirty</kwd>
+          </kwds>
+          <trs />
+        </ii>
+      </iis>
       <wis />
     </is>
     <kwrds>
@@ -884,6 +786,7 @@ You keep hearing strange sounds in the forest just outside the shed...
 Almost sounds like far off footsteps.</initdr>
     <gendr>You're in your rusted, creaky old shed.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis>
         <ii>
@@ -951,8 +854,50 @@ The wind picks up suddenly and...
 ... Wait... It almost sounds like someone is stomping around in the grove of trees behind your house.</initdr>
     <gendr>You're standing outside your house on the moonlit driveway.</gendr>
     <exs />
+    <chrs />
     <is>
-      <iis />
+      <iis>
+        <ii>
+          <nom>Newspaper</nom>
+          <inog>false</inog>
+          <idr>The local newspaper that was on your driveway.</idr>
+          <ogdr>There's a newspaper laying on the driveway that you forgot to pick up yesterday.</ogdr>
+          <gendr>A copy of the local newspaper is on the ground. Looks brand new.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The paper has a big, bold title running across the front page: "TWELVE MISSING - SEARCH CONTINUES"
+
+	The paper says: 
+
+		"The number of missing Ashbury residents has reached an all time high of 12 today.
+	'The search has been unsuccessful thus far,' says deputy chief Hockstetter, 
+	'We don't have any leads, and the majority of the residents won't talk sense with us. 
+	Most claim they saw demons taking people... what ridiculousness! 
+	Though rest assured, we are doing everything in our power to bring 
+	each and every missing person home unharmed.'
+
+	With the number of missing persons on the rise, many refuse to leave their homes after sunset.
+	There seems to be a town-wide panic ensuing around these superstitions and speculations.
+	Residents are reminded that Ashbury has put a curfew into effect, and all townspeople
+	will need to use their previously distributed keys to enter the town gates after dark."
+</docx>
+          <wert />
+          <kwds>
+            <kwd>news</kwd>
+            <kwd>paper</kwd>
+            <kwd>newspaper</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom />
+              <reltrib>Wisdom</reltrib>
+              <v>0</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
       <wis />
     </is>
     <kwrds>
@@ -974,8 +919,41 @@ Though with everything that's been going on around here lately, you know it's ju
 Maybe you'll be able to help Henry find his wife before morning.</initdr>
     <gendr>You're on the moonlit road that's between your house and town.</gendr>
     <exs />
+    <chrs />
     <is>
-      <iis />
+      <iis>
+        <ii>
+          <nom>Dirty Gold Bullet</nom>
+          <inog>true</inog>
+          <idr>The caliber is unlike any you've ever seen. 
+			It's covered in dirt, but it's clearly made of gold.</idr>
+          <ogdr>In the roadside gravel, you notice something shiny glinting in the moonlight...</ogdr>
+          <gendr>There's a dirty bullet on the ground... It looks like gold.</gendr>
+          <inv>1</inv>
+          <typ>Consumable Ammo</typ>
+          <amtyp>Rare Gold Ammo</amtyp>
+          <amamt>1</amamt>
+          <wert />
+          <kwds>
+            <kwd>bullet</kwd>
+            <kwd>gold</kwd>
+            <kwd>dirty</kwd>
+            <kwd>gravel</kwd>
+            <kwd>shiny</kwd>
+          </kwds>
+          <trs />
+          <tribqs>
+            <nom>Dexterity - 5+</nom>
+            <reltrib>Dexterity</reltrib>
+            <v>5</v>
+          </tribqs>
+          <tribqt>
+            <nom>Dexterity - 5+</nom>
+            <reltrib>Dexterity</reltrib>
+            <v>5</v>
+          </tribqt>
+        </ii>
+      </iis>
       <wis />
     </is>
     <kwrds>
@@ -998,6 +976,7 @@ onto the sandy bank of the moonlit Forest Lake.</initdr>
     <gendr>You've traversed through the forest on the West side of the road between your house and town,
 and you're standing on the sandy bank of the moonlit Forest Lake.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -1022,6 +1001,7 @@ and sleeping bags that appear to have been left behind...
     <gendr>You walked along the shoreline and are standing at the Collapsed Lakeside Tent.
 There appears to be blood inside the tent, near the abandoned suitcases.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis>
         <ii>
@@ -1072,49 +1052,9 @@ and their trunks staying perfectly still - as though nothing could move them at 
     <gendr>You're standing in the forest, East of the road between your house and town.
 It's really dark here, and you almost feel hunted.</gendr>
     <exs />
+    <chrs />
     <is>
-      <iis>
-        <ii>
-          <nom>Newspaper</nom>
-          <inog>false</inog>
-          <idr>The local newspaper that was on your driveway.</idr>
-          <ogdr>There's a newspaper laying on the driveway that you forgot to pick up yesterday.</ogdr>
-          <gendr>A copy of the local newspaper is on the ground. Looks brand new.</gendr>
-          <inv>1</inv>
-          <typ>Document</typ>
-          <amtyp />
-          <amamt>1</amamt>
-          <docx>The paper has a big, bold title running across the front page: "TWELVE MISSING - SEARCH CONTINUES"
-
-	The paper says: 
-
-		"The number of missing Ashbury residents has reached an all time high of 12 today.
-	'The search has been unsuccessful thus far,' says deputy chief Hockstetter, 
-	'We don't have any leads, and the majority of the residents won't talk sense with us. 
-	Most claim they saw demons taking people... what ridiculousness! 
-	Though rest assured, we are doing everything in our power to bring 
-	each and every missing person home unharmed.'
-
-	With the number of missing persons on the rise, many refuse to leave their homes after sunset.
-	There seems to be a town-wide panic ensuing around these superstitions and speculations.
-	Residents are reminded that Ashbury has put a curfew into effect, and all townspeople
-	will need to use their previously distributed keys to enter the town gates after dark."
-</docx>
-          <wert />
-          <kwds>
-            <kwd>news</kwd>
-            <kwd>paper</kwd>
-            <kwd>newspaper</kwd>
-          </kwds>
-          <trs>
-            <tr>
-              <nom />
-              <reltrib>Wisdom</reltrib>
-              <v>0</v>
-            </tr>
-          </trs>
-        </ii>
-      </iis>
+      <iis />
       <wis />
     </is>
     <kwrds>
@@ -1143,6 +1083,7 @@ You feel like it's making you crazy just to be walking in there this late at nig
     <gendr>You're at the South end of the football-field sized clearing in the East Forest. 
 The moon is bright here, but you don't feel too safe...</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -1176,6 +1117,7 @@ The moon is bright here, and you feel safe somehow...
 
 ... But you know you're not.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -1199,52 +1141,9 @@ That thought quickly vanishes from your mind as you begin to hear the stomping a
     <gendr>You're deep in the East Forest... 
 It's pitch black all around you, and you feel very uneasy here.</gendr>
     <exs />
+    <chrs />
     <is>
-      <iis>
-        <ii>
-          <nom>Ashbury Resident Curfew Notice</nom>
-          <inog>false</inog>
-          <idr>A flyer containing details on the town curfew and evening lockdowns.</idr>
-          <ogdr>In a box on the bulletin board is a stack of notices with curfew information.</ogdr>
-          <gendr>A notice about the Ashbury curfew and lockdown is on the ground.</gendr>
-          <inv>1</inv>
-          <typ>Document</typ>
-          <amtyp />
-          <amamt>1</amamt>
-          <docx>The notice has bold, red lettering across the top: "Town of Ashbury - Curfew &amp; Lockdown In Effect!"
-
-	The flyer says: 
-
-	"Attention all Ashbury residents: 
-		In consideration of the recent missing persons as well as the well-being of all townspeople,
-		Mayor Finch has put a full curfew and town-wide lockdown into effect.
-
-		The curfew will be strictly enforced each night beginning at sundown, and all gated entrances into
-		the town will be shut. Each resident will be given a key to the gate nearest their home,
-		but it is vehemently advised that everybody remain in the confines of the town after sunset.
-
-		Mayor Finch does not encourage or promote the recent hysteria or speculations of demons or wild beasts.
-		It is important to note that the lockdown and curfew have been put into effect specifically to ease
-		the minds of all Ashbury residents, as many have requested this be enforced."
-</docx>
-          <wert />
-          <kwds>
-            <kwd>notice</kwd>
-            <kwd>paper</kwd>
-            <kwd>curfew</kwd>
-            <kwd>info</kwd>
-            <kwd>flyer</kwd>
-            <kwd>document</kwd>
-          </kwds>
-          <trs>
-            <tr>
-              <nom />
-              <reltrib>Wisdom</reltrib>
-              <v>0</v>
-            </tr>
-          </trs>
-        </ii>
-      </iis>
+      <iis />
       <wis>
         <wi>
           <nom>Baseball Bat</nom>
@@ -1288,8 +1187,60 @@ You reach down and feel the icy water running between your fingers.
 It makes you wonder what would happen if you fell in.</initdr>
     <gendr>You're on the Southern bank of the roaring East Forest River. The water is freezing.</gendr>
     <exs />
+    <chrs />
     <is>
-      <iis />
+      <iis>
+        <ii>
+          <nom>Somber Note</nom>
+          <inog>false</inog>
+          <idr>A note left by the riverside of the East Forest River.</idr>
+          <ogdr>There's a folded up piece of paper wedged partially under a large boulder on the riverside.</ogdr>
+          <gendr>There's a folded up note on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The note is written in blue pen, with very neat handwriting.
+
+	It says: 
+
+	"Lucy,
+
+		This is just to say that I'll always love you.
+	I miss you more than I can bear. I have a hard time going home these days, 
+	knowing you and Simon won't be there. The police have all given up on finding you both.
+	They seem far more concerned with the people who went missing after you did.
+	I don't feel anger so much anymore... It's mostly just sadness now.
+
+		Everyone is convinced of some frightening beast that keeps swooping our loved ones away,
+	stealing them from us in the night. I just can't believe all that.
+	But I just don't seem to care any longer. All I feel is emptiness, there is nothing 
+	for me now but the memory of you and our boy.
+		I'm leaving my wedding ring here, on our boulder. The one we sat on together 
+	that night, so many years ago, when I asked you to marry me.
+	When you were staring up at the stars and I was staring at you.
+	And I knew that when you looked down from those stars, you'd be looking at me.
+
+		I hope you and Simon are in those stars now, looking down at me still.
+	I'll see you soon. I hope this river is too cold to feel it."
+</docx>
+          <wert />
+          <kwds>
+            <kwd>somber</kwd>
+            <kwd>sad</kwd>
+            <kwd>note</kwd>
+            <kwd>letter</kwd>
+            <kwd>paper</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom />
+              <reltrib>Dexterity</reltrib>
+              <v>0</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
       <wis />
     </is>
     <kwrds>
@@ -1312,6 +1263,7 @@ might have seen across the river was just in your imagination.</initdr>
     <gendr>You're on the Northern bank of the East Forest River, just South of a waterfall. 
 An owls yellow eyes stare down at you from the trees.</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -1332,8 +1284,62 @@ You quickly notice that there's a wooden chair, a table, and some bedding...
 Someone must be living here.</initdr>
     <gendr>You made your way into the hidden cave behind the falls of the East Forest River.</gendr>
     <exs />
+    <chrs />
     <is>
-      <iis />
+      <iis>
+        <ii>
+          <nom>Waterlogged Journal</nom>
+          <inog>false</inog>
+          <idr>A weathered leather journal from the cave behind the East Forest River waterfall.
+			There's a snake symbol stamped into the cover.</idr>
+          <ogdr>On the floor under the wooden chair is a waterlogged looking journal.</ogdr>
+          <gendr>There's a waterlogged leather journal on the floor.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>You open the waterlogged journal. The pages crackle a bit as you do.
+
+	It says: 
+
+	"I've seen it. The beast exists. 
+	It's skin is as white as the moonlight, and it's as tall as a man standing on another mans shoulders.
+	What are we to do? There is no hope anymore... I've read everything, researched it all.
+ 	Nothing can prevent the fate that this entire town will face. We will all be consumed.
+	DEVOURED by this wretched THING!
+
+		Though I fear the worst, I mustn't give up... There must be something I'm missing..."
+
+
+	It continues: 
+
+	"I've made a discovery. 
+	The beast can be warded temporarily with symbols or items resembling snakes.
+	Confirming it seemed lunacy to me at the time, but it did in fact work!
+
+	I'd fashioned a snake bangle and worn it into the woods. I heard the stomping.
+	The monster appeared, and went down on all fours in pursuit of me... 
+	I was terrified. But as it got closer to me, it veered off in the other direction.
+	I was fifteen feet from that creature, and I survived... Perhaps ~~"
+
+The remaining pages are blank.
+</docx>
+          <wert />
+          <kwds>
+            <kwd>journal</kwd>
+            <kwd>waterlogged</kwd>
+            <kwd>book</kwd>
+            <kwd>diary</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom />
+              <reltrib>Wisdom</reltrib>
+              <v>0</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
       <wis>
         <wi>
           <nom>Lumber Axe</nom>
@@ -1386,47 +1392,9 @@ And then you notice a thick trail of blood behind one of the tents...</initdr>
     <gendr>You're standing in the center of a wrecked campsite. 
 Three tents are torn up and stained with blood...</gendr>
     <exs />
+    <chrs />
     <is>
       <iis>
-        <ii>
-          <nom>Dirty Letter</nom>
-          <inog>false</inog>
-          <idr>It's a small, dirty letter that you found under your front doormat. 
-			(Type 'use letter' to read it)</idr>
-          <ogdr>A small, dirty letter is sticking half way out from under your doormat.</ogdr>
-          <gendr>A small, dirty letter is on the ground.</gendr>
-          <inv>1</inv>
-          <typ>Document</typ>
-          <amtyp />
-          <amamt>1</amamt>
-          <docx>The envelope has nothing on it aside from your name, which looks hastily scribbled...
-
-	The letter says: 
-
-	"Hey, 
-
-		So sorry to leave this here letter on your porch like this at such an odd hour of the night...
-	I really need to speak with you. It's urgent. Susan's gone missing. I... I know how crazy it's gonna sound.
-	Just hear me out... Well, perhaps it'd be best to explain it in person. 
-
-		Meet me at my cabin, North of town. If you forgot how to get there, 
-	just go straight North from your place, follow the road through town.
-	Then just keep on going North 'til the pavement turns to dirt.
-
-		The sooner you can get here, the better.
-	Oh, and just be alert if you're outside at night. Please.
-
-	Talk soon,
-	Henry"
-</docx>
-          <wert />
-          <kwds>
-            <kwd>letter</kwd>
-            <kwd>envelope</kwd>
-            <kwd>dirty</kwd>
-          </kwds>
-          <trs />
-        </ii>
         <ii>
           <nom>Canvas Book-Bag</nom>
           <inog>false</inog>
@@ -1567,6 +1535,49 @@ Are those... Teeth?</ogdr>
     </kwrds>
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>East Forest Campground Path</nom>
+    <ent>true</ent>
+    <initdr>You're beginning to feel blinded by the flashlight bouncing off the fog...
+And the fog just seems to get thicker and thicker as you walk.
+
+After a little while, you begin hearing what sounds like frogs far in the distance
+to the North of you... You hope that's a good thing.</initdr>
+    <gendr>You're on a dirt path between the East Forest Campground and the East Road to town.
+The fog isn't dissipating at all...</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>path</kwrd>
+      <kwrd>dirt</kwrd>
+      <kwrd>trail</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>East Road to Town</nom>
+    <ent>true</ent>
+    <initdr>You're finally standing on pavement. Though, the fog still seems denser.
+At this point, you can really hear the frogs croaking North of the road...
+And some strange snapping sounds back to the South.
+
+At least this East-West running road can get you straight to town.</initdr>
+    <gendr>You're on the pavement of the road East of town.
+The fog is still really dense here, too.</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>road</kwrd>
+      <kwrd>street</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <nom>Ashbury - South Entrance</nom>
     <ent>true</ent>
     <initdr>After some time (and jogging), you approach the South entrance of Ashbury.
@@ -1582,8 +1593,53 @@ You see a bulletin board near the gate with a box full of papers that says:
     <gendr>You're standing just outside the South Gate of Ashbury.
 The whole town is dark...</gendr>
     <exs />
+    <chrs />
     <is>
-      <iis />
+      <iis>
+        <ii>
+          <nom>Ashbury Resident Curfew Notice</nom>
+          <inog>false</inog>
+          <idr>A flyer containing details on the town curfew and evening lockdowns.</idr>
+          <ogdr>In a box on the bulletin board is a stack of notices with curfew information.</ogdr>
+          <gendr>A notice about the Ashbury curfew and lockdown is on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The notice has bold, red lettering across the top: "Town of Ashbury - Curfew &amp; Lockdown In Effect!"
+
+	The flyer says: 
+
+	"Attention all Ashbury residents: 
+		In consideration of the recent missing persons as well as the well-being of all townspeople,
+		Mayor Finch has put a full curfew and town-wide lockdown into effect.
+
+		The curfew will be strictly enforced each night beginning at sundown, and all gated entrances into
+		the town will be shut. Each resident will be given a key to the gate nearest their home,
+		but it is vehemently advised that everybody remain in the confines of the town after sunset.
+
+		Mayor Finch does not encourage or promote the recent hysteria or speculations of demons or wild beasts.
+		It is important to note that the lockdown and curfew have been put into effect specifically to ease
+		the minds of all Ashbury residents, as many have requested this be enforced."
+</docx>
+          <wert />
+          <kwds>
+            <kwd>notice</kwd>
+            <kwd>paper</kwd>
+            <kwd>curfew</kwd>
+            <kwd>info</kwd>
+            <kwd>flyer</kwd>
+            <kwd>document</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom />
+              <reltrib>Wisdom</reltrib>
+              <v>0</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
       <wis />
     </is>
     <kwrds>
@@ -1593,8 +1649,260 @@ The whole town is dark...</gendr>
     </kwrds>
   </R>
   <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <nom>Ashbury - South Square</nom>
+    <nom>Ashbury - North Entrance</nom>
+    <ent>false</ent>
+    <initdr>You've just gone through the North Gate, exiting Ashbury.
+It's quite a bit cooler on this side of town...
+
+The night feels like it's never going to end, and the moon
+doesn't even look like it's moved once since you've left your house.
+
+You know it's not much farther now to get to Henry's...</initdr>
+    <gendr>You're standing just outside the North Gate of Ashbury.
+You notice it's a lot colder on this side of the town.</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Canned Meat</nom>
+          <inog>true</inog>
+          <idr>Must not taste too good if it was left behind...</idr>
+          <ogdr>On top of a brick pillar to the left of the gate
+is an unopened can of cooked meat.</ogdr>
+          <gendr>There's an unopened can of cooked meat on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Consumable Health</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert />
+          <kwds>
+            <kwd>can</kwd>
+            <kwd>meat</kwd>
+            <kwd>food</kwd>
+            <kwd>canned</kwd>
+            <kwd>cooked</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Use: restores (45) Health Points</nom>
+              <reltrib />
+              <v>45</v>
+            </tr>
+            <tr>
+              <nom>Use: increases Strength by (2)</nom>
+              <reltrib>Strength</reltrib>
+              <v>2</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>town</kwrd>
+      <kwrd>entrance</kwrd>
+      <kwrd>gate</kwrd>
+    </kwrds>
+    <iqe>
+      <nom>Ashbury North Gate Key</nom>
+      <reli>
+        <nom>Ashbury North Gate Key</nom>
+        <inog>false</inog>
+        <idr>A steel key with a tag that says "North Gate."</idr>
+        <ogdr>Charlie has the North Gate Key in his pocket.</ogdr>
+        <gendr>A steel key is on the ground.</gendr>
+        <inv>0</inv>
+        <typ>Key</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>key</kwd>
+          <kwd>gate</kwd>
+          <kwd>town</kwd>
+          <kwd>north</kwd>
+          <kwd>steel</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>This item does not consume inventory space.</nom>
+            <reltrib>Carried Items Count</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqe>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - East Entrance</nom>
     <ent>true</ent>
+    <initdr>After working your way through the fog,
+you finally begin to see the East Gate entrance into town.
+The fog dissipates quickly as you ascend the slope going up to the gate.
+
+Just as you reach the gate, 
+you faintly hear a distant scream from deep inside the East Forest...</initdr>
+    <gendr>You're standing just outside the East Gate of Ashbury.
+There's a dense fog that dissipates closer to the gate entrance.
+The whole town is dark inside...</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Missing Person Poster: Lucy</nom>
+          <inog>false</inog>
+          <idr>A poster containing info on a missing Ashbury resident.</idr>
+          <ogdr>Trapped low to the ground in a tall patch of grass 
+left of the gate is a missing person poster.</ogdr>
+          <gendr>There's a missing person poster on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The missing poster seems old... And you seem to recognize the name.
+
+	It says: 
+
+		"MISSING: LUCY DURROW 
+		Have you seen this person?"
+
+	There is a photograph of a beautiful blonde woman smiling in a grove of trees.
+
+	"Female - Blonde - Age 29 - 5 ft 5 in - 115 lbs
+	Wife of Robert Durrow, mother of Simon Durrow.
+
+	Last seen exiting town towards the East, destination unknown.
+	Missing since September 7"
+</docx>
+          <wert />
+          <kwds>
+            <kwd>poster</kwd>
+            <kwd>missing</kwd>
+            <kwd>person</kwd>
+            <kwd>paper</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom />
+              <reltrib>Dexterity</reltrib>
+              <v>0</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>town</kwrd>
+      <kwrd>entrance</kwrd>
+      <kwrd>gate</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - West Entrance</nom>
+    <ent>false</ent>
+    <initdr>You've exited town on the West side... But you know all too well
+that the West Forest is often said to be haunted.
+
+Before all the missing persons reports, the West Forest 
+was known to drive people mad within the confines of its trees.
+There are even stories about people who live out here,
+in the brush and bramble, like animals, 
+driven mad simply by venturing off of the road.</initdr>
+    <gendr>You're standing just outside the West Gate of Ashbury.
+There is an air of danger here...
+Your instincts tell you to get back inside town.
+
+Many consider the West Forest to be haunted.</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Gold Wristwatch</nom>
+          <inog>true</inog>
+          <idr>It's incredibly nice. Definitely made of gold.</idr>
+          <ogdr>Laying in the dirt to the side of the road near 
+the gate is something shiny and gold...</ogdr>
+          <gendr>A gold wristwatch is on the ground.</gendr>
+          <inv>0</inv>
+          <typ>Wearable</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert>Bracelet</wert>
+          <kwds>
+            <kwd>watch</kwd>
+            <kwd>gold</kwd>
+            <kwd>shiny</kwd>
+            <kwd>wrist</kwd>
+            <kwd>wristwatch</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Defense + (4)!</nom>
+              <reltrib>Defense</reltrib>
+              <v>4</v>
+            </tr>
+            <tr>
+              <nom>Dexterity + (2)!</nom>
+              <reltrib>Dexterity</reltrib>
+              <v>2</v>
+            </tr>
+            <tr>
+              <nom>Strength + (2)!</nom>
+              <reltrib>Strength</reltrib>
+              <v>2</v>
+            </tr>
+            <tr>
+              <nom>Luck + (2)!</nom>
+              <reltrib>Luck</reltrib>
+              <v>2</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>town</kwrd>
+      <kwrd>entrance</kwrd>
+      <kwrd>gate</kwrd>
+    </kwrds>
+    <iqe>
+      <nom>Ashbury West Gate Key</nom>
+      <reli>
+        <nom>Ashbury West Gate Key</nom>
+        <inog>true</inog>
+        <idr>A rusted key with strange markings gouged into it...</idr>
+        <ogdr>A RUSTED KEYYY!</ogdr>
+        <gendr>A rusted key is on the ground.</gendr>
+        <inv>0</inv>
+        <typ>Key</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>key</kwd>
+          <kwd>gate</kwd>
+          <kwd>town</kwd>
+          <kwd>west</kwd>
+          <kwd>rusted</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>This item does not consume inventory space.</nom>
+            <reltrib>Carried Items Count</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqe>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - South Square</nom>
+    <ent>false</ent>
     <initdr>You make your way through the South gate, and you're standing in the South Square.
 The town looks ghostly to you with all the power out... Almost like no one has ever even lived here.
 
@@ -1606,6 +1914,7 @@ You really need to get to Henry's.</initdr>
     <gendr>You're in the South Square of Ashbury.
 The town feels ghostly with all the power being out...</gendr>
     <exs />
+    <chrs />
     <is>
       <iis />
       <wis />
@@ -1614,6 +1923,509 @@ The town feels ghostly with all the power being out...</gendr>
       <kwrd>town</kwrd>
       <kwrd>square</kwrd>
       <kwrd>inside</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - North Square</nom>
+    <ent>false</ent>
+    <initdr>You're in the North Square of Ashbury.
+All around you are darkened light posts, benches, and grassy areas.
+
+It's a very pretty part of town, when it's illuminated and full of people.
+Without those two things, it just feels like an abandoned town
+with ghosts staring at you from the building windows.</initdr>
+    <gendr>You're in the North Square of Ashbury.
+The empty benches and darkened streetlights around you feel wrong...</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis>
+        <ii>
+          <nom>West Forest Notice</nom>
+          <inog>true</inog>
+          <idr>A crinkled and weathered parchment with info on the West Forest.</idr>
+          <ogdr>On the ground under a bench is a weathered piece of paper.</ogdr>
+          <gendr>There's a notice about the West Forest on the floor.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The paper is grimy... almost sticky, and also covered in some kind of soot or dust.
+It's dated July 1.
+
+	It says: 
+
+			"ASHBURY ALERT: WEST FOREST UNSAFE
+
+		Mayor Finch is advising all Ashbury residents to exercise extreme caution
+	in and around the West Forest, especially those with children. There have been continued reports
+	of wild animal attacks on hikers, campers, and bicyclists inside the forest as well as near the road.
+		Mayor Finch has generously funded the construction of a wall on the West border of town 
+	in order to prevent further concerns about children and families living near the West Forest.
+	Due to this, the annual firework festival will be moved to the East Plaza in consideration of 
+	the construction work that will begin July 3, and continue into the next few weeks."
+
+At the bottom of the page, there is some black ink splotches...
+and a note scrawled in the same ink: "Tell Arthur."
+</docx>
+          <wert />
+          <kwds>
+            <kwd>crinkled</kwd>
+            <kwd>parchment</kwd>
+            <kwd>paper</kwd>
+            <kwd>notice</kwd>
+            <kwd>forest</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Use: increases Wisdom by (1)</nom>
+              <reltrib>Wisdom</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>town</kwrd>
+      <kwrd>square</kwrd>
+      <kwrd>inside</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - East Square</nom>
+    <ent>false</ent>
+    <initdr>You're in the East Square of Ashbury.
+You know that, logically, everyone in town must be sleeping.
+But somehow, as you observe the darkened second floor windows,
+it almost feels like there isn't a single soul here at all...
+
+The town feels lifeless.</initdr>
+    <gendr>You're in the East Square of Ashbury.
+The town feels lifeless... Like no one is here.</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>town</kwrd>
+      <kwrd>square</kwrd>
+      <kwrd>inside</kwrd>
+    </kwrds>
+    <iqe>
+      <nom>Ashbury East Gate Key</nom>
+      <reli>
+        <nom>Ashbury East Gate Key</nom>
+        <inog>true</inog>
+        <idr>A steel key with a tag that says "East Gate."</idr>
+        <ogdr>A KEYYYYYY!</ogdr>
+        <gendr>A steel key is on the ground.</gendr>
+        <inv>0</inv>
+        <typ>Key</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>key</kwd>
+          <kwd>gate</kwd>
+          <kwd>town</kwd>
+          <kwd>east</kwd>
+          <kwd>steel</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>This item does not consume inventory space.</nom>
+            <reltrib>Carried Items Count</reltrib>
+            <v>0</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqe>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - West Square</nom>
+    <ent>false</ent>
+    <initdr>You're in the West Square of Ashbury.
+You can hear the wind lashing through the trees outside town to the West.
+To you, the wind almost sounds angry...
+
+The West Square looks like it hasn't had visitors in quite some time.
+The other parts of town have looked somewhat more traversed, but the way
+the West Square looks and feels is very odd compared to the rest of town.</initdr>
+    <gendr>You're in the West Square of Ashbury.
+This side of town feels off to you...</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Missing Person Poster: Penny</nom>
+          <inog>true</inog>
+          <idr>A poster containing info on a missing Ashbury resident.</idr>
+          <ogdr>There's a missing person poster that's been stapled to a tree.</ogdr>
+          <gendr>There's a missing person poster on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The missing poster is pretty recent...
+
+	It says: 
+
+		"MISSING: PENNY LUNE 
+		Have you seen this person?"
+
+	There is a photograph of a young brunette girl in a flower dress.
+
+	"Female - Brunette - Age 11 - 4 ft 6 in - 79 lbs
+	Daughter of Heath and Heather Lune.
+
+	Last seen near Jack's Ice Cream Parlor on North Main St. after dusk.
+	Missing since October 20"
+</docx>
+          <wert />
+          <kwds>
+            <kwd>poster</kwd>
+            <kwd>missing</kwd>
+            <kwd>person</kwd>
+            <kwd>paper</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Use: increases Defense by (1)</nom>
+              <reltrib>Defense</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>town</kwrd>
+      <kwrd>square</kwrd>
+      <kwrd>inside</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - South Main Street</nom>
+    <ent>false</ent>
+    <initdr>You walk onto the South Main Street of Ashbury.
+There's a large banner stretched across the road that says
+"Welcome to Quiet &amp; Quaint Ashbury!"
+It dances occasionally in the sporadic gusts of wind.
+
+Along the street on either side you spot the darkened shop windows of
+the town grocery, veterinary clinic, and tavern.
+You shine your flashlight through the clinic window on the West side of the street,and for the slightest instant you think you see something moving around in there.</initdr>
+    <gendr>You're standing on the South Main street of Ashbury.
+You can see some dark shop windows and signs lining the sidewalk,
+and a banner over the street saying:
+"Welcome to Quiet &amp; Quaint Ashbury!"</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>main</kwrd>
+      <kwrd>street</kwrd>
+    </kwrds>
+    <iqe>
+      <nom>Crowbar</nom>
+      <reli>
+        <nom>Crowbar</nom>
+        <inog>true</inog>
+        <idr>A heavy and effective tool for breaking and entering.</idr>
+        <ogdr>Laying over old Emmett Skepp's foot is a crowbar.</ogdr>
+        <gendr>There's a crowbar on the ground.</gendr>
+        <inv>2</inv>
+        <typ>Default</typ>
+        <amtyp />
+        <amamt>1</amamt>
+        <wert />
+        <kwds>
+          <kwd>crowbar</kwd>
+          <kwd>bar</kwd>
+          <kwd>crow</kwd>
+          <kwd>tool</kwd>
+        </kwds>
+        <trs>
+          <tr>
+            <nom>Consumes (2) inventory spaces.</nom>
+            <reltrib>Carried Items Count</reltrib>
+            <v>2</v>
+          </tr>
+        </trs>
+      </reli>
+    </iqe>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - North Main Street</nom>
+    <ent>false</ent>
+    <initdr>Now you're standing on the North Main Street of Ashbury.
+It's not as welcoming as South Main Street, but it's clear that 
+it's because of all the missing person posters on the buildings here.
+
+You can see some more familiar building windows, like the Ashbury Theater,
+Jack's Ice Cream Parlor, and the hardware store... but all of the shops
+almost appear like they haven't been opened in ages.</initdr>
+    <gendr>You're standing on the North Main street of Ashbury.
+You can see some dark building windows and signs lining the sidewalk.
+There are 'Missing Person' posters on many of the buildings.</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Missing Person Poster: Simon</nom>
+          <inog>true</inog>
+          <idr>A poster containing info on a missing Ashbury resident.</idr>
+          <ogdr>Pasted at a crooked angle on the ice cream shop window 
+is a missing person poster.</ogdr>
+          <gendr>There's a missing person poster on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The missing poster is old... perhaps the first one.
+
+	It says: 
+
+		"MISSING: SIMON DURROW 
+		Have you seen this person?"
+
+	There is a photograph of a small boy with black hair next to a blonde woman.
+
+	"Male - Brunette - Age 8 - 4 ft 1 in - 52 lbs
+	Son of Robert and Lucy Durrow.
+
+	Last seen fishing with father, Robert, near East Forest River.
+	Missing since September 5"
+
+There's a small heart on the lower right corner of the poster,
+drawn in red crayon.
+</docx>
+          <wert />
+          <kwds>
+            <kwd>poster</kwd>
+            <kwd>missing</kwd>
+            <kwd>person</kwd>
+            <kwd>paper</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Use: increases Luck by (1)</nom>
+              <reltrib>Luck</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>main</kwrd>
+      <kwrd>street</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - East Plaza</nom>
+    <ent>false</ent>
+    <initdr>You're in the East Plaza of Ashbury.
+You feel very bothered to see the town so dark and so quiet.
+
+You remember the East Plaza being home to great gatherings,
+farmers markets, and cook-outs in the summertime... 
+
+In the light-less dark, chilled fall air it really doesn't feel like Ashbury...</initdr>
+    <gendr>You're in the East Plaza of Ashbury.
+In the light-less dark, chilled fall air it really doesn't feel like Ashbury...</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis />
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>plaza</kwrd>
+      <kwrd>street</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - West Plaza</nom>
+    <ent>false</ent>
+    <initdr>You're in the West Plaza of Ashbury.
+There's a non-functioning fountain here in the center of the plaza.
+You remember seeing children throwing coins into it when it was still Summer.
+
+You also remember there being walkways going North and South from the plaza,
+but those routes seem to have been boarded up and blocked off... 
+
+That seems pretty odd to you... Why would they board up paths inside the 
+town when the entire town is already walled off?</initdr>
+    <gendr>You're in the West Plaza of Ashbury.
+The walkways that you remember going North and South 
+from here are boarded up and blocked off...</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Toy Boat</nom>
+          <inog>true</inog>
+          <idr>A small toy boat made of plastic. 
+			"Charlie" is scribbled on the bottom.</idr>
+          <ogdr>Resting solemnly on the fountain is a forgotten toy boat.</ogdr>
+          <gendr>A toy boat is on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Default</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert />
+          <kwds>
+            <kwd>toy</kwd>
+            <kwd>boat</kwd>
+            <kwd>plastic</kwd>
+          </kwds>
+          <trs />
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>plaza</kwrd>
+      <kwrd>street</kwrd>
+    </kwrds>
+  </R>
+  <R xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <nom>Ashbury - Town Center</nom>
+    <ent>false</ent>
+    <initdr>You're in the Town Center of Ashbury.
+The moon is bright here, and the Town Center looks really nice.
+It's mostly a large grass plot, with a twenty-foot bronze statue
+of Emmett Skepp - the town's first mayor - in the middle of the plot.
+
+Encircling the area around the statue are weathered wood and metal benches,
+some even look like they may fall apart if you sat down in one.
+You recollect a time here, when you were much younger, sitting on the base
+of the grand statue. Your mother had accompanied you, but you can't seem to
+remember her face. She'd passed on when you were around five years old.</initdr>
+    <gendr>You're in the Town Center of Ashbury.
+The moon is brightly illuminating the twenty-foot bronze statue
+of Emmett Skepp - the towns first mayor - in the middle of the 
+grass plot that makes up the center of town.</gendr>
+    <exs />
+    <chrs />
+    <is>
+      <iis>
+        <ii>
+          <nom>Bottle of Rum</nom>
+          <inog>true</inog>
+          <idr>It's nearly empty, but there's enough to perk you up.</idr>
+          <ogdr>Sitting upright next to the leg of a bench is a bottle of rum.</ogdr>
+          <gendr>There's a bottle of rum on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Consumable Attribute</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert />
+          <kwds>
+            <kwd>bottle</kwd>
+            <kwd>rum</kwd>
+            <kwd>alcohol</kwd>
+            <kwd>drink</kwd>
+            <kwd>booze</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Use: increases Strength by (2)</nom>
+              <reltrib>Strength</reltrib>
+              <v>2</v>
+            </tr>
+            <tr>
+              <nom>Use: increases Max Carrying Capacity by (2)</nom>
+              <reltrib>Max Carrying Capacity</reltrib>
+              <v>2</v>
+            </tr>
+          </trs>
+        </ii>
+        <ii>
+          <nom>Missing Person Poster: Arthur</nom>
+          <inog>true</inog>
+          <idr>A poster containing info on a missing Ashbury resident.</idr>
+          <ogdr>You notice a missing person poster sticking halfway out of a trashcan.</ogdr>
+          <gendr>There's a missing person poster on the ground.</gendr>
+          <inv>1</inv>
+          <typ>Document</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <docx>The missing poster is recent...
+
+	It says: 
+
+		"MISSING: ARTHUR WALDEN 
+		Have you seen this person?"
+
+	There is a photograph of a rugged, bearded man in a red cap with ear flaps.
+
+	"Male - Brunette - Age 31 - 5 ft 11 in - 203 lbs
+	No immediate family resides in Ashbury.
+
+	Last location unknown. Neighbors say he frequented the East Forest River.
+	Missing since October 29"
+</docx>
+          <wert />
+          <kwds>
+            <kwd>poster</kwd>
+            <kwd>missing</kwd>
+            <kwd>person</kwd>
+            <kwd>paper</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Use: increases Strength by (1)</nom>
+              <reltrib>Strength</reltrib>
+              <v>1</v>
+            </tr>
+          </trs>
+        </ii>
+        <ii>
+          <nom>Crowbar</nom>
+          <inog>true</inog>
+          <idr>A heavy and effective tool for breaking and entering.</idr>
+          <ogdr>Laying over old Emmett Skepp's foot is a crowbar.</ogdr>
+          <gendr>There's a crowbar on the ground.</gendr>
+          <inv>2</inv>
+          <typ>Default</typ>
+          <amtyp />
+          <amamt>1</amamt>
+          <wert />
+          <kwds>
+            <kwd>crowbar</kwd>
+            <kwd>bar</kwd>
+            <kwd>crow</kwd>
+            <kwd>tool</kwd>
+          </kwds>
+          <trs>
+            <tr>
+              <nom>Consumes (2) inventory spaces.</nom>
+              <reltrib>Carried Items Count</reltrib>
+              <v>2</v>
+            </tr>
+          </trs>
+        </ii>
+      </iis>
+      <wis />
+    </is>
+    <kwrds>
+      <kwrd>center</kwrd>
+      <kwrd>town</kwrd>
+      <kwrd>middle</kwrd>
     </kwrds>
   </R>
 </root>

@@ -25,6 +25,10 @@ namespace TextBasedGame.Room.Models
         [XmlElement("exs")]
         public RoomExit AvailableExits { get; set; } = new RoomExit();
 
+        [XmlArray("chrs")]
+        [XmlArrayItem("chr")]
+        public List<Character.Models.Character> RoomCharacters { get; set; } = new List<Character.Models.Character>();
+
         [XmlElement("is")]
         public Items RoomItems { get; set; } = 
             new Items() { InventoryItems = new List<InventoryItem>(), WeaponItems = new List<WeaponItem>()};

@@ -2,6 +2,9 @@
 {
     public class DocumentTexts
     {
+        public static string MissingPersonPosterDescription  = 
+            "A poster containing info on a missing Ashbury resident.";
+
         public static string StrangeCreaturesBookText = 
             "There's a page marked in a section of the book called \"Ghouls, Demons, & Poltergeists\"... \n" +
             "\n\tIt says: \n" +
@@ -64,19 +67,19 @@
             "\n\t\"Lucy,\n" +
             "\n\t\tThis is just to say that I'll always love you.\n" +
             "\tI miss you more than I can bear. I have a hard time going home these days, \n" +
-            "\tknowing you won't be there. The police have all given up on finding you.\n" +
+            "\tknowing you and Simon won't be there. The police have all given up on finding you both.\n" +
             "\tThey seem far more concerned with the people who went missing after you did.\n" +
             "\tI don't feel anger so much anymore... It's mostly just sadness now.\n" +
             "\n\t\tEveryone is convinced of some frightening beast that keeps swooping our loved ones away,\n" +
             "\tstealing them from us in the night. I just can't believe all that.\n" +
             "\tBut I just don't seem to care any longer. All I feel is emptiness, there is nothing \n" +
-            "\tfor me now but the memory of you." +
+            "\tfor me now but the memory of you and our boy." +
             "\n\t\tI'm leaving my wedding ring here, on our boulder. The one we sat on together \n" +
             "\tthat night, so many years ago, when I asked you to marry me.\n" +
             "\tWhen you were staring up at the stars and I was staring at you.\n" +
             "\tAnd I knew that when you looked down from those stars, you'd be looking at me.\n" +
-            "\n\t\tI hope you're in those stars now, looking down at me still.\n" +
-            "\tI'll see you soon. I just hope the river isn't too cold.\"\n";
+            "\n\t\tI hope you and Simon are in those stars now, looking down at me still.\n" +
+            "\tI'll see you soon. I hope this river is too cold to feel it.\"\n";
 
         public static string WaterloggedJournal =
             "You open the waterlogged journal. The pages crackle a bit as you do.\n" +
@@ -96,5 +99,66 @@
             "\tI was terrified. But as it got closer to me, it veered off in the other direction.\n" +
             "\tI was fifteen feet from that creature, and I survived... Perhaps ~~\"\n" +
             "\nThe remaining pages are blank.\n";
+
+        public static string WestForestNotice =
+            "The paper is grimy... almost sticky, and also covered in some kind of soot or dust.\n" +
+            "It's dated July 1 from last year.\n" +
+            "\n\tIt says: \n" +
+            "\n\t\t\t\"ASHBURY ALERT: WEST FOREST UNSAFE\n" +
+            "\n\t\tMayor Finch is advising all Ashbury residents to exercise extreme caution\n" +
+            "\tin and around the West Forest, especially those with children. There have been continued reports\n" +
+            "\tof wild animal attacks on hikers, campers, and bicyclists inside the forest as well as near the road.\n" +
+            "\t\tMayor Finch has generously funded the construction of a wall on the West border of town \n" +
+            "\tin order to prevent further concerns about children and families living near the West Forest.\n" +
+            "\tDue to this, the annual firework festival will be moved to the East Plaza in consideration of \n" +
+            "\tthe construction work that will begin July 3, and continue into the next few weeks.\"\n" +
+            "\nAt the bottom of the page, there is some black ink splotches...\n" +
+            "and a note scrawled in the same ink: \"Tell Arthur.\"\n";
+
+        public static string MissingPersonLucy =
+            "The missing poster seems old... And you seem to recognize the name.\n" +
+            "\n\tIt says: \n" +
+            "\n\t\t\"MISSING: LUCY DURROW \n" +
+            "\t\tHave you seen this person?\"\n" +
+            "\n\tThere is a photograph of a beautiful blonde woman smiling in a grove of trees.\n" +
+            "\n\t\"Female - Blonde - Age 29 - 5 ft 5 in - 115 lbs\n" +
+            "\tWife of Robert Durrow, mother of Simon Durrow.\n" +
+            "\n\tLast seen exiting town towards the East, destination unknown.\n" +
+            "\tMissing since September 7\"\n";
+
+        public static string MissingPersonPenny =
+            "The missing poster is pretty recent...\n" +
+            "\n\tIt says: \n" +
+            "\n\t\t\"MISSING: PENNY LUNE \n" +
+            "\t\tHave you seen this person?\"\n" +
+            "\n\tThere is a photograph of a young brunette girl in a flower dress.\n" +
+            "\n\t\"Female - Brunette - Age 11 - 4 ft 6 in - 79 lbs\n" +
+            "\tDaughter of Heath and Heather Lune.\n" +
+            "\n\tLast seen near Jack's Ice Cream Parlor on North Main St. after dusk.\n" +
+            "\tMissing since October 20\"\n";
+
+        public static string MissingPersonSimon =
+            "The missing poster is old... perhaps the first one.\n" +
+            "\n\tIt says: \n" +
+            "\n\t\t\"MISSING: SIMON DURROW \n" +
+            "\t\tHave you seen this person?\"\n" +
+            "\n\tThere is a photograph of a small boy with black hair next to a blonde woman.\n" +
+            "\n\t\"Male - Brunette - Age 8 - 4 ft 1 in - 52 lbs\n" +
+            "\tSon of Robert and Lucy Durrow.\n" +
+            "\n\tLast seen fishing with father, Robert, near East Forest River.\n" +
+            "\tMissing since September 5\"\n" +
+            "\nThere's a small heart on the lower right corner of the poster,\n" +
+            "drawn in red crayon.\n";
+
+        public static string MissingPersonArthur =
+            "The missing poster is recent...\n" +
+            "\n\tIt says: \n" +
+            "\n\t\t\"MISSING: ARTHUR WALDEN \n" +
+            "\t\tHave you seen this person?\"\n" +
+            "\n\tThere is a photograph of a rugged, bearded man in a red cap with ear flaps.\n" +
+            "\n\t\"Male - Brunette - Age 31 - 5 ft 11 in - 203 lbs\n" +
+            "\tNo immediate family resides in Ashbury.\n" +
+            "\n\tLast location unknown. Neighbors say he frequented the East Forest River.\n" +
+            "\tMissing since October 29\"\n";
     }
 }

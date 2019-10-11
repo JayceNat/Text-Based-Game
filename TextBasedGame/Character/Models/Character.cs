@@ -12,6 +12,9 @@ namespace TextBasedGame.Character.Models
         [XmlElement("nom")]
         public string Name { get; set; }
 
+        [XmlElement("typ")]
+        public string CharacterType { get; set; } = Constants.CharacterTypes.Friendly;
+
         [XmlElement("loc")]
         public string CurrentRoomName { get; set; }
 
