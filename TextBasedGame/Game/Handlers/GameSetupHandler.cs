@@ -140,6 +140,14 @@ namespace TextBasedGame.Game.Handlers
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyEastPlaza);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyWestPlaza);
                 Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburyTownCenter);
+                // South Side
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthSquareEastAlley);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthEastVeterinaryClinic);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthEastCornerLot);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthEastDurrowHouse);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthEastAviary);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthEastWell);
+                Program.RoomSerializer.Serialize(xmlWriter, Program.RoomCreator.AshburySouthSquareWestAlley);
             }
         }
 
@@ -201,6 +209,14 @@ namespace TextBasedGame.Game.Handlers
                             Program.RoomCreator.AshburyEastPlaza = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.AshburyWestPlaza = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                             Program.RoomCreator.AshburyTownCenter = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            // South Side
+                            Program.RoomCreator.AshburySouthSquareEastAlley = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburySouthEastVeterinaryClinic = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburySouthEastCornerLot = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburySouthEastDurrowHouse = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburySouthEastAviary = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburySouthEastWell = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
+                            Program.RoomCreator.AshburySouthSquareWestAlley = (Room.Models.Room)Program.RoomSerializer.Deserialize(reader);
                         }
 
                         Console.Clear();
@@ -407,6 +423,43 @@ namespace TextBasedGame.Game.Handlers
             if (playerCurrentLocation == Program.RoomCreator.AshburyTownCenter.RoomName)
             {
                 return Program.RoomCreator.AshburyTownCenter;
+            }
+
+            //************** SOUTH SIDE **************
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburySouthSquareEastAlley.RoomName)
+            {
+                return Program.RoomCreator.AshburySouthSquareEastAlley;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburySouthEastVeterinaryClinic.RoomName)
+            {
+                return Program.RoomCreator.AshburySouthEastVeterinaryClinic;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburySouthEastCornerLot.RoomName)
+            {
+                return Program.RoomCreator.AshburySouthEastCornerLot;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburySouthEastDurrowHouse.RoomName)
+            {
+                return Program.RoomCreator.AshburySouthEastDurrowHouse;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburySouthEastAviary.RoomName)
+            {
+                return Program.RoomCreator.AshburySouthEastAviary;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburySouthEastWell.RoomName)
+            {
+                return Program.RoomCreator.AshburySouthEastWell;
+            }
+
+            if (playerCurrentLocation == Program.RoomCreator.AshburySouthSquareWestAlley.RoomName)
+            {
+                return Program.RoomCreator.AshburySouthSquareWestAlley;
             }
 
             #endregion

@@ -211,7 +211,7 @@ namespace TextBasedGame.Room.GameRooms
                                      "It dances occasionally in the sporadic gusts of wind.\n\n" +
                                      "Along the street on either side you spot the darkened shop windows of\n" +
                                      "the town grocery, veterinary clinic, and tavern.\n" +
-                                     "You shine your flashlight through the clinic window on the West side of the street," +
+                                     "You shine your flashlight through the clinic window on the West side of the street,\n" +
                                      "and for the slightest instant you think you see something moving around in there.",
             GenericRoomDescription = "You're standing on the South Main street of Ashbury.\n" +
                                      "You can see some dark shop windows and signs lining the sidewalk,\n" +
@@ -317,6 +317,155 @@ namespace TextBasedGame.Room.GameRooms
                 WeaponItems = new List<WeaponItem>()
             },
             KeywordsToEnter = RoomKeywords.AshburyTownCenter
+        };
+
+        public static Models.Room AshburySouthSquareEastAlley = new Models.Room
+        {
+            RoomName = "SouthEast Alley",
+            InitialRoomDescription = "You make your way into the brick-floored alley to the East of the South Square.\n" +
+                                     "The red brick looks nice in the moonlight, and you're pretty blocked from the wind here.",
+            GenericRoomDescription = "You're in a small, brick-floored alley just to the East of Ashbury's South Square.",
+            KeywordsToEnter = RoomKeywords.AshburyAlley
+        };
+
+        public static Models.Room AshburySouthEastVeterinaryClinic = new Models.Room
+        {
+            RoomName = "Ashbury - Veterinary Clinic",
+            InitialRoomDescription = "You open the back door into the Veterinary Clinic with no issues...\n" +
+                                     "The door was unlocked.\n\n" +
+                                     "You immediately note a disturbingly dead silence in here...\n" +
+                                     "Not even a sign of any animals.\n\n" +
+                                     "The floor and counter tops are a bright, sterile white.\n" +
+                                     "It makes it easy to see with your flashlight.",
+            GenericRoomDescription = "You entered the Veterinary Clinic through the unlocked back door.\n" +
+                                     "The floor and counter tops are a bright, sterile white.\n" +
+                                     "It's disturbingly quiet in here... and there aren't any animals.",
+            RoomItems = new Items
+            {
+                InventoryItems = new List<InventoryItem>
+                {
+                    Program.ItemCreator.TownEastGateKey,
+                    Program.ItemCreator.BrandNewFlashlightBattery
+                },
+                WeaponItems = new List<WeaponItem>()
+            },
+            KeywordsToEnter = RoomKeywords.AshburySouthEastVeterinaryClinic,
+            ItemRequirementToEnter = new ItemRequirement
+            {
+                RequirementName = Program.ItemCreator.Flashlight.ItemName,
+                RelevantItem = Program.ItemCreator.Flashlight
+            }
+        };
+
+        public static Models.Room AshburySouthEastCornerLot = new Models.Room
+        {
+            RoomName = "Ashbury - SouthEast Corner Lot",
+            InitialRoomDescription = "You walk out of the brick alleyway into an open lot.\n" +
+                                     "It's a quaint corner of the town, it feels very peaceful.\n" +
+                                     "It reminds you of a smaller version of a cul-de-sac.",
+            GenericRoomDescription = "You're in the open lot,\n" +
+                                     "It's quaint and peaceful, and reminds you of a miniature cul-de-sac.",
+            RoomItems = new Items
+            {
+                InventoryItems = new List<InventoryItem>
+                {
+                    Program.ItemCreator.MissingPersonPosterDuncan
+                },
+                WeaponItems = new List<WeaponItem>()
+            },
+            KeywordsToEnter = RoomKeywords.AshburySouthEastCornerLot
+        };
+
+        public static Models.Room AshburySouthEastDurrowHouse = new Models.Room
+        {
+            RoomName = "Ashbury - Durrow House",
+            InitialRoomDescription = "You knock on the door of the Durrow house.\n" +
+                                     "...No one answers.\n" +
+                                     "You unlock the front door and walk inside. You loudly say \"Hello?\"...\n" +
+                                     "... And hear silence in response.\n\n" +
+                                     "It's really somber inside... You can feel sadness all around you.\n" +
+                                     "You can see into the main room of the house, and it seems well-kept.\n\n" +
+                                     "You recollect a time you'd enjoyed dinner here by invitation of Robert Durrow,\n" +
+                                     "as well as his wife Lucy and their son Simon...\n" +
+                                     "You quickly expel the memory from your mind, as it brings you great sorrow.\n\n" +
+                                     "You hope your old friend Robert is doing ok, wherever he is.",
+            GenericRoomDescription = "You're standing in the somber, cold home of the Durrow family.\n" +
+                                     "It just reminds you of the time you had dinner here with Robert, Lucy, and Simon...",
+            RoomItems = new Items
+            {
+                InventoryItems = new List<InventoryItem>
+                {
+                    Program.ItemCreator.ForestGreenCargoPants,
+                    Program.ItemCreator.ChildsDrawing,
+                    Program.ItemCreator.NoteToRobertDurrow
+                },
+                WeaponItems = new List<WeaponItem>
+                {
+                    Program.ItemCreator.Shotgun
+                }
+            },
+            KeywordsToEnter = RoomKeywords.AshburySouthEastDurrowHouse,
+            ItemRequirementToEnter = new ItemRequirement
+            {
+                RequirementName = Program.ItemCreator.TownDurrowHouseKey.ItemName,
+                RelevantItem = Program.ItemCreator.TownDurrowHouseKey
+            }
+        };
+
+        public static Models.Room AshburySouthEastAviary = new Models.Room
+        {
+            RoomName = "Ashbury - Aviary",
+            InitialRoomDescription = "You go into the town Aviary, it's quite spacious and open inside.\n" +
+                                     "There are no birds here anymore; you know it was mostly just a fad for a while.\n" +
+                                     "Some of the residents really loved it, and cared for many birds here.\n\n" +
+                                     "It's pretty dilapidated now, but there are still dozens of perches and toys\n" +
+                                     "secured to and dangling from all parts of the cage's interior.",
+            GenericRoomDescription = "You're inside a big outdoor bird cage. There are no birds, but the\n" +
+                                     "entire cage is still full of perches and toys.",
+            RoomItems = new Items
+            {
+                InventoryItems = new List<InventoryItem>
+                {
+                    Program.ItemCreator.MangledBallCap
+                },
+                WeaponItems = new List<WeaponItem>()
+            },
+            KeywordsToEnter = RoomKeywords.AshburySouthEastAviary
+        };
+
+        public static Models.Room AshburySouthEastWell = new Models.Room
+        {
+            RoomName = "Ashbury - Community Well",
+            InitialRoomDescription = "You approach the town well. It's a smaller than average stone well.\n" +
+                                     "It's been around for some time. You heard someone tell you once that\n" +
+                                     "it was built around the time of the Salem Witch trials. \n\n" +
+                                     "It has the typical wench and pulley system as you'd expect, \n" +
+                                     "with a bucket attached to the end of a rope.\n\n" +
+                                     "The only thing out of the ordinary with the well is how deep it goes.\n" +
+                                     "In fact, no one actually knows. You heard once from Henry\n" +
+                                     "that Arthur Walden once threw a fish into it and a splash was never heard.",
+            GenericRoomDescription = "You're at the Ashbury town well. \n" +
+                                     "It's somewhat small in diameter, but it's dangerously deep.",
+            RoomItems = new Items
+            {
+                InventoryItems = new List<InventoryItem>
+                {
+                    Program.ItemCreator.TownDurrowHouseKey
+                },
+                WeaponItems = new List<WeaponItem>()
+            },
+            KeywordsToEnter = RoomKeywords.AshburySouthEastWell
+        };
+
+
+        public static Models.Room AshburySouthSquareWestAlley = new Models.Room
+        {
+            RoomName = "SouthWest Alley",
+            InitialRoomDescription = "You make your way into the musty alley to the West of the South Square.\n" +
+                                     "The alley is dark, concealed from the moonlight. \n" +
+                                     "Sounds like rats are squeaking inside the walls of the alley.",
+            GenericRoomDescription = "You're in a musty, dark alley just to the West of Ashbury's South Square.",
+            KeywordsToEnter = RoomKeywords.AshburyAlley
         };
     }
 }

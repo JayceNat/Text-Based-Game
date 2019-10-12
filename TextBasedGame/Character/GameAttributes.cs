@@ -48,10 +48,10 @@ namespace TextBasedGame.Character
         {
             AvailablePoints = 0,
             MaximumCarryingCapacity = 2,
-            Defense = 20,
+            Defense = 25,
             Dexterity = 12,
             Luck = 10,
-            Stamina = 17,
+            Stamina = 25,
             Strength = 25,
             Wisdom = 5
         };

@@ -27,6 +27,7 @@ namespace TextBasedGame.Item.Interfaces
         InventoryItem BloodyJeans { get; }
         InventoryItem LuckyBrandChewingGum { get; }
         InventoryItem HuntingCap { get; }
+        InventoryItem MangledBallCap { get; }
         InventoryItem PlatinumRing { get; }
         InventoryItem SomberNote { get; }
         InventoryItem TownSouthGateKey { get; }
@@ -51,12 +52,18 @@ namespace TextBasedGame.Item.Interfaces
         InventoryItem ToyBoat { get; }
         InventoryItem BottleOfRum { get; }
         InventoryItem SteelToedBoots { get; }
+        InventoryItem BrandNewFlashlightBattery { get; }
+        InventoryItem TownDurrowHouseKey { get; }
+        InventoryItem ForestGreenCargoPants { get; }
+        InventoryItem ChildsDrawing { get; }
+        InventoryItem NoteToRobertDurrow { get; }
 
         // Missing Person Posters
         InventoryItem MissingPersonPosterLucy { get; }
         InventoryItem MissingPersonPosterPenny { get; }
         InventoryItem MissingPersonPosterSimon { get; }
         InventoryItem MissingPersonPosterArthur { get; }
+        InventoryItem MissingPersonPosterDuncan { get; }
 
         // Declare all getters for any Weapons you will use here
         WeaponItem LetterOpener { get; }
@@ -65,6 +72,7 @@ namespace TextBasedGame.Item.Interfaces
         WeaponItem LumberAxe { get; }
         WeaponItem FiremansAxe { get; }
         WeaponItem MagnumRevolver { get; }
+        WeaponItem Shotgun { get; }
         WeaponItem GhoulRifle { get; }
         WeaponItem GhoulClaws { get; }
     }

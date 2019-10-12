@@ -406,6 +406,23 @@ namespace TextBasedGame.Item
             }
         };
 
+        public static InventoryItem MangledBallCap = new InventoryItem
+        {
+            ItemName = "Mangled Ball Cap",
+            InOriginalLocation = true,
+            ItemDescription = "A black ball cap that's seen better days.",
+            OriginalPlacementDescription = "Hanging on a perch is a mangled black ball cap.",
+            GenericPlacementDescription = "A mangled black ball cap is on the ground.",
+            InventorySpaceConsumed = 0,
+            TreatItemAs = ItemUseTypes.Wearable,
+            WearableType = ItemUseTypes.HeadWear,
+            KeywordsForPickup = ItemKeywords.MangledBallCap,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.DefenseIncrease(1)
+            }
+        };
+
         public static InventoryItem PlatinumRing = new InventoryItem
         {
             ItemName = "Platinum Ring",
@@ -741,7 +758,7 @@ namespace TextBasedGame.Item
             ItemName = "Ashbury East Gate Key",
             InOriginalLocation = true,
             ItemDescription = "A steel key with a tag that says \"East Gate.\"",
-            OriginalPlacementDescription = "A KEYYYYYY!",
+            OriginalPlacementDescription = "Hanging from a hook behind the front desk is a key.",
             GenericPlacementDescription = "A steel key is on the ground.",
             InventorySpaceConsumed = 0,
             TreatItemAs = ItemUseTypes.Key,
@@ -749,6 +766,50 @@ namespace TextBasedGame.Item
             ItemTraits = new List<ItemTrait>
             {
                 Program.ItemTraitCreator.CarriedItemsIncrease(0)
+            }
+        };
+
+        public static InventoryItem BrandNewFlashlightBattery = new InventoryItem
+        {
+            ItemName = "Brand New Flashlight Battery",
+            InOriginalLocation = true,
+            ItemDescription = "A brand new flashlight battery.",
+            OriginalPlacementDescription = "In a box near a display case of hand-knit dog collars is a battery.",
+            GenericPlacementDescription = "There's a flashlight battery on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.ConsumableBattery,
+            KeywordsForPickup = ItemKeywords.FlashlightBattery,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.BatteryItem(98)
+            }
+        };
+
+        public static InventoryItem TownDurrowHouseKey = new InventoryItem
+        {
+            ItemName = "Brass Key",
+            InOriginalLocation = true,
+            ItemDescription = "A small brass key. It looks like a house key.",
+            OriginalPlacementDescription = "On the edge of the well, you notice a small brass key.",
+            GenericPlacementDescription = "A small brass key is on the ground.",
+            InventorySpaceConsumed = 0,
+            TreatItemAs = ItemUseTypes.Key,
+            KeywordsForPickup = ItemKeywords.TownDurrowHouseKey,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.CarriedItemsIncrease(0)
+            },
+            AttributeRequirementToSee = new AttributeRequirement
+            {
+                RequirementName = "Dexterity - 7+",
+                RelevantCharacterAttribute = AttributeStrings.Dexterity,
+                MinimumAttributeValue = 7
+            },
+            AttributeRequirementToTake = new AttributeRequirement
+            {
+                RequirementName = "Dexterity - 8+",
+                RelevantCharacterAttribute = AttributeStrings.Dexterity,
+                MinimumAttributeValue = 8
             }
         };
 
@@ -867,6 +928,61 @@ namespace TextBasedGame.Item
             }
         };
 
+        public static InventoryItem ForestGreenCargoPants = new InventoryItem
+        {
+            ItemName = "Forest Green Cargo Pants",
+            InOriginalLocation = true,
+            ItemDescription = "Not too stylish, but they are really useful.",
+            OriginalPlacementDescription = "Folded neatly on an ottoman near the front door is \n" +
+                                           "a pair of forest green cargo pants.",
+            GenericPlacementDescription = "A pair of green cargo pants are on the ground.",
+            InventorySpaceConsumed = 0,
+            TreatItemAs = ItemUseTypes.Wearable,
+            WearableType = ItemUseTypes.LegWear,
+            KeywordsForPickup = ItemKeywords.CargoPants,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.CarryingCapacityIncrease(2),
+                Program.ItemTraitCreator.DefenseIncrease(1)
+            }
+        };
+
+        public static InventoryItem ChildsDrawing = new InventoryItem
+        {
+            ItemName = "Child's Drawing",
+            InOriginalLocation = true,
+            ItemDescription = "Various crayon colors on lined paper.",
+            OriginalPlacementDescription = "Propped up against the left wall on an entryway table is\n" +
+                                           "a child's drawing.",
+            GenericPlacementDescription = "There's a piece of paper with a child's artwork on the floor.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.Document,
+            DocumentText = DocumentTexts.ChildsDrawing,
+            KeywordsForPickup = ItemKeywords.ChildsDrawing,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Strength, 1)
+            }
+        };
+
+        public static InventoryItem NoteToRobertDurrow = new InventoryItem
+        {
+            ItemName = "Note to Robert Durrow",
+            InOriginalLocation = true,
+            ItemDescription = "It's handwritten in cursive.",
+            OriginalPlacementDescription = "You notice a folded piece of paper tucked underneath\n" +
+                                           "a decorative bowl on a table near the door.",
+            GenericPlacementDescription = "A small folded note is on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.Document,
+            DocumentText = DocumentTexts.NoteToRobertDurrow,
+            KeywordsForPickup = ItemKeywords.NoteToRobertDurrow,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Strength, 1)
+            }
+        };
+
         public static InventoryItem MissingPersonPosterLucy = new InventoryItem
         {
             ItemName = "Missing Person Poster for Lucy Durrow",
@@ -934,6 +1050,23 @@ namespace TextBasedGame.Item
             ItemTraits = new List<ItemTrait>
             {
                 Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Strength, 1)
+            }
+        };
+
+        public static InventoryItem MissingPersonPosterDuncan = new InventoryItem
+        {
+            ItemName = "Missing Person Poster for Duncan Travis",
+            InOriginalLocation = true,
+            ItemDescription = DocumentTexts.MissingPersonPosterDescription,
+            OriginalPlacementDescription = "On the ground of the open lot is a poster swirling lightly in the wind.",
+            GenericPlacementDescription = "There's a missing person poster on the ground.",
+            InventorySpaceConsumed = 1,
+            TreatItemAs = ItemUseTypes.Document,
+            DocumentText = DocumentTexts.MissingPersonDuncan,
+            KeywordsForPickup = ItemKeywords.MissingPersonPoster,
+            ItemTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.ConsumedAttributeItem(AttributeStrings.Dexterity, 1)
             }
         };
     }

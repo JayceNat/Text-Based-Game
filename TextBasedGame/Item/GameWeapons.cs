@@ -95,14 +95,32 @@ namespace TextBasedGame.Item
             InOriginalLocation = true,
             WeaponDescription = "A hefty revolver. It's been well taken care of.",
             OriginalPlacementDescription = "",
-            GenericPlacementDescription = "Someone seems to have left a revolver laying on the floor here.",
+            GenericPlacementDescription = "Someone seems to have left a revolver laying on the ground here.",
             AttackPower = 20,
             AmmunitionAmount = 12,
             AmmunitionType = ItemUseTypes.Ammo44,
             KeywordsForPickup = ItemKeywords.MagnumRevolver,
             WeaponTraits = new List<ItemTrait>
             {
-                Program.ItemTraitCreator.StrengthIncrease(3)
+                Program.ItemTraitCreator.StrengthIncrease(4)
+            }
+        };
+
+        public static WeaponItem Shotgun = new WeaponItem
+        {
+            WeaponName = "Shotgun",
+            InOriginalLocation = true,
+            WeaponDescription = "A beautiful shotgun with a wolf carved into the stock.",
+            OriginalPlacementDescription = "Standing upright inside of an umbrella basket is a shotgun.",
+            GenericPlacementDescription = "Someone seems to have left a shotgun laying on the ground here.",
+            AttackPower = 15,
+            AmmunitionAmount = 2,
+            AmmunitionType = ItemUseTypes.AmmoShotgun,
+            KeywordsForPickup = ItemKeywords.Shotgun,
+            WeaponTraits = new List<ItemTrait>
+            {
+                Program.ItemTraitCreator.StrengthIncrease(3),
+                Program.ItemTraitCreator.DefenseIncrease(1)
             }
         };
 
@@ -110,10 +128,11 @@ namespace TextBasedGame.Item
         {
             WeaponName = "Ghoul Rifle",
             InOriginalLocation = true,
-            WeaponDescription = "An elegant and powerful weapon. Uses a caliber of bullet you've never seen before...",
+            WeaponDescription = "An elegant, ornate, and powerful weapon.\n" +
+                                "\t\t\tFitted for a caliber of bullet you've never seen before...",
             OriginalPlacementDescription = "",
             GenericPlacementDescription = "An ornate and beautifully made rifle rests on the ground...",
-            AttackPower = 50,
+            AttackPower = 75,
             AmmunitionAmount = 0,
             AmmunitionType = ItemUseTypes.AmmoGold,
             KeywordsForPickup = ItemKeywords.GhoulRifle,
@@ -136,7 +155,7 @@ namespace TextBasedGame.Item
             WeaponDescription = "Incredibly sharp, jagged claws from the tips of a Ghoul's bloody fingers.",
             OriginalPlacementDescription = "",
             GenericPlacementDescription = "Bloodied and sharp black objects lay strewn on the floor... \n They almost look like shards of obsidian.",
-            AttackPower = 8
+            AttackPower = 25
         };
     }
 }

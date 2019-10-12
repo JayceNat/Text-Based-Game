@@ -28,6 +28,7 @@ namespace TextBasedGame.Item.Implementations
         public InventoryItem BloodyJeans { get; }
         public InventoryItem LuckyBrandChewingGum { get; }
         public InventoryItem HuntingCap { get; }
+        public InventoryItem MangledBallCap { get; }
         public InventoryItem PlatinumRing { get; }
         public InventoryItem SomberNote { get; }
         public InventoryItem TownSouthGateKey { get; }
@@ -52,12 +53,18 @@ namespace TextBasedGame.Item.Implementations
         public InventoryItem ToyBoat { get; }
         public InventoryItem BottleOfRum { get; }
         public InventoryItem SteelToedBoots { get; }
+        public InventoryItem BrandNewFlashlightBattery { get; }
+        public InventoryItem TownDurrowHouseKey { get; }
+        public InventoryItem ForestGreenCargoPants { get; }
+        public InventoryItem ChildsDrawing { get; }
+        public InventoryItem NoteToRobertDurrow { get; }
 
         // Missing Person Posters
         public InventoryItem MissingPersonPosterLucy { get; }
         public InventoryItem MissingPersonPosterPenny { get; }
         public InventoryItem MissingPersonPosterSimon { get; }
         public InventoryItem MissingPersonPosterArthur { get; }
+        public InventoryItem MissingPersonPosterDuncan { get; }
 
         // Declare all getters for any Weapons you will use here
         public WeaponItem LetterOpener { get; }
@@ -66,6 +73,7 @@ namespace TextBasedGame.Item.Implementations
         public WeaponItem LumberAxe { get; }
         public WeaponItem FiremansAxe { get; }
         public WeaponItem MagnumRevolver { get; }
+        public WeaponItem Shotgun { get; }
         public WeaponItem GhoulRifle { get; }
         public WeaponItem GhoulClaws { get; }
 
@@ -95,6 +103,7 @@ namespace TextBasedGame.Item.Implementations
             BloodyJeans = GameItems.BloodyJeans;
             LuckyBrandChewingGum = GameItems.LuckyBrandChewingGum;
             HuntingCap = GameItems.HuntingCap;
+            MangledBallCap = GameItems.MangledBallCap;
             PlatinumRing = GameItems.PlatinumRing;
             SomberNote = GameItems.SomberNote;
             TownSouthGateKey = GameItems.TownSouthGateKey;
@@ -119,10 +128,16 @@ namespace TextBasedGame.Item.Implementations
             ToyBoat = GameItems.ToyBoat;
             BottleOfRum = GameItems.BottleOfRum;
             SteelToedBoots = GameItems.SteelToedBoots;
+            TownDurrowHouseKey = GameItems.TownDurrowHouseKey;
+            ForestGreenCargoPants = GameItems.ForestGreenCargoPants;
+            ChildsDrawing = GameItems.ChildsDrawing;
+            NoteToRobertDurrow = GameItems.NoteToRobertDurrow;
+            BrandNewFlashlightBattery = GameItems.BrandNewFlashlightBattery;
             MissingPersonPosterLucy = GameItems.MissingPersonPosterLucy;
             MissingPersonPosterPenny = GameItems.MissingPersonPosterPenny;
             MissingPersonPosterSimon = GameItems.MissingPersonPosterSimon;
             MissingPersonPosterArthur = GameItems.MissingPersonPosterArthur;
+            MissingPersonPosterDuncan = GameItems.MissingPersonPosterDuncan;
 
             // Weapon Items
             LetterOpener = GameWeapons.LetterOpener;
@@ -131,6 +146,7 @@ namespace TextBasedGame.Item.Implementations
             LumberAxe = GameWeapons.LumberAxe;
             FiremansAxe = GameWeapons.FiremansAxe;
             MagnumRevolver = GameWeapons.MagnumRevolver;
+            Shotgun = GameWeapons.Shotgun;
             GhoulRifle = GameWeapons.GhoulRifle;
             GhoulClaws = GameWeapons.GhoulClaws;
         }

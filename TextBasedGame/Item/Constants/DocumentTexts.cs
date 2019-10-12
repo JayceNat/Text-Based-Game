@@ -115,6 +115,36 @@
             "\nAt the bottom of the page, there is some black ink splotches...\n" +
             "and a note scrawled in the same ink: \"Tell Arthur.\"\n";
 
+        public static string ChildsDrawing =
+            "\tThe drawing is vibrant and striking. Predominantly consisting of orange crayon,\n" +
+            "\twith other pronounced accent colors of blue, red, and green. It's been made on lined loose-leaf paper.\n\n" +
+            "\tTo you it looks like three human figures, two being larger and taller than the third.\n" +
+            "\tIt resembles a family, perhaps sitting around a table at breakfast, or maybe dinner.\n\n" +
+            "\tThere's a plant in the center of the table, looking almost like an aloe vera.\n" +
+            "\tOr it may be a bowl of salad...\n\n" +
+            "\tEither way, it only makes you feel weighted sorry in the pit of your stomach to look at it.\n";
+
+        public static string NoteToRobertDurrow =
+            "The note is folded quite neatly, in a perfect square.\n" +
+            "It's written in a very elegant cursive.\n" +
+            "\n\tIt says: \n" +
+            "\n\t\"Sweetheart,\n" +
+            "\n\t\tI won't be home when you read this, but don't worry. I'll be back before dinner time.\n" +
+            "\tI just can't stand to be inside this house right now. \n" +
+            "\tI miss our Sunny Simon so much more than I have words for.\n" +
+            "\tI won't just sit here and wait for the police to try finding our boy.\n" +
+            "\n\t\tHe's out there on his own, and he needs us. I have to go look for him again.\n" +
+            "\tI had a dream last night that he'd gotten lost in the woods near the campground.\n" +
+            "\tI really think he might be there... At the campground.\n" +
+            "\tJust waiting for us to come get him.\n" +
+            "\tMaybe he stayed in the forest after you'd taken him fishing.\n" +
+            "\n\t\tDo you remember when we'd taken him camping last month? He'd had so much fun. \n" +
+            "\tAnd I'll never forget\n" +
+            "\tthe two of you crouched down together, building a fire.\n" +
+            "\n\tI'll be home soon.\n" +
+            "\n\tI love you.\n" +
+            "\txoxo Lucy\"\n";
+
         public static string MissingPersonLucy =
             "The missing poster seems old... And you seem to recognize the name.\n" +
             "\n\tIt says: \n" +
@@ -151,7 +181,7 @@
             "drawn in red crayon.\n";
 
         public static string MissingPersonArthur =
-            "The missing poster is recent...\n" +
+            "The missing poster is pretty recent...\n" +
             "\n\tIt says: \n" +
             "\n\t\t\"MISSING: ARTHUR WALDEN \n" +
             "\t\tHave you seen this person?\"\n" +
@@ -159,6 +189,17 @@
             "\n\t\"Male - Brunette - Age 31 - 5 ft 11 in - 203 lbs\n" +
             "\tNo immediate family resides in Ashbury.\n" +
             "\n\tLast location unknown. Neighbors say he frequented the East Forest River.\n" +
-            "\tMissing since October 29\"\n";
+            "\tMissing since October 24\"\n";
+
+        public static string MissingPersonDuncan =
+            "The missing poster is very recent...\n" +
+            "\n\tIt says: \n" +
+            "\n\t\t\"MISSING: DUNCAN TRAVIS \n" +
+            "\t\tHave you seen this person?\"\n" +
+            "\n\tThere is a photograph of a smiling young man wearing a vintage bomber jacket.\n" +
+            "\n\t\"Male - Brunette - Age 17 - 5 ft 9 in - 143 lbs\n" +
+            "\tSon of Nancy Travis.\n" +
+            "\n\tLast seen near the East Forest with camping gear.\n" +
+            "\tMissing since November 1\"\n";
     }
 }

@@ -109,6 +109,13 @@ namespace TextBasedGame.Item.Constants
             "44"
         };
 
+        public static List<string> Shotgun = new List<string>()
+        {
+            "shotgun",
+            "gun",
+            "shot"
+        };
+
         public static List<string> Femur = new List<string>()
         {
             "bone",
@@ -222,6 +229,15 @@ namespace TextBasedGame.Item.Constants
             "red",
             "hat",
             "hunting",
+            "cap"
+        };
+
+        public static List<string> MangledBallCap = new List<string>()
+        {
+            "mangled",
+            "black",
+            "hat",
+            "ball",
             "cap"
         };
 
@@ -346,6 +362,14 @@ namespace TextBasedGame.Item.Constants
             "cooked"
         };
 
+        public static List<string> TownDurrowHouseKey = new List<string>()
+        {
+            "key",
+            "object",
+            "brass",
+            "small"
+        };
+
         public static List<string> TownNorthGateKey = new List<string>()
         {
             "key",
@@ -429,6 +453,34 @@ namespace TextBasedGame.Item.Constants
             "missing",
             "person",
             "paper"
+        };
+
+        public static List<string> CargoPants = new List<string>()
+        {
+            "forest",
+            "green",
+            "cargo",
+            "pants",
+            "folded"
+        };
+
+        public static List<string> ChildsDrawing = new List<string>()
+        {
+            "drawing",
+            "child",
+            "childs",
+            "child's",
+            "paper"
+        };
+
+        public static List<string> NoteToRobertDurrow = new List<string>()
+        {
+            "note",
+            "folded",
+            "paper",
+            "small",
+            "letter",
+            "cursive"
         };
     }
 }

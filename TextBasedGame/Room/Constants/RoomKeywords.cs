@@ -200,5 +200,50 @@ namespace TextBasedGame.Room.Constants
             "town",
             "middle"
         };
+
+        public static List<string> AshburyAlley = new List<string>()
+        {
+            "alley",
+            "ally"
+        };
+
+        public static List<string> AshburySouthEastVeterinaryClinic = new List<string>()
+        {
+            "veterinary",
+            "vet",
+            "clinic"
+        };
+
+        public static List<string> AshburySouthEastCornerLot = new List<string>()
+        {
+            "lot",
+            "open",
+            "corner"
+        };
+
+        public static List<string> AshburySouthEastDurrowHouse = new List<string>()
+        {
+            "durrow",
+            "durrows",
+            "house",
+            "door",
+            "home"
+        };
+
+        public static List<string> AshburySouthEastAviary = new List<string>()
+        {
+            "aviary",
+            "cage",
+            "bird",
+            "empty"
+        };
+
+        public static List<string> AshburySouthEastWell = new List<string>()
+        {
+            "well",
+            "stone",
+            "water",
+            "watering"
+        };
     }
 }

@@ -48,6 +48,13 @@ namespace TextBasedGame.Room.Implementations
         public Models.Room AshburyEastPlaza { get; set; }
         public Models.Room AshburyWestPlaza { get; set; }
         public Models.Room AshburyTownCenter { get; set; }
+        public Models.Room AshburySouthSquareEastAlley { get; set; }
+        public Models.Room AshburySouthEastVeterinaryClinic { get; set; }
+        public Models.Room AshburySouthEastCornerLot { get; set; }
+        public Models.Room AshburySouthEastDurrowHouse { get; set; }
+        public Models.Room AshburySouthEastAviary { get; set; }
+        public Models.Room AshburySouthEastWell { get; set; }
+        public Models.Room AshburySouthSquareWestAlley { get; set; }
 
         // Constructor: Add the reference to all the Room Objects here
         public RoomCreator()
@@ -91,6 +98,13 @@ namespace TextBasedGame.Room.Implementations
             AshburyEastPlaza = Town.AshburyEastPlaza;
             AshburyWestPlaza = Town.AshburyWestPlaza;
             AshburyTownCenter = Town.AshburyTownCenter;
+            AshburySouthSquareEastAlley = Town.AshburySouthSquareEastAlley;
+            AshburySouthEastVeterinaryClinic = Town.AshburySouthEastVeterinaryClinic;
+            AshburySouthEastCornerLot = Town.AshburySouthEastCornerLot;
+            AshburySouthEastDurrowHouse = Town.AshburySouthEastDurrowHouse;
+            AshburySouthEastAviary = Town.AshburySouthEastAviary;
+            AshburySouthEastWell = Town.AshburySouthEastWell;
+            AshburySouthSquareWestAlley = Town.AshburySouthSquareWestAlley;
 
             AddExitsToAllRooms();
         }
@@ -334,12 +348,12 @@ namespace TextBasedGame.Room.Implementations
             {
                 NorthRoom = AshburySouthMainStreet,
                 NorthRoomDescription = "Ahead of you, and to the North, is the metal alley door to South Main Street.",
-//                EastRoom = null,
-//                EastRoomDescription = "",
+                EastRoom = AshburySouthSquareEastAlley,
+                EastRoomDescription = "To your right is an alley going East.",
                 SouthRoom = TownSouthEntrance,
                 SouthRoomDescription = "Behind you, and to the South, is the South Gate exit from town.",
-//                WestRoom = null,
-//                WestRoomDescription = ""
+                WestRoom = AshburySouthSquareWestAlley,
+                WestRoomDescription = "To your left is an alley going West."
             };
 
             AshburyNorthSquare.AvailableExits = new RoomExit
@@ -422,6 +436,66 @@ namespace TextBasedGame.Room.Implementations
                 WestRoomDescription = "To the West is the West Plaza."
             };
 
+            AshburySouthSquareEastAlley.AvailableExits = new RoomExit
+            {
+                NorthRoom = AshburySouthEastVeterinaryClinic,
+                NorthRoomDescription = "To the North is a back door into the old Ashbury Veterinary Clinic.",
+                EastRoom = AshburySouthEastCornerLot,
+                EastRoomDescription = "To the East is a small walkway leading to an open lot.",
+                WestRoom = AshburySouthSquare,
+                WestRoomDescription = "To the West is the South Square of Ashbury."
+            };
+
+            AshburySouthEastVeterinaryClinic.AvailableExits = new RoomExit
+            {
+                //NorthRoom = null,
+                //NorthRoomDescription = null,
+                SouthRoom = AshburySouthSquareEastAlley,
+                SouthRoomDescription = "Behind you is the door back out into the SouthEast alley."
+            };
+
+            AshburySouthEastCornerLot.AvailableExits = new RoomExit
+            {
+                NorthRoom = AshburySouthEastDurrowHouse,
+                NorthRoomDescription = "To the North is the front door of the Durrow's house.",
+                EastRoom = AshburySouthEastAviary,
+                EastRoomDescription = "To the East is the entrance into a large, empty aviary.",
+                SouthRoom = AshburySouthEastWell,
+                SouthRoomDescription = "To the South is a stone well.",
+                WestRoom = AshburySouthSquareEastAlley,
+                WestRoomDescription = "To the West is the alley leading back to the South Square."
+            };
+
+            AshburySouthEastDurrowHouse.AvailableExits = new RoomExit
+            {
+                SouthRoom = AshburySouthEastCornerLot,
+                SouthRoomDescription = "Behind you is the front door back to the open lot."
+            };
+
+            AshburySouthEastAviary.AvailableExits = new RoomExit
+            {
+                WestRoom = AshburySouthEastCornerLot,
+                WestRoomDescription = "To the West is the aviary door back to the open lot."
+            };
+
+            AshburySouthEastWell.AvailableExits = new RoomExit
+            {
+                NorthRoom = AshburySouthEastCornerLot,
+                NorthRoomDescription = "To the North is the open lot."
+            };
+
+            AshburySouthSquareWestAlley.AvailableExits = new RoomExit
+            {
+//                NorthRoom = null,
+//                NorthRoomDescription = null,
+                EastRoom = AshburySouthSquare,
+                EastRoomDescription = "Back to the East is the South Square of Ashbury.",
+//                SouthRoom = null,
+//                SouthRoomDescription = null,
+//                WestRoom = null,
+//                WestRoomDescription = null
+            };
+
             #endregion
         }
 
@@ -467,6 +541,13 @@ namespace TextBasedGame.Room.Implementations
             AshburyEastPlaza.AvailableExits = new RoomExit();
             AshburyWestPlaza.AvailableExits = new RoomExit();
             AshburyTownCenter.AvailableExits = new RoomExit();
+            AshburySouthSquareEastAlley.AvailableExits = new RoomExit();
+            AshburySouthEastVeterinaryClinic.AvailableExits = new RoomExit();
+            AshburySouthEastCornerLot.AvailableExits = new RoomExit();
+            AshburySouthEastDurrowHouse.AvailableExits = new RoomExit();
+            AshburySouthEastAviary.AvailableExits = new RoomExit();
+            AshburySouthEastWell.AvailableExits = new RoomExit();
+            AshburySouthSquareWestAlley.AvailableExits = new RoomExit();
         }
     }
 }

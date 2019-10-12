@@ -44,6 +44,13 @@
         Models.Room AshburyEastPlaza { get; set; }
         Models.Room AshburyWestPlaza { get; set; }
         Models.Room AshburyTownCenter { get; set; }
+        Models.Room AshburySouthSquareEastAlley { get; set; }
+        Models.Room AshburySouthEastVeterinaryClinic { get; set; }
+        Models.Room AshburySouthEastCornerLot { get; set; }
+        Models.Room AshburySouthEastDurrowHouse { get; set; }
+        Models.Room AshburySouthEastAviary { get; set; }
+        Models.Room AshburySouthEastWell { get; set; }
+        Models.Room AshburySouthSquareWestAlley { get; set; }
 
         // Helpers to avoid circular dependency during compilation and serialization
         void AddExitsToAllRooms();
