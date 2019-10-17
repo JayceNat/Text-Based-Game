@@ -34,6 +34,15 @@ namespace TextBasedGame.Room.Handlers
                     Console.WriteLine(room.RoomEntered ? room.GenericRoomDescription : room.InitialRoomDescription,
                         Color.Bisque);
 
+                    if (room.RoomCharacters.Any())
+                    {
+                        foreach (var character in room.RoomCharacters)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(character.OnMeetDescription + "\n", Color.Gold);
+                        }
+                    }
+
                     if (player.PersistDisplayedItems)
                     {
                         PlayerActionHandler.PrintItemsToConsole(player, room);
@@ -59,6 +68,13 @@ namespace TextBasedGame.Room.Handlers
                     TypingAnimation.Animate(room.RoomEntered ? room.GenericRoomDescription : room.InitialRoomDescription,
                         Color.Bisque);
                     Console.WriteLine();
+                    if (room.RoomCharacters.Any())
+                    {
+                        foreach (var character in room.RoomCharacters)
+                        {
+                            TypingAnimation.Animate(character.OnMeetDescription + "\n", Color.Gold);
+                        }
+                    }
                 }
 
                 Thread.Sleep(50);
@@ -249,6 +265,34 @@ namespace TextBasedGame.Room.Handlers
             return null;
         }
 
+        // Returns a Room that matches the players input keyword
+        public static Character.Models.Character FindAnyMatchingCharacterByKeywords(string inputSubstring, Models.Room currentRoom)
+        {
+            if (inputSubstring.Length == 0)
+            {
+                return null;
+            }
+
+            var characterKeywords = GetAllRoomCharacterKeywords(currentRoom);
+            var words = inputSubstring.Split(ConsoleStrings.StringDelimiters);
+
+            foreach (var word in words)
+            {
+                if (characterKeywords.Contains(word))
+                {
+                    foreach (var character in currentRoom.RoomCharacters)
+                    {
+                        if (character.CharacterKeywords.Contains(word))
+                        { 
+                            return character;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
         // Returns an item in a room matching by the users input keyword
         public static List<string> GetAllRoomItemKeywords(Models.Room currentRoom)
         {
@@ -267,6 +311,22 @@ namespace TextBasedGame.Room.Handlers
                 foreach (var weapon in currentRoom.RoomItems.WeaponItems)
                 {
                     keywords.AddRange(weapon.KeywordsForPickup.Where(k => !string.IsNullOrEmpty(k)));
+                }
+            }
+
+            return keywords;
+        }
+
+        // Returns a character in a room matching by the users input keyword
+        public static List<string> GetAllRoomCharacterKeywords(Models.Room currentRoom)
+        {
+            var keywords = new List<string>();
+
+            if (currentRoom?.RoomCharacters != null)
+            {
+                foreach (var character in currentRoom.RoomCharacters)
+                {
+                    keywords.AddRange(character.CharacterKeywords.Where(k => !string.IsNullOrEmpty(k)));
                 }
             }
 

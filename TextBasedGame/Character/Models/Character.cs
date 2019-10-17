@@ -12,6 +12,27 @@ namespace TextBasedGame.Character.Models
         [XmlElement("nom")]
         public string Name { get; set; }
 
+        [XmlElement("desc")]
+        public string OnMeetDescription { get; set; }
+
+        [XmlArray("phrs")]
+        [XmlArrayItem("phr")]
+        public List<string> CharacterPhrases { get; set; } = new List<string>();
+
+        [XmlArray("aphrs")]
+        [XmlArrayItem("aphr")]
+        public List<string> CharacterAppeasedPhrases { get; set; } = new List<string>();
+
+        [XmlArray("kwrds")]
+        [XmlArrayItem("kwrd")]
+        public List<string> CharacterKeywords { get; set; } = new List<string>();
+
+        [XmlElement("desi")] 
+        public InventoryItem DesiredItem { get; set; } = new InventoryItem();
+
+        [XmlElement("offd")]
+        public InventoryItem OfferedItem { get; set; }
+
         [XmlElement("typ")]
         public string CharacterType { get; set; } = Constants.CharacterTypes.Friendly;
 

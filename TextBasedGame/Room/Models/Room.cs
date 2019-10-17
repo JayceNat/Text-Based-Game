@@ -29,6 +29,9 @@ namespace TextBasedGame.Room.Models
         [XmlArrayItem("chr")]
         public List<Character.Models.Character> RoomCharacters { get; set; } = new List<Character.Models.Character>();
 
+        [XmlElement("ev")] 
+        public bool RoomEvent { get; set; }
+
         [XmlElement("is")]
         public Items RoomItems { get; set; } = 
             new Items() { InventoryItems = new List<InventoryItem>(), WeaponItems = new List<WeaponItem>()};

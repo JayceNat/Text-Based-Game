@@ -6,6 +6,7 @@ using TextBasedGame.Character.Constants;
 using TextBasedGame.Character.Handlers;
 using TextBasedGame.Item.Constants;
 using TextBasedGame.Item.Models;
+using TextBasedGame.Room.Handlers;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Utilities;
 
@@ -80,7 +81,7 @@ namespace TextBasedGame.Item.Handlers
                             }
                         }
                     }
-                    else 
+                    else
                     if (foundItem?.WeaponItems != null)
                     {
                         var weaponItemToAddToPlayer = foundItem.WeaponItems.First();
@@ -511,6 +512,87 @@ namespace TextBasedGame.Item.Handlers
             }
 
             return false;
+        }
+
+        public static bool HandlePlayerTradingItem(string fullInput, Character.Models.Character player, Room.Models.Room currentRoom, 
+            string inputWord, bool inputResolved)
+        {
+            if (currentRoom.RoomCharacters.Any())
+            {
+                var substring = PlayerActionHandler.CreateSubstringOfActionInput(fullInput, inputWord);
+                var character =
+                    RoomHandler.FindAnyMatchingCharacterByKeywords(substring.Trim(), currentRoom);
+                var inventoryKeywords = GetAllInventoryItemKeywords(player);
+                var foundItem = FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
+                    player.CarriedItems, new List<WeaponItem>() { player.WeaponItem });
+                if (foundItem != null && character != null)
+                {
+                    if (GiveItemIsOk(player, character, foundItem))
+                    {
+                        var tradedItem = HandleItemTrade(player, character, foundItem, currentRoom);
+                        if (!string.IsNullOrEmpty(tradedItem.ItemName))
+                        {
+                            TypingAnimation.Animate("\nYou give the " + foundItem.InventoryItems.First().ItemName + " to " + 
+                                                    character.Name + ".\n" + character.Name + " gives you the " + tradedItem.ItemName + ".\n", Color.Gold);
+                        }
+                        else
+                        {
+                            TypingAnimation.Animate("Your inventory is full... You cannot take the " + 
+                                                    tradedItem.ItemName + ".\n", Color.DarkOliveGreen);
+                        }
+
+                        inputResolved = true;
+                    }
+                    else
+                    {
+                        Colorful.Console.WriteLine();
+                        TypingAnimation.Animate(character.Name + " doesn't want that item.\n", Color.DarkOliveGreen);
+                        inputResolved = true;
+                    }
+                }
+            }
+            else
+            {
+                Colorful.Console.WriteLine("\nThere is no one here to give that to...", Color.DarkOliveGreen);
+                inputResolved = true;
+            }
+
+            return inputResolved;
+        }
+
+        public static bool GiveItemIsOk(Character.Models.Character player, Character.Models.Character character, Items foundItem)
+        {
+            if (foundItem.InventoryItems.Any())
+            {
+                return character.DesiredItem != null
+                       && character.DesiredItem.ItemName == foundItem.InventoryItems.First().ItemName;
+            }
+
+            return false;
+        }
+
+        public static InventoryItem HandleItemTrade(Character.Models.Character player, Character.Models.Character character, Items foundItem, Room.Models.Room currentRoom)
+        {
+            if (foundItem.InventoryItems.Any())
+            {
+                AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, foundItem.InventoryItems.First(), true);
+                player.Attributes.CarriedItemsCount -= foundItem.InventoryItems.First().InventorySpaceConsumed;
+                character.CarriedItems.Add(foundItem.InventoryItems.First());
+                player.CarriedItems.Remove(foundItem.InventoryItems.First());
+
+                if (character.DesiredItem != null
+                    && player.Attributes.CarriedItemsCount + character.OfferedItem.InventorySpaceConsumed <= player.Attributes.MaximumCarryingCapacity)
+                {
+                    AttributeHandler.UpdatePlayerAttributesFromInventoryItem(player, character.OfferedItem);
+                    player.Attributes.CarriedItemsCount += character.OfferedItem.InventorySpaceConsumed;
+                    player.CarriedItems.Add(character.OfferedItem);
+                    character.CarriedItems.Remove(character.OfferedItem);
+                    character.DesiredItem = new InventoryItem();
+                    return character.OfferedItem;
+                }
+            }
+
+            return new InventoryItem() { ItemName = "" };
         }
     }
 }

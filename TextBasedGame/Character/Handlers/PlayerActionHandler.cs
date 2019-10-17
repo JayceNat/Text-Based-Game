@@ -100,9 +100,42 @@ namespace TextBasedGame.Character.Handlers
                         }
                         break;
                     case "talk":
+                    case "speak":
+                    case "chat":
+                    case "say":
                     case "ask":
-                    case "buy":
-                        // TODO: Implement a conversation/purchase system with a character in a room
+                    case "tell":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
+                        if (currentRoom.RoomCharacters.Any())
+                        {
+                            substring = CreateSubstringOfActionInput(fullInput, inputWord);
+                            var character = RoomHandler.FindAnyMatchingCharacterByKeywords(substring.Trim(), currentRoom);
+                            if (character != null)
+                            {
+                                var characterResponse = GetCharacterResponse(character);
+                                Console.WriteLine();
+                                Console.WriteLine(characterResponse + "\n", Color.Gold);
+                                inputResolved = true;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nThere is no one here to talk to...", Color.DarkOliveGreen);
+                            inputResolved = true;
+                        }
+                        break;
+                    case "give":
+                    case "trade":
+                    case "offer":
+                    case "hand":
+                    case "toss":
+                        player.PersistDisplayedItems = false;
+                        player.PersistDisplayedWeapons = false;
+                        player.PersistDisplayedExits = false;
+                        inputResolved = 
+                            InventoryHandler.HandlePlayerTradingItem(fullInput, player, currentRoom, inputWord, inputResolved);
                         break;
                     case "fight":
                     case "kill":
@@ -309,6 +342,20 @@ namespace TextBasedGame.Character.Handlers
             var keyword = inputWord.IndexOf(inputWord, StringComparison.OrdinalIgnoreCase);
             var substring = input.Substring(keyword + matchingWordLength);
             return substring;
+        }
+
+        private static string GetCharacterResponse(Models.Character foundCharacter)
+        {
+            var random = new Random();
+            int randomIndex;
+            if (string.IsNullOrEmpty(foundCharacter?.DesiredItem?.ItemName))
+            {
+                randomIndex = random.Next(0, foundCharacter.CharacterAppeasedPhrases.Count);
+                return foundCharacter.CharacterAppeasedPhrases[randomIndex];
+            }
+
+            randomIndex = random.Next(0, foundCharacter.CharacterPhrases.Count);
+            return foundCharacter.CharacterPhrases[randomIndex];
         }
     }
 }
