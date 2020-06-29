@@ -60,7 +60,7 @@ namespace TextBasedGame.Shared.Constants
                                          "\tType  'enter' + <room keyword> to go into a room.\n";
 
         public static string InfoHints = "\tType 'inventory' or 'inv' to view what you have.\n" +
-                                         "\tType  'status' or 'stat' to view your player info.\n";
+                                         "\tType 'status' or 'stat' to view your player info.\n";
 
         public static string NoItemsFound = "You look around, but you don't see any items here...\n";
 

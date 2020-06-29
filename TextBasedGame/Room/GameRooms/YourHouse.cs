@@ -60,7 +60,7 @@ namespace TextBasedGame.Room.GameRooms
             RoomName = "Your Kitchen",
             InitialRoomDescription = "You've entered your kitchen, and you're looking around for anything that might \n" +
                                      "have made that strange noise... \n\n" +
-                                     "In an flurry of fur, you see a dark gray (and very plump) rat jump out from beneath your counter, \n" +
+                                     "In a flurry of fur, you see a dark gray (and very plump) rat jump out from beneath your counter, \n" +
                                      "and scurry through your living room and out of the house through a small hole in your window screen.",
             GenericRoomDescription = "You're standing in your kitchen, on the light beige floor tiles.",
             RoomItems = new Items

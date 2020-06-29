@@ -79,7 +79,7 @@ namespace TextBasedGame.Character.Handlers
                     Console.WriteLine("\t4. (Sta)mina \t= " + pendingPlayerAttributes.Stamina, Color.AliceBlue);
                     if (displayInfo)
                     {
-                        Console.WriteLine("\t - How many overall Hit Points your character can have.", Color.Gray);
+                        Console.WriteLine("\t - How many overall Health Points your character can have.", Color.Gray);
                         Console.WriteLine();
                     }
 
