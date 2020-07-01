@@ -30,7 +30,7 @@ namespace TextBasedGame.Character
                 "You ask him his name, he cautiously says \"Charlie.\"",
                 "The boy tells you about his toy boat that he lost somewhere on the West side of town.",
                 "The boy looks sad... he tells you he lost his favorite toy boat somewhere in town.",
-                "You notice he's fiddling with a town gate key.",
+                "You notice he's fiddling with what looks like a town gate key.",
                 "It looks like he's holding a town gate key in his hands."
             },
             CharacterAppeasedPhrases = new List<string>

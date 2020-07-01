@@ -670,7 +670,7 @@ namespace TextBasedGame.Item
         {
             ItemName = "Bomber Jacket",
             InOriginalLocation = true,
-            ItemDescription = "A tan vintage looking jacket with ribbed sleeve cuffs and a wool collar.",
+            ItemDescription = "A tan, vintage looking jacket with ribbed sleeve cuffs and a wool collar.",
             OriginalPlacementDescription = "In one of the tents you can see a jacket that was left behind.",
             GenericPlacementDescription = "A vintage bomber jacket is on the ground.",
             InventorySpaceConsumed = 0,
