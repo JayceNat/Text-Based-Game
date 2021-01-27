@@ -4,7 +4,7 @@ namespace TextBasedGame.Item.Constants
 {
     public class ItemKeywords
     {
-        public static List<string> Bathrobe = new List<string>()
+        public static List<string> Bathrobe = new List<string>
         {
             "robe",
             "bath",
@@ -12,28 +12,28 @@ namespace TextBasedGame.Item.Constants
             "plaid"
         };
 
-        public static List<string> Flashlight = new List<string>()
+        public static List<string> Flashlight = new List<string>
         {
             "light",
             "flashlight",
             "led"
         };
 
-        public static List<string> FlashlightBattery = new List<string>()
+        public static List<string> FlashlightBattery = new List<string>
         {
             "battery",
             "batteries",
             "flashlight"
         };
 
-        public static List<string> Shoes = new List<string>()
+        public static List<string> Shoes = new List<string>
         {
             "shoe",
             "shoes",
             "running shoes"
         };
 
-        public static List<string> TinyBackpack = new List<string>()
+        public static List<string> TinyBackpack = new List<string>
         {
             "backpack",
             "pack",
@@ -87,21 +87,21 @@ namespace TextBasedGame.Item.Constants
             "backpack"
         };
 
-        public static List<string> LetterOpener = new List<string>()
+        public static List<string> LetterOpener = new List<string>
         {
             "letter",
             "opener",
             "brass"
         };
 
-        public static List<string> BaseballBat = new List<string>()
+        public static List<string> BaseballBat = new List<string>
         {
             "slugger",
             "bat",
             "club"
         };
 
-        public static List<string> MagnumRevolver = new List<string>()
+        public static List<string> MagnumRevolver = new List<string>
         {
             "revolver",
             "gun",
@@ -109,20 +109,20 @@ namespace TextBasedGame.Item.Constants
             "44"
         };
 
-        public static List<string> Shotgun = new List<string>()
+        public static List<string> Shotgun = new List<string>
         {
             "shotgun",
             "gun",
             "shot"
         };
 
-        public static List<string> Femur = new List<string>()
+        public static List<string> Femur = new List<string>
         {
             "bone",
             "femur"
         };
 
-        public static List<string> LumberAxe = new List<string>()
+        public static List<string> LumberAxe = new List<string>
         {
             "lumber",
             "wood",
@@ -130,7 +130,7 @@ namespace TextBasedGame.Item.Constants
             "chopper"
         };
 
-        public static List<string> FiremansAxe = new List<string>()
+        public static List<string> FiremansAxe = new List<string>
         {
             "fireman",
             "firemans",
@@ -138,7 +138,7 @@ namespace TextBasedGame.Item.Constants
             "chopper"
         };
 
-        public static List<string> TownCurfewNotice = new List<string>()
+        public static List<string> TownCurfewNotice = new List<string>
         {
             "notice",
             "paper",
@@ -148,7 +148,7 @@ namespace TextBasedGame.Item.Constants
             "document"
         };
 
-        public static List<string> DirtyGoldBullet = new List<string>()
+        public static List<string> DirtyGoldBullet = new List<string>
         {
             "bullet",
             "gold",
@@ -157,7 +157,7 @@ namespace TextBasedGame.Item.Constants
             "shiny"
         };
 
-        public static List<string> WornLeatherBoots = new List<string>()
+        public static List<string> WornLeatherBoots = new List<string>
         {
             "worn",
             "leather",
@@ -165,7 +165,7 @@ namespace TextBasedGame.Item.Constants
             "boot"
         };
 
-        public static List<string> RabbitsFoot = new List<string>()
+        public static List<string> RabbitsFoot = new List<string>
         {
             "cream",
             "creme",
@@ -178,7 +178,7 @@ namespace TextBasedGame.Item.Constants
             "keychain"
         };
 
-        public static List<string> StrangeThermos = new List<string>()
+        public static List<string> StrangeThermos = new List<string>
         {
             "strange",
             "liquid",
@@ -186,7 +186,7 @@ namespace TextBasedGame.Item.Constants
             "coffee"
         };
 
-        public static List<string> HumanTeeth = new List<string>()
+        public static List<string> HumanTeeth = new List<string>
         {
             "white",
             "objects",
@@ -194,7 +194,7 @@ namespace TextBasedGame.Item.Constants
             "chompers"
         };
 
-        public static List<string> GhoulRifle = new List<string>()
+        public static List<string> GhoulRifle = new List<string>
         {
             "rifle",
             "ghoul",
@@ -202,7 +202,7 @@ namespace TextBasedGame.Item.Constants
             "beautiful"
         };
 
-        public static List<string> WomansNecklace = new List<string>()
+        public static List<string> WomansNecklace = new List<string>
         {
             "necklace",
             "woman",
@@ -210,13 +210,13 @@ namespace TextBasedGame.Item.Constants
             "jewelry"
         };
 
-        public static List<string> BloodyJeans = new List<string>()
+        public static List<string> BloodyJeans = new List<string>
         {
             "jeans",
             "bloody"
         };
 
-        public static List<string> LuckyBrandChewingGum = new List<string>()
+        public static List<string> LuckyBrandChewingGum = new List<string>
         {
             "gum",
             "lucky",
@@ -224,7 +224,7 @@ namespace TextBasedGame.Item.Constants
             "candy"
         };
 
-        public static List<string> HuntingCap = new List<string>()
+        public static List<string> HuntingCap = new List<string>
         {
             "red",
             "hat",
@@ -232,7 +232,7 @@ namespace TextBasedGame.Item.Constants
             "cap"
         };
 
-        public static List<string> MangledBallCap = new List<string>()
+        public static List<string> MangledBallCap = new List<string>
         {
             "mangled",
             "black",
@@ -241,7 +241,7 @@ namespace TextBasedGame.Item.Constants
             "cap"
         };
 
-        public static List<string> PlatinumRing = new List<string>()
+        public static List<string> PlatinumRing = new List<string>
         {
             "ring",
             "platinum",
@@ -249,7 +249,7 @@ namespace TextBasedGame.Item.Constants
             "band"
         };
 
-        public static List<string> SomberNote = new List<string>()
+        public static List<string> SomberNote = new List<string>
         {
             "somber",
             "sad",
@@ -258,7 +258,7 @@ namespace TextBasedGame.Item.Constants
             "paper"
         };
 
-        public static List<string> TownSouthGateKey = new List<string>()
+        public static List<string> TownSouthGateKey = new List<string>
         {
             "key",
             "gate",
@@ -267,7 +267,7 @@ namespace TextBasedGame.Item.Constants
             "steel"
         };
 
-        public static List<string> EnergyBar = new List<string>()
+        public static List<string> EnergyBar = new List<string>
         {
             "energy",
             "bar",
@@ -275,7 +275,7 @@ namespace TextBasedGame.Item.Constants
             "snack"
         };
 
-        public static List<string> BottleOfScentMask = new List<string>()
+        public static List<string> BottleOfScentMask = new List<string>
         {
             "bottle",
             "scent",
@@ -283,7 +283,7 @@ namespace TextBasedGame.Item.Constants
             "musk"
         };
 
-        public static List<string> BoxOf44MagnumAmmo = new List<string>()
+        public static List<string> BoxOf44MagnumAmmo = new List<string>
         {
             "box",
             "bullets",
@@ -292,21 +292,21 @@ namespace TextBasedGame.Item.Constants
             "magnum"
         };
 
-        public static List<string> MuddyGoldBullet = new List<string>()
+        public static List<string> MuddyGoldBullet = new List<string>
         {
             "muddy",
             "bullet",
             "gold"
         };
 
-        public static List<string> MiracleTonic = new List<string>()
+        public static List<string> MiracleTonic = new List<string>
         {
             "tonic",
             "miracle",
             "bottle"
         };
 
-        public static List<string> SnakeBracelet = new List<string>()
+        public static List<string> SnakeBracelet = new List<string>
         {
             "metal",
             "snake",
@@ -314,7 +314,7 @@ namespace TextBasedGame.Item.Constants
             "bangle"
         };
 
-        public static List<string> WaterloggedJournal = new List<string>()
+        public static List<string> WaterloggedJournal = new List<string>
         {
             "journal",
             "waterlogged",
@@ -322,21 +322,21 @@ namespace TextBasedGame.Item.Constants
             "diary"
         };
 
-        public static List<string> BloodyGoldBullet = new List<string>()
+        public static List<string> BloodyGoldBullet = new List<string>
         {
             "bloody",
             "gold",
             "bullet"
         };
 
-        public static List<string> BomberJacket = new List<string>()
+        public static List<string> BomberJacket = new List<string>
         {
             "jacket",
             "bomber",
             "coat"
         };
 
-        public static List<string> BoxOfShotgunShells = new List<string>()
+        public static List<string> BoxOfShotgunShells = new List<string>
         {
             "shells",
             "ammo",
@@ -344,7 +344,7 @@ namespace TextBasedGame.Item.Constants
             "shotgun"
         };
 
-        public static List<string> LargeKnapsack = new List<string>()
+        public static List<string> LargeKnapsack = new List<string>
         {
             "bag",
             "sack",
@@ -353,7 +353,7 @@ namespace TextBasedGame.Item.Constants
             "backpack"
         };
 
-        public static List<string> CannedMeat = new List<string>()
+        public static List<string> CannedMeat = new List<string>
         {
             "can",
             "meat",
@@ -362,7 +362,7 @@ namespace TextBasedGame.Item.Constants
             "cooked"
         };
 
-        public static List<string> TownDurrowHouseKey = new List<string>()
+        public static List<string> TownDurrowHouseKey = new List<string>
         {
             "key",
             "object",
@@ -370,7 +370,7 @@ namespace TextBasedGame.Item.Constants
             "small"
         };
 
-        public static List<string> TownNorthGateKey = new List<string>()
+        public static List<string> TownNorthGateKey = new List<string>
         {
             "key",
             "gate",
@@ -379,7 +379,7 @@ namespace TextBasedGame.Item.Constants
             "steel"
         };
 
-        public static List<string> TownEastGateKey = new List<string>()
+        public static List<string> TownEastGateKey = new List<string>
         {
             "key",
             "gate",
@@ -388,7 +388,7 @@ namespace TextBasedGame.Item.Constants
             "steel"
         };
 
-        public static List<string> TownWestGateKey = new List<string>()
+        public static List<string> TownWestGateKey = new List<string>
         {
             "key",
             "gate",
@@ -397,7 +397,7 @@ namespace TextBasedGame.Item.Constants
             "rusted"
         };
 
-        public static List<string> GoldWristwatch = new List<string>()
+        public static List<string> GoldWristwatch = new List<string>
         {
             "watch",
             "gold",
@@ -406,7 +406,7 @@ namespace TextBasedGame.Item.Constants
             "wristwatch"
         };
 
-        public static List<string> WestForestNotice = new List<string>()
+        public static List<string> WestForestNotice = new List<string>
         {
             "crinkled",
             "parchment",
@@ -415,7 +415,7 @@ namespace TextBasedGame.Item.Constants
             "forest"
         };
 
-        public static List<string> Crowbar = new List<string>()
+        public static List<string> Crowbar = new List<string>
         {
             "crowbar",
             "bar",
@@ -423,14 +423,14 @@ namespace TextBasedGame.Item.Constants
             "tool"
         };
 
-        public static List<string> ToyBoat = new List<string>()
+        public static List<string> ToyBoat = new List<string>
         {
             "toy",
             "boat",
             "plastic"
         };
 
-        public static List<string> BottleOfRum = new List<string>()
+        public static List<string> BottleOfRum = new List<string>
         {
             "bottle",
             "rum",
@@ -439,7 +439,7 @@ namespace TextBasedGame.Item.Constants
             "booze"
         };
 
-        public static List<string> SteelToedBoots = new List<string>()
+        public static List<string> SteelToedBoots = new List<string>
         {
             "boots",
             "steel",
@@ -447,7 +447,7 @@ namespace TextBasedGame.Item.Constants
             "shoes"
         };
 
-        public static List<string> MissingPersonPoster = new List<string>()
+        public static List<string> MissingPersonPoster = new List<string>
         {
             "poster",
             "missing",
@@ -455,7 +455,7 @@ namespace TextBasedGame.Item.Constants
             "paper"
         };
 
-        public static List<string> CargoPants = new List<string>()
+        public static List<string> CargoPants = new List<string>
         {
             "forest",
             "green",
@@ -464,7 +464,7 @@ namespace TextBasedGame.Item.Constants
             "folded"
         };
 
-        public static List<string> ChildsDrawing = new List<string>()
+        public static List<string> ChildsDrawing = new List<string>
         {
             "drawing",
             "child",
@@ -473,7 +473,7 @@ namespace TextBasedGame.Item.Constants
             "paper"
         };
 
-        public static List<string> NoteToRobertDurrow = new List<string>()
+        public static List<string> NoteToRobertDurrow = new List<string>
         {
             "note",
             "folded",

@@ -3,7 +3,6 @@ using TextBasedGame.Character.Constants;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Constants;
 using TextBasedGame.Shared.Models;
-using Items = TextBasedGame.Item.Models.Items;
 
 namespace TextBasedGame.Room.GameRooms
 {
@@ -22,16 +21,16 @@ namespace TextBasedGame.Room.GameRooms
             GenericRoomDescription = "You are standing in your bedroom.",
             RoomItems = new Items
             {
-                InventoryItems = new List<InventoryItem>()
+                InventoryItems = new List<InventoryItem>
                 {
                     Program.ItemCreator.RunningShoes
                 },
-                WeaponItems = new List<WeaponItem>()
+                WeaponItems = new List<WeaponItem>
                 {
                     Program.ItemCreator.LetterOpener
                 }
             },
-            KeywordsToEnter = Constants.RoomKeywords.YourBedroom
+            KeywordsToEnter = RoomKeywords.YourBedroom
         };
 
         public static Models.Room YourLivingRoom = new Models.Room
@@ -46,13 +45,13 @@ namespace TextBasedGame.Room.GameRooms
             GenericRoomDescription = "You are standing in your living room.",
             RoomItems = new Items
             {
-                InventoryItems = new List<InventoryItem>()
+                InventoryItems = new List<InventoryItem>
                 {
                     Program.ItemCreator.TinyBackpack
                 },
                 WeaponItems = new List<WeaponItem>()
             },
-            KeywordsToEnter = Constants.RoomKeywords.YourLivingRoom
+            KeywordsToEnter = RoomKeywords.YourLivingRoom
         };
 
         public static Models.Room YourKitchen = new Models.Room
@@ -65,16 +64,13 @@ namespace TextBasedGame.Room.GameRooms
             GenericRoomDescription = "You're standing in your kitchen, on the light beige floor tiles.",
             RoomItems = new Items
             {
-                InventoryItems = new List<InventoryItem>()
+                InventoryItems = new List<InventoryItem>
                 {
                     Program.ItemCreator.PlainBagel
                 },
                 WeaponItems = new List<WeaponItem>()
-                {
-
-                }
             },
-            KeywordsToEnter = Constants.RoomKeywords.YourKitchen
+            KeywordsToEnter = RoomKeywords.YourKitchen
         };
 
         public static Models.Room YourFrontEntryway = new Models.Room
@@ -96,7 +92,7 @@ namespace TextBasedGame.Room.GameRooms
                 },
                 WeaponItems = new List<WeaponItem>()
             },
-            KeywordsToEnter = Constants.RoomKeywords.YourFrontEntryway
+            KeywordsToEnter = RoomKeywords.YourFrontEntryway
         };
 
         public static Models.Room YourBasement = new Models.Room
@@ -146,7 +142,7 @@ namespace TextBasedGame.Room.GameRooms
                 },
                 WeaponItems = new List<WeaponItem>()
             },
-            KeywordsToEnter = Constants.RoomKeywords.YourFrontPorch,
+            KeywordsToEnter = RoomKeywords.YourFrontPorch,
             ItemRequirementToEnter = new ItemRequirement
             {
                 RequirementName = Program.ItemCreator.TinyBackpack.ItemName,
@@ -172,7 +168,7 @@ namespace TextBasedGame.Room.GameRooms
                 },
                 WeaponItems = new List<WeaponItem>()
             },
-            KeywordsToEnter = Constants.RoomKeywords.YourDriveway
+            KeywordsToEnter = RoomKeywords.YourDriveway
         };
 
         public static Models.Room YourShed = new Models.Room
@@ -196,7 +192,7 @@ namespace TextBasedGame.Room.GameRooms
                     Program.ItemCreator.BaseballBat
                 }
             },
-            KeywordsToEnter = Constants.RoomKeywords.YourShed,
+            KeywordsToEnter = RoomKeywords.YourShed,
             AttributeRequirementToSee = new AttributeRequirement
             {
                 RequirementName = "Wisdom - 3+",

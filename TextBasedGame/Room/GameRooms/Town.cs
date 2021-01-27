@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using TextBasedGame.Character.Constants;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Constants;
 using TextBasedGame.Shared.Models;
-using Items = TextBasedGame.Item.Models.Items;
 
 namespace TextBasedGame.Room.GameRooms
 {

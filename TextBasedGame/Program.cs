@@ -1,10 +1,13 @@
 ﻿using System.Drawing;
 using System.Xml.Serialization;
 using TextBasedGame.Character.Handlers;
+using TextBasedGame.Character.Implementations;
 using TextBasedGame.Character.Interfaces;
 using TextBasedGame.Game.Handlers;
 using TextBasedGame.Game.Models;
+using TextBasedGame.Item.Implementations;
 using TextBasedGame.Item.Interfaces;
+using TextBasedGame.Room.Implementations;
 using TextBasedGame.Room.Interfaces;
 
 namespace TextBasedGame
@@ -18,13 +21,13 @@ namespace TextBasedGame
 
         // These will build/create our Trait, Attr, Item, Character and Room objects from Game*.cs files
         // The order here is important, as some objects depend on others to already exist
-        public static readonly IItemTraitCreator ItemTraitCreator = new Item.Implementations.ItemTraitCreator();
-        public static readonly IAttributeCreator AttributeCreator = new Character.Implementations.AttributeCreator();
-        public static readonly IItemCreator ItemCreator = new Item.Implementations.ItemCreator();
-        public static readonly ICharacterCreator CharacterCreator = new Character.Implementations.CharacterCreator();
-        public static readonly IRoomCreator RoomCreator = new Room.Implementations.RoomCreator();
+        public static readonly IItemTraitCreator ItemTraitCreator = new ItemTraitCreator();
+        public static readonly IAttributeCreator AttributeCreator = new AttributeCreator();
+        public static readonly IItemCreator ItemCreator = new ItemCreator();
+        public static readonly ICharacterCreator CharacterCreator = new CharacterCreator();
+        public static readonly IRoomCreator RoomCreator = new RoomCreator();
 
-        public static GameTitle GameTitle = new GameTitle()
+        public static GameTitle GameTitle = new GameTitle
         {
             Title = "Ashbury Haunting",
             TitleTextColor = Color.Brown,

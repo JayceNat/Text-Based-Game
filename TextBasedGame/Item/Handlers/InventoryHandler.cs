@@ -290,9 +290,9 @@ namespace TextBasedGame.Item.Handlers
                     {
                         if (inventoryItem.KeywordsForPickup.Contains(word))
                         {
-                            item = new Items()
+                            item = new Items
                             {
-                                InventoryItems = new List<InventoryItem>()
+                                InventoryItems = new List<InventoryItem>
                                 {
                                     inventoryItem
                                 }
@@ -305,9 +305,9 @@ namespace TextBasedGame.Item.Handlers
                     {
                         if (weapon.KeywordsForPickup.Contains(word))
                         {
-                            item = new Items()
+                            item = new Items
                             {
-                                WeaponItems = new List<WeaponItem>()
+                                WeaponItems = new List<WeaponItem>
                                 {
                                     weapon
                                 }
@@ -433,13 +433,11 @@ namespace TextBasedGame.Item.Handlers
                         TypingAnimation.Animate($"You use the {item.ItemName}: \n{traitsAdded}\n", Color.ForestGreen);
                         return true;
                     }
-                    else
-                    {
-                        Console.WriteLine();
-                        TypingAnimation.Animate($"You don't have anything to use the {item.ItemName} on...\n",
-                            Color.DarkOliveGreen);
-                        return true;
-                    }
+
+                    Console.WriteLine();
+                    TypingAnimation.Animate($"You don't have anything to use the {item.ItemName} on...\n",
+                        Color.DarkOliveGreen);
+                    return true;
                 }
 
                 if (item.TreatItemAs == ItemUseTypes.ConsumableHealth)
@@ -524,7 +522,7 @@ namespace TextBasedGame.Item.Handlers
                     RoomHandler.FindAnyMatchingCharacterByKeywords(substring.Trim(), currentRoom);
                 var inventoryKeywords = GetAllInventoryItemKeywords(player);
                 var foundItem = FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
-                    player.CarriedItems, new List<WeaponItem>() { player.WeaponItem });
+                    player.CarriedItems, new List<WeaponItem> { player.WeaponItem });
                 if (foundItem != null && character != null)
                 {
                     if (GiveItemIsOk(player, character, foundItem))
@@ -592,7 +590,7 @@ namespace TextBasedGame.Item.Handlers
                 }
             }
 
-            return new InventoryItem() { ItemName = "" };
+            return new InventoryItem { ItemName = "" };
         }
     }
 }

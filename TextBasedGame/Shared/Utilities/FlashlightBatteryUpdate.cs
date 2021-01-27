@@ -24,13 +24,11 @@ namespace TextBasedGame.Shared.Utilities
                     };
                     return false;
                 }
-                else
+
+                item.ItemTraits = new List<ItemTrait>
                 {
-                    item.ItemTraits = new List<ItemTrait>
-                    {
-                        Program.ItemTraitCreator.BatteryPercentage(percentBefore - percentToReduce)
-                    };
-                }
+                    Program.ItemTraitCreator.BatteryPercentage(percentBefore - percentToReduce)
+                };
             }
 
             return true;

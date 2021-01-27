@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TextBasedGame.Character.Constants;
 using TextBasedGame.Item.Models;
 

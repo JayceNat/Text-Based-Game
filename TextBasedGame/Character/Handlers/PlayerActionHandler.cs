@@ -60,7 +60,7 @@ namespace TextBasedGame.Character.Handlers
                         inventoryKeywords = InventoryHandler.GetAllInventoryItemKeywords(player);
                         substring = CreateSubstringOfActionInput(fullInput, inputWord);
                         foundItem = InventoryHandler.FindAnyMatchingItemsByKeywords(substring.Trim(), inventoryKeywords,
-                            player.CarriedItems, new List<WeaponItem>() { player.WeaponItem });
+                            player.CarriedItems, new List<WeaponItem> { player.WeaponItem });
                         if (foundItem != null)
                         {
                             if (InventoryHandler.PickupOrDropItemIsOk(player, foundItem, false))

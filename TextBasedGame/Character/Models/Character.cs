@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using TextBasedGame.Character.Constants;
 using TextBasedGame.Item.Models;
 
 namespace TextBasedGame.Character.Models
@@ -34,16 +35,16 @@ namespace TextBasedGame.Character.Models
         public InventoryItem OfferedItem { get; set; }
 
         [XmlElement("typ")]
-        public string CharacterType { get; set; } = Constants.CharacterTypes.Friendly;
+        public string CharacterType { get; set; } = CharacterTypes.Friendly;
 
         [XmlElement("loc")]
         public string CurrentRoomName { get; set; }
 
         [XmlElement("hepomax")]
-        public int MaximumHealthPoints { get; set; } = Constants.CharacterDefaults.DefaultMaximumHealthPoints;
+        public int MaximumHealthPoints { get; set; } = CharacterDefaults.DefaultMaximumHealthPoints;
 
         [XmlElement("hepo")]
-        public int HealthPoints { get; set; } = Constants.CharacterDefaults.DefaultBaseHealthPoints;
+        public int HealthPoints { get; set; } = CharacterDefaults.DefaultBaseHealthPoints;
 
         [XmlElement("trib")]
         public CharacterAttribute Attributes { get; set; } = new CharacterAttribute();

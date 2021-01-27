@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using Console = Colorful.Console;
 
 namespace TextBasedGame.Shared.Utilities
@@ -42,7 +43,7 @@ namespace TextBasedGame.Shared.Utilities
                 
                 // Store what we haven't printed yet in case user pressed enter
                 remainingText = remainingText.Remove(0, 1);
-                System.Threading.Thread.Sleep(delay);
+                Thread.Sleep(delay);
             }
 
             if (enterKeyPressed)
@@ -51,7 +52,7 @@ namespace TextBasedGame.Shared.Utilities
             }
             else
             {
-                System.Threading.Thread.Sleep(delay);
+                Thread.Sleep(delay);
             }
 
             Console.WriteLine();

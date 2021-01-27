@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using Colorful;
 using TextBasedGame.Character.Handlers;
-using TextBasedGame.Item.Models;
 using TextBasedGame.Room.Constants;
 using TextBasedGame.Shared.Constants;
 using TextBasedGame.Shared.Models;

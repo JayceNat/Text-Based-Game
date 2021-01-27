@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 using TextBasedGame.Item.Models;
 using TextBasedGame.Shared.Models;
-using System;
-using System.Xml.Serialization;
 
 namespace TextBasedGame.Room.Models
 {

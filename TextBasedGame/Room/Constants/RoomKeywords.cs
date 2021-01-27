@@ -4,14 +4,14 @@ namespace TextBasedGame.Room.Constants
 {
     public class RoomKeywords
     {
-        public static List<string> YourBedroom = new List<string>()
+        public static List<string> YourBedroom = new List<string>
         {
             "bed",
             "bedroom",
             "room"
         };
 
-        public static List<string> YourLivingRoom = new List<string>()
+        public static List<string> YourLivingRoom = new List<string>
         {
             "liv",
             "living",
@@ -19,7 +19,7 @@ namespace TextBasedGame.Room.Constants
             "room"
         };
 
-        public static List<string> YourKitchen = new List<string>()
+        public static List<string> YourKitchen = new List<string>
         {
             "kitchen",
             "kitch",
@@ -29,7 +29,7 @@ namespace TextBasedGame.Room.Constants
             "stairs"
         };
 
-        public static List<string> YourFrontEntryway = new List<string>()
+        public static List<string> YourFrontEntryway = new List<string>
         {
             "front",
             "entrance",
@@ -47,7 +47,7 @@ namespace TextBasedGame.Room.Constants
             "down"
         };
 
-        public static List<string> YourFrontPorch = new List<string>()
+        public static List<string> YourFrontPorch = new List<string>
         {
             "front",
             "door",
@@ -58,38 +58,38 @@ namespace TextBasedGame.Room.Constants
             "front"
         };
 
-        public static List<string> YourDriveway = new List<string>()
+        public static List<string> YourDriveway = new List<string>
         {
             "drive",
             "way",
             "driveway"
         };
 
-        public static List<string> YourShed = new List<string>()
+        public static List<string> YourShed = new List<string>
         {
             "shed",
             "shack"
         };
 
-        public static List<string> RoadConnectingYourHouseToTown = new List<string>()
+        public static List<string> RoadConnectingYourHouseToTown = new List<string>
         {
             "road"
         };
 
-        public static List<string> ForestLake = new List<string>()
+        public static List<string> ForestLake = new List<string>
         {
             "lake",
             "west",
             "forestlake"
         };
 
-        public static List<string> ForestLakeTent = new List<string>()
+        public static List<string> ForestLakeTent = new List<string>
         {
             "tent",
             "collapsed"
         };
 
-        public static List<string> EastForest = new List<string>()
+        public static List<string> EastForest = new List<string>
         {
             "path",
             "pathway",
@@ -98,7 +98,7 @@ namespace TextBasedGame.Room.Constants
             "forest"
         };
 
-        public static List<string> EastForestLowerClearing = new List<string>()
+        public static List<string> EastForestLowerClearing = new List<string>
         {
             "clearing",
             "lower",
@@ -106,7 +106,7 @@ namespace TextBasedGame.Room.Constants
             "clear"
         };
 
-        public static List<string> EastForestUpperClearing = new List<string>()
+        public static List<string> EastForestUpperClearing = new List<string>
         {
             "clearing",
             "upper",
@@ -114,7 +114,7 @@ namespace TextBasedGame.Room.Constants
             "clear"
         };
 
-        public static List<string> DeepEastForest = new List<string>()
+        public static List<string> DeepEastForest = new List<string>
         {
             "deep",
             "forest",
@@ -123,21 +123,21 @@ namespace TextBasedGame.Room.Constants
             "woods"
         };
 
-        public static List<string> DeepEastForestLowerRiver = new List<string>()
+        public static List<string> DeepEastForestLowerRiver = new List<string>
         {
             "river",
             "lower",
             "water"
         };
 
-        public static List<string> DeepEastForestUpperRiver = new List<string>()
+        public static List<string> DeepEastForestUpperRiver = new List<string>
         {
             "river",
             "upper",
             "water"
         };
 
-        public static List<string> DeepEastForestUpperRiverCave = new List<string>()
+        public static List<string> DeepEastForestUpperRiverCave = new List<string>
         {
             "fall",
             "falls",
@@ -146,7 +146,7 @@ namespace TextBasedGame.Room.Constants
             "hidden"
         };
 
-        public static List<string> EastForestCampground = new List<string>()
+        public static List<string> EastForestCampground = new List<string>
         {
             "camp",
             "campground",
@@ -155,73 +155,73 @@ namespace TextBasedGame.Room.Constants
             "campsite"
         };
 
-        public static List<string> PathBetweenCampAndEastRoad = new List<string>()
+        public static List<string> PathBetweenCampAndEastRoad = new List<string>
         {
             "path",
             "dirt",
             "trail"
         };
 
-        public static List<string> EastRoadToTown = new List<string>()
+        public static List<string> EastRoadToTown = new List<string>
         {
             "road",
             "street"
         };
 
-        public static List<string> TownEntrance = new List<string>()
+        public static List<string> TownEntrance = new List<string>
         {
             "town",
             "entrance",
             "gate"
         };
 
-        public static List<string> AshburySquare = new List<string>()
+        public static List<string> AshburySquare = new List<string>
         {
             "town",
             "square",
             "inside"
         };
 
-        public static List<string> AshburyMainStreet = new List<string>()
+        public static List<string> AshburyMainStreet = new List<string>
         {
             "main",
             "street"
         };
 
-        public static List<string> AshburyPlaza = new List<string>()
+        public static List<string> AshburyPlaza = new List<string>
         {
             "plaza",
             "street"
         };
 
-        public static List<string> AshburyTownCenter = new List<string>()
+        public static List<string> AshburyTownCenter = new List<string>
         {
             "center",
             "town",
             "middle"
         };
 
-        public static List<string> AshburyAlley = new List<string>()
+        public static List<string> AshburyAlley = new List<string>
         {
             "alley",
             "ally"
         };
 
-        public static List<string> AshburySouthEastVeterinaryClinic = new List<string>()
+        public static List<string> AshburySouthEastVeterinaryClinic = new List<string>
         {
             "veterinary",
             "vet",
             "clinic"
         };
 
-        public static List<string> AshburySouthEastCornerLot = new List<string>()
+        public static List<string> AshburySouthEastCornerLot = new List<string>
         {
             "lot",
             "open",
             "corner"
         };
 
-        public static List<string> AshburySouthEastDurrowHouse = new List<string>()
+        public static List<string> AshburySouthEastDurrowHouse = new List<string>
         {
             "durrow",
             "durrows",
@@ -230,7 +230,7 @@ namespace TextBasedGame.Room.Constants
             "home"
         };
 
-        public static List<string> AshburySouthEastAviary = new List<string>()
+        public static List<string> AshburySouthEastAviary = new List<string>
         {
             "aviary",
             "cage",
@@ -238,7 +238,7 @@ namespace TextBasedGame.Room.Constants
             "empty"
         };
 
-        public static List<string> AshburySouthEastWell = new List<string>()
+        public static List<string> AshburySouthEastWell = new List<string>
         {
             "well",
             "stone",

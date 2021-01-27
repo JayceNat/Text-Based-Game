@@ -10,7 +10,7 @@ namespace TextBasedGame.Shared.Constants
             ' ', ',', '.', ':', '\t'
         };
 
-        public static List<char> PressEnterPrompt = new List<char>()
+        public static List<char> PressEnterPrompt = new List<char>
         {
             'P', 'r', 'e', 's', 's', ' ',
             'E', 'n', 't', 'e', 'r', ' ',
@@ -19,7 +19,7 @@ namespace TextBasedGame.Shared.Constants
             '.', '.', '.', ' '
         };
 
-        public static List<char> PlayerInputPrompt = new List<char>()
+        public static List<char> PlayerInputPrompt = new List<char>
         {
             'W', 'h', 'a', 't', ' ',
             'd', 'o', ' ',
@@ -32,7 +32,7 @@ namespace TextBasedGame.Shared.Constants
         public static string SaveGame = "SAVE_GAME";
 
         // Printed just after the user completes trait setup, before first room entered
-        public static List<string> GameIntro = new List<string>()
+        public static List<string> GameIntro = new List<string>
         {
             "It was a dark and windy night... \n",
              "So windy, in fact, that the power had been knocked out all the way from",

@@ -11,7 +11,7 @@ namespace TextBasedGame.Item
         // This is where all Inventory Items for the game are defined/instantiated
         // Note: These should only ever be referenced by the ItemCreator
 
-        // Files to edit when adding an item: GameItems.cs, ItmCreator.cs
+        // Files to edit when adding an item: GameItems.cs, ItemCreator.cs
 
         public static InventoryItem Bathrobe = new InventoryItem
         {
@@ -35,7 +35,7 @@ namespace TextBasedGame.Item
                                            "HINT: You should search your house for a battery before you leave.",
             GenericPlacementDescription = "There's a small LED flashlight resting on the ground beneath your feet.",
             KeywordsForPickup = ItemKeywords.Flashlight,
-            ItemTraits = new List<ItemTrait>()
+            ItemTraits = new List<ItemTrait>
             {
                 Program.ItemTraitCreator.BatteryPercentage(9)
             }
@@ -52,7 +52,7 @@ namespace TextBasedGame.Item
             InventorySpaceConsumed = 1,
             TreatItemAs = ItemUseTypes.ConsumableBattery,
             KeywordsForPickup = ItemKeywords.FlashlightBattery,
-            ItemTraits = new List<ItemTrait>()
+            ItemTraits = new List<ItemTrait>
             {
                 Program.ItemTraitCreator.BatteryItem(12)
             },
@@ -68,7 +68,7 @@ namespace TextBasedGame.Item
             TreatItemAs = ItemUseTypes.Wearable,
             WearableType = ItemUseTypes.FootWear,
             KeywordsForPickup = ItemKeywords.Shoes,
-            ItemTraits = new List<ItemTrait>()
+            ItemTraits = new List<ItemTrait>
             {
                 Program.ItemTraitCreator.LuckIncrease(1)
             },
@@ -84,7 +84,7 @@ namespace TextBasedGame.Item
             GenericPlacementDescription = "There's a... plain bagel just lying on the floor. I don't think the 5 second rule applies here.",
             TreatItemAs = ItemUseTypes.ConsumableHealth,
             KeywordsForPickup = ItemKeywords.PlainBagel,
-            ItemTraits = new List<ItemTrait>()
+            ItemTraits = new List<ItemTrait>
             {
                 Program.ItemTraitCreator.HealthItem(10)
             },

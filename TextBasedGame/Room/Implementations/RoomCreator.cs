@@ -117,13 +117,13 @@ namespace TextBasedGame.Room.Implementations
             //*******************************************************************************************
             #region Your House
 
-            YourBedroom.AvailableExits = new RoomExit()
+            YourBedroom.AvailableExits = new RoomExit
             {
                 NorthRoom = YourLivingRoom,
                 NorthRoomDescription = "Ahead of you is the entrance to " + YourLivingRoom.RoomName + "."
             };
 
-            YourLivingRoom.AvailableExits = new RoomExit()
+            YourLivingRoom.AvailableExits = new RoomExit
             {
                 EastRoom = YourKitchen,
                 EastRoomDescription = "To your right is the entrance to " + YourKitchen.RoomName + ".",
@@ -133,7 +133,7 @@ namespace TextBasedGame.Room.Implementations
                 WestRoomDescription = "To your left is " + YourFrontEntryway.RoomName + "."
             };
 
-            YourKitchen.AvailableExits = new RoomExit()
+            YourKitchen.AvailableExits = new RoomExit
             {
                 NorthRoom = YourBasement,
                 NorthRoomDescription = "Ahead of you is the door into " + YourBasement.RoomName + ".",
@@ -141,13 +141,13 @@ namespace TextBasedGame.Room.Implementations
                 WestRoomDescription = "To your left is the entrance to " + YourLivingRoom.RoomName + "."
             };
 
-            YourBasement.AvailableExits = new RoomExit()
+            YourBasement.AvailableExits = new RoomExit
             {
                 SouthRoom = YourKitchen,
                 SouthRoomDescription = "Behind you is the stairway up to " + YourKitchen.RoomName + "."
             };
 
-            YourFrontEntryway.AvailableExits = new RoomExit()
+            YourFrontEntryway.AvailableExits = new RoomExit
             {
                 EastRoom = YourLivingRoom,
                 EastRoomDescription = "To your right is the entrance to " + YourLivingRoom.RoomName + ".",
@@ -155,7 +155,7 @@ namespace TextBasedGame.Room.Implementations
                 WestRoomDescription = "To your left is the door out to " + YourFrontPorch.RoomName + "."
             };
 
-            YourFrontPorch.AvailableExits = new RoomExit()
+            YourFrontPorch.AvailableExits = new RoomExit
             {
                 NorthRoom = YourDriveway,
                 NorthRoomDescription = "Ahead of you is " + YourDriveway.RoomName + ".",
@@ -165,7 +165,7 @@ namespace TextBasedGame.Room.Implementations
                 SouthRoomDescription = "Behind you, a ways back towards the trees is " + YourShed.RoomName + "."
             };
 
-            YourDriveway.AvailableExits = new RoomExit()
+            YourDriveway.AvailableExits = new RoomExit
             {
                 NorthRoom = RoadConnectingYourHouseToTown,
                 NorthRoomDescription = "To the North is " + RoadConnectingYourHouseToTown.RoomName + ".",
