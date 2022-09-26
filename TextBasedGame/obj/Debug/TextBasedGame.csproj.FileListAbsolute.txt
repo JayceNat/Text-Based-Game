@@ -15,3 +15,22 @@ C:\Users\Jayce Meyer\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBased
 C:\Users\Jayce Meyer\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.csproj.CopyComplete
 C:\Users\Jayce Meyer\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.exe
 C:\Users\Jayce Meyer\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.pdb
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\bin\Debug\TextBasedGame.exe.config
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\bin\Debug\TextBasedGame.exe
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\bin\Debug\TextBasedGame.pdb
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\bin\Debug\Colorful.Console.dll
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.csprojAssemblyReference.cache
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.csproj.CoreCompileInputs.cache
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.csproj.CopyComplete
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.exe
+C:\Users\jayce\OneDrive\Documents\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.pdb
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\bin\Debug\TextBasedGame.exe.config
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\bin\Debug\TextBasedGame.exe
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\bin\Debug\TextBasedGame.pdb
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\bin\Debug\Colorful.Console.dll
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.csproj.AssemblyReference.cache
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.csproj.SuggestedBindingRedirects.cache
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.csproj.CoreCompileInputs.cache
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.csproj.CopyComplete
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.exe
+X:\Side Project & Code\Text-Based-Game\TextBasedGame\obj\Debug\TextBasedGame.pdb

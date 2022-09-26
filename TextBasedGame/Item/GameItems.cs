@@ -238,7 +238,7 @@ namespace TextBasedGame.Item
         {
             ItemName = "Worn Leather Boots",
             InOriginalLocation = true,
-            ItemDescription = "They're well used and well taken care of. The leather is dark brown.",
+            ItemDescription = "They're well used but well taken care of. The leather is dark brown.",
             OriginalPlacementDescription = "You spot a pair of leather boots tucked underneath one of the sleeping bags.",
             GenericPlacementDescription = "A pair of worn leather boots are on the ground.",
             InventorySpaceConsumed = 0,

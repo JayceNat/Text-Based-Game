@@ -224,7 +224,7 @@ namespace TextBasedGame.Game.Handlers
                         Program.RoomCreator.AddExitsToAllRooms();
                         return true;
                     }
-                    catch (Exception e)
+                    catch
                     {
                         Console.Write("\nSomething went wrong loading the file :( ...", Color.Red);
                         Console.ReadLine();
